@@ -2,6 +2,10 @@
 
 Les versions suivent `MAJEUR.MINEUR.CORRECTIF`. Le site n'est pas encore en ligne : la mise en ligne sera la 1.0.0.
 
+## À venir
+
+- Belle Peau publiée : prix remis dans le bon sens (81,90 € la boîte, 163,80 € les trois), fiche réécrite.
+
 ## 0.1.0 – 18 novembre 2026
 
 Première version complète en local.

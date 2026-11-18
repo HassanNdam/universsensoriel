@@ -600,5 +600,18 @@
    "30 sachets de 21 g : un mois",
    "Formulée sans les allergènes courants"
   ]
+ },
+ "skinail-plus-30-stick-pack-de-10-ml": {
+  "nom": "Belle Peau",
+  "sous_titre": "Collagène et acide hyaluronique en sticks, goût vanille",
+  "accroche": "Un complément alimentaire au collagène et à l'acide hyaluronique, en sticks de poche au goût de vanille, pour votre rituel beauté.",
+  "points": [
+   "30 sticks de 10 ml par boîte",
+   "Goût vanille"
+  ],
+  "prix": {
+   "1 boîte": "81.90",
+   "3 boîtes": "163.80"
+  }
  }
 }
