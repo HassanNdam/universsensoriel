@@ -155,6 +155,7 @@
 
 /* Univers : tuiles portrait */
 .univers {
+  --fond-carte: var(--ivoire);
   background: var(--blanc);
 }
 

@@ -4,6 +4,8 @@ Les versions suivent `MAJEUR.MINEUR.CORRECTIF`. Le site n'est pas encore en lign
 
 ## À venir
 
+- Cartes produit et cartes d'article : fond discret sous le visuel, dernier lien toujours aligné en bas ; apostrophes des titres d'article corrigées.
+
 - Référencement complet : titre, méta-description et requête cible Yoast pour les 375 fiches produit (`scripts/seo-fiches.json`), les rayons, les pages et les articles ; image de partage 1200 × 630 pour chaque page (réseaux sociaux, WhatsApp) ; notes Yoast affichées dans l'admin ; l'éditeur Yoast analyse la page publiée. `composer seo` réapplique le référencement seul.
 
 - Textes raccourcis sur tout le site : surtitres et phrases d'introduction retirés quand ils n'apportaient rien, page Contact allégée, rayons décrits en une phrase, pages de contenu resserrées.

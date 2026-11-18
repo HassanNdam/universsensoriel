@@ -9,7 +9,7 @@
   </a>
   <div class="article-carte-corps">
     <p class="surtitre">{{ $rubrique?->name ?? 'Le journal' }} <span>· {{ App\temps_de_lecture($article->ID) }} min</span></p>
-    <{{ $balise }} class="article-carte-titre"><a href="{{ get_permalink($article) }}">{{ get_the_title($article) }}</a></{{ $balise }}>
+    <{{ $balise }} class="article-carte-titre"><a href="{{ get_permalink($article) }}">{!! get_the_title($article) !!}</a></{{ $balise }}>
     <p class="article-carte-extrait">{{ get_the_excerpt($article) }}</p>
     <span class="lien-or" aria-hidden="true">Lire l'article {!! App\icone('fleche', 16) !!}</span>
   </div>

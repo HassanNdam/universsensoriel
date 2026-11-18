@@ -1,6 +1,7 @@
 /* Journal (liste et article) et avis clients. */
 
 .section-blanche {
+  --fond-carte: var(--ivoire); /* sur fond blanc, les cartes passent en ivoire */
   background: var(--blanc);
 }
 
@@ -43,18 +44,36 @@
   }
 
   .journal-grille-une > .article-carte:first-child .article-carte-corps {
-    padding-top: 0;
+    padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 3vw, 3rem) clamp(1.5rem, 3vw, 2.5rem) 0;
+  }
+
+  .journal-grille-une > .article-carte:first-child .article-carte-image {
+    border-radius: var(--rayon) 0 0 var(--rayon);
+    height: 100%;
+  }
+
+  .journal-grille-une > .article-carte:first-child .lien-or {
+    margin-top: 0.4rem;
   }
 }
 
 .article-carte {
+  background: var(--fond-carte, var(--blanc));
+  border-radius: var(--rayon);
+  display: flex;
+  flex-direction: column;
   position: relative;
+  transition: box-shadow var(--transition);
+}
+
+.article-carte:hover {
+  box-shadow: 0 18px 40px -28px rgb(31 49 36 / 45%);
 }
 
 .article-carte-image {
   aspect-ratio: 3 / 2;
   background: var(--lin);
-  border-radius: var(--rayon);
+  border-radius: var(--rayon) var(--rayon) 0 0;
   display: block;
   overflow: hidden;
 }
@@ -71,7 +90,16 @@
 }
 
 .article-carte-corps {
-  padding-top: 1.4rem;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1.5rem clamp(1.1rem, 2vw, 1.6rem) 1.6rem;
+}
+
+/* « Lire l'article » calé en bas, quelle que soit la longueur du titre et de l'extrait. */
+.article-carte-corps .lien-or {
+  align-self: flex-start;
+  margin-top: auto;
 }
 
 .article-carte-corps .surtitre span {

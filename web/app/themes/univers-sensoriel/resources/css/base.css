@@ -288,16 +288,27 @@ a.pastille:hover small {
   }
 }
 
+/*
+ * Le bas de la carte porte un fond très léger (blanc chaud sur ivoire, ivoire sur blanc)
+ * et le dernier lien est toujours calé en bas : il s'aligne d'une carte à l'autre.
+ */
 .carte {
+  background: var(--fond-carte, var(--blanc));
+  border-radius: var(--rayon);
   display: flex;
   flex-direction: column;
   position: relative;
+  transition: box-shadow var(--transition);
+}
+
+.carte:hover {
+  box-shadow: 0 18px 40px -28px rgb(31 49 36 / 45%);
 }
 
 .carte-visuel {
   aspect-ratio: 1;
   background: radial-gradient(circle at 50% 38%, var(--blanc) 0%, var(--lin) 78%);
-  border-radius: var(--rayon);
+  border-radius: var(--rayon) var(--rayon) 0 0;
   display: block;
   overflow: hidden;
   position: relative;
@@ -375,7 +386,7 @@ a.pastille:hover small {
 
 .carte-corps {
   flex: 1;
-  padding: 1.1rem 0.25rem 0;
+  padding: 1.25rem clamp(0.6rem, 1.5vw, 1.1rem) 0;
   text-align: center;
 }
 
@@ -434,7 +445,7 @@ a.pastille:hover small {
   font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 0.18em;
-  margin-top: 0.85rem;
+  margin: 0.95rem 0 1.4rem;
   padding-bottom: 0.3rem;
   position: relative;
   text-transform: uppercase;
