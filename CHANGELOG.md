@@ -4,6 +4,7 @@ Les versions suivent `MAJEUR.MINEUR.CORRECTIF`. Le site n'est pas encore en lign
 
 ## À venir
 
+- Fonds teintés : nouveau ton « lin clair » (#F1E8D8) pour les cartes, les encarts et les sections qui étaient blanches.
 - Cartes produit et cartes d'article : fond discret sous le visuel, dernier lien toujours aligné en bas ; apostrophes des titres d'article corrigées.
 
 - Référencement complet : titre, méta-description et requête cible Yoast pour les 375 fiches produit (`scripts/seo-fiches.json`), les rayons, les pages et les articles ; image de partage 1200 × 630 pour chaque page (réseaux sociaux, WhatsApp) ; notes Yoast affichées dans l'admin ; l'éditeur Yoast analyse la page publiée. `composer seo` réapplique le référencement seul.

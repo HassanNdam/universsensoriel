@@ -373,7 +373,7 @@
 
 /* Garanties */
 .garanties {
-  background: var(--blanc);
+  background: var(--lin-clair);
   border-block: 1px solid var(--filet);
 }
 
