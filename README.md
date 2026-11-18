@@ -46,7 +46,10 @@ Relançable sans doublon. Le seed active WooCommerce et Yoast SEO, règle la bou
 | Fichier | Rôle |
 | --- | --- |
 | `scripts/seed.php` | Réglages, rayons, catalogue, livraison, pages |
-| `scripts/seo.json`, `scripts/seo.php` | Titres, descriptions et mots-clés (Yoast) des pages et des rayons |
+| `scripts/seo.json`, `scripts/seo.php` | Titres, descriptions, requêtes cibles et images de partage (Yoast) des pages, des rayons et des articles. `composer seo` les réapplique seuls |
+| `scripts/seo-fiches.json` | Titre, description et requête cible de chaque fiche produit, fabriqués par `python scripts/catalogue/seo_fiches.py` (règles par rayon + `catalogue/seo-manuel.json` pour les fiches rédigées à la main) |
+| `scripts/seo-scores.json` | Notes SEO et lisibilité de Yoast, relevées par `scripts/seo-export.php` puis `scripts/seo-scores.js` (mode d'emploi en tête du script) |
+| `docs/03-images-site/partage/` | Images de partage 1200 × 630 des pages et des rayons. Celles des fiches sont fabriquées par le thème dans `uploads/partage/` |
 | `scripts/pages/*.html` | Texte des pages |
 | `scripts/journal.php`, `scripts/blog/` | Articles du journal (un fichier HTML par article, `articles.json` pour le reste) |
 | `scripts/avis.json` | Avis clients repris de l'ancienne boutique (voir `docs/00-projet/avis-ancienne-boutique.md`) |

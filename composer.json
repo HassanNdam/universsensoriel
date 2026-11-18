@@ -69,6 +69,7 @@
             "@php vendor/wp-cli/wp-cli/php/boot-fs.php language plugin install --all fr_FR",
             "@php vendor/wp-cli/wp-cli/php/boot-fs.php eval-file scripts/seed.php --user=admin",
             "@php vendor/wp-cli/wp-cli/php/boot-fs.php rewrite flush"
-        ]
+        ],
+        "seo": "@php vendor/wp-cli/wp-cli/php/boot-fs.php eval-file scripts/seo.php --user=admin"
     }
 }

@@ -4,6 +4,8 @@ Les versions suivent `MAJEUR.MINEUR.CORRECTIF`. Le site n'est pas encore en lign
 
 ## À venir
 
+- Référencement complet : titre, méta-description et requête cible Yoast pour les 375 fiches produit (`scripts/seo-fiches.json`), les rayons, les pages et les articles ; image de partage 1200 × 630 pour chaque page (réseaux sociaux, WhatsApp) ; notes Yoast affichées dans l'admin ; l'éditeur Yoast analyse la page publiée. `composer seo` réapplique le référencement seul.
+
 - Textes raccourcis sur tout le site : surtitres et phrases d'introduction retirés quand ils n'apportaient rien, page Contact allégée, rayons décrits en une phrase, pages de contenu resserrées.
 
 - Formulaires (Forminator) : formulaire de contact avec accusé de réception, page Contact réorganisée en deux colonnes, inscription à la lettre d'information en tête du pied de page. Formulaires décrits dans `scripts/formulaires.php` et recréés par le seed.
