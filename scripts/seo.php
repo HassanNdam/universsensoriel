@@ -72,7 +72,10 @@ $titres = [
     'title-search-wpseo' => 'Recherche : %%searchphrase%% %%sep%% %%sitename%%',
     'title-404-wpseo' => 'Page introuvable %%sep%% %%sitename%%',
     'breadcrumbs-enable' => false, // le thème a son propre fil d'Ariane
-    'disable-author' => true, // pas de blog : archives auteur, date et format redirigées
+    'title-post' => '%%title%% %%sep%% %%sitename%%',
+    'title-tax-category' => 'Journal : %%term_title%% %%sep%% %%sitename%%',
+    'noindex-tax-post_tag' => true,
+    'disable-author' => true, // un seul auteur : archives auteur, date et format redirigées
     'disable-date' => true,
     'disable-post_format' => true,
     'disable-attachment' => true,
@@ -99,8 +102,8 @@ update_option('us_seo_auto', $auto, false);
 
 // Pages.
 $faits = [];
-foreach ($seo['pages'] as $slug => $reglage) {
-    $id = (int) (get_page_by_path($slug)?->ID ?? 0);
+foreach ($seo['pages'] + ($seo['articles'] ?? []) as $slug => $reglage) {
+    $id = (int) ((get_page_by_path($slug) ?: get_page_by_path($slug, OBJECT, 'post'))?->ID ?? 0);
     if (! $id) {
         WP_CLI::warning("SEO : page « $slug » introuvable");
         continue;

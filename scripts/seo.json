@@ -1,6 +1,5 @@
 {
   "_lisez-moi": "Référencement (Yoast SEO). Appliqué par scripts/seo.php à chaque `composer seed` ; une valeur retouchée dans Yoast est conservée (US_SEED_FORCE=1 pour tout réappliquer). Pages repérées par slug, rayons par slug de catégorie. Titre ≤ 60 caractères, description 120-155. Les fiches produit et les familles olfactives n'ont pas d'entrée ici : leur titre et leur description sont calculés par le thème (app/seo.php) à partir du nom, du rayon, de la famille olfactive et de l'accroche.",
-
   "pages": {
     "accueil": {
       "titre": "Extraits de parfum, soins et bien-être | Univers Sensoriel",
@@ -55,11 +54,26 @@
     "politique-de-confidentialite": {
       "description": "Comment Univers Sensoriel recueille, utilise et protège vos données personnelles (RGPD) : données de commande, cookies indispensables et vos droits."
     },
-    "panier": { "noindex": true },
-    "commande": { "noindex": true },
-    "mon-compte": { "noindex": true }
+    "panier": {
+      "noindex": true
+    },
+    "commande": {
+      "noindex": true
+    },
+    "mon-compte": {
+      "noindex": true
+    },
+    "journal": {
+      "titre": "Le journal : conseils parfum, soin et bien-être",
+      "description": "Comment faire tenir son parfum, reconnaître son type de peau, prendre soin de ses cheveux : les conseils et les rituels d'Univers Sensoriel.",
+      "motcle": "conseils parfum"
+    },
+    "avis-clients": {
+      "titre": "Avis clients : de vrais avis, publiés tels quels",
+      "description": "Les avis de nos clientes et clients, reproduits mot pour mot avec leur date, et la façon dont nous les recueillons : seuls les acheteurs peuvent en déposer.",
+      "motcle": "avis clients"
+    }
   },
-
   "rayons": {
     "parfums": {
       "titre": "Extraits de parfum longue tenue | Univers Sensoriel",
@@ -171,9 +185,52 @@
       "description": "Gélules, sticks de poche et boissons à l'aloe vera : des compléments alimentaires à intégrer à votre routine, en complément d'une alimentation variée.",
       "motcle": "compléments alimentaires"
     },
-    "accessoires-parfum": { "noindex": true }
+    "accessoires-parfum": {
+      "noindex": true
+    }
   },
-
+  "articles": {
+    "comment-faire-tenir-son-parfum": {
+      "titre": "Comment faire tenir son parfum toute la journée",
+      "description": "Peau hydratée, points de pulsation, gestes à éviter : cinq conseils simples pour faire tenir son parfum du matin au soir, sans en remettre.",
+      "motcle": "faire tenir son parfum"
+    },
+    "types-de-peau": {
+      "titre": "Types de peau : reconnaître la sienne et choisir ses soins",
+      "description": "Normale, grasse, sèche, déshydratée ou mixte : les signes pour reconnaître son type de peau et construire une routine de soins qui lui convient.",
+      "motcle": "types de peau"
+    },
+    "routine-capillaire": {
+      "titre": "Routine capillaire : 9 gestes pour de beaux cheveux",
+      "description": "Lavages espacés, massage du cuir chevelu, moins de chaleur, pointes coupées : les neuf gestes d'une routine capillaire simple et efficace.",
+      "motcle": "routine capillaire"
+    },
+    "peptilux-soins-aux-peptides": {
+      "titre": "Peptilux : des soins du visage aux peptides",
+      "description": "Que sont les peptides et pourquoi les utilise-t-on en cosmétique ? Présentation de Peptilux, une gamme végane de soins du visage aux textures fines.",
+      "motcle": "Peptilux"
+    },
+    "nettoyage-du-visage": {
+      "titre": "Nettoyage du visage : le premier geste de la routine",
+      "description": "Pourquoi le nettoyage du visage compte autant que le sérum ou la crème, ce qui arrive quand on le néglige, et comment en faire un vrai soin.",
+      "motcle": "nettoyage du visage"
+    },
+    "collagene-a-boire": {
+      "titre": "Collagène à boire : comment bien le prendre",
+      "description": "Collagène hydrolysé, goût neutre, un sachet à diluer : ce qu'il faut savoir sur le collagène à boire avant de l'intégrer à sa routine beauté.",
+      "motcle": "collagène à boire"
+    },
+    "huiles-essentielles-rituels": {
+      "titre": "Huiles essentielles : 7 senteurs pour vos rituels",
+      "description": "Marjolaine veloutée, estragon anisé, agrumes du matin : sept huiles essentielles et synergies à diffuser, avec les précautions à connaître.",
+      "motcle": "huiles essentielles"
+    },
+    "pellicules-cuir-chevelu": {
+      "titre": "Pellicules : causes, gestes et soins du cuir chevelu",
+      "description": "D'où viennent les pellicules ? Shampoing doux, bain d'huile, bons gestes : la routine pour retrouver un cuir chevelu confortable.",
+      "motcle": "pellicules"
+    }
+  },
   "partage": {
     "defaut": "partage-univers-sensoriel-parfums-soins.jpg",
     "alt": "Extraits de parfum Univers Sensoriel devant un bol d'encens"

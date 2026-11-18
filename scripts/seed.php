@@ -129,7 +129,6 @@ $options = [
     'woocommerce_calc_taxes' => 'no',
     'woocommerce_weight_unit' => 'g',
     'woocommerce_dimension_unit' => 'cm',
-    'woocommerce_enable_reviews' => 'no',
     'woocommerce_manage_stock' => 'no',
     'woocommerce_catalog_columns' => 4,
     'woocommerce_catalog_rows' => 6,
@@ -271,7 +270,7 @@ foreach ($catalogue as $rang => $p) {
     $produit->set_description($p['description']);
     $produit->set_sku($p['sku']);
     $produit->set_menu_order($ordre);
-    $produit->set_reviews_allowed(false);
+    $produit->set_reviews_allowed(true); // réservés aux acheteurs (voir scripts/journal.php)
     $produit->set_featured($vedette);
 
     $categories = array_filter(array_map(fn ($nom) => $idsRayons[$nom] ?? 0, array_merge([$p['univers'], $p['rayon']], $p['collections'])));
@@ -463,6 +462,8 @@ foreach (['hello-world' => 'post', 'bonjour-tout-le-monde' => 'post', 'sample-pa
 wc_delete_product_transients();
 delete_transient('wc_term_counts');
 flush_rewrite_rules();
+
+require __DIR__ . '/journal.php';
 
 if (is_file(__DIR__ . '/seo.php')) {
     require __DIR__ . '/seo.php';
