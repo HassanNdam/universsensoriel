@@ -78,7 +78,8 @@ Règles appliquées (audit de novembre 2026) : aucune marque tierce dans les fic
 - Familles olfactives : archives publiques `/famille-olfactive/<famille>/`.
 - Seuil de livraison offerte : constante `App\SEUIL_LIVRAISON` (`app/helpers.php`), à garder égale au réglage WooCommerce › Expédition.
 - Coordonnées et boutiques : `App\coordonnees()` (`app/helpers.php`).
-- Page « commande reçue » : `app/commande.php` remplace le gabarit `checkout/thankyou.php` de WooCommerce par la vue `woocommerce/commande-recue.blade.php` (styles : `resources/css/commande.css`). Aucun fichier de WooCommerce n'est copié : une mise à jour de l'extension ne défait rien.
+- Commande reçue et compte client : la table `App\PONTS` (`app/commande.php`) remplace quatre gabarits de WooCommerce (`checkout/thankyou`, `myaccount/orders`, `myaccount/view-order`, `myaccount/my-address`) par des vues du thème (`resources/views/woocommerce/`), via les ponts de `app/ponts/`. Données préparées dans `app/commande.php` et `app/compte.php`, styles dans `commande.css` et `compte.css`. Aucun fichier de WooCommerce n'est copié : une mise à jour de l'extension ne défait rien.
+- Compte client d'essai en local : identifiant `client-test`, mot de passe dans le `.env` (`US_CLIENT_TEST_PASSWORD`).
 
 ## Paiement (Stripe)
 
