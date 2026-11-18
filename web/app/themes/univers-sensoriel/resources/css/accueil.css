@@ -1,0 +1,417 @@
+/* Accueil : ouverture sombre, onglets, univers, Maison, familles, collection, rendez-vous. */
+
+.ouverture {
+  background:
+    radial-gradient(60rem 40rem at 78% 30%, rgb(227 181 111 / 13%), transparent 70%),
+    linear-gradient(180deg, var(--sapin) 0%, var(--sapin-profond) 100%);
+  color: var(--ivoire);
+  overflow: hidden;
+}
+
+.ouverture-grille {
+  align-items: center;
+  display: grid;
+  gap: 3rem;
+  padding-block: clamp(3rem, 7vw, 5.5rem) clamp(3.5rem, 7vw, 6rem);
+}
+
+.ouverture-texte h1 {
+  font-size: clamp(2.7rem, 6vw, 5.4rem);
+  line-height: 1.04;
+  margin-block: 1.4rem 1.6rem;
+}
+
+.ouverture-texte .chapo {
+  color: rgb(247 240 228 / 82%);
+  max-width: 33rem;
+}
+
+.ouverture-actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4rem 2.2rem;
+  margin-top: 2.4rem;
+}
+
+/* La scène : une photo de matière dans une arche, deux flacons détourés au premier plan. */
+.ouverture-scene {
+  aspect-ratio: 1 / 1.08;
+  margin-inline: auto;
+  max-width: 34rem;
+  position: relative;
+  width: 100%;
+}
+
+.ouverture-arche {
+  border: 1px solid rgb(227 181 111 / 45%);
+  border-radius: 999px 999px var(--rayon) var(--rayon);
+  inset: 0 10% 7% 14%;
+  padding: 0.7rem;
+  position: absolute;
+}
+
+.ouverture-arche img {
+  border-radius: 999px 999px var(--rayon) var(--rayon);
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.ouverture-flacon {
+  position: absolute;
+}
+
+.ouverture-flacon img {
+  filter: drop-shadow(0 34px 30px rgb(0 0 0 / 55%));
+  height: auto;
+  width: 100%;
+}
+
+.ouverture-flacon-1 {
+  bottom: -4%;
+  right: -9%;
+  width: 62%;
+}
+
+.ouverture-flacon-2 {
+  bottom: -3%;
+  left: -8%;
+  width: 46%;
+}
+
+.ouverture-etoile {
+  color: var(--or-clair);
+  position: absolute;
+  right: 2%;
+  top: 6%;
+}
+
+@media (min-width: 980px) {
+  .ouverture-grille {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    min-height: min(46rem, calc(100vh - 9rem));
+  }
+
+  .ouverture-scene {
+    max-width: 38rem;
+  }
+}
+
+/* Onglets */
+.onglets {
+  border-bottom: 1px solid var(--filet);
+  display: flex;
+  gap: clamp(1.25rem, 4vw, 3rem);
+  justify-content: safe center;
+  margin-top: 2.2rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.onglets button {
+  color: var(--mousse);
+  cursor: pointer;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  padding: 0.9rem 0.1rem;
+  position: relative;
+  text-transform: uppercase;
+  transition: color var(--transition);
+  white-space: nowrap;
+}
+
+.onglets button::after {
+  background: var(--or);
+  bottom: -1px;
+  content: "";
+  height: 2px;
+  left: 0;
+  position: absolute;
+  transform: scaleX(0);
+  transition: transform var(--transition);
+  width: 100%;
+}
+
+.onglets button[aria-selected="true"] {
+  color: var(--sapin);
+}
+
+.onglets button[aria-selected="true"]::after {
+  transform: scaleX(1);
+}
+
+.onglet-panneau:not([hidden]) {
+  animation: monter 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes monter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+/* Univers : tuiles portrait */
+.univers {
+  background: var(--blanc);
+}
+
+.univers-grille {
+  display: grid;
+  gap: clamp(0.9rem, 2vw, 1.75rem);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (min-width: 900px) {
+  .univers-grille {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .univers-grille li:nth-child(even) {
+    margin-top: 3.5rem;
+  }
+}
+
+.tuile {
+  display: block;
+}
+
+.tuile-image {
+  border-radius: 999px 999px var(--rayon) var(--rayon);
+  display: block;
+  overflow: hidden;
+}
+
+.tuile-image img {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  transition: transform 1.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+  width: 100%;
+}
+
+.tuile:hover .tuile-image img {
+  transform: scale(1.06);
+}
+
+.tuile-texte {
+  display: grid;
+  gap: 0.25rem;
+  padding-top: 1.2rem;
+  text-align: center;
+}
+
+.tuile-texte strong {
+  font-family: var(--font-titre);
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.tuile-texte span {
+  color: var(--mousse);
+  font-size: 0.95rem;
+}
+
+.tuile-carree .tuile-image {
+  border-radius: var(--rayon);
+}
+
+.tuile-carree .tuile-image img {
+  aspect-ratio: 1;
+}
+
+/* La Maison : image pleine hauteur et texte sur sapin */
+.maison {
+  background: var(--sapin);
+  color: var(--ivoire);
+  display: grid;
+}
+
+.maison-image img {
+  height: 100%;
+  max-height: 46rem;
+  min-height: 20rem;
+  object-fit: cover;
+  width: 100%;
+}
+
+.maison-texte {
+  align-self: center;
+  padding: clamp(3.5rem, 8vw, 7rem) var(--gouttiere);
+}
+
+.maison blockquote {
+  font-family: var(--font-titre);
+  font-size: clamp(1.9rem, 3.4vw, 3.1rem);
+  line-height: 1.18;
+  margin-block: 1.4rem 1.8rem;
+  max-width: 34rem;
+}
+
+.maison-texte > p:not(.surtitre) {
+  color: rgb(247 240 228 / 82%);
+  font-weight: 300;
+  max-width: 34rem;
+}
+
+.maison-points {
+  border-top: 1px solid var(--filet-clair);
+  display: grid;
+  gap: 0.9rem;
+  margin-block: 2rem 2.4rem;
+  max-width: 34rem;
+  padding-top: 1.8rem;
+}
+
+.maison-points li {
+  align-items: center;
+  display: flex;
+  gap: 0.9rem;
+}
+
+.maison-points .icone {
+  color: var(--or-clair);
+}
+
+@media (min-width: 980px) {
+  .maison {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .maison-image {
+    position: relative;
+  }
+
+  .maison-image img {
+    inset: 0;
+    max-height: none;
+    position: absolute;
+  }
+
+  .maison-texte {
+    padding-inline: clamp(3rem, 7vw, 7rem);
+  }
+}
+
+/* Familles olfactives */
+.familles-photos {
+  display: grid;
+  gap: clamp(0.9rem, 2vw, 1.75rem);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (min-width: 900px) {
+  .familles-photos {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.familles .pastilles {
+  justify-content: center;
+  margin-top: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+/* Collection à l'honneur */
+.honneur {
+  background: var(--lin);
+}
+
+.honneur-grille {
+  align-items: center;
+  display: grid;
+  gap: clamp(2rem, 6vw, 6rem);
+  padding-block: var(--section);
+}
+
+.honneur-image img {
+  border-radius: var(--rayon);
+  box-shadow: var(--ombre);
+  width: 100%;
+}
+
+.honneur-texte h2 {
+  margin-block: 1rem 1.4rem;
+}
+
+.honneur-texte p:not(.surtitre) {
+  font-weight: 300;
+  margin-bottom: 2.2rem;
+  max-width: 30rem;
+}
+
+@media (min-width: 900px) {
+  .honneur-grille {
+    grid-template-columns: 1.15fr 0.85fr;
+  }
+}
+
+/* Rendez-vous : boutiques et conseil */
+.rendez-vous {
+  background:
+    radial-gradient(50rem 30rem at 12% 110%, rgb(227 181 111 / 12%), transparent 70%),
+    var(--sapin-profond);
+  color: var(--ivoire);
+}
+
+.rendez-vous-grille {
+  align-items: center;
+  display: grid;
+  gap: 3rem;
+  padding-block: var(--section);
+}
+
+.rendez-vous h2 {
+  margin-block: 1rem 1.3rem;
+}
+
+.rendez-vous-grille > div > p:not(.surtitre) {
+  color: rgb(247 240 228 / 82%);
+  font-weight: 300;
+  max-width: 32rem;
+}
+
+.rendez-vous-boutiques {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.rendez-vous-boutiques li {
+  align-items: flex-start;
+  border: 1px solid var(--filet-clair);
+  display: flex;
+  gap: 1.25rem;
+  padding: 1.75rem;
+}
+
+.rendez-vous-boutiques .icone {
+  color: var(--or-clair);
+}
+
+.rendez-vous-boutiques p {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.rendez-vous-boutiques strong {
+  font-family: var(--font-titre);
+  font-size: 1.7rem;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.rendez-vous-boutiques span {
+  color: rgb(247 240 228 / 75%);
+}
+
+.rendez-vous-boutiques a {
+  color: var(--or-clair);
+  margin-top: 0.3rem;
+}
+
+@media (min-width: 900px) {
+  .rendez-vous-grille {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}

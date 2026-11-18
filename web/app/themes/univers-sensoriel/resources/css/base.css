@@ -1,0 +1,660 @@
+/* Socle : typographie, conteneur, boutons, pastilles, cartes produit, tiroirs. */
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--ivoire);
+  color: var(--sapin);
+  font-family: var(--font-texte);
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.tiroir-ouvert {
+  overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+.titre {
+  font-family: var(--font-titre);
+  font-weight: 400; /* Marcellus n'a qu'une graisse : jamais de gras */
+  line-height: 1.12;
+  letter-spacing: 0.005em;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5.4vw, 4.75rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 3.6vw, 3.25rem);
+}
+
+h3 {
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+}
+
+p {
+  text-wrap: pretty;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--or);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--sapin);
+  color: var(--ivoire);
+}
+
+.conteneur {
+  margin-inline: auto;
+  max-width: var(--largeur);
+  padding-inline: var(--gouttiere);
+  width: 100%;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.lien-evitement {
+  background: var(--sapin);
+  color: var(--ivoire);
+  left: 1rem;
+  padding: 0.75rem 1.25rem;
+  position: absolute;
+  top: -5rem;
+  z-index: 100;
+}
+
+.lien-evitement:focus {
+  top: 1rem;
+}
+
+.icone {
+  flex: none;
+}
+
+/* Surtitre : petites capitales espacées, en bronze (lisible) ou en or clair sur sapin. */
+.surtitre {
+  color: var(--bronze);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.surtitre-clair {
+  color: var(--or-clair);
+}
+
+.chapo {
+  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* Boutons : un seul bouton plein par écran, libellé sur une ligne. */
+.bouton,
+.single_add_to_cart_button,
+.wc-block-components-button:not(.is-link) {
+  align-items: center;
+  background: var(--sapin);
+  border: 1px solid var(--sapin);
+  border-radius: var(--rayon);
+  color: var(--ivoire);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font-texte);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  gap: 0.6rem;
+  justify-content: center;
+  letter-spacing: 0.18em;
+  line-height: 1.2;
+  min-height: 3.4rem;
+  padding: 0.9rem 2.2rem;
+  text-transform: uppercase;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+  white-space: nowrap;
+}
+
+.bouton:hover,
+.single_add_to_cart_button:hover {
+  background: var(--sapin-doux);
+  border-color: var(--sapin-doux);
+}
+
+.bouton-clair {
+  background: var(--ivoire);
+  border-color: var(--ivoire);
+  color: var(--sapin);
+}
+
+.bouton-clair:hover {
+  background: var(--blanc);
+  border-color: var(--or-clair);
+  color: var(--sapin);
+}
+
+.bouton-contour {
+  background: transparent;
+  color: var(--sapin);
+}
+
+.bouton-contour:hover {
+  background: var(--sapin);
+  color: var(--ivoire);
+}
+
+.lien-or {
+  align-items: center;
+  border-bottom: 1px solid var(--or);
+  color: inherit;
+  display: inline-flex;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  gap: 0.55rem;
+  letter-spacing: 0.16em;
+  padding-bottom: 0.35rem;
+  text-transform: uppercase;
+  transition: gap var(--transition), border-color var(--transition);
+}
+
+.lien-or:hover {
+  gap: 0.95rem;
+}
+
+.lien-simple {
+  border-bottom: 1px solid currentcolor;
+  font-size: 0.9rem;
+}
+
+/* Pastilles : sous-rayons, familles, notes. */
+.pastilles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.pastilles-centre {
+  justify-content: center;
+}
+
+.pastille {
+  align-items: center;
+  border: 1px solid var(--filet);
+  border-radius: 99px;
+  display: inline-flex;
+  font-size: 0.9rem;
+  gap: 0.5rem;
+  line-height: 1.2;
+  padding: 0.6rem 1.15rem;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.pastille small {
+  color: var(--mousse);
+  font-size: 0.75rem;
+}
+
+a.pastille:hover,
+.pastille-pleine {
+  background: var(--sapin);
+  border-color: var(--sapin);
+  color: var(--ivoire);
+}
+
+a.pastille:hover small {
+  color: var(--or-clair);
+}
+
+.pastille-note {
+  background: var(--blanc);
+  border-color: transparent;
+}
+
+/* Sections */
+.section {
+  padding-block: var(--section);
+}
+
+.section-lin {
+  background: var(--lin);
+}
+
+.section-tete {
+  margin: 0 auto clamp(2.5rem, 5vw, 4rem);
+  max-width: 46rem;
+  text-align: center;
+}
+
+.section-tete h2 {
+  margin-top: 0.9rem;
+}
+
+.section-intro {
+  color: var(--mousse);
+  font-size: 1.1rem;
+  font-weight: 300;
+  margin-top: 1.1rem;
+}
+
+.section-suite {
+  margin-top: clamp(2.5rem, 4vw, 3.5rem);
+  text-align: center;
+}
+
+/* Carte produit : visuel carré sur fond lin, flacon détouré avec son ombre. */
+.grille-produits {
+  display: grid;
+  gap: clamp(1.75rem, 3vw, 3rem) clamp(0.9rem, 2vw, 2rem);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (min-width: 760px) {
+  .grille-produits {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1100px) {
+  .grille-produits {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.carte {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.carte-visuel {
+  aspect-ratio: 1;
+  background: radial-gradient(circle at 50% 38%, var(--blanc) 0%, var(--lin) 78%);
+  border-radius: var(--rayon);
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+.carte-visuel img {
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+  width: 100%;
+}
+
+.carte-visuel img.est-detoure {
+  filter: drop-shadow(0 22px 22px rgb(31 49 36 / 20%));
+  object-fit: contain;
+  padding: 7%;
+}
+
+.carte:hover .carte-visuel img {
+  transform: scale(1.045);
+}
+
+.visuel-absent {
+  align-items: center;
+  color: var(--or);
+  display: flex;
+  height: 100%;
+  justify-content: center;
+}
+
+.carte-numero {
+  align-items: center;
+  background: var(--blanc);
+  border-radius: 50%;
+  color: var(--sapin);
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  height: 3.4rem;
+  justify-content: center;
+  line-height: 1;
+  position: absolute;
+  right: 0.8rem;
+  top: 0.8rem;
+  width: 3.4rem;
+}
+
+.carte-numero small {
+  color: var(--bronze);
+  font-family: var(--font-texte);
+  font-size: 0.55rem;
+  letter-spacing: 0.14em;
+  margin-bottom: 0.15rem;
+}
+
+.carte-badge {
+  background: var(--sapin);
+  color: var(--ivoire);
+  font-size: 0.68rem;
+  font-weight: 500;
+  left: 0.8rem;
+  letter-spacing: 0.16em;
+  padding: 0.35rem 0.7rem;
+  position: absolute;
+  text-transform: uppercase;
+  top: 0.8rem;
+}
+
+.carte-badge-neutre {
+  background: var(--blanc);
+  color: var(--mousse);
+}
+
+.carte-corps {
+  flex: 1;
+  padding: 1.1rem 0.25rem 0;
+  text-align: center;
+}
+
+.carte-surtitre {
+  color: var(--bronze);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.carte-nom {
+  font-family: var(--font-titre);
+  font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+  line-height: 1.2;
+  margin-top: 0.4rem;
+}
+
+.carte-nom a::after {
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.carte-ligne {
+  color: var(--mousse);
+  font-size: 0.92rem;
+  margin-top: 0.3rem;
+}
+
+.carte-prix {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 0.55rem;
+}
+
+.carte-prix del {
+  color: var(--mousse);
+  font-weight: 400;
+  margin-right: 0.4rem;
+}
+
+.carte-prix ins {
+  text-decoration: none;
+}
+
+.prix-des {
+  color: var(--mousse);
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+
+.carte-action {
+  border-bottom: 1px solid var(--or);
+  align-self: center;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  margin-top: 0.85rem;
+  padding-bottom: 0.3rem;
+  position: relative;
+  text-transform: uppercase;
+  transition: color var(--transition), letter-spacing var(--transition);
+  z-index: 1;
+}
+
+.carte-action:hover {
+  color: var(--bronze);
+}
+
+.carte-action.loading {
+  opacity: 0.5;
+}
+
+.carte-action.added::after {
+  content: " ✓";
+}
+
+.carte .added_to_cart {
+  display: none;
+}
+
+/* Tiroirs (menu mobile, filtres) */
+.tiroir {
+  inset: 0;
+  position: fixed;
+  z-index: 60;
+}
+
+.tiroir-voile {
+  animation: voile 0.3s both;
+  background: rgb(22 36 26 / 55%);
+  inset: 0;
+  position: absolute;
+}
+
+.tiroir-panneau {
+  animation: glisser 0.4s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  background: var(--ivoire);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 28.75rem;
+  position: relative;
+  width: 92vw;
+}
+
+.tiroir-sombre {
+  background: var(--sapin);
+  color: var(--ivoire);
+}
+
+.tiroir-tete {
+  align-items: center;
+  border-bottom: 1px solid var(--filet);
+  display: flex;
+  justify-content: space-between;
+  padding: 1.1rem 1.5rem;
+}
+
+.tiroir-sombre .tiroir-tete {
+  border-color: var(--filet-clair);
+}
+
+.tiroir-tete img {
+  height: 3.4rem;
+  width: auto;
+}
+
+.tiroir-titre {
+  font-family: var(--font-titre);
+  font-size: 1.6rem;
+}
+
+.tiroir-corps {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.5rem 1.5rem 2rem;
+}
+
+.tiroir-pied {
+  align-items: center;
+  border-top: 1px solid var(--filet);
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+  padding: 1.1rem 1.5rem;
+}
+
+.tiroir-pied .bouton {
+  flex: 1;
+}
+
+@keyframes voile {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes glisser {
+  from {
+    transform: translateX(-100%);
+  }
+}
+
+/* Accordéons « + / − » */
+.facette-signe {
+  height: 0.85rem;
+  position: relative;
+  width: 0.85rem;
+}
+
+.facette-signe::before,
+.facette-signe::after {
+  background: currentcolor;
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  top: 50%;
+  transition: transform var(--transition);
+  width: 100%;
+}
+
+.facette-signe::after {
+  transform: rotate(90deg);
+}
+
+details[open] > summary .facette-signe::after {
+  transform: rotate(0);
+}
+
+summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Texte courant des pages et des descriptions */
+.prose {
+  font-size: 1.05rem;
+}
+
+.prose > * + * {
+  margin-top: 1.1em;
+}
+
+.prose h2 {
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  margin-top: 2.2em;
+}
+
+.prose h3 {
+  margin-top: 1.8em;
+}
+
+.prose ul {
+  display: grid;
+  gap: 0.55em;
+}
+
+.prose ul li {
+  padding-left: 1.5em;
+  position: relative;
+}
+
+.prose ul li::before {
+  background: var(--or);
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  top: 0.82em;
+  width: 0.85em;
+}
+
+.prose ol {
+  list-style: decimal;
+  padding-left: 1.3em;
+}
+
+.prose a:not(.bouton) {
+  border-bottom: 1px solid var(--or);
+  color: var(--bronze);
+}
+
+.prose strong {
+  font-weight: 500;
+}
+
+.prose .alerte {
+  background: var(--lin);
+  border-left: 2px solid var(--or);
+  padding: 1rem 1.25rem;
+}
+
+/* Apparition douce au défilement : jamais de contenu caché sans script. */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-apparait] {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  .js [data-apparait].est-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

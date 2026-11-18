@@ -2,3 +2,11 @@
 @source "../../app/**/*.php";
 @source "../**/*.blade.php";
 @source "../**/*.js";
+
+@import "./charte.css";
+@import "./base.css";
+@import "./entete.css";
+@import "./accueil.css";
+@import "./boutique.css";
+@import "./fiche.css";
+@import "./pages.css";
