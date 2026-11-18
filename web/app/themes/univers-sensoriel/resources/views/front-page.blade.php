@@ -179,7 +179,7 @@
   @endif
 
   {{-- 8. Avis clients : de vrais avis, reproduits tels quels --}}
-  @php($avisAccueil = $boutique ? App\avis(['accueil' => true, 'nombre' => 6]) : [])
+  @php($avisAccueil = $boutique ? App\avis(['accueil' => true, 'nombre' => App\AVIS_ACCUEIL]) : [])
   @if (count($avisAccueil) >= 3)
     <section class="section avis-accueil">
       <div class="conteneur">
