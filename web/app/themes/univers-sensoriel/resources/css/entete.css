@@ -451,7 +451,10 @@
 }
 
 .pied-marque {
+  display: grid;
+  gap: 1.75rem; /* le logo (lien vers l'accueil) puis le lien WhatsApp, bien détachés */
   grid-column: 1 / -1;
+  justify-items: start;
 }
 
 .pied-marque img {

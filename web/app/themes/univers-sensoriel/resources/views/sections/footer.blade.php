@@ -29,7 +29,9 @@
 
   <div class="conteneur pied-haut">
     <div class="pied-marque">
-      <img src="{{ App\image('logo-univers-sensoriel-clair.webp') }}" alt="Univers Sensoriel by K.Elle : beauté, bien-être, art de vivre" width="1452" height="716" loading="lazy">
+      <a href="{{ home_url('/') }}" rel="home">
+        <img src="{{ App\image('logo-univers-sensoriel-clair.webp') }}" alt="Univers Sensoriel by K.Elle : beauté, bien-être, art de vivre" width="1452" height="716" loading="lazy">
+      </a>
       <a class="lien-or" href="{{ App\lien_whatsapp() }}" rel="noopener" target="_blank">{!! App\icone('whatsapp', 20) !!} Écrire sur WhatsApp</a>
     </div>
 
