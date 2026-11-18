@@ -76,6 +76,11 @@ foreach ([
     'woocommerce_review_rating_verification_required' => 'yes', // seuls les acheteurs peuvent donner un avis
     'comment_moderation' => '1', // chaque nouvel avis est relu avant d'être publié
     'comment_registration' => '1',
+    'moderation_notify' => '1', // e-mail à la boutique pour chaque avis en attente
+    'woocommerce_enable_signup_and_login_from_checkout' => 'yes', // compte créé à la commande : l'acheteur pourra donner son avis
+    'woocommerce_enable_myaccount_registration' => 'yes',
+    'woocommerce_registration_generate_password' => 'yes',
+    'woocommerce_registration_generate_username' => 'yes',
 ] as $cle => $valeur) {
     update_option($cle, $valeur);
 }

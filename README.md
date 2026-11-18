@@ -79,3 +79,13 @@ Règles appliquées (audit de novembre 2026) : aucune marque tierce dans les fic
 ## Branches et versions
 
 Le dépôt suit Git flow (`main`, `develop`, `feature/*`, `release/*`, `hotfix/*`) : voir [CONTRIBUTING.md](CONTRIBUTING.md). Les versions sont décrites dans [CHANGELOG.md](CHANGELOG.md).
+
+## Avis clients
+
+1. À la commande, un compte est créé pour l'acheteur. Quand la commande passe à « Terminée », l'e-mail l'invite à donner son avis, avec un lien vers chaque fiche.
+2. Sur la fiche, le formulaire n'apparaît qu'aux personnes connectées qui ont acheté le produit.
+3. L'avis arrive en attente dans **Produits › Avis** ; la boutique reçoit un e-mail. On l'approuve ou on le met à la corbeille, sans jamais modifier son texte.
+4. Approuvé, il s'affiche sur la fiche du produit et en tête de la page « Avis clients », avec la mention « Achat vérifié ».
+5. Pour l'accueil, c'est un choix : colonne **Accueil** de Produits › Avis (ou la case « Page d'accueil » dans l'avis). L'accueil montre les six avis choisis les plus récents (`App\AVIS_ACCUEIL`).
+
+Le code est dans `app/avis.php` (affichage) et `app/avis-gestion.php` (admin, e-mail).

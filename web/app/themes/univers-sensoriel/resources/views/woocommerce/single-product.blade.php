@@ -155,13 +155,17 @@
     </article>
 
     @php($avisProduit = App\avis(['produit' => get_the_ID()]))
-    @if ($avisProduit || App\peut_donner_avis($product))
+    @php($avisRecu = ($_GET['avis'] ?? '') === 'recu')
+    @if ($avisProduit || $avisRecu || App\peut_donner_avis($product))
       <section class="section avis-fiche" id="avis">
         <div class="conteneur">
           <header class="section-tete">
             <p class="surtitre">Avis clients</p>
             <h2>{{ $avisProduit ? 'Ce qu\'ils en disent' : 'Donnez votre avis' }}</h2>
           </header>
+          @if ($avisRecu)
+            <p class="woocommerce-message" role="status">Merci ! Votre avis est bien reçu. Il sera publié après relecture.</p>
+          @endif
           @if ($avisProduit)
             <div class="avis-grille avis-grille-fiche">
               @foreach ($avisProduit as $avis)
@@ -170,7 +174,10 @@
             </div>
             <p class="avis-note">Avis reproduits tels quels. <a class="lien-simple" href="{{ home_url('/avis-clients/') }}">Comment nous recueillons les avis</a></p>
           @endif
-          @if (App\peut_donner_avis($product))
+          @if (! is_user_logged_in() && $avisProduit)
+            <p class="avis-note">Vous avez acheté ce produit ? <a class="lien-simple" href="{{ wc_get_page_permalink('myaccount') }}">Connectez-vous</a> pour donner votre avis.</p>
+          @endif
+          @if (App\peut_donner_avis($product) && ! $avisRecu)
             <div class="avis-formulaire">
               @php(comment_form([
                 'title_reply' => $avisProduit ? 'Donnez votre avis' : '',
