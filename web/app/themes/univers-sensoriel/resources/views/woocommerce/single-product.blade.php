@@ -76,7 +76,7 @@
         <div class="fiche-panier">
           @php(wc_print_notices())
           @if ($product->is_in_stock())
-            <p class="fiche-stock">{!! App\icone('coche', 16) !!} En stock, expédié avec soin</p>
+            <p class="fiche-stock">{!! App\icone('coche', 16) !!} En stock</p>
           @endif
           @php(woocommerce_template_single_add_to_cart())
         </div>
@@ -138,8 +138,7 @@
             <details class="accordeon">
               <summary>Conseils d'utilisation <span class="facette-signe" aria-hidden="true"></span></summary>
               <div class="prose">
-                <p>Vaporisez à vingt centimètres de la peau, sur les points de pulsation : poignets, creux du cou, derrière les oreilles. Ne frottez pas : laissez le parfum se poser.</p>
-                <p>Un extrait est très concentré : deux ou trois vaporisations suffisent. Conservez le flacon à l'abri de la lumière et de la chaleur.</p>
+                <p>Deux ou trois vaporisations sur les points de pulsation (poignets, cou), sans frotter. À conserver à l'abri de la lumière et de la chaleur.</p>
               </div>
             </details>
           @endif
@@ -147,7 +146,7 @@
             <summary>Livraison et retours <span class="facette-signe" aria-hidden="true"></span></summary>
             <div class="prose">
               <p>Livraison offerte dès {{ App\SEUIL_LIVRAISON }} € d'achat en France, ou retrait gratuit à la boutique de Metz.</p>
-              <p>Vous disposez de 14 jours après réception pour changer d'avis, si le produit n'a pas été ouvert. <a href="{{ home_url('/livraison-et-retours/') }}">En savoir plus</a></p>
+              <p>14 jours pour changer d'avis, si le produit n'a pas été ouvert. <a href="{{ home_url('/livraison-et-retours/') }}">En savoir plus</a></p>
             </div>
           </details>
         </div>
@@ -160,8 +159,7 @@
       <section class="section avis-fiche" id="avis">
         <div class="conteneur">
           <header class="section-tete">
-            <p class="surtitre">Avis clients</p>
-            <h2>{{ $avisProduit ? 'Ce qu\'ils en disent' : 'Donnez votre avis' }}</h2>
+            <h2>{{ $avisProduit ? 'Avis clients' : 'Donnez votre avis' }}</h2>
           </header>
           @if ($avisRecu)
             <p class="woocommerce-message" role="status">Merci ! Votre avis est bien reçu. Il sera publié après relecture.</p>
@@ -172,7 +170,7 @@
                 @include('partials.carte-avis', ['avis' => $avis, 'lienProduit' => false])
               @endforeach
             </div>
-            <p class="avis-note">Avis reproduits tels quels. <a class="lien-simple" href="{{ home_url('/avis-clients/') }}">Comment nous recueillons les avis</a></p>
+            <p class="avis-note"><a class="lien-simple" href="{{ home_url('/avis-clients/') }}">Comment nous recueillons les avis</a></p>
           @endif
           @if (! is_user_logged_in() && $avisProduit)
             <p class="avis-note">Vous avez acheté ce produit ? <a class="lien-simple" href="{{ wc_get_page_permalink('myaccount') }}">Connectez-vous</a> pour donner votre avis.</p>
@@ -185,7 +183,7 @@
                 'comment_notes_before' => '', 'logged_in_as' => '', 'label_submit' => 'Envoyer mon avis', 'class_submit' => 'bouton',
                 'comment_field' => '<p class="avis-champ"><label for="rating">Votre note</label><select name="rating" id="rating" required><option value="">Choisir…</option><option value="5">5 – Excellent</option><option value="4">4 – Très bien</option><option value="3">3 – Bien</option><option value="2">2 – Moyen</option><option value="1">1 – Décevant</option></select></p>'
                   . '<p class="avis-champ"><label for="comment">Votre avis</label><textarea id="comment" name="comment" rows="5" required></textarea></p>'
-                  . '<p class="avis-mention">Votre avis sera publié après relecture, avec votre prénom et la mention « Achat vérifié ».</p>',
+                  . '<p class="avis-mention">Publié après relecture, avec votre prénom.</p>',
               ], get_the_ID()))
             </div>
           @endif
@@ -197,8 +195,7 @@
       <section class="section section-lin">
         <div class="conteneur">
           <header class="section-tete">
-            <p class="surtitre">La même senteur</p>
-            <h2>Complétez le rituel</h2>
+            <h2>Dans la même senteur</h2>
           </header>
           <div class="grille-produits">
             @foreach ($rituel as $produit)
@@ -213,7 +210,6 @@
       <section class="section">
         <div class="conteneur">
           <header class="section-tete">
-            <p class="surtitre">{{ $infos['rayon']->name }}</p>
             <h2>Vous aimerez aussi</h2>
           </header>
           <div class="grille-produits">

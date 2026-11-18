@@ -253,7 +253,7 @@ a.pastille:hover small {
   text-align: center;
 }
 
-.section-tete h2 {
+.section-tete .surtitre + h2 {
   margin-top: 0.9rem;
 }
 

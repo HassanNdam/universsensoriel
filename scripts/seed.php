@@ -72,7 +72,7 @@ function us_page(string $slug, string $title, string $content = '', int $parent 
 {
     $page = get_page_by_path($slug, OBJECT, 'page');
     if ($page) {
-        if (getenv('US_SEED_FORCE') && $content !== '' && $page->post_content !== $content) {
+        if ((getenv('US_SEED_FORCE') || getenv('US_SEED_PAGES')) && $content !== '' && $page->post_content !== $content) {
             wp_update_post(['ID' => $page->ID, 'post_content' => $content, 'post_title' => $title]);
             us_log("page mise à jour : $title");
         }

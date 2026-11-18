@@ -46,7 +46,6 @@
   <header class="rayon-tete">
     <div class="conteneur">
       @include('partials.fil')
-      <p class="surtitre">{{ $surtitre }}</p>
       <h1>{{ $titre }}</h1>
       @if ($description && ! is_paged())
         <p class="rayon-intro">{{ wp_strip_all_tags($description) }}</p>

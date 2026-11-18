@@ -9,7 +9,6 @@
     <header class="rayon-tete {{ $boutique ? 'rayon-tete-courte' : '' }}">
       <div class="conteneur">
         @include('partials.fil')
-        <p class="surtitre">Univers Sensoriel</p>
         <h1>{{ get_the_title() }}</h1>
       </div>
     </header>

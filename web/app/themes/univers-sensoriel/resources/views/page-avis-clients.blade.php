@@ -9,9 +9,8 @@
     <header class="rayon-tete">
       <div class="conteneur">
         @include('partials.fil')
-        <p class="surtitre">Paroles de clientes et de clients</p>
         <h1>{{ get_the_title() }}</h1>
-        <p class="rayon-intro">Des avis reproduits tels quels, avec leur date. Peu nombreux pour l'instant : nous préférons quelques avis vrais à une longue liste.</p>
+        <p class="rayon-intro">Publiés mot pour mot, avec leur date.</p>
       </div>
     </header>
 

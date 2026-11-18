@@ -21,7 +21,6 @@
               @endif
             </ol>
           </nav>
-          <p class="surtitre surtitre-clair">{{ $rubrique?->name ?? 'Le journal' }}</p>
           <h1>{{ get_the_title() }}</h1>
           <p class="article-meta">
             <time datetime="{{ get_the_date('c') }}">{{ get_the_date('j F Y') }}</time>
@@ -52,7 +51,6 @@
       <section class="section section-lin">
         <div class="conteneur">
           <header class="section-tete">
-            <p class="surtitre">Le journal</p>
             <h2>À lire aussi</h2>
           </header>
           <div class="journal-grille">

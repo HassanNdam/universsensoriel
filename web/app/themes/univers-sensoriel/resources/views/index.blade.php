@@ -11,10 +11,9 @@
 
   <header class="rayon-tete">
     <div class="conteneur">
-      <p class="surtitre">{{ $rubrique ? 'Le journal' : 'Conseils et rituels' }}</p>
       <h1>{{ $titre }}</h1>
       @if (! is_search() && ! is_paged())
-        <p class="rayon-intro">{{ $rubrique && $rubrique->description ? wp_strip_all_tags($rubrique->description) : 'Parfum, soin de la peau, cheveux, bien-être : nos conseils pour choisir, appliquer et faire durer.' }}</p>
+        <p class="rayon-intro">{{ $rubrique && $rubrique->description ? wp_strip_all_tags($rubrique->description) : 'Nos conseils pour choisir, appliquer et faire durer.' }}</p>
       @endif
       @if (! is_search() && count($rubriques) > 1)
         <ul class="pastilles pastilles-centre">

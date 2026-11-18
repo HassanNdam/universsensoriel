@@ -130,7 +130,7 @@
 
 .article-tete h1 {
   font-size: clamp(2.3rem, 4.6vw, 4rem);
-  margin: 1rem auto 0;
+  margin: clamp(2.5rem, 5vw, 4rem) auto 0;
   max-width: 54rem;
 }
 
