@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "31e1bdfb44fc6dcbeacb7bfc6e57ddd8",
+    "content-hash": "d118757864284e7729373e1d54ad762b",
     "packages": [
         {
             "name": "brick/math",
@@ -7194,6 +7194,68 @@
                 }
             ],
             "time": "2026-04-26T05:33:54+00:00"
+        },
+        {
+            "name": "wp-plugin/woocommerce",
+            "version": "11.3.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/woocommerce/",
+                "reference": "tags/11.3.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/woocommerce.11.3.0.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0|~2.0"
+            },
+            "type": "wordpress-plugin",
+            "notification-url": "https://wp-packages.org/downloads",
+            "authors": [
+                {
+                    "name": "Automattic"
+                }
+            ],
+            "description": "Everything you need to launch an online store in days and keep it growing for years. From your first sale to millions in revenue, Woo is with you.",
+            "homepage": "https://woocommerce.com/",
+            "support": {
+                "changelog": "https://wordpress.org/plugins/woocommerce/#developers",
+                "issues": "https://wordpress.org/support/plugin/woocommerce",
+                "source": "https://plugins.svn.wordpress.org/woocommerce"
+            },
+            "time": "2026-11-11T16:56:56+00:00"
+        },
+        {
+            "name": "wp-plugin/wordpress-seo",
+            "version": "28.9",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
+                "reference": "tags/28.9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.28.9.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0|~2.0"
+            },
+            "type": "wordpress-plugin",
+            "notification-url": "https://wp-packages.org/downloads",
+            "authors": [
+                {
+                    "name": "Yoast"
+                }
+            ],
+            "description": "Real-time SEO guidance, schema, and AI built in. Help search engines and AI systems understand your content. All AI tools included, no hidden fees.",
+            "homepage": "https://yoa.st/1uj",
+            "support": {
+                "changelog": "https://wordpress.org/plugins/wordpress-seo/#developers",
+                "issues": "https://wordpress.org/support/plugin/wordpress-seo",
+                "source": "https://plugins.svn.wordpress.org/wordpress-seo"
+            },
+            "time": "2026-11-18T06:06:41+00:00"
         },
         {
             "name": "wp-theme/twentytwentyfive",

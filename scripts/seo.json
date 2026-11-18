@@ -1,0 +1,171 @@
+{
+  "_lisez-moi": "Référencement (Yoast SEO). Appliqué par scripts/seo.php à chaque `composer seed` ; une valeur retouchée dans Yoast est conservée (US_SEED_FORCE=1 pour tout réappliquer). Pages repérées par slug, rayons par slug de catégorie. Titre ≤ 60 caractères, description 120-155. Les fiches produit et les familles olfactives n'ont pas d'entrée ici : leur titre et leur description sont calculés par le thème (app/seo.php) à partir du nom, du rayon, de la famille olfactive et de l'accroche.",
+
+  "pages": {
+    "accueil": {
+      "titre": "Extraits de parfum, soins et bien-être | Univers Sensoriel",
+      "description": "Extraits de parfum longue tenue dès 11,90 €, soins du visage et du corps, parfums d'ambiance. Livraison offerte dès 49 €, retrait gratuit à Metz.",
+      "motcle": "extraits de parfum"
+    },
+    "boutique": {
+      "titre": "Boutique : parfums, soins et art de vivre | Univers Sensoriel",
+      "description": "Toute la sélection Univers Sensoriel : extraits de parfum pour elle et lui, soins, huiles essentielles et parfums d'ambiance. Livraison offerte dès 49 €.",
+      "motcle": "parfums et soins"
+    },
+    "la-maison": {
+      "titre": "La Maison : notre histoire et nos valeurs | Univers Sensoriel",
+      "description": "Univers Sensoriel by K.Elle : une Maison de parfums, de soins et de bien-être née d'une conviction, le luxe discret pour tous. Boutiques à Metz et Yaoundé.",
+      "motcle": "Univers Sensoriel"
+    },
+    "contact": {
+      "titre": "Contact et conseil parfum sur WhatsApp | Univers Sensoriel",
+      "description": "Une question sur une commande ou besoin d'un conseil pour choisir un parfum ? Écrivez-nous sur WhatsApp ou par e-mail : réponse sous 24 heures ouvrées.",
+      "motcle": "conseil parfum"
+    },
+    "nos-boutiques": {
+      "titre": "Nos boutiques à Metz et à Yaoundé | Univers Sensoriel",
+      "description": "Venez sentir les parfums et demander conseil dans nos boutiques de Metz (France) et de Yaoundé (Cameroun). Retrait gratuit des commandes à Metz.",
+      "motcle": "boutiques"
+    },
+    "livraison-et-retours": {
+      "titre": "Livraison offerte dès 49 € et retours | Univers Sensoriel",
+      "description": "Livraison offerte dès 49 € d'achat en France, retrait gratuit à la boutique de Metz, 14 jours pour changer d'avis : tout savoir sur l'envoi et les retours.",
+      "motcle": "livraison"
+    },
+    "questions-frequentes": {
+      "titre": "Questions fréquentes : parfums, formats | Univers Sensoriel",
+      "description": "Qu'est-ce qu'un extrait de parfum ? Quel format choisir, 15, 30 ou 70 ml ? Comment faire durer son parfum ? Les réponses aux questions les plus posées.",
+      "motcle": "extrait de parfum"
+    },
+    "guide-des-familles-olfactives": {
+      "titre": "Familles olfactives : le guide pour choisir son parfum",
+      "description": "Floral, boisé, ambré, fruité, chypré : comprendre les familles olfactives pour trouver le parfum qui vous ressemble. Le guide Univers Sensoriel.",
+      "motcle": "familles olfactives"
+    },
+    "devenir-consultante": {
+      "titre": "Devenir consultante | Univers Sensoriel",
+      "description": "Vous aimez nos parfums et nos soins ? Découvrez comment devenir consultante indépendante Univers Sensoriel : écrivez-nous, nous vous rappelons sous 24 h."
+    },
+    "conditions-generales-de-vente": {
+      "description": "Conditions générales de vente d'Univers Sensoriel : commande, prix en euros, paiement sécurisé, livraison, droit de rétractation et garanties."
+    },
+    "mentions-legales": {
+      "description": "Mentions légales du site Univers Sensoriel by K.Elle : éditeur, responsable de la publication, hébergeur et propriété intellectuelle."
+    },
+    "politique-de-confidentialite": {
+      "description": "Comment Univers Sensoriel recueille, utilise et protège vos données personnelles (RGPD) : données de commande, cookies indispensables et vos droits."
+    },
+    "panier": { "noindex": true },
+    "commande": { "noindex": true },
+    "mon-compte": { "noindex": true }
+  },
+
+  "rayons": {
+    "parfums": {
+      "titre": "Extraits de parfum longue tenue dès 11,90 € | Univers Sensoriel",
+      "description": "Plus de 140 extraits de parfum concentrés à 30 %, pour elle et pour lui, en 15, 30 et 70 ml. Choisissez par famille olfactive. Livraison offerte dès 49 €.",
+      "motcle": "extraits de parfum"
+    },
+    "parfums-femme": {
+      "titre": "Parfum femme : extraits longue tenue | Univers Sensoriel",
+      "description": "Extraits de parfum femme concentrés à 30 % : floraux, fruités, ambrés, chyprés. En 15, 30 et 70 ml, dès 11,90 €. Livraison offerte dès 49 € d'achat.",
+      "motcle": "parfum femme"
+    },
+    "parfums-homme": {
+      "titre": "Parfum homme : extraits longue tenue | Univers Sensoriel",
+      "description": "Extraits de parfum homme concentrés à 30 % : boisés, aromatiques, épicés, aquatiques. En 15, 30 et 70 ml, dès 11,90 €. Livraison offerte dès 49 €.",
+      "motcle": "parfum homme"
+    },
+    "collection-luxury": {
+      "titre": "Collection Luxury : parfums oud, safran, vanille",
+      "description": "La collection Luxury réunit nos extraits de parfum les plus précieux : oud, safran, vanille, fleurs rares. Pour elle et pour lui, en 15 et 50 ml.",
+      "motcle": "collection Luxury"
+    },
+    "collection-mytologik": {
+      "titre": "Collection Mytologik : parfums d'exception | Univers Sensoriel",
+      "description": "Sept extraits de parfum inspirés des dieux de l'Olympe, chacun avec son buste sculpté. Coffret découverte et testeurs 3 ml pour choisir le vôtre.",
+      "motcle": "Mytologik"
+    },
+    "brumes-parfumees": {
+      "titre": "Brumes parfumées corps et cheveux | Univers Sensoriel",
+      "description": "Brumes parfumées pour le corps et les cheveux : un voile léger qui parfume, hydrate et fait briller, à vaporiser tout au long de la journée.",
+      "motcle": "brumes parfumées"
+    },
+    "parfums-enfant": {
+      "titre": "Parfum enfant et bébé hypoallergénique | Univers Sensoriel",
+      "description": "Des eaux de parfum douces et hypoallergéniques pour bébé, fille et garçon, en flacon de 30 ml. Une première senteur toute en délicatesse.",
+      "motcle": "parfum enfant"
+    },
+    "beaute": {
+      "titre": "Soins visage, corps et cheveux | Univers Sensoriel",
+      "description": "Soins du visage, du corps et des cheveux à l'aloe vera, à l'acide hyaluronique ou à l'huile d'argan, et rituels complets pour chaque type de peau.",
+      "motcle": "soins visage"
+    },
+    "soin-du-visage": {
+      "titre": "Soin du visage : crèmes, sérums, masques | Univers Sensoriel",
+      "description": "Crèmes de jour et de nuit, sérums, contours des yeux et masques : des soins du visage aux actifs concentrés pour hydrater, lisser et illuminer.",
+      "motcle": "soin du visage"
+    },
+    "corps-et-bain": {
+      "titre": "Gels douche parfumés et soins du corps | Univers Sensoriel",
+      "description": "Gels douche parfumés, crèmes pour le corps, soins des mains et des pieds : prolongez votre parfum sous la douche et gardez une peau douce.",
+      "motcle": "gels douche parfumés"
+    },
+    "cheveux": {
+      "titre": "Soins cheveux à l'aloe vera | Univers Sensoriel",
+      "description": "Shampoings, masques et après-shampoings à l'aloe vera : des soins capillaires qui nourrissent, réparent la fibre et font briller les cheveux.",
+      "motcle": "soins cheveux"
+    },
+    "hygiene": {
+      "titre": "Hygiène : déodorants, soins dentaires | Univers Sensoriel",
+      "description": "Déodorants, dentifrices, bains de bouche et nettoyants doux aux extraits naturels : les soins d'hygiène du quotidien, choisis avec exigence.",
+      "motcle": "hygiène"
+    },
+    "rituels-et-coffrets": {
+      "titre": "Rituels et coffrets de soins à offrir | Univers Sensoriel",
+      "description": "Des rituels complets pour chaque type de peau : nettoyant, lotion, sérum et crème réunis. Des coffrets de soins à s'offrir ou à offrir.",
+      "motcle": "coffrets de soins"
+    },
+    "bebe-et-enfant": {
+      "titre": "Soins bébé extra-doux | Univers Sensoriel",
+      "description": "Nettoyant, lait corporel, shampoing et bain moussant : des soins extra-doux pour la toilette des bébés et des enfants.",
+      "motcle": "soins bébé"
+    },
+    "bien-etre": {
+      "titre": "Huiles essentielles et huiles végétales | Univers Sensoriel",
+      "description": "Huiles essentielles, synergies prêtes à l'emploi et huiles végétales pures : la nature en flacon pour vos massages, diffusions et rituels de détente.",
+      "motcle": "huiles essentielles"
+    },
+    "huiles-essentielles": {
+      "titre": "Huiles essentielles et synergies | Univers Sensoriel",
+      "description": "Huiles essentielles pures et synergies prêtes à l'emploi, à diffuser ou à diluer pour le massage. Flacons de 10 ml, avec leurs précautions d'emploi.",
+      "motcle": "huiles essentielles"
+    },
+    "huiles-vegetales": {
+      "titre": "Huiles végétales pures : amande, baobab, neem",
+      "description": "Huiles végétales pures et mélanges d'huiles précieuses : amande douce, baobab, neem, rose musquée. Pour nourrir la peau et les cheveux.",
+      "motcle": "huiles végétales"
+    },
+    "art-de-vivre": {
+      "titre": "Parfums d'ambiance et soin du linge | Univers Sensoriel",
+      "description": "Diffuseurs à bâtonnets, sprays d'ambiance et soin du linge parfumé : prolongez votre signature olfactive dans toute la maison.",
+      "motcle": "parfums d'ambiance"
+    },
+    "parfums-d-ambiance": {
+      "titre": "Parfum d'ambiance : diffuseurs à bâtonnets et sprays",
+      "description": "Diffuseurs à bâtonnets et sprays d'ambiance aux fragrances raffinées, en 100, 200 et 500 ml. Une senteur pour le salon, la chambre, la salle de bains.",
+      "motcle": "parfum d'ambiance"
+    },
+    "soin-du-linge": {
+      "titre": "Lessives et adoucissants parfumés | Univers Sensoriel",
+      "description": "Lessives pour le blanc, les couleurs et le noir, adoucissants parfumés longue durée : un linge propre, souple, au parfum qui dure.",
+      "motcle": "adoucissants parfumés"
+    },
+    "accessoires-parfum": { "noindex": true }
+  },
+
+  "partage": {
+    "defaut": "partage-univers-sensoriel-parfums-soins.jpg",
+    "alt": "Extraits de parfum Univers Sensoriel devant un bol d'encens"
+  }
+}

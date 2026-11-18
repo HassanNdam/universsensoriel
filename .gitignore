@@ -32,3 +32,6 @@ phpunit.xml
 
 # WP-CLI
 wp-cli.local.yml
+
+# Traductions téléchargées par WP-CLI (composer seed)
+web/app/languages/
