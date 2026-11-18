@@ -197,7 +197,7 @@
 }
 
 .contact-formulaire {
-  background: var(--blanc);
+  background: var(--lin-clair);
   border: 1px solid var(--filet);
   padding: clamp(1.75rem, 4vw, 3.25rem);
 }
@@ -313,7 +313,7 @@
 
 .contact-aide a {
   align-items: center;
-  background: var(--blanc);
+  background: var(--lin-clair);
   border: 1px solid var(--filet);
   display: grid;
   gap: 0.5rem;

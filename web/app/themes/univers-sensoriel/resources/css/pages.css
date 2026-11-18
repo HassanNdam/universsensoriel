@@ -28,7 +28,7 @@
 }
 
 .prose .cartes > div {
-  background: var(--blanc);
+  background: var(--lin-clair);
   border: 1px solid var(--filet);
   padding: 1.75rem;
 }

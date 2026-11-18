@@ -244,6 +244,7 @@ a.pastille:hover small {
 }
 
 .section-lin {
+  --fond-carte: var(--ivoire);
   background: var(--lin);
 }
 
@@ -289,11 +290,11 @@ a.pastille:hover small {
 }
 
 /*
- * Le bas de la carte porte un fond très léger (blanc chaud sur ivoire, ivoire sur blanc)
+ * Le bas de la carte porte un fond lin clair (ivoire quand la section est elle-même teintée)
  * et le dernier lien est toujours calé en bas : il s'aligne d'une carte à l'autre.
  */
 .carte {
-  background: var(--fond-carte, var(--blanc));
+  background: var(--fond-carte, var(--lin-clair));
   border-radius: var(--rayon);
   display: flex;
   flex-direction: column;

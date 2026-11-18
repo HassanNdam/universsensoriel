@@ -1,8 +1,8 @@
 /* Journal (liste et article) et avis clients. */
 
 .section-blanche {
-  --fond-carte: var(--ivoire); /* sur fond blanc, les cartes passent en ivoire */
-  background: var(--blanc);
+  --fond-carte: var(--ivoire); /* sur fond teinté, les cartes passent en ivoire */
+  background: var(--lin-clair);
 }
 
 /* Cartes d'articles */
@@ -58,7 +58,7 @@
 }
 
 .article-carte {
-  background: var(--fond-carte, var(--blanc));
+  background: var(--fond-carte, var(--lin-clair));
   border-radius: var(--rayon);
   display: flex;
   flex-direction: column;
@@ -235,6 +235,10 @@
   color: rgb(247 240 228 / 78%);
 }
 
+.avis-accueil {
+  --fond-avis: var(--ivoire);
+}
+
 .avis-accueil .avis {
   color: var(--sapin);
 }
@@ -262,7 +266,7 @@
 }
 
 .avis {
-  background: var(--blanc);
+  background: var(--fond-avis, var(--lin-clair));
   border-radius: var(--rayon);
   break-inside: avoid;
   margin-bottom: clamp(1.25rem, 2.5vw, 2rem);
@@ -409,7 +413,7 @@ a.avis-produit:hover strong {
 }
 
 .avis-formulaire {
-  background: var(--blanc);
+  background: var(--lin-clair);
   border: 1px solid var(--filet);
   margin: 2.5rem auto 0;
   max-width: 40rem;
