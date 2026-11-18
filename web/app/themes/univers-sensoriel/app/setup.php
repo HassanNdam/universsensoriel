@@ -161,3 +161,41 @@ add_action('widgets_init', function () {
         'id' => 'sidebar-footer',
     ] + $config);
 });
+
+/**
+ * Favicon, couleur du navigateur et polices préchargées (hébergées sur le site, sans appel à Google).
+ */
+add_action('wp_head', function () {
+    echo '<link rel="icon" href="' . esc_url(home_url('/favicon.ico')) . '" sizes="48x48">' . "\n";
+    echo '<link rel="icon" href="' . esc_url(home_url('/favicon-32.png')) . '" type="image/png" sizes="32x32">' . "\n";
+    echo '<link rel="apple-touch-icon" href="' . esc_url(home_url('/apple-touch-icon.png')) . '">' . "\n";
+    echo '<link rel="manifest" href="' . esc_url(home_url('/site.webmanifest')) . '">' . "\n";
+    echo '<meta name="theme-color" content="#1F3124">' . "\n";
+    foreach (['marcellus', 'jost'] as $police) {
+        echo '<link rel="preload" href="' . esc_url(Vite::asset("resources/fonts/{$police}.woff2")) . '" as="font" type="font/woff2" crossorigin>' . "\n";
+    }
+}, 2);
+
+/** WordPress allégé : pas d'émojis, pas de styles de blocs hors pages de contenu. */
+add_action('init', function () {
+    remove_action('wp_head', 'print_emoji_detection_script', 7);
+    remove_action('wp_print_styles', 'print_emoji_styles');
+    remove_action('wp_head', 'wp_generator');
+    remove_action('wp_head', 'wlwmanifest_link');
+    remove_action('wp_head', 'rsd_link');
+});
+add_action('wp_enqueue_scripts', function () {
+    if (is_front_page() || (function_exists('is_woocommerce') && is_woocommerce())) {
+        wp_dequeue_style('wp-block-library');
+        wp_dequeue_style('global-styles');
+        wp_dequeue_style('classic-theme-styles');
+    }
+}, 100);
+
+/** Tailles d'image : cartes produit (600), fiche (1200). Les tailles inutiles ne sont pas générées. */
+add_filter('intermediate_image_sizes_advanced', function ($tailles) {
+    unset($tailles['medium_large'], $tailles['1536x1536'], $tailles['2048x2048'], $tailles['woocommerce_gallery_thumbnail']);
+
+    return $tailles;
+});
+add_filter('big_image_size_threshold', '__return_false');

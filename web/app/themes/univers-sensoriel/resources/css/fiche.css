@@ -1,0 +1,468 @@
+/* Fiche produit : galerie collante, bloc d'achat, formats en pastilles, profil olfactif, accordéons. */
+
+.fiche {
+  display: grid;
+  gap: clamp(2rem, 5vw, 5.5rem);
+  padding-block: 1.75rem var(--section);
+}
+
+@media (min-width: 1000px) {
+  .fiche {
+    align-items: start;
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  }
+
+  .fiche-galerie {
+    position: sticky;
+    top: 7.5rem;
+  }
+}
+
+.fiche-galerie {
+  display: grid;
+  gap: 0.9rem;
+}
+
+@media (min-width: 700px) {
+  .fiche-galerie:has(.fiche-vignettes) {
+    grid-template-columns: 5.25rem minmax(0, 1fr);
+  }
+}
+
+.fiche-vignettes {
+  display: flex;
+  gap: 0.7rem;
+  order: 2;
+  overflow-x: auto;
+}
+
+@media (min-width: 700px) {
+  .fiche-vignettes {
+    flex-direction: column;
+    order: 0;
+  }
+}
+
+.fiche-vignettes button {
+  aspect-ratio: 1;
+  background: radial-gradient(circle at 50% 38%, var(--blanc), var(--lin) 80%);
+  border: 1px solid transparent;
+  border-radius: var(--rayon);
+  cursor: pointer;
+  display: block;
+  overflow: hidden;
+  transition: border-color var(--transition);
+  width: 5.25rem;
+}
+
+.fiche-vignettes button[aria-current="true"],
+.fiche-vignettes button:hover {
+  border-color: var(--sapin);
+}
+
+.fiche-vignettes img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.fiche-vignettes .est-detoure img {
+  object-fit: contain;
+  padding: 12%;
+}
+
+.fiche-visuels {
+  aspect-ratio: 1;
+  background: radial-gradient(circle at 50% 36%, var(--blanc) 0%, var(--lin) 80%);
+  border-radius: var(--rayon);
+  overflow: hidden;
+  position: relative;
+}
+
+.fiche-visuel {
+  height: 100%;
+  width: 100%;
+}
+
+.fiche-visuel:not([hidden]) {
+  animation: voile 0.5s both;
+}
+
+.fiche-visuel img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.fiche-visuel.est-detoure img {
+  filter: drop-shadow(0 40px 34px rgb(31 49 36 / 22%));
+  object-fit: contain;
+  padding: 9%;
+}
+
+.carte-numero-grand {
+  font-size: 1.45rem;
+  height: 4.6rem;
+  right: 1.25rem;
+  top: 1.25rem;
+  width: 4.6rem;
+}
+
+.fiche-achat h1 {
+  font-size: clamp(2.3rem, 4.2vw, 3.75rem);
+  margin-top: 0.8rem;
+}
+
+.fiche-sous-titre {
+  color: var(--mousse);
+  font-size: 1.05rem;
+  margin-top: 0.7rem;
+}
+
+.fiche-sous-titre::first-letter {
+  text-transform: uppercase;
+}
+
+.fiche-prix {
+  font-size: clamp(1.5rem, 2.2vw, 1.85rem); /* chiffres en Jost : ceux de Marcellus se lisent mal (0 proche du o) */
+  margin-top: 1.4rem;
+}
+
+.fiche-prix .prix-des {
+  font-family: var(--font-texte);
+  font-size: 0.95rem;
+}
+
+.fiche-prix del {
+  color: var(--mousse);
+  font-size: 0.7em;
+  margin-right: 0.5rem;
+}
+
+.fiche-prix ins {
+  text-decoration: none;
+}
+
+.fiche-accroche {
+  font-size: 1.1rem;
+  font-weight: 300;
+  margin-top: 1.4rem;
+  max-width: 36rem;
+}
+
+.fiche-panier {
+  border-top: 1px solid var(--filet);
+  margin-top: 2rem;
+  padding-top: 1.75rem;
+}
+
+.fiche-stock {
+  align-items: center;
+  color: #3f6b41;
+  display: flex;
+  font-size: 0.92rem;
+  gap: 0.45rem;
+  margin-bottom: 1.25rem;
+}
+
+/* Formulaire WooCommerce : le <select> des formats devient une rangée de pastilles (resources/js/app.js). */
+.fiche-panier table.variations,
+.fiche-panier table.variations tbody,
+.fiche-panier table.variations tr,
+.fiche-panier table.variations th,
+.fiche-panier table.variations td {
+  display: block;
+  padding: 0;
+  text-align: left;
+}
+
+.fiche-panier table.variations label {
+  color: var(--bronze);
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+}
+
+.fiche-panier table.variations select {
+  background: var(--blanc);
+  border: 1px solid var(--sapin);
+  border-radius: var(--rayon);
+  font: inherit;
+  min-height: 3.2rem;
+  padding: 0.5rem 1rem;
+  width: 100%;
+}
+
+.js .fiche-panier table.variations select.est-remplace {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  min-height: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.formats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.formats button {
+  background: var(--blanc);
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon);
+  cursor: pointer;
+  font-size: 1rem;
+  min-height: 3.2rem;
+  min-width: 5.25rem;
+  padding: 0.5rem 1.2rem;
+  transition: border-color var(--transition), background var(--transition), color var(--transition);
+}
+
+.formats button:hover {
+  border-color: var(--sapin);
+}
+
+.formats button[aria-pressed="true"] {
+  background: var(--sapin);
+  border-color: var(--sapin);
+  color: var(--ivoire);
+}
+
+.formats button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+  text-decoration: line-through;
+}
+
+.single_variation_wrap {
+  margin-top: 1.5rem;
+}
+
+.woocommerce-variation-price {
+  font-size: 1.6rem;
+  margin-bottom: 1.2rem;
+}
+
+.woocommerce-variation-availability,
+.woocommerce-variation-description:empty {
+  display: none;
+}
+
+.fiche-panier form.cart:not(.variations_form),
+.woocommerce-variation-add-to-cart {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.fiche-panier .quantity label {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+}
+
+.fiche-panier .quantity input {
+  background: var(--blanc);
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon);
+  font: inherit;
+  height: 3.6rem;
+  text-align: center;
+  width: 4.75rem;
+}
+
+.fiche-panier .single_add_to_cart_button {
+  flex: 1;
+  min-height: 3.6rem;
+}
+
+.fiche-panier .single_add_to_cart_button.disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.fiche-panier .stock.out-of-stock {
+  color: var(--brique);
+}
+
+/* Messages de WooCommerce (ajout au panier, erreurs) */
+.woocommerce-message,
+.woocommerce-info,
+.woocommerce-error {
+  align-items: center;
+  background: var(--blanc);
+  border-left: 2px solid var(--or);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.98rem;
+  gap: 0.75rem 1.25rem;
+  justify-content: space-between;
+  list-style: none;
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.25rem;
+}
+
+.woocommerce-error {
+  border-color: var(--brique);
+  color: var(--brique);
+}
+
+.woocommerce-message .button,
+.woocommerce-info .button {
+  border-bottom: 1px solid var(--or);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  order: 2;
+  text-transform: uppercase;
+}
+
+.fiche-garanties {
+  background: var(--blanc);
+  border: 1px solid var(--filet);
+  display: grid;
+  gap: 0.9rem 1.5rem;
+  margin-top: 1.75rem;
+  padding: 1.4rem 1.5rem;
+}
+
+@media (min-width: 560px) {
+  .fiche-garanties {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.fiche-garanties li {
+  align-items: flex-start;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.fiche-garanties .icone {
+  color: var(--or);
+  margin-top: 0.15rem;
+}
+
+.fiche-garanties p {
+  color: var(--mousse);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.fiche-garanties strong {
+  color: var(--sapin);
+  display: block;
+  font-weight: 500;
+}
+
+/* Profil olfactif */
+.profil {
+  background: var(--sapin);
+  color: var(--ivoire);
+  margin-top: 2.25rem;
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.profil h2 {
+  font-size: clamp(1.6rem, 2.4vw, 2rem);
+}
+
+.profil dl {
+  margin-top: 1.25rem;
+}
+
+.profil dl > div {
+  align-items: center;
+  border-top: 1px solid var(--filet-clair);
+  display: grid;
+  gap: 0.6rem 1.25rem;
+  grid-template-columns: 8.75rem 1fr;
+  padding-block: 1rem;
+}
+
+.profil dt {
+  align-items: center;
+  color: var(--or-clair);
+  display: flex;
+  font-size: 0.72rem;
+  font-weight: 500;
+  gap: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.profil dd {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.profil .pastille {
+  border-color: var(--filet-clair);
+  font-size: 0.9rem;
+  padding: 0.45rem 0.95rem;
+}
+
+.profil a.pastille:hover {
+  background: var(--ivoire);
+  border-color: var(--ivoire);
+  color: var(--sapin);
+}
+
+.profil .pastille-note {
+  background: rgb(247 240 228 / 9%);
+}
+
+@media (max-width: 480px) {
+  .profil dl > div {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Accordéons */
+.accordeons {
+  margin-top: 2.25rem;
+}
+
+.accordeon {
+  border-top: 1px solid var(--filet);
+}
+
+.accordeon:last-child {
+  border-bottom: 1px solid var(--filet);
+}
+
+.accordeon summary {
+  align-items: center;
+  display: flex;
+  font-family: var(--font-titre);
+  font-size: 1.3rem;
+  justify-content: space-between;
+  padding-block: 1.25rem;
+}
+
+.accordeon .prose {
+  color: var(--mousse);
+  font-size: 1rem;
+  padding-bottom: 1.6rem;
+}
+
+.accordeon .prose h2,
+.accordeon .prose h3 {
+  color: var(--sapin);
+  font-size: 1.25rem;
+  margin-top: 1.4em;
+}
+
+.accordeon .prose > :first-child {
+  margin-top: 0;
+}

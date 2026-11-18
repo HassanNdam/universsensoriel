@@ -1,13 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-  @include('partials.page-header')
-
-  @if (! have_posts())
-    <x-alert type="warning">
-      {!! __('Sorry, but the page you are trying to view does not exist.', 'sage') !!}
-    </x-alert>
-
-    {!! get_search_form(false) !!}
-  @endif
+  <section class="introuvable">
+    <div class="conteneur">
+      {!! App\icone('etoile', 44) !!}
+      <p class="surtitre surtitre-clair">Erreur 404</p>
+      <h1>Cette page s'est évaporée</h1>
+      <p>Le lien est peut-être ancien. Reprenez le fil depuis la boutique, ou dites-nous ce que vous cherchiez.</p>
+      <div class="ouverture-actions">
+        <a class="bouton bouton-clair" href="{{ home_url('/boutique/') }}">Voir la boutique</a>
+        <a class="lien-or" href="{{ home_url('/contact/') }}">Nous écrire {!! App\icone('fleche', 18) !!}</a>
+      </div>
+    </div>
+  </section>
 @endsection

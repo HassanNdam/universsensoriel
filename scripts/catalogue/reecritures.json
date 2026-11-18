@@ -1,0 +1,604 @@
+{
+ "_lisez-moi": "Fiches réécrites à la main (entretien de la maison, compléments alimentaires), repérées par l'identifiant de l'ancienne boutique. Une fiche présente ici est publiée. Entretien : ton sobre, pas de promesse d'élimination des bactéries. Compléments : on décrit le produit (forme, goût, format), sans allégation de santé ; la mention réglementaire est ajoutée par preparer.py.",
+ "grace-chiffon-en-microfibre-pour-les-vitres-fenetres-et-miroirs": {
+  "nom": "Chiffon microfibre Grace",
+  "sous_titre": "Vitres et miroirs",
+  "accroche": "Un chiffon pensé pour le verre : sa trame serrée nettoie les vitres, les fenêtres et les miroirs et les sèche sans laisser de trace.",
+  "points": [
+   "Pour les vitres, les miroirs et les surfaces réfléchissantes",
+   "Séchage net, sans trace ni peluche",
+   "Lavable en machine et réutilisable",
+   "Dimensions : 40 × 40 cm"
+  ]
+ },
+ "cathy-chiffon-en-microfibre-pour-le-nettoyage-de-la-cuisine": {
+  "nom": "Chiffon microfibre Cathy",
+  "sous_titre": "Cuisine",
+  "accroche": "Le chiffon de la cuisine : sa structure accroche les graisses sur les plans de travail, les plaques et les ustensiles.",
+  "points": [
+   "Dégraisse les surfaces et les ustensiles de cuisine",
+   "Vient à bout des taches tenaces",
+   "Lavable en machine et réutilisable",
+   "Dimensions : 40 × 40 cm"
+  ]
+ },
+ "terry-chiffon-en-microfibre-anti-poussiere-multisurface-violet": {
+  "nom": "Chiffon microfibre Terry",
+  "sous_titre": "Anti-poussière, toutes surfaces",
+  "accroche": "Ses fibres attrapent la poussière et la retiennent, sans laisser de résidu, sur toutes les surfaces de la maison.",
+  "points": [
+   "Capture la poussière au lieu de la déplacer",
+   "Pour les pièces de vie comme pour la salle de bains",
+   "Lavable en machine et réutilisable",
+   "Dimensions : 50 × 70 cm"
+  ]
+ },
+ "lucy-chiffon-en-microfibre-pour-un-sechage-parfait": {
+  "nom": "Chiffon microfibre Lucy",
+  "sous_titre": "Séchage",
+  "accroche": "Une microfibre très douce et très absorbante, pour sécher sans trace les surfaces les plus délicates.",
+  "points": [
+   "Sèche sans trace ni peluche",
+   "Convient à l'inox, à la robinetterie et au bois",
+   "S'utilise à l'eau seule",
+   "Conseil : bien l'essorer avant et après chaque usage"
+  ]
+ },
+ "wilma-chiffon-en-microfibre-pour-une-brillance-extraordinaire": {
+  "nom": "Chiffon microfibre Wilma",
+  "sous_titre": "Brillance",
+  "accroche": "Épais et très doux, le chiffon Wilma redonne de l'éclat au verre, aux miroirs, au bois et aux écrans.",
+  "points": [
+   "Fait briller sans laisser de trace",
+   "Antistatique : la poussière se redépose moins vite",
+   "S'utilise à l'eau seule",
+   "Pour le verre, les miroirs, le bois, les écrans et les vitres de voiture"
+  ]
+ },
+ "betty-chiffon-en-microfibre-sols": {
+  "nom": "Chiffon microfibre Betty",
+  "sous_titre": "Sols",
+  "accroche": "Terre cuite, marbre, grès cérame : Betty nettoie tous les sols en douceur, sans rayer ni laisser de trace.",
+  "points": [
+   "Pour tous les types de sols",
+   "Capture la poussière et les salissures sans rayer",
+   "Lavable en machine et réutilisable",
+   "Dimensions : 45 × 60 cm"
+  ]
+ },
+ "susy-chiffon-en-microfibre-parquet-et-lamines": {
+  "nom": "Chiffon microfibre Susy",
+  "sous_titre": "Parquet et sols stratifiés",
+  "accroche": "Une face lisse, une face striée : Susy nettoie puis sèche les sols en bois sans les rayer.",
+  "points": [
+   "Double face : l'une enlève les salissures, l'autre sèche",
+   "À sec, attire la poussière",
+   "Humide, retient les salissures",
+   "Dimensions : 45 × 60 cm"
+  ]
+ },
+ "tete-de-vaporisateur-mousse": {
+  "nom": "Tête de vaporisateur mousse",
+  "sous_titre": "Pour flacon rechargeable",
+  "accroche": "L'accessoire des flacons rechargeables : il transforme le produit concentré en mousse, qui tient mieux sur la surface à nettoyer.",
+  "points": [
+   "Compatible avec les flacons rechargeables de la gamme",
+   "Application en mousse, précise et économe",
+   "Livrée avec sa canule"
+  ]
+ },
+ "tete-de-vaporisateur-spray": {
+  "nom": "Tête de vaporisateur spray",
+  "sous_titre": "Pour flacon rechargeable",
+  "accroche": "L'accessoire des flacons rechargeables : une vaporisation fine et régulière pour doser juste les produits concentrés.",
+  "points": [
+   "Compatible avec les flacons rechargeables de la gamme",
+   "Vaporisation uniforme",
+   "Pratique et économe"
+  ]
+ },
+ "eponge-magique-paquet-de-2-pieces": {
+  "nom": "Éponge magique",
+  "sous_titre": "Lot de 2",
+  "accroche": "Une éponge qui efface les marques tenaces avec de l'eau, sans aucun détergent.",
+  "points": [
+   "S'utilise à l'eau seule",
+   "Pour les murs, les portes, les meubles, les plaques de cuisson et le cuir",
+   "Mode d'emploi : humidifier, essorer, frotter doucement",
+   "Lot de 2 éponges"
+  ]
+ },
+ "brilparquet-revetement-sol-et-mur-en-parquet-sweet-honey": {
+  "nom": "Brilparquet",
+  "sous_titre": "Soin du parquet, parfum Sweet Honey",
+  "accroche": "Une émulsion à la cire de carnauba qui nettoie le parquet et révèle la couleur naturelle du bois, avec une note de miel.",
+  "points": [
+   "Pour l'entretien courant des sols et des murs en parquet",
+   "Sans rinçage, ne mousse pas",
+   "Limite les traces de doigts",
+   "Parfum Sweet Honey"
+  ]
+ },
+ "joints-nettoyant-concentre-brilgrout-750-ml-floral-bouquet": {
+  "nom": "Brilgrout",
+  "sous_titre": "Nettoyant pour joints, parfum Floral Bouquet",
+  "accroche": "Un nettoyant concentré qui redonne leur netteté aux joints de carrelage, au sol comme au mur.",
+  "points": [
+   "Pour les joints horizontaux et verticaux",
+   "Vient à bout du calcaire et du noircissement",
+   "Parfum Floral Bouquet",
+   "Flacon de 750 ml"
+  ]
+ },
+ "floor-cleaner-detergent-pour-sols-et-surfaces-lavables-750-ml": {
+  "nom": "Floor Cleaner Lavender Spirit",
+  "sous_titre": "Nettoyant pour sols, parfum lavande",
+  "accroche": "Un nettoyant pour sols à la cire de carnauba : il lave, fait briller et laisse dans la pièce un parfum de lavande.",
+  "points": [
+   "Pour la pierre, le marbre et le carrelage",
+   "Laisse un film protecteur brillant et antidérapant",
+   "Parfum Lavender Spirit, frais et persistant",
+   "Flacon de 750 ml"
+  ]
+ },
+ "floor-cleaner-detergent-pour-sols-et-surfaces-lavables-mysterious-hibiscus": {
+  "nom": "Floor Cleaner Mysterious Hibiscus",
+  "sous_titre": "Nettoyant pour sols, parfum hibiscus",
+  "accroche": "Un sol propre et brillant, et une maison qui sent bon : la version hibiscus du nettoyant pour sols à la cire de carnauba.",
+  "points": [
+   "Pour la pierre, le marbre et le carrelage",
+   "Laisse un film protecteur brillant et antidérapant",
+   "Parfum Mysterious Hibiscus",
+   "Flacon de 750 ml"
+  ]
+ },
+ "floor-cleaner-detergent-pour-sols-et-surfaces-lavables-wind-flowers-dream": {
+  "nom": "Floor Cleaner Wind Flowers Dream",
+  "sous_titre": "Nettoyant pour sols, parfum fleuri",
+  "accroche": "La fraîcheur d'un jardin en fleurs : la version fleurie du nettoyant pour sols à la cire de carnauba.",
+  "points": [
+   "Pour la pierre, le marbre et le carrelage",
+   "Laisse un film protecteur brillant et antidérapant",
+   "Parfum Wind Flowers Dream",
+   "Flacon de 750 ml"
+  ]
+ },
+ "detergent-pour-la-terre-cuite-le-clinker-et-la-pierre-naturelle-poreuse-perfect-cotto": {
+  "nom": "Perfect Cotto",
+  "sous_titre": "Nettoyant pour terre cuite et pierre naturelle",
+  "accroche": "Un nettoyant détartrant qui rend aux sols en terre cuite et en pierre naturelle leur couleur d'origine.",
+  "points": [
+   "Pour la terre cuite, le clinker et la pierre poreuse",
+   "Retire le calcaire, le noircissement et les traces de ciment",
+   "Respecte les joints"
+  ]
+ },
+ "degraissant-pour-fours-et-hottes-brilgrill-750-ml": {
+  "nom": "Brilgrill",
+  "sous_titre": "Dégraissant pour fours et hottes",
+  "accroche": "Un dégraissant concentré qui ramollit les résidus de cuisson, même à froid, sur les fours, les hottes et les grils.",
+  "points": [
+   "Agit à froid sur les graisses cuites",
+   "Pour les fours, les hottes, les grils et les plaques de cuisson",
+   "Formule concentrée",
+   "Flacon de 750 ml"
+  ]
+ },
+ "polissant-pour-acier-inoxydable-brilsteel-750-ml": {
+  "nom": "Brilsteel",
+  "sous_titre": "Nettoyant polissant pour l'inox",
+  "accroche": "Il dégraisse et fait briller l'acier inoxydable, sans le rayer et sans laisser de trace.",
+  "points": [
+   "Dégraisse, polit et ravive l'inox",
+   "Ne raye pas",
+   "Fini sans trace",
+   "Flacon de 750 ml"
+  ]
+ },
+ "brilcaf-detartrant-pour-machines-a-cafe-300-ml": {
+  "nom": "Brilcaf",
+  "sous_titre": "Détartrant pour machine à café",
+  "accroche": "Un détartrant d'origine naturelle pour entretenir la machine à café et préserver le goût du café.",
+  "points": [
+   "Dissout le calcaire et les résidus de café",
+   "Respecte les plastiques, les joints et les tuyaux",
+   "Ne laisse aucun goût après rinçage",
+   "Flacon de 300 ml"
+  ]
+ },
+ "wonderiron-detartrant-pour-le-fer-a-repasser-300-ml": {
+  "nom": "Wonderiron",
+  "sous_titre": "Détartrant pour fer à repasser",
+  "accroche": "Il dissout le calcaire dans la chaudière et sur la semelle du fer à vapeur, pour un repassage sans tache.",
+  "points": [
+   "Pour les fers et les centrales vapeur",
+   "Évite les dépôts blancs sur le linge",
+   "Délicatement parfumé",
+   "Flacon de 300 ml"
+  ]
+ },
+ "saverdish-nettoyant-pour-lentretien-des-lave-vaisselle-300-ml": {
+  "nom": "Saverdish",
+  "sous_titre": "Entretien du lave-vaisselle",
+  "accroche": "Un nettoyant qui dégraisse et détartre le lave-vaisselle jusque dans les circuits, les filtres et les joints.",
+  "points": [
+   "Dégraisse, détartre et désodorise",
+   "Atteint le panier, la pompe, les filtres et les joints",
+   "Laisse un parfum frais",
+   "Flacon de 300 ml"
+  ]
+ },
+ "saverwash-nettoyant-pour-lentretien-des-lave-linge-300-ml": {
+  "nom": "Saverwash",
+  "sous_titre": "Entretien du lave-linge",
+  "accroche": "Un lave-linge entretenu, c'est un linge qui sent bon : Saverwash dégraisse et détartre le tambour, les circuits et les joints.",
+  "points": [
+   "Dégraisse, détartre et désodorise",
+   "Atteint le tambour, la pompe, les filtres et les joints",
+   "Laisse un parfum frais",
+   "Flacon de 300 ml"
+  ]
+ },
+ "frostaway-degivrant-pour-congelateurs-et-freezers-750-ml": {
+  "nom": "Frostaway",
+  "sous_titre": "Dégivrant pour congélateur",
+  "accroche": "Il s'infiltre dans la glace et la décolle des parois : le congélateur se dégivre vite, sans gratter.",
+  "points": [
+   "Accélère le dégivrage",
+   "Doux pour les parois de l'appareil",
+   "Délicatement parfumé",
+   "Flacon de 750 ml"
+  ]
+ },
+ "fire-cleanse-detergent-concentre-degraissant-et-decarbonisant-750-ml": {
+  "nom": "Fire Cleanse",
+  "sous_titre": "Nettoyant pour cheminées et poêles",
+  "accroche": "Un nettoyant concentré pour les vitres et les parois des cheminées, des poêles à bois et des poêles à granulés.",
+  "points": [
+   "Dissout la suie et les dépôts gras",
+   "Formule concentrée à action rapide",
+   "Parfum frais",
+   "Flacon de 750 ml"
+  ]
+ },
+ "shinyfridge-nettoyant-assainissant-pour-refrigerateurs-750-ml": {
+  "nom": "Shinyfridge",
+  "sous_titre": "Nettoyant pour réfrigérateur",
+  "accroche": "Il nettoie l'intérieur et l'extérieur du réfrigérateur, sèche vite et chasse les odeurs.",
+  "points": [
+   "Pour l'intérieur comme pour l'extérieur",
+   "Ne laisse pas de résidu",
+   "Séchage rapide, sans odeur",
+   "Flacon de 750 ml"
+  ]
+ },
+ "brilgrease-degraissant-et-assainissant-super-concentre-750-ml": {
+  "nom": "Brilgrease",
+  "sous_titre": "Dégraissant super-concentré",
+  "accroche": "Le dégraissant le plus polyvalent de la gamme : graisses, fumée, cires et taches d'huile, sur toutes les surfaces lavables.",
+  "points": [
+   "Sans ammoniaque ni phosphate",
+   "Pour le plastique, le bois, la céramique, le verre et l'inox",
+   "Super-concentré : une petite dose suffit",
+   "Flacon de 750 ml"
+  ]
+ },
+ "brilglass-nettoyant-pour-vitres-et-miroirs-750-ml": {
+  "nom": "Brilglass",
+  "sous_titre": "Nettoyant pour vitres et miroirs",
+  "accroche": "Des vitres et des miroirs nets, sans rinçage et sans trace, avec un parfum discret.",
+  "points": [
+   "Retire la poussière et les traces de doigts",
+   "Sans rinçage",
+   "Fini sans trace",
+   "Flacon de 750 ml"
+  ]
+ },
+ "brilbright-nettoyant-pour-meubles-precieux-et-cuir-750-ml": {
+  "nom": "Brilbright",
+  "sous_titre": "Soin des meubles et du cuir",
+  "accroche": "Une émulsion à la cire de carnauba qui nettoie, ravive et protège le bois des beaux meubles et le cuir des canapés.",
+  "points": [
+   "Ravive l'éclat naturel du bois et du cuir",
+   "Sans rinçage",
+   "Laisse un parfum frais",
+   "Flacon de 750 ml"
+  ]
+ },
+ "anti-poussiere-briltotal-750-ml": {
+  "nom": "Briltotal",
+  "sous_titre": "Nettoyant anti-poussière",
+  "accroche": "Un nettoyant du quotidien qui laisse un film antistatique invisible : la poussière revient moins vite.",
+  "points": [
+   "Pour toutes les surfaces",
+   "Film antistatique invisible",
+   "Sans ammoniaque, séchage rapide",
+   "Flacon de 750 ml"
+  ]
+ },
+ "anti-odeurs-sanipaw-750-ml": {
+  "nom": "Sanipaw",
+  "sous_titre": "Anti-odeurs, maison avec animaux",
+  "accroche": "Pour les maisons où vivent des animaux : Sanipaw neutralise les odeurs et laisse un parfum frais.",
+  "points": [
+   "Neutralise les odeurs d'animaux",
+   "Pour les sols, les tissus et les zones de passage",
+   "Parfum frais",
+   "Flacon de 750 ml"
+  ]
+ },
+ "deboucheur-turbodrain-en-granules-super-concentre-1-kg": {
+  "nom": "Turbodrain",
+  "sous_titre": "Déboucheur en granules, 1 kg",
+  "accroche": "Un déboucheur en granules qui libère les canalisations des dépôts de graisse, de cheveux et de savon.",
+  "points": [
+   "Agit sur les bouchons tenaces",
+   "Respecte les canalisations",
+   "Format économique de 1 kg",
+   "À manipuler avec précaution : lire l'étiquette avant usage"
+  ]
+ },
+ "anti-odeur-smellaway-nettoyant-pour-canalisations-300-ml": {
+  "nom": "Smellaway",
+  "sous_titre": "Anti-odeurs pour canalisations",
+  "accroche": "Une formule biologique qui traite les odeurs de canalisation à la source et aide à prévenir les bouchons.",
+  "points": [
+   "Formule biologique",
+   "Traite les mauvaises odeurs de canalisation",
+   "Aide à prévenir les bouchons",
+   "Flacon de 300 ml"
+  ]
+ },
+ "blanchissant-bril-wc-detergent-detartrant-concentre-750-ml-fresh-citrus": {
+  "nom": "Bril WC",
+  "sous_titre": "Détartrant pour sanitaires, parfum Fresh Citrus",
+  "accroche": "Un gel détartrant qui rend leur blancheur aux sanitaires et laisse un parfum d'agrumes.",
+  "points": [
+   "Retire le calcaire, le tartre et la rouille",
+   "Gel épais : il adhère aux parois",
+   "Parfum Fresh Citrus",
+   "Flacon de 750 ml"
+  ]
+ },
+ "anticalcaire-brilbath-spray-nettoyant-750-ml": {
+  "nom": "Brilbath",
+  "sous_titre": "Spray anticalcaire pour la salle de bains",
+  "accroche": "Il retire le calcaire et les traces de savon, fait briller les surfaces et les protège plusieurs jours.",
+  "points": [
+   "Détartre et fait briller en un geste",
+   "Retarde le retour du calcaire",
+   "Convient au verre et aux parois de douche",
+   "Spray de 750 ml"
+  ]
+ },
+ "greendish-500-ml": {
+  "nom": "GreenDish",
+  "sous_titre": "Liquide vaisselle concentré, 500 ml",
+  "accroche": "Un liquide vaisselle concentré à la saponaire, doux pour les mains, sans conservateur ni colorant.",
+  "points": [
+   "Formule concentrée à l'extrait de saponaire officinale",
+   "Enrichi en bave d'escargot, pour la douceur des mains",
+   "Sans conservateur, sans colorant, sans phosphore",
+   "Deux parfums : citron, ou aloe et bambou"
+  ]
+ },
+ "powerdish": {
+  "nom": "PowerDish",
+  "sous_titre": "Liquide vaisselle super-concentré",
+  "accroche": "Un liquide vaisselle super-concentré : une noisette suffit pour dégraisser, et les mains restent douces.",
+  "points": [
+   "Super-concentré : une petite quantité suffit",
+   "Enrichi en bave d'escargot, pour la douceur des mains",
+   "Sans conservateur, sans colorant, sans phosphore",
+   "Deux parfums : citron, ou aloe et bambou"
+  ]
+ },
+ "omegapower-chogan": {
+  "nom": "Omegapower",
+  "sous_titre": "Complément alimentaire aux oméga-3",
+  "accroche": "Un complément alimentaire source d'oméga-3, à intégrer à votre routine quotidienne.",
+  "points": [
+   "Riche en oméga-3"
+  ]
+ },
+ "vitalflora-chogan": {
+  "nom": "Vitalflora",
+  "sous_titre": "Complément alimentaire aux ferments",
+  "accroche": "Un complément alimentaire à base de ferments, à intégrer à votre routine quotidienne.",
+  "points": [
+   "Formule concentrée en ferments"
+  ]
+ },
+ "chromagen-chogan": {
+  "nom": "Chromagen",
+  "sous_titre": "Complément alimentaire de la belle saison",
+  "accroche": "Le complément alimentaire à commencer avant l'été, pour accompagner la peau pendant la belle saison.",
+  "points": [
+   "Ne remplace pas une protection solaire"
+  ]
+ },
+ "myvera-crush-woman-tonico-adaptogene-pour-les-femmes-6-bouteilles-de-285-ml": {
+  "nom": "Myvera Crush Woman +",
+  "sous_titre": "Boisson à l'aloe vera, goût baies",
+  "accroche": "Une boisson prête à boire à base d'aloe vera, au goût de baies : la pause fraîche de la journée.",
+  "points": [
+   "Prête à boire, à servir fraîche",
+   "Goût baies",
+   "Bouteilles de 285 ml, par 6 ou par 12"
+  ]
+ },
+ "myvera-crush-man-tonico-adaptogene-pour-les-hommes-6-bouteilles-de-285-ml": {
+  "nom": "Myvera Crush Man +",
+  "sous_titre": "Boisson à l'aloe vera, goût fruits tropicaux",
+  "accroche": "Une boisson prête à boire à base d'aloe vera, au goût de fruits tropicaux.",
+  "points": [
+   "Prête à boire, à servir fraîche",
+   "Goût fruits tropicaux",
+   "Bouteilles de 285 ml, par 6 ou par 12"
+  ]
+ },
+ "virilgel-tonique-virilite-30-stick-pack-de-10-ml": {
+  "nom": "Virilgel",
+  "sous_titre": "Complément alimentaire pour homme, goût banane",
+  "accroche": "Un complément alimentaire pour homme en sticks individuels, au goût de banane, facile à emporter.",
+  "points": [
+   "30 sticks de 10 ml par boîte",
+   "Goût banane"
+  ]
+ },
+ "multigelvit-multavitamine-30-stick-pack-de-10-ml": {
+  "nom": "Multigelvitaminé",
+  "sous_titre": "Multivitamines en sticks, goût mandarine",
+  "accroche": "Les vitamines du quotidien dans un stick de poche, au goût de mandarine.",
+  "points": [
+   "30 sticks de 10 ml par boîte",
+   "Goût mandarine"
+  ]
+ },
+ "mybrain-memoire-concentration-30-stick-pack-de-10-ml": {
+  "nom": "Mybrain",
+  "sous_titre": "Complément alimentaire en sticks, goût réglisse",
+  "accroche": "Un complément alimentaire en sticks individuels, au goût de réglisse, pour les journées bien remplies.",
+  "points": [
+   "30 sticks de 10 ml par boîte",
+   "Goût réglisse"
+  ]
+ },
+ "speedsleep-repos-nocturne-30-stick-pack-de-10-ml": {
+  "nom": "Speedsleep",
+  "sous_titre": "Complément alimentaire du soir, goût figue",
+  "accroche": "Le stick du soir, au goût de figue, à prendre avant le coucher dans votre rituel de fin de journée.",
+  "points": [
+   "30 sticks de 10 ml par boîte",
+   "Goût figue"
+  ]
+ },
+ "jus-d-aloe-vera-biologique-480-ml": {
+  "nom": "Jus d'aloe vera 99,9 %",
+  "sous_titre": "Jus et pulpe à diluer",
+  "accroche": "Du jus et de la pulpe d'aloe vera purs à 99,9 %, à diluer dans un verre d'eau ou de jus de fruits.",
+  "points": [
+   "Aloe vera pur à 99,9 %",
+   "Nature, myrtille ou thé vert en 675 ml",
+   "Version biologique en 480 ml"
+  ]
+ },
+ "myvera-crush-mind-esprit-focus-et-memoire-12-bouteilles-de-285ml": {
+  "nom": "Myvera Crush Mind +",
+  "sous_titre": "Boisson à l'aloe vera",
+  "accroche": "Une boisson prête à boire à base d'aloe vera, pour les journées de travail et de révision.",
+  "points": [
+   "Prête à boire, à servir fraîche",
+   "Bouteilles de 285 ml, par 6 ou par 12"
+  ]
+ },
+ "myvera-crush-electrolytes-reduction-de-la-fatigue-lot-de12-de-285-ml": {
+  "nom": "Myvera Crush Electrolytes +",
+  "sous_titre": "Boisson à l'aloe vera et aux électrolytes",
+  "accroche": "Une boisson prête à boire à base d'aloe vera et d'électrolytes, à glisser dans le sac de sport.",
+  "points": [
+   "Prête à boire, à servir fraîche",
+   "Bouteilles de 285 ml, par 6 ou par 12"
+  ]
+ },
+ "myvera-crush-collagen-12-bouteilles-de-285-ml": {
+  "nom": "Myvera Crush Collagen +",
+  "sous_titre": "Boisson à l'aloe vera et au collagène, goût myrtille",
+  "accroche": "Une boisson prête à boire à base d'aloe vera, enrichie en collagène, au goût de myrtille.",
+  "points": [
+   "Prête à boire, à servir fraîche",
+   "Goût myrtille",
+   "Bouteilles de 285 ml, par 6 ou par 12"
+  ]
+ },
+ "myvera-crush-keto-metabolisme-12-bouteilles-de-285-ml": {
+  "nom": "Myvera Crush Keto +",
+  "sous_titre": "Boisson à l'aloe vera",
+  "accroche": "Une boisson prête à boire à base d'aloe vera, pour accompagner les journées actives.",
+  "points": [
+   "Prête à boire, à servir fraîche",
+   "Bouteilles de 285 ml, par 6 ou par 12"
+  ]
+ },
+ "lipo-loss-60-gelules": {
+  "nom": "Lipo Loss +",
+  "sous_titre": "Complément alimentaire, 60 gélules",
+  "accroche": "Un complément alimentaire en gélules, à associer à une alimentation équilibrée et à une activité physique régulière.",
+  "points": [
+   "60 gélules par boîte"
+  ]
+ },
+ "garci-max-60-cps-de-738-mg": {
+  "nom": "Garci Max +",
+  "sous_titre": "Complément alimentaire, 60 gélules",
+  "accroche": "Un complément alimentaire en gélules, à associer à une alimentation équilibrée et à une activité physique régulière.",
+  "points": [
+   "60 gélules par boîte"
+  ]
+ },
+ "skinpure-60-cps-de-646-mg-1": {
+  "nom": "Chol Stop",
+  "sous_titre": "Complément alimentaire, 60 gélules",
+  "accroche": "Un complément alimentaire en gélules, à intégrer à une hygiène de vie équilibrée.",
+  "points": [
+   "60 gélules par boîte"
+  ]
+ },
+ "him-plus-60-cps-de-32-6-mg": {
+  "nom": "Him Plus",
+  "sous_titre": "Complément alimentaire pour homme, 60 gélules",
+  "accroche": "Un complément alimentaire pensé pour l'homme, à intégrer à sa routine quotidienne.",
+  "points": [
+   "60 gélules par boîte"
+  ]
+ },
+ "her-plus-60-cps-de-32-6-mg": {
+  "nom": "Her Plus +",
+  "sous_titre": "Complément alimentaire pour femme, 60 gélules",
+  "accroche": "Un complément alimentaire pensé pour la femme, à intégrer à sa routine beauté.",
+  "points": [
+   "60 gélules par boîte"
+  ]
+ },
+ "skinpure-60-cps-de-646-mg": {
+  "nom": "Skinpure",
+  "sous_titre": "Complément alimentaire, 60 gélules",
+  "accroche": "Un complément alimentaire en gélules, à associer à votre routine de soin de la peau.",
+  "points": [
+   "60 gélules par boîte"
+  ]
+ },
+ "dren-fast-30-stick-pack-de-10-ml-complement-alimentaire-pour-le-drainage-des-fluides-corporels-avec-equitullas™": {
+  "nom": "Dren Fast Drainant",
+  "sous_titre": "Complément alimentaire en sticks à diluer",
+  "accroche": "Un complément alimentaire en sticks, à diluer dans une grande bouteille d'eau et à boire au fil de la journée.",
+  "points": [
+   "30 sticks de 10 ml par boîte"
+  ]
+ },
+ "dren-fast-30-stick-pack-de-10-ml-1": {
+  "nom": "Dren Fast Cellulite",
+  "sous_titre": "Complément alimentaire en sticks à diluer",
+  "accroche": "Un complément alimentaire en sticks, à diluer dans une grande bouteille d'eau et à boire au fil de la journée.",
+  "points": [
+   "30 sticks de 10 ml par boîte"
+  ]
+ },
+ "dren-fast-30-stick-pack-de-10-ml": {
+  "nom": "Dren Fast Poids",
+  "sous_titre": "Complément alimentaire en sticks à diluer",
+  "accroche": "Un complément alimentaire en sticks, à diluer dans une grande bouteille d'eau et à boire au fil de la journée.",
+  "points": [
+   "30 sticks de 10 ml par boîte"
+  ]
+ },
+ "skinail-collagen-poudre": {
+  "nom": "Beauty Drink Collagen",
+  "sous_titre": "Boisson au collagène, 30 sachets",
+  "accroche": "Une boisson au collagène en sachets individuels, pour un mois de rituel beauté.",
+  "points": [
+   "30 sachets de 21 g : un mois",
+   "Formulée sans les allergènes courants"
+  ]
+ }
+}

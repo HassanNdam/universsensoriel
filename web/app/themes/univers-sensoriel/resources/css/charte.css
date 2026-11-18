@@ -1,0 +1,60 @@
+/*
+ * Charte Univers Sensoriel (docs/00-projet/Audit-et-charte-Univers-Sensoriel.pdf, page 3).
+ * Sept dixièmes d'ivoire et de blanc, deux de sapin, un d'or au plus.
+ * L'or (#AA742C) ne porte jamais de texte sur fond clair : le bronze le remplace.
+ */
+@font-face {
+  font-family: "Marcellus";
+  src: url("../fonts/marcellus.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Jost";
+  src: url("../fonts/jost.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --color-sapin: #1f3124;
+  --color-sapin-profond: #16241a;
+  --color-sapin-doux: #2b4231;
+  --color-ivoire: #f7f0e4;
+  --color-blanc-chaud: #fffdf9;
+  --color-lin: #eadfcd;
+  --color-or: #aa742c;
+  --color-bronze: #7b4c0f;
+  --color-or-clair: #e3b56f;
+  --color-mousse: #4f5a4c;
+  --color-brique: #a63d2a;
+
+  --font-titre: "Marcellus", Georgia, "Times New Roman", serif;
+  --font-texte: "Jost", "Helvetica Neue", Arial, sans-serif;
+}
+
+:root {
+  --sapin: var(--color-sapin);
+  --sapin-profond: var(--color-sapin-profond);
+  --sapin-doux: var(--color-sapin-doux);
+  --ivoire: var(--color-ivoire);
+  --blanc: var(--color-blanc-chaud);
+  --lin: var(--color-lin);
+  --or: var(--color-or);
+  --bronze: var(--color-bronze);
+  --or-clair: var(--color-or-clair);
+  --mousse: var(--color-mousse);
+  --brique: var(--color-brique);
+  --filet: rgb(31 49 36 / 14%);
+  --filet-clair: rgb(247 240 228 / 18%);
+
+  --gouttiere: clamp(1.25rem, 4vw, 3.5rem);
+  --largeur: 1480px;
+  --rayon: 2px; /* angles presque droits, comme les filets du logo */
+  --section: clamp(4.5rem, 9vw, 8.5rem);
+  --transition: 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ombre: 0 24px 60px -30px rgb(22 36 26 / 45%);
+}

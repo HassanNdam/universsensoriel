@@ -1,0 +1,15 @@
+# Compositions graphiques sur fond blanc : gardées telles quelles, sans détourage.
+afrodite-3.jpg
+afrodite-4.jpg
+apollo-3.jpg
+apollo-4.jpg
+ares-3.jpg
+ares-4.jpg
+artemide-3.jpg
+artemide-4.jpg
+ermes-3.jpg
+ermes-4.jpg
+medusa-3.jpg
+medusa-4.jpg
+zeus-3.jpg
+zeus-4.jpg

@@ -1,0 +1,278 @@
+/* Boutique : en-tête de rayon, barre de tri, filtres en tiroir, pagination. */
+
+.fil {
+  color: var(--mousse);
+  font-size: 0.82rem;
+  padding-block: 1.4rem 0;
+}
+
+.fil ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.6rem;
+}
+
+.fil li + li::before {
+  color: var(--or);
+  content: "/";
+  margin-right: 0.6rem;
+}
+
+.fil a:hover {
+  color: var(--bronze);
+}
+
+.rayon-tete {
+  background: linear-gradient(180deg, var(--lin) 0%, var(--ivoire) 100%);
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  text-align: center;
+}
+
+.rayon-tete .fil ol {
+  justify-content: center;
+}
+
+.rayon-tete .surtitre {
+  margin-top: clamp(2rem, 4vw, 3.25rem);
+}
+
+.rayon-tete h1 {
+  font-size: clamp(2.5rem, 5vw, 4.25rem);
+  margin-top: 0.9rem;
+}
+
+.rayon-intro {
+  color: var(--mousse);
+  font-size: 1.1rem;
+  font-weight: 300;
+  margin: 1.3rem auto 0;
+  max-width: 44rem;
+}
+
+.rayon-tete .pastilles {
+  margin-top: 2.2rem;
+}
+
+.rayon-tete-courte {
+  padding-bottom: 2rem;
+}
+
+.rayon {
+  padding-block: 2rem var(--section);
+}
+
+.rayon-barre {
+  align-items: center;
+  border-bottom: 1px solid var(--filet);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  padding-bottom: 1.25rem;
+}
+
+.bouton-filtres {
+  min-height: 2.9rem;
+  padding: 0.6rem 1.4rem;
+}
+
+.bouton-compteur {
+  align-items: center;
+  background: var(--or);
+  border-radius: 99px;
+  color: var(--blanc);
+  display: inline-flex;
+  font-size: 0.7rem;
+  height: 1.3rem;
+  justify-content: center;
+  letter-spacing: 0;
+  min-width: 1.3rem;
+}
+
+.rayon-total {
+  color: var(--mousse);
+  font-size: 0.95rem;
+  margin-left: auto;
+}
+
+.rayon-tri {
+  align-items: center;
+  display: flex;
+  gap: 0.6rem;
+}
+
+.rayon-tri label {
+  color: var(--mousse);
+  font-size: 0.95rem;
+}
+
+.rayon-tri select {
+  appearance: none;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%231F3124' stroke-width='1.2'%3E%3Cpath d='m1 1.500 5 5 5-5'/%3E%3C/svg%3E") no-repeat right 0.1rem center;
+  border: 0;
+  border-bottom: 1px solid var(--sapin);
+  border-radius: 0;
+  color: var(--sapin);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.95rem;
+  padding: 0.35rem 1.6rem 0.35rem 0;
+}
+
+@media (max-width: 640px) {
+  .rayon-tri label {
+    display: none;
+  }
+
+  .rayon-total {
+    order: 3;
+    width: 100%;
+  }
+
+  .rayon-tri {
+    margin-left: auto;
+  }
+}
+
+.filtres-actifs {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 0.75rem;
+  padding-top: 1.25rem;
+}
+
+.pastille-retirer {
+  background: var(--blanc);
+  font-size: 0.85rem;
+  padding: 0.45rem 0.9rem;
+}
+
+.grille-rayon {
+  padding-top: clamp(2rem, 4vw, 3rem);
+}
+
+.rayon-vide {
+  margin: 0 auto;
+  max-width: 34rem;
+  padding-block: clamp(4rem, 8vw, 7rem);
+  text-align: center;
+}
+
+.rayon-vide .icone {
+  color: var(--or);
+  margin-inline: auto;
+}
+
+.rayon-vide h2 {
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  margin-block: 1.25rem 0.9rem;
+}
+
+.rayon-vide p {
+  color: var(--mousse);
+  margin-bottom: 1.6rem;
+}
+
+.rayon-note {
+  border-top: 1px solid var(--filet);
+  margin-top: clamp(3rem, 6vw, 5rem);
+  padding-top: 2rem;
+  text-align: center;
+}
+
+/* Facettes */
+.facette {
+  border-bottom: 1px solid var(--filet);
+}
+
+.facette summary {
+  align-items: center;
+  display: flex;
+  font-family: var(--font-titre);
+  font-size: 1.3rem;
+  justify-content: space-between;
+  padding-block: 1.2rem;
+}
+
+.facette ul {
+  display: grid;
+  gap: 0.2rem;
+  padding-bottom: 1.3rem;
+}
+
+.case {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  gap: 0.85rem;
+  padding-block: 0.45rem;
+}
+
+.case input {
+  appearance: none;
+  border: 1px solid var(--sapin);
+  border-radius: var(--rayon);
+  flex: none;
+  height: 1.2rem;
+  transition: background var(--transition);
+  width: 1.2rem;
+}
+
+.case-ronde input {
+  border-radius: 50%;
+}
+
+.case input:checked {
+  background: var(--sapin) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F7F0E4' stroke-width='2.4'%3E%3Cpath d='m5 12.500 4.500 4.500L19 7.500'/%3E%3C/svg%3E") center / 0.85rem no-repeat;
+}
+
+.case span {
+  flex: 1;
+}
+
+.case small {
+  color: var(--mousse);
+  font-size: 0.82rem;
+}
+
+/* Pagination */
+.pagination {
+  margin-top: clamp(3rem, 6vw, 5rem);
+}
+
+.pagination ul {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
+}
+
+.pagination .page-numbers {
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: var(--rayon);
+  display: inline-flex;
+  height: 2.9rem;
+  justify-content: center;
+  min-width: 2.9rem;
+  padding-inline: 0.9rem;
+  transition: border-color var(--transition);
+}
+
+.pagination a.page-numbers:hover {
+  border-color: var(--sapin);
+}
+
+.pagination .page-numbers.current {
+  background: var(--sapin);
+  color: var(--ivoire);
+}
+
+.pagination .prev,
+.pagination .next {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}

@@ -1,0 +1,49 @@
+[
+  {
+    "nom": "Parfums", "slug": "parfums",
+    "accroche": "Extraits de parfum longue tenue",
+    "description": "Des extraits de parfum concentrés à 30 %, pensés pour durer du matin au soir. Choisissez votre signature par famille olfactive, florale, boisée, ambrée ou fruitée, et par format : 15 ml pour découvrir, 30 ml pour le sac, 70 ml pour tous les jours.",
+    "rayons": [
+      {"nom": "Parfums femme", "slug": "parfums-femme", "description": "Extraits de parfum pour femme concentrés à 30 % : floraux, fruités, ambrés ou chyprés. Chaque parfum existe en 15, 30 et 70 ml, pour trouver votre signature olfactive sans vous tromper."},
+      {"nom": "Parfums homme", "slug": "parfums-homme", "description": "Extraits de parfum pour homme concentrés à 30 % : boisés, aromatiques, épicés ou aquatiques. Une tenue longue, un sillage net, en 15, 30 et 70 ml."},
+      {"nom": "Collection Luxury", "slug": "collection-luxury", "description": "La collection Luxury réunit nos extraits de parfum les plus précieux : oud, safran, vanille, fleurs rares. Des compositions de caractère, pour elle et pour lui."},
+      {"nom": "Collection Mytologik", "slug": "collection-mytologik", "description": "Sept extraits de parfum inspirés des dieux de l'Olympe, chacun accompagné de son buste sculpté. Une collection d'exception, à offrir ou à collectionner, avec son coffret découverte."},
+      {"nom": "Brumes parfumées", "slug": "brumes-parfumees", "description": "Brumes parfumées pour le corps et les cheveux : un voile léger qui parfume, hydrate et fait briller, à vaporiser tout au long de la journée."},
+      {"nom": "Parfums enfant", "slug": "parfums-enfant", "description": "Des eaux de parfum douces et hypoallergéniques, formulées pour la peau des bébés et des enfants."},
+      {"nom": "Accessoires", "slug": "accessoires-parfum", "description": "Étuis de poche et accessoires pour emporter votre parfum partout."}
+    ]
+  },
+  {
+    "nom": "Beauté", "slug": "beaute",
+    "accroche": "Soins du visage, du corps et des cheveux",
+    "description": "Des soins du visage, du corps et des cheveux aux actifs choisis : aloe vera, acide hyaluronique, huile d'argan, lait d'ânesse. Des textures agréables et des rituels complets pour chaque type de peau.",
+    "rayons": [
+      {"nom": "Soin du visage", "slug": "soin-du-visage", "description": "Crèmes de jour et de nuit, sérums, contours des yeux et masques : des soins du visage aux actifs concentrés pour hydrater, lisser et illuminer la peau."},
+      {"nom": "Corps & bain", "slug": "corps-et-bain", "description": "Gels douche parfumés, crèmes pour le corps, soins des mains et des pieds : le plaisir d'une peau douce, délicatement parfumée."},
+      {"nom": "Cheveux", "slug": "cheveux", "description": "Shampoings, masques et après-shampoings à l'aloe vera : des soins capillaires qui nourrissent, réparent et font briller."},
+      {"nom": "Hygiène", "slug": "hygiene", "description": "Soins d'hygiène du quotidien : déodorants, soins bucco-dentaires et nettoyants doux aux extraits naturels."},
+      {"nom": "Rituels & coffrets", "slug": "rituels-et-coffrets", "description": "Des rituels complets, composés pour chaque type de peau : nettoyant, lotion, sérum et crème réunis en un seul geste. Une belle idée de cadeau."},
+      {"nom": "Bébé & enfant", "slug": "bebe-et-enfant", "description": "Des soins extra-doux pour la toilette des tout-petits : nettoyant, lait corporel, shampoing et bain moussant."}
+    ]
+  },
+  {
+    "nom": "Bien-être", "slug": "bien-etre",
+    "accroche": "Huiles essentielles et huiles végétales",
+    "description": "Huiles essentielles, synergies et huiles végétales pures : la nature en flacon, pour vos massages, vos diffusions et vos rituels de détente.",
+    "rayons": [
+      {"nom": "Huiles essentielles", "slug": "huiles-essentielles", "description": "Huiles essentielles et synergies prêtes à l'emploi, à diffuser ou à diluer pour le massage. À utiliser en respectant les précautions d'emploi."},
+      {"nom": "Huiles végétales", "slug": "huiles-vegetales", "description": "Huiles végétales pures et mélanges d'huiles précieuses : amande douce, baobab, neem, rose musquée. Pour nourrir la peau et les cheveux."},
+      {"nom": "Compléments alimentaires", "slug": "complements-alimentaires", "description": "Gélules, sticks de poche et boissons à l'aloe vera : des compléments alimentaires à intégrer à votre routine. Ils ne remplacent pas une alimentation variée et équilibrée ni un mode de vie sain."}
+    ]
+  },
+  {
+    "nom": "Art de vivre", "slug": "art-de-vivre",
+    "accroche": "Parfums d'ambiance et soin du linge",
+    "description": "Parfums d'ambiance et soin du linge : prolongez votre signature olfactive dans la maison, du salon à la chambre.",
+    "rayons": [
+      {"nom": "Parfums d'ambiance", "slug": "parfums-d-ambiance", "description": "Diffuseurs à bâtonnets et sprays d'ambiance aux fragrances raffinées, en 100, 200 et 500 ml. Une senteur pour chaque pièce de la maison."},
+      {"nom": "Soin du linge", "slug": "soin-du-linge", "description": "Lessives et adoucissants parfumés : un linge propre, souple, au parfum qui dure."},
+      {"nom": "Entretien de la maison", "slug": "entretien-de-la-maison", "description": "Une maison nette et qui sent bon : chiffons en microfibre, nettoyants concentrés et soins du bois, du cuir et de l'inox, pour chaque pièce."}
+    ]
+  }
+]

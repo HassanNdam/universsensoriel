@@ -1,0 +1,203 @@
+/* Pages de contenu, panier, commande, compte, page introuvable. */
+
+.page-texte {
+  max-width: 52rem;
+  padding-block: clamp(2.5rem, 5vw, 4.5rem) var(--section);
+}
+
+.page-boutique {
+  padding-block: clamp(2rem, 4vw, 3.5rem) var(--section);
+}
+
+.page-texte .prose > p:first-child {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+/* Encarts des pages (boutiques, contact) */
+.prose .cartes {
+  display: grid;
+  gap: 1.25rem;
+  margin-block: 2rem;
+}
+
+@media (min-width: 720px) {
+  .prose .cartes {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.prose .cartes > div {
+  background: var(--blanc);
+  border: 1px solid var(--filet);
+  padding: 1.75rem;
+}
+
+.prose .cartes h3 {
+  margin-top: 0;
+}
+
+.prose .a-completer {
+  background: #fbefe9;
+  border-left: 2px solid var(--brique);
+  color: var(--brique);
+  font-size: 0.95rem;
+  padding: 0.9rem 1.2rem;
+}
+
+.prose details {
+  border-top: 1px solid var(--filet);
+  margin-top: 0;
+}
+
+.prose details:last-of-type {
+  border-bottom: 1px solid var(--filet);
+}
+
+.prose details summary {
+  font-family: var(--font-titre);
+  font-size: 1.3rem;
+  padding-block: 1.2rem;
+}
+
+.prose details > :not(summary) {
+  color: var(--mousse);
+  margin-top: 0;
+  padding-bottom: 1.3rem;
+}
+
+.resultat {
+  border-bottom: 1px solid var(--filet);
+  padding-block: 1.75rem;
+}
+
+.resultat h2 {
+  font-size: 1.6rem;
+}
+
+/* Blocs panier et commande de WooCommerce : charte appliquée aux champs et aux totaux. */
+.wc-block-cart,
+.wc-block-checkout,
+.woocommerce-account .woocommerce {
+  font-family: var(--font-texte);
+}
+
+.wc-block-components-product-name,
+.wc-block-components-title,
+.wc-block-cart__totals-title {
+  font-family: var(--font-titre) !important;
+  font-weight: 400 !important;
+}
+
+.wc-block-components-product-name {
+  color: var(--sapin);
+  font-size: 1.2rem !important;
+}
+
+.wc-block-components-button:not(.is-link) {
+  width: 100%;
+}
+
+.wc-block-components-text-input input,
+.wc-blocks-components-select__select,
+.woocommerce-account input.input-text,
+.woocommerce form .input-text {
+  background: var(--blanc) !important;
+  border: 1px solid var(--filet) !important;
+  border-radius: var(--rayon) !important;
+}
+
+.woocommerce-account .woocommerce {
+  display: grid;
+  gap: 2.5rem;
+}
+
+@media (min-width: 900px) {
+  .woocommerce-account.logged-in .woocommerce {
+    grid-template-columns: 15rem 1fr;
+  }
+}
+
+.woocommerce-MyAccount-navigation ul {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.woocommerce-MyAccount-navigation li::before {
+  display: none;
+}
+
+.woocommerce-MyAccount-navigation li {
+  padding-left: 0 !important;
+}
+
+.woocommerce-MyAccount-navigation a {
+  border: 0 !important;
+  border-left: 1px solid var(--filet) !important;
+  color: var(--sapin) !important;
+  display: block;
+  padding: 0.6rem 1.1rem;
+}
+
+.woocommerce-MyAccount-navigation .is-active a {
+  border-left-color: var(--or) !important;
+  color: var(--bronze) !important;
+}
+
+.woocommerce form .form-row {
+  display: grid;
+  gap: 0.35rem;
+  margin-bottom: 1.1rem;
+}
+
+.woocommerce form .input-text {
+  font: inherit;
+  min-height: 3.2rem;
+  padding: 0.6rem 1rem;
+  width: 100%;
+}
+
+.woocommerce form .button,
+.woocommerce .button.wc-forward,
+.woocommerce-Button {
+  background: var(--sapin);
+  border-radius: var(--rayon);
+  color: var(--ivoire);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  padding: 1.05rem 2.2rem;
+  text-transform: uppercase;
+}
+
+/* Page introuvable */
+.introuvable {
+  background:
+    radial-gradient(50rem 30rem at 50% 0%, rgb(227 181 111 / 14%), transparent 70%),
+    var(--sapin);
+  color: var(--ivoire);
+  padding-block: clamp(6rem, 14vw, 11rem);
+  text-align: center;
+}
+
+.introuvable .icone {
+  color: var(--or-clair);
+  margin: 0 auto 1.5rem;
+}
+
+.introuvable h1 {
+  margin-block: 1rem 1.25rem;
+}
+
+.introuvable p:not(.surtitre) {
+  color: rgb(247 240 228 / 82%);
+  font-weight: 300;
+  margin-inline: auto;
+  max-width: 32rem;
+}
+
+.introuvable .ouverture-actions {
+  justify-content: center;
+}

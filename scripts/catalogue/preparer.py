@@ -82,7 +82,7 @@ def nom_produit(p, rayon):
     t = re.sub(r'\s+', ' ', p['title']).strip()
     ref = ''
     if rayon in ('Parfums femme', 'Parfums homme'):
-        m = re.search(r'(\d{2,3})\s*$', t)
+        m = re.search(r'(?<![A-Za-z\d])(\d{2,3})\s*$', t)
         ref = m.group(1).zfill(3) if m else ''
         nom = re.split(r'\s*-\s*-?\s*parfum\b', t, flags=re.I)[0]
         nom = re.split(r'\s[–|]\s', nom)[0]
@@ -137,6 +137,22 @@ def familles_notes(brut):
     return libelle, fams, notes[:7]
 
 
+def paragraphes_lisibles(description):
+    """Paragraphes en texte brut ; une liste écrite avec des retours à la ligne devient une phrase."""
+    sortie = []
+    for bloc in re.findall(r'<p>(.*?)</p>', description, flags=re.S):
+        lignes = [texte_brut(x).strip(' .;') for x in bloc.split('<br>')]
+        lignes = [x for x in lignes if x]
+        if len(lignes) < 2:
+            sortie.append(texte_brut(bloc))
+            continue
+        phrase = ' ; '.join([lignes[0]] + [x[:1].lower() + x[1:] for x in lignes[1:]]) + '.'
+        if sortie and sortie[-1].rstrip().endswith(':'):  # « … pour : » suivi de la liste
+            phrase = sortie.pop().rstrip() + ' ' + phrase[:1].lower() + phrase[1:]
+        sortie.append(phrase)
+    return sortie
+
+
 def format_propre(v):
     v = re.sub(r'\s+', ' ', v).strip()
     v = re.sub(r'(\d)\s*m[lL]\b', r'\1 ml', v)
@@ -188,7 +204,7 @@ def construire(scrape):
             s, i = f'{base_slug}-{i}', i + 1
         slugs.add(s)
         description = nettoyer_html(p['body_html'], nom)
-        paragraphes = [texte_brut(x) for x in re.findall(r'<p>(.*?)</p>', description, flags=re.S)]
+        paragraphes = paragraphes_lisibles(description)
         accroche = next((x for x in paragraphes if len(x) > 60 and x.upper() != x), '') or texte_brut(description)[:240]
         if len(accroche) > 320:
             accroche = re.sub(r'\s+\S*$', '', accroche[:300]) + '…'
@@ -218,9 +234,44 @@ def construire(scrape):
     return sortie
 
 
+MENTION_COMPLEMENT = (
+    "<p><small>Complément alimentaire. Ne se substitue pas à une alimentation variée et équilibrée ni à un mode de vie sain. "
+    "Ne pas dépasser la dose journalière indiquée sur l'emballage. Tenir hors de portée des jeunes enfants. "
+    "Demandez l'avis de votre médecin en cas de grossesse, d'allaitement ou de traitement en cours.</small></p>"
+)
+
+
+def appliquer_reecritures(catalogue):
+    """Fiches réécrites à la main (reecritures.json) : texte remplacé, fiche publiée."""
+    chemin = os.path.join(ICI, 'reecritures.json')
+    if not os.path.exists(chemin):
+        return
+    textes = json.load(open(chemin, encoding='utf-8'))
+    for p in catalogue:
+        t = textes.get(p['source'])
+        if not t:
+            continue
+        complement = p['rayon'] == 'Compléments alimentaires'
+        points = list(t['points'])
+        if complement:
+            points.append("Mode d'emploi et composition : voir l'emballage")
+        p.update({
+            'nom': t['nom'], 'sous_titre': t['sous_titre'], 'accroche': t['accroche'], 'publie': True,
+            'description': '<p>' + html.escape(t['accroche'], quote=False) + '</p><ul>'
+                           + ''.join('<li>' + html.escape(x, quote=False) + '</li>' for x in points) + '</ul>'
+                           + (MENTION_COMPLEMENT if complement else ''),
+        })
+        p['slug'] = slug(t['nom'] + ('-' + t['sous_titre'].split(',')[0] if p['rayon'] == 'Entretien de la maison' and 'chiffon' in t['nom'].lower() else ''))[:70].strip('-')
+        for v in p['variations']:  # « 3 boites (La cure requise) » -> « 3 boîtes »
+            v['format'] = re.sub(r'\s*\(.*?\)', '', v['format']).replace('boites', 'boîtes').replace('boite', 'boîte').strip()
+    slugs = collections.Counter(p['slug'] for p in catalogue)
+    assert max(slugs.values()) == 1, [s for s, n in slugs.items() if n > 1]
+
+
 def main():
     scrape = sys.argv[1]
     catalogue = construire(scrape)
+    appliquer_reecritures(catalogue)
     if '--images' in sys.argv:
         import images
         images.traiter(catalogue, SORTIE_IMAGES)
