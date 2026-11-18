@@ -4,6 +4,7 @@ Les versions suivent `MAJEUR.MINEUR.CORRECTIF`. Le site n'est pas encore en lign
 
 ## À venir
 
+- Page « commande reçue » refaite : bandeau de remerciement, avancement en trois étapes, résumé, articles avec vignettes, livraison et facturation. Vue du thème, indépendante des gabarits de WooCommerce.
 - Paiement par carte avec Stripe (passerelle officielle de WooCommerce), en mode test. Clés lues dans le `.env`, réglages dans `scripts/paiement.php`.
 - Fonds teintés : nouveau ton « lin clair » (#F1E8D8) pour les cartes, les encarts et les sections qui étaient blanches.
 - Cartes produit et cartes d'article : fond discret sous le visuel, dernier lien toujours aligné en bas ; apostrophes des titres d'article corrigées.

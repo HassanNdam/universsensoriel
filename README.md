@@ -78,6 +78,7 @@ Règles appliquées (audit de novembre 2026) : aucune marque tierce dans les fic
 - Familles olfactives : archives publiques `/famille-olfactive/<famille>/`.
 - Seuil de livraison offerte : constante `App\SEUIL_LIVRAISON` (`app/helpers.php`), à garder égale au réglage WooCommerce › Expédition.
 - Coordonnées et boutiques : `App\coordonnees()` (`app/helpers.php`).
+- Page « commande reçue » : `app/commande.php` remplace le gabarit `checkout/thankyou.php` de WooCommerce par la vue `woocommerce/commande-recue.blade.php` (styles : `resources/css/commande.css`). Aucun fichier de WooCommerce n'est copié : une mise à jour de l'extension ne défait rien.
 
 ## Paiement (Stripe)
 
