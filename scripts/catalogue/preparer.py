@@ -264,6 +264,11 @@ def appliquer_reecritures(catalogue):
         p['slug'] = slug(t['nom'] + ('-' + t['sous_titre'].split(',')[0] if p['rayon'] == 'Entretien de la maison' and 'chiffon' in t['nom'].lower() else ''))[:70].strip('-')
         for v in p['variations']:  # « 3 boites (La cure requise) » -> « 3 boîtes »
             v['format'] = re.sub(r'\s*\(.*?\)', '', v['format']).replace('boites', 'boîtes').replace('boite', 'boîte').strip()
+            if v['format'] in t.get('prix', {}):  # prix corrigé à la main
+                v['prix'] = t['prix'][v['format']]
+        if t.get('prix'):  # la plus petite quantité d'abord : c'est le choix proposé par défaut
+            p['variations'].sort(key=lambda v: float(v['prix']))
+            p['prix'] = p['variations'][0]['prix']
     slugs = collections.Counter(p['slug'] for p in catalogue)
     assert max(slugs.values()) == 1, [s for s, n in slugs.items() if n > 1]
 
