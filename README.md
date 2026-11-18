@@ -86,7 +86,7 @@ Règles appliquées (audit de novembre 2026) : aucune marque tierce dans les fic
 - Clés : `STRIPE_PUBLISHABLE_KEY` et `STRIPE_SECRET_KEY` dans le `.env`, jamais en base ni dans Git (`web/app/mu-plugins/stripe.php`). Une clé `sk_test_…` met la boutique en mode test.
 - Réglages : `scripts/paiement.php`, rejoué par `composer seed`.
 - Carte de test : `4242 4242 4242 4242`, date future, trois chiffres au choix.
-- Webhooks en local : `stripe listen --api-key <clé secrète> --forward-to "http://univers-sensoriel.localhost/?wc-api=wc_stripe"`, puis recopier le `whsec_…` affiché dans `STRIPE_WEBHOOK_SECRET`.
+- Webhooks en local : lancer `scripts/stripe-ecoute.ps1` et le laisser tourner pendant les essais (il lit la clé dans le `.env` et transmet les événements à `/?wc-api=wc_stripe`). Le `whsec_…` qu'il affiche va dans `STRIPE_WEBHOOK_SECRET` ; il ne change pas d'un lancement à l'autre.
 - En ligne : créer le webhook dans le tableau de bord Stripe vers `https://<domaine>/?wc-api=wc_stripe` et mettre les clés `live` dans le `.env` du serveur.
 - TVA : taxes WooCommerce désactivées tant que le statut de l'entreprise n'est pas fixé. Stripe Tax (`stripe-tax-for-woocommerce`) ne sert que si la boutique collecte la TVA.
 
