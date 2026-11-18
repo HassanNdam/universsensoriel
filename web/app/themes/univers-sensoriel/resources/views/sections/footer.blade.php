@@ -82,6 +82,11 @@
       <li><a href="{{ home_url('/mentions-legales/') }}">Mentions légales</a></li>
       <li><a href="{{ home_url('/conditions-generales-de-vente/') }}">Conditions générales de vente</a></li>
       <li><a href="{{ home_url('/politique-de-confidentialite/') }}">Confidentialité</a></li>
+      @if (function_exists('cmplz_get_option'))
+        <li><a href="{{ home_url('/politique-de-cookies/') }}">Cookies</a></li>
+        {{-- « button.cmplz-manage-consent » : Complianz rouvre le bandeau au clic. --}}
+        <li><button type="button" class="cmplz-manage-consent pied-cookies">Gérer mes cookies</button></li>
+      @endif
     </ul>
   </div>
 </footer>

@@ -360,6 +360,9 @@ update_option('page_on_front', $accueil);
 update_option('wp_page_for_privacy_policy', $confidentialite);
 update_option('woocommerce_terms_page_id', get_page_by_path('conditions-generales-de-vente')->ID);
 
+// Bandeau de cookies : après les pages légales, auxquelles il renvoie.
+require __DIR__ . '/cookies.php';
+
 // Pages WooCommerce (boutique, panier, commande, compte) si elles manquent, puis slugs en français.
 WC_Install::create_pages();
 foreach (['shop' => ['boutique', 'Boutique'], 'cart' => ['panier', 'Panier'], 'checkout' => ['commande', 'Commande'], 'myaccount' => ['mon-compte', 'Mon compte']] as $cle => [$slug, $titre]) {
