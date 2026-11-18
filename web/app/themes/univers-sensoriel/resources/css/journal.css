@@ -197,7 +197,23 @@
  * Pas de moyenne, pas de compteur : seulement ce que les personnes ont écrit.
  */
 .avis-accueil {
-  background: var(--lin);
+  background:
+    radial-gradient(55rem 32rem at 88% 0%, rgb(227 181 111 / 12%), transparent 70%),
+    linear-gradient(180deg, var(--sapin) 0%, var(--sapin-profond) 100%);
+  color: var(--ivoire);
+}
+
+.avis-accueil .section-intro {
+  color: rgb(247 240 228 / 78%);
+}
+
+.avis-accueil .avis {
+  color: var(--sapin);
+}
+
+.avis-accueil .avis-note {
+  color: var(--ivoire);
+  margin-top: 2.25rem;
 }
 
 .avis-grille {
