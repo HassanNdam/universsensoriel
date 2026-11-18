@@ -5,6 +5,7 @@ le thème le pose sur un fond lin ou sapin. Une photo d'ambiance est seulement r
 Les images écartées à la main sont listées dans exclusions.txt (nom du fichier source, une par ligne).
 """
 import collections
+import json
 import os
 
 import numpy as np
@@ -14,6 +15,18 @@ from regles import slug
 
 ICI = os.path.dirname(os.path.abspath(__file__))
 MAX_PAR_PRODUIT = 5
+
+
+def _liste(nom):
+    chemin = os.path.join(ICI, nom)
+    if not os.path.exists(chemin):
+        return set()
+    return {l.strip() for l in open(chemin, encoding='utf-8') if l.strip() and not l.startswith('#')}
+
+
+# Réglages à la main, par nom de fichier source.
+SANS_DETOURAGE = _liste('sans-detourage.txt')  # compositions graphiques : gardées telles quelles
+RECADRAGES = json.load(open(os.path.join(ICI, 'recadrages.json'), encoding='utf-8')) if os.path.exists(os.path.join(ICI, 'recadrages.json')) else {}
 _session = None
 
 
@@ -52,6 +65,19 @@ def detourer(im):
     carre = Image.new('RGBA', (cote, cote), (0, 0, 0, 0))
     carre.alpha_composite(coupe, ((cote - coupe.width) // 2, (cote - coupe.height) // 2))
     return carre
+
+
+def enregistrer(im, cible, qualite):
+    """WebP écrit dans un fichier provisoire : une écriture interrompue ne laisse pas d'image tronquée."""
+    provisoire = cible + '.tmp'
+    for methode in (4, 2, 0):
+        try:
+            im.save(provisoire, 'WEBP', quality=qualite, method=methode)
+            break
+        except (ValueError, OSError, MemoryError):
+            if methode == 0:
+                raise
+    os.replace(provisoire, cible)
 
 
 def analyser(catalogue):
@@ -115,19 +141,26 @@ def traiter(catalogue, sortie):
                 cible = os.path.join(sortie, rel)
                 os.makedirs(os.path.dirname(cible), exist_ok=True)
                 detoure = False
+                origine = os.path.basename(i['source'])
                 if not os.path.exists(cible):
                     im = Image.open(i['source'])
-                    coupe = detourer(im) if i['packshot'] else None
+                    if origine in RECADRAGES:  # ex. visuel « Gamme … » : on ne garde que les produits, sans le titre
+                        im = im.convert('RGB')
+                        for mx0, my0, mx1, my1 in RECADRAGES[origine].get('masques', []):  # textes à effacer
+                            im.paste((255, 255, 255), (round(im.width * mx0), round(im.height * my0), round(im.width * mx1), round(im.height * my1)))
+                        x0, y0, x1, y1 = RECADRAGES[origine]['cadre']
+                        im = im.crop((round(im.width * x0), round(im.height * y0), round(im.width * x1), round(im.height * y1)))
+                    coupe = detourer(im) if i['packshot'] and origine not in SANS_DETOURAGE else None
                     if coupe is not None:
-                        coupe.save(cible, 'WEBP', quality=86, method=6)
+                        enregistrer(coupe, cible, 86)
                         detoure = True
                     else:
                         im = im.convert('RGB')
                         im.thumbnail((1600, 1600), Image.LANCZOS)
-                        im.save(cible, 'WEBP', quality=82, method=6)
+                        enregistrer(im, cible, 82)
                 else:
                     detoure = Image.open(cible).mode == 'RGBA'
-                noms[cle] = {'fichier': rel, 'detoure': detoure, 'partage': usages[cle] > 1}
+                noms[cle] = {'fichier': rel, 'detoure': detoure, 'partage': usages[cle] > 1, 'origine': os.path.basename(i['source'])}
                 fait += 1
                 if fait % 25 == 0:
                     print(f'  images : {fait}/{total}', flush=True)

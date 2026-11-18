@@ -82,7 +82,7 @@ def nom_produit(p, rayon):
     t = re.sub(r'\s+', ' ', p['title']).strip()
     ref = ''
     if rayon in ('Parfums femme', 'Parfums homme'):
-        m = re.search(r'(\d{2,3})\s*$', t)
+        m = re.search(r'(?<![A-Za-z\d])(\d{2,3})\s*$', t)
         ref = m.group(1).zfill(3) if m else ''
         nom = re.split(r'\s*-\s*-?\s*parfum\b', t, flags=re.I)[0]
         nom = re.split(r'\s[–|]\s', nom)[0]
