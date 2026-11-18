@@ -61,7 +61,7 @@ python preparer.py <dossier scrape> --images   # + détourage et WebP (Pillow, N
 python visuels_site.py <dossier scrape>        # visuels du thème (accueil, univers)
 ```
 
-Règles appliquées (audit de novembre 2026) : aucune marque tierce dans les fiches, pas de « Chogan » dans les titres, entretien de la maison et compléments alimentaires importés en brouillon. Les images écartées à la main sont dans `exclusions.txt`, les recadrages dans `recadrages.json`, les visuels à ne pas détourer dans `sans-detourage.txt`.
+Règles appliquées (audit de novembre 2026) : aucune marque tierce dans les fiches, pas de « Chogan » dans les titres, entretien de la maison et compléments alimentaires réécrits à la main (`reecritures.json`, sans allégation de santé). Les images écartées à la main sont dans `exclusions.txt`, les recadrages dans `recadrages.json`, les visuels à ne pas détourer dans `sans-detourage.txt`.
 
 ## Charte
 
@@ -73,3 +73,7 @@ Règles appliquées (audit de novembre 2026) : aucune marque tierce dans les fic
 - Familles olfactives : archives publiques `/famille-olfactive/<famille>/`.
 - Seuil de livraison offerte : constante `App\SEUIL_LIVRAISON` (`app/helpers.php`), à garder égale au réglage WooCommerce › Expédition.
 - Coordonnées et boutiques : `App\coordonnees()` (`app/helpers.php`).
+
+## Branches et versions
+
+Le dépôt suit Git flow (`main`, `develop`, `feature/*`, `release/*`, `hotfix/*`) : voir [CONTRIBUTING.md](CONTRIBUTING.md). Les versions sont décrites dans [CHANGELOG.md](CHANGELOG.md).
