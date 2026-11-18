@@ -6,16 +6,21 @@
       the_post();
       $boutique = function_exists('is_cart') && (is_cart() || is_checkout() || is_account_page());
     @endphp
-    <header class="rayon-tete {{ $boutique ? 'rayon-tete-courte' : '' }}">
-      <div class="conteneur">
-        @include('partials.fil')
-        <h1>{{ get_the_title() }}</h1>
+    @if (function_exists('App\est_confirmation_commande') && App\est_confirmation_commande())
+      {{-- Commande reçue : la vue woocommerce/commande-recue porte son propre bandeau, sur toute la largeur. --}}
+      @php(the_content())
+    @else
+      <header class="rayon-tete {{ $boutique ? 'rayon-tete-courte' : '' }}">
+        <div class="conteneur">
+          @include('partials.fil')
+          <h1>{{ get_the_title() }}</h1>
+        </div>
+      </header>
+      <div class="conteneur {{ $boutique ? 'page-boutique' : 'page-texte' }}">
+        <div class="{{ $boutique ? 'boutique-contenu' : 'prose' }}">
+          @php(the_content())
+        </div>
       </div>
-    </header>
-    <div class="conteneur {{ $boutique ? 'page-boutique' : 'page-texte' }}">
-      <div class="{{ $boutique ? 'boutique-contenu' : 'prose' }}">
-        @php(the_content())
-      </div>
-    </div>
+    @endif
   @endwhile
 @endsection

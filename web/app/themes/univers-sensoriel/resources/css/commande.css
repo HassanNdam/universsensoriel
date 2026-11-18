@@ -1,0 +1,377 @@
+/* Page « commande reçue » (resources/views/woocommerce/commande-recue.blade.php). */
+
+.confirmation-tete {
+  background:
+    radial-gradient(46rem 26rem at 50% -10%, rgb(227 181 111 / 20%), transparent 70%),
+    var(--sapin);
+  color: var(--ivoire);
+  padding-block: clamp(3.5rem, 8vw, 6rem) clamp(6rem, 11vw, 8.5rem);
+  text-align: center;
+}
+
+.confirmation-sceau {
+  align-items: center;
+  border: 1px solid var(--or-clair);
+  border-radius: 50%;
+  box-shadow: 0 0 0 0.6rem rgb(227 181 111 / 10%);
+  color: var(--or-clair);
+  display: inline-flex;
+  height: 4.75rem;
+  justify-content: center;
+  margin-bottom: 1.75rem;
+  width: 4.75rem;
+}
+
+.confirmation-tete-echec .confirmation-sceau {
+  border-color: var(--ivoire);
+  box-shadow: 0 0 0 0.6rem rgb(247 240 228 / 8%);
+  color: var(--ivoire);
+}
+
+.confirmation-tete .chapo {
+  color: rgb(247 240 228 / 84%);
+  margin: 1.1rem auto 0;
+  max-width: 38rem;
+  overflow-wrap: anywhere;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .confirmation-sceau {
+    animation: confirmation-sceau 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+
+  .confirmation-sceau svg {
+    animation: confirmation-coche 0.5s 0.35s ease-out both;
+    stroke-dasharray: 30;
+  }
+}
+
+@keyframes confirmation-sceau {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+}
+
+@keyframes confirmation-coche {
+  from {
+    stroke-dashoffset: 30;
+  }
+}
+
+/* Avancement : trois étapes reliées par un filet. */
+.confirmation-etapes {
+  display: flex;
+  font-size: 0.75rem;
+  font-weight: 500;
+  gap: 0.5rem;
+  justify-content: center;
+  letter-spacing: 0.14em;
+  margin: 2.5rem auto 0;
+  max-width: 40rem;
+  text-transform: uppercase;
+}
+
+.confirmation-etapes li {
+  align-items: center;
+  color: rgb(247 240 228 / 60%);
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.7rem;
+  position: relative;
+}
+
+.confirmation-etapes li + li::before {
+  background: var(--filet-clair);
+  content: "";
+  height: 1px;
+  position: absolute;
+  right: calc(50% + 1.4rem);
+  top: 1rem;
+  width: calc(100% - 2.3rem);
+}
+
+.confirmation-etape-point {
+  align-items: center;
+  border: 1px solid var(--filet-clair);
+  border-radius: 50%;
+  display: inline-flex;
+  font-size: 0.8rem;
+  height: 2rem;
+  justify-content: center;
+  letter-spacing: 0;
+  width: 2rem;
+}
+
+.confirmation-etapes .est-faite {
+  color: var(--ivoire);
+}
+
+.confirmation-etapes .est-faite .confirmation-etape-point {
+  background: var(--or-clair);
+  border-color: var(--or-clair);
+  color: var(--sapin);
+}
+
+/* Corps : le résumé chevauche le bandeau. */
+.confirmation-corps {
+  max-width: 76rem;
+  padding-bottom: var(--section);
+}
+
+.confirmation-resume {
+  background: var(--blanc);
+  border: 1px solid var(--filet);
+  box-shadow: var(--ombre);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: clamp(-4.5rem, -6vw, -3rem);
+  position: relative;
+}
+
+.confirmation-resume > div {
+  padding: 1.4rem 1.5rem;
+}
+
+.confirmation-resume > div:nth-child(n + 3) {
+  border-top: 1px solid var(--filet);
+}
+
+.confirmation-resume > div:nth-child(even) {
+  border-left: 1px solid var(--filet);
+}
+
+.confirmation-resume dt,
+.confirmation-note span {
+  color: var(--bronze);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.confirmation-resume dd {
+  font-family: var(--font-titre);
+  font-size: clamp(1.15rem, 1.8vw, 1.5rem);
+  line-height: 1.25;
+  margin-top: 0.35rem;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 820px) {
+  .confirmation-resume {
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  }
+
+  .confirmation-resume > div:nth-child(n) {
+    border-left: 1px solid var(--filet);
+    border-top: 0;
+    padding: 1.75rem 2rem;
+  }
+
+  .confirmation-resume > div:first-child {
+    border-left: 0;
+  }
+}
+
+.confirmation-grille {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+@media (min-width: 960px) {
+  .confirmation-grille {
+    align-items: start;
+    grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  }
+}
+
+.confirmation-bloc,
+.confirmation-carte {
+  background: var(--lin-clair);
+  border: 1px solid var(--filet);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.confirmation h2 {
+  font-size: clamp(1.4rem, 2vw, 1.75rem);
+}
+
+/* Articles */
+.confirmation-articles li {
+  align-items: center;
+  border-bottom: 1px solid var(--filet);
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 4.5rem minmax(0, 1fr) auto;
+  padding-block: 1.1rem;
+}
+
+.confirmation-vignette {
+  aspect-ratio: 1;
+  background: var(--blanc);
+  border: 1px solid var(--filet);
+  display: grid;
+  overflow: hidden;
+  place-items: center;
+}
+
+.confirmation-vignette img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.confirmation-vignette img.est-detoure {
+  object-fit: contain;
+  padding: 0.35rem;
+}
+
+.confirmation-article {
+  display: grid;
+  font-family: var(--font-titre);
+  font-size: 1.15rem;
+  line-height: 1.3;
+}
+
+.confirmation-article a:hover {
+  color: var(--bronze);
+}
+
+.confirmation-article small {
+  color: var(--mousse);
+  font-family: var(--font-texte);
+  font-size: 0.85rem;
+  margin-top: 0.2rem;
+}
+
+.confirmation-article small p {
+  display: inline;
+}
+
+.confirmation-prix {
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Totaux */
+.confirmation-totaux {
+  margin-top: 1.25rem;
+}
+
+.confirmation-totaux > div {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+  padding-block: 0.4rem;
+}
+
+.confirmation-totaux dt {
+  color: var(--mousse);
+}
+
+.confirmation-totaux dd {
+  text-align: right;
+}
+
+.confirmation-totaux .est-total {
+  align-items: baseline;
+  border-top: 1px solid var(--sapin);
+  margin-top: 0.9rem;
+  padding-top: 1.1rem;
+}
+
+.confirmation-totaux .est-total dt {
+  color: var(--sapin);
+  font-family: var(--font-titre);
+  font-size: 1.3rem;
+}
+
+.confirmation-totaux .est-total dd {
+  font-family: var(--font-titre);
+  font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+  line-height: 1.1;
+}
+
+.confirmation-note {
+  border-top: 1px solid var(--filet);
+  display: grid;
+  gap: 0.3rem;
+  margin-top: 1.25rem;
+  padding-top: 1.1rem;
+}
+
+/* Colonne de droite */
+.confirmation-cote {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.confirmation-carte h2 {
+  align-items: center;
+  display: flex;
+  font-size: 1.3rem;
+  gap: 0.7rem;
+  margin-bottom: 0.9rem;
+}
+
+.confirmation-carte h2 .icone {
+  color: var(--bronze);
+}
+
+.confirmation-carte address {
+  color: var(--mousse);
+  font-style: normal;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.confirmation-mode {
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+}
+
+.confirmation-aide {
+  background: transparent;
+}
+
+/* Messages ajoutés par les extensions (virement, suivi de colis…). */
+.confirmation-message {
+  border-left: 2px solid var(--or);
+  margin-top: 1.5rem;
+  padding: 0.25rem 0 0.25rem 1.25rem;
+}
+
+.confirmation-message:empty {
+  display: none;
+}
+
+.confirmation-actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem 2.25rem;
+  justify-content: center;
+  margin-top: clamp(2.25rem, 4vw, 3.25rem);
+}
+
+.confirmation-tete .confirmation-actions {
+  margin-top: 2rem;
+}
+
+@media (max-width: 540px) {
+  .confirmation-etapes {
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+  }
+
+  .confirmation-articles li {
+    grid-template-columns: 3.5rem minmax(0, 1fr) auto;
+  }
+
+  .confirmation-actions .bouton {
+    width: 100%;
+  }
+}
