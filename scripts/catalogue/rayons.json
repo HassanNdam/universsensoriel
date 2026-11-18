@@ -33,7 +33,7 @@
     "rayons": [
       {"nom": "Huiles essentielles", "slug": "huiles-essentielles", "description": "Huiles essentielles et synergies prêtes à l'emploi, à diffuser ou à diluer pour le massage. À utiliser en respectant les précautions d'emploi."},
       {"nom": "Huiles végétales", "slug": "huiles-vegetales", "description": "Huiles végétales pures et mélanges d'huiles précieuses : amande douce, baobab, neem, rose musquée. Pour nourrir la peau et les cheveux."},
-      {"nom": "Compléments alimentaires", "slug": "complements-alimentaires", "description": "Compléments alimentaires. Ils ne remplacent pas une alimentation variée et équilibrée ni un mode de vie sain."}
+      {"nom": "Compléments alimentaires", "slug": "complements-alimentaires", "description": "Gélules, sticks de poche et boissons à l'aloe vera : des compléments alimentaires à intégrer à votre routine. Ils ne remplacent pas une alimentation variée et équilibrée ni un mode de vie sain."}
     ]
   },
   {
@@ -43,7 +43,7 @@
     "rayons": [
       {"nom": "Parfums d'ambiance", "slug": "parfums-d-ambiance", "description": "Diffuseurs à bâtonnets et sprays d'ambiance aux fragrances raffinées, en 100, 200 et 500 ml. Une senteur pour chaque pièce de la maison."},
       {"nom": "Soin du linge", "slug": "soin-du-linge", "description": "Lessives et adoucissants parfumés : un linge propre, souple, au parfum qui dure."},
-      {"nom": "Entretien de la maison", "slug": "entretien-de-la-maison", "description": "Produits d'entretien pour la maison."}
+      {"nom": "Entretien de la maison", "slug": "entretien-de-la-maison", "description": "Une maison nette et qui sent bon : chiffons en microfibre, nettoyants concentrés et soins du bois, du cuir et de l'inox, pour chaque pièce."}
     ]
   }
 ]

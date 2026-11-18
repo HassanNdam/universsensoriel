@@ -161,6 +161,16 @@
       "description": "Lessives pour le blanc, les couleurs et le noir, adoucissants parfumés longue durée : un linge propre, souple, au parfum qui dure.",
       "motcle": "adoucissants parfumés"
     },
+    "entretien-de-la-maison": {
+      "titre": "Entretien de la maison : nettoyants et microfibres",
+      "description": "Chiffons en microfibre, nettoyants concentrés pour les sols, la cuisine et la salle de bains, soins du bois et du cuir : une maison nette et parfumée.",
+      "motcle": "entretien de la maison"
+    },
+    "complements-alimentaires": {
+      "titre": "Compléments alimentaires et boissons à l'aloe vera",
+      "description": "Gélules, sticks de poche et boissons à l'aloe vera : des compléments alimentaires à intégrer à votre routine, en complément d'une alimentation variée.",
+      "motcle": "compléments alimentaires"
+    },
     "accessoires-parfum": { "noindex": true }
   },
 

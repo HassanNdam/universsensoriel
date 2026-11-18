@@ -349,6 +349,11 @@ foreach ($catalogue as $rang => $p) {
             $v = wc_get_product($enfant);
             $connues[$v->get_meta('_us_format')] = $v;
         }
+        // Les déclinaisons disparues ou renommées partent d'abord : leur référence (UGS) est réutilisée.
+        foreach (array_diff_key($connues, array_flip(array_column($p['variations'], 'format'))) as $format => $ancienne) {
+            $ancienne->delete(true);
+            unset($connues[$format]);
+        }
         foreach ($p['variations'] as $n => $v) {
             $variation = $connues[$v['format']] ?? new WC_Product_Variation();
             $variation->set_parent_id($id);
