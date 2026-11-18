@@ -4,6 +4,7 @@ Les versions suivent `MAJEUR.MINEUR.CORRECTIF`. Le site n'est pas encore en lign
 
 ## À venir
 
+- Formulaires (Forminator) : formulaire de contact avec accusé de réception, page Contact réorganisée en deux colonnes, inscription à la lettre d'information en tête du pied de page. Formulaires décrits dans `scripts/formulaires.php` et recréés par le seed.
 - Le journal : huit articles repris de l'ancien blog et relus, quatre rubriques, page d'article, derniers articles sur l'accueil.
 - Nouveaux avis : invitation dans l'e-mail « commande terminée », relecture dans Produits › Avis, choix des avis de l'accueil par la colonne « Accueil », compte client créé à la commande.
 - Avis clients : huit avis de l'ancienne boutique reproduits tels quels (accueil, fiches, page « Avis clients »), mention « Achat vérifié » seulement quand elle est vraie, dépôt d'avis réservé aux acheteurs et relu avant publication.

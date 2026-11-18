@@ -20,6 +20,7 @@
         "roots/wordpress": "7.1.4",
         "roots/wp-config": "^1.0",
         "vlucas/phpdotenv": "^5.0",
+        "wp-plugin/forminator": "^1.58",
         "wp-plugin/woocommerce": "^11.3",
         "wp-plugin/wordpress-seo": "^28.9",
         "wp-theme/twentytwentyfive": "^1.0"
@@ -64,7 +65,7 @@
             "Roots\\Acorn\\ComposerScripts::postAutoloadDump"
         ],
         "seed": [
-            "@php vendor/wp-cli/wp-cli/php/boot-fs.php plugin activate woocommerce wordpress-seo",
+            "@php vendor/wp-cli/wp-cli/php/boot-fs.php plugin activate woocommerce wordpress-seo forminator",
             "@php vendor/wp-cli/wp-cli/php/boot-fs.php language plugin install --all fr_FR",
             "@php vendor/wp-cli/wp-cli/php/boot-fs.php eval-file scripts/seed.php --user=admin",
             "@php vendor/wp-cli/wp-cli/php/boot-fs.php rewrite flush"

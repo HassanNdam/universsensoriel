@@ -429,7 +429,15 @@ WP_CLI::log('Pages');
 $contenu = fn (string $fichier) => is_file(__DIR__ . "/pages/$fichier.html") ? trim(file_get_contents(__DIR__ . "/pages/$fichier.html")) : '';
 $accueil = us_page('accueil', 'Univers Sensoriel');
 us_page('la-maison', 'La Maison', $contenu('la-maison'));
-us_page('contact', 'Contact', $contenu('contact'));
+// Contact : la page n'appelle que le shortcode du formulaire, le reste est dans page-contact.blade.php.
+require __DIR__ . '/formulaires.php';
+$formulaireContact = (int) (get_option('us_formulaires', [])['contact'] ?? 0);
+$codeContact = $formulaireContact ? '[forminator_form id="' . $formulaireContact . '"]' : '';
+$contact = us_page('contact', 'Contact', $codeContact);
+if ($codeContact && ! str_contains((string) get_post_field('post_content', $contact), '[forminator_form')) {
+    wp_update_post(['ID' => $contact, 'post_content' => $codeContact]);
+    us_log('page Contact : shortcode du formulaire en place');
+}
 us_page('nos-boutiques', 'Nos boutiques', $contenu('nos-boutiques'));
 us_page('livraison-et-retours', 'Livraison et retours', $contenu('livraison-et-retours'));
 us_page('questions-frequentes', 'Questions fréquentes', $contenu('questions-frequentes'));

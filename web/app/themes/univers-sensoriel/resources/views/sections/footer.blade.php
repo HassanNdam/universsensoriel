@@ -15,6 +15,19 @@
 </section>
 
 <footer class="pied">
+  @if ($lettre = App\formulaire('newsletter'))
+    <section class="conteneur pied-lettre" aria-labelledby="lettre-titre">
+      <div>
+        <p class="surtitre surtitre-clair">La lettre</p>
+        <h2 id="lettre-titre">Nouveautés, conseils parfum et offres, en avant-première</h2>
+      </div>
+      <div class="formulaire formulaire-lettre">
+        {!! $lettre !!}
+        <p class="formulaire-mention">Une à deux lettres par mois, désinscription à tout moment. <a href="{{ home_url('/politique-de-confidentialite/') }}">Confidentialité</a></p>
+      </div>
+    </section>
+  @endif
+
   <div class="conteneur pied-haut">
     <div class="pied-marque">
       <img src="{{ App\image('logo-univers-sensoriel-clair.webp') }}" alt="Univers Sensoriel by K.Elle : beauté, bien-être, art de vivre" width="1452" height="716" loading="lazy">
