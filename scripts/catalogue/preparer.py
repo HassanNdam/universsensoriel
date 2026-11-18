@@ -234,9 +234,44 @@ def construire(scrape):
     return sortie
 
 
+MENTION_COMPLEMENT = (
+    "<p><small>Complément alimentaire. Ne se substitue pas à une alimentation variée et équilibrée ni à un mode de vie sain. "
+    "Ne pas dépasser la dose journalière indiquée sur l'emballage. Tenir hors de portée des jeunes enfants. "
+    "Demandez l'avis de votre médecin en cas de grossesse, d'allaitement ou de traitement en cours.</small></p>"
+)
+
+
+def appliquer_reecritures(catalogue):
+    """Fiches réécrites à la main (reecritures.json) : texte remplacé, fiche publiée."""
+    chemin = os.path.join(ICI, 'reecritures.json')
+    if not os.path.exists(chemin):
+        return
+    textes = json.load(open(chemin, encoding='utf-8'))
+    for p in catalogue:
+        t = textes.get(p['source'])
+        if not t:
+            continue
+        complement = p['rayon'] == 'Compléments alimentaires'
+        points = list(t['points'])
+        if complement:
+            points.append("Mode d'emploi et composition : voir l'emballage")
+        p.update({
+            'nom': t['nom'], 'sous_titre': t['sous_titre'], 'accroche': t['accroche'], 'publie': True,
+            'description': '<p>' + html.escape(t['accroche'], quote=False) + '</p><ul>'
+                           + ''.join('<li>' + html.escape(x, quote=False) + '</li>' for x in points) + '</ul>'
+                           + (MENTION_COMPLEMENT if complement else ''),
+        })
+        p['slug'] = slug(t['nom'] + ('-' + t['sous_titre'].split(',')[0] if p['rayon'] == 'Entretien de la maison' and 'chiffon' in t['nom'].lower() else ''))[:70].strip('-')
+        for v in p['variations']:  # « 3 boites (La cure requise) » -> « 3 boîtes »
+            v['format'] = re.sub(r'\s*\(.*?\)', '', v['format']).replace('boites', 'boîtes').replace('boite', 'boîte').strip()
+    slugs = collections.Counter(p['slug'] for p in catalogue)
+    assert max(slugs.values()) == 1, [s for s, n in slugs.items() if n > 1]
+
+
 def main():
     scrape = sys.argv[1]
     catalogue = construire(scrape)
+    appliquer_reecritures(catalogue)
     if '--images' in sys.argv:
         import images
         images.traiter(catalogue, SORTIE_IMAGES)
