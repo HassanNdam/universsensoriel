@@ -4,6 +4,9 @@ Les versions suivent `MAJEUR.MINEUR.CORRECTIF`. Le site n'est pas encore en lign
 
 ## À venir
 
+- Le journal : huit articles repris de l'ancien blog et relus, quatre rubriques, page d'article, derniers articles sur l'accueil.
+- Avis clients : huit avis de l'ancienne boutique reproduits tels quels (accueil, fiches, page « Avis clients »), mention « Achat vérifié » seulement quand elle est vraie, dépôt d'avis réservé aux acheteurs et relu avant publication.
+
 - Belle Peau publiée : prix remis dans le bon sens (81,90 € la boîte, 163,80 € les trois), fiche réécrite.
 
 ## 0.1.0 – 18 novembre 2026

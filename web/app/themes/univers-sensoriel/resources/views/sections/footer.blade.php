@@ -36,6 +36,8 @@
       <p class="surtitre">La Maison</p>
       <ul>
         <li><a href="{{ home_url('/la-maison/') }}">Notre histoire</a></li>
+        <li><a href="{{ home_url('/journal/') }}">Le journal</a></li>
+        <li><a href="{{ home_url('/avis-clients/') }}">Avis clients</a></li>
         <li><a href="{{ home_url('/nos-boutiques/') }}">Nos boutiques</a></li>
         <li><a href="{{ home_url('/contact/') }}">Contact</a></li>
         <li><a href="{{ home_url('/devenir-consultante/') }}">Devenir consultante</a></li>

@@ -178,7 +178,45 @@
     </section>
   @endif
 
-  {{-- 8. Boutiques et conseil --}}
+  {{-- 8. Avis clients : de vrais avis, reproduits tels quels --}}
+  @php($avisAccueil = $boutique ? App\avis(['accueil' => true, 'nombre' => 6]) : [])
+  @if (count($avisAccueil) >= 3)
+    <section class="section avis-accueil">
+      <div class="conteneur">
+        <header class="section-tete">
+          <p class="surtitre">Paroles de clientes et de clients</p>
+          <h2>Ce qu'ils en disent, mot pour mot</h2>
+          <p class="section-intro">Nous reproduisons les avis tels qu'ils ont été écrits, avec leur date. Rien n'est retouché, rien n'est inventé.</p>
+        </header>
+        <div class="avis-grille">
+          @foreach ($avisAccueil as $avis)
+            @include('partials.carte-avis', ['avis' => $avis, 'lienProduit' => true])
+          @endforeach
+        </div>
+        <p class="avis-note">Avis déposés sur notre précédente boutique. La mention « Achat vérifié » n'apparaît que lorsque la commande a été contrôlée. <a class="lien-simple" href="{{ home_url('/avis-clients/') }}">Comment nous recueillons les avis</a></p>
+      </div>
+    </section>
+  @endif
+
+  {{-- 9. Le journal --}}
+  @if ($articles = App\articles_recents(3))
+    <section class="section section-blanche">
+      <div class="conteneur">
+        <header class="section-tete">
+          <p class="surtitre">Le journal</p>
+          <h2>Conseils et rituels</h2>
+        </header>
+        <div class="journal-grille">
+          @foreach ($articles as $article)
+            @include('partials.carte-article', ['article' => $article])
+          @endforeach
+        </div>
+        <p class="section-suite"><a class="bouton bouton-contour" href="{{ get_permalink(get_option('page_for_posts')) }}">Tous les articles</a></p>
+      </div>
+    </section>
+  @endif
+
+  {{-- 10. Boutiques et conseil --}}
   <section class="rendez-vous">
     <div class="conteneur rendez-vous-grille">
       <div>

@@ -154,6 +154,38 @@
       </div>
     </article>
 
+    @php($avisProduit = App\avis(['produit' => get_the_ID()]))
+    @if ($avisProduit || App\peut_donner_avis($product))
+      <section class="section avis-fiche" id="avis">
+        <div class="conteneur">
+          <header class="section-tete">
+            <p class="surtitre">Avis clients</p>
+            <h2>{{ $avisProduit ? 'Ce qu\'ils en disent' : 'Donnez votre avis' }}</h2>
+          </header>
+          @if ($avisProduit)
+            <div class="avis-grille avis-grille-fiche">
+              @foreach ($avisProduit as $avis)
+                @include('partials.carte-avis', ['avis' => $avis, 'lienProduit' => false])
+              @endforeach
+            </div>
+            <p class="avis-note">Avis reproduits tels quels. <a class="lien-simple" href="{{ home_url('/avis-clients/') }}">Comment nous recueillons les avis</a></p>
+          @endif
+          @if (App\peut_donner_avis($product))
+            <div class="avis-formulaire">
+              @php(comment_form([
+                'title_reply' => $avisProduit ? 'Donnez votre avis' : '',
+                'title_reply_before' => '<h3>', 'title_reply_after' => '</h3>',
+                'comment_notes_before' => '', 'logged_in_as' => '', 'label_submit' => 'Envoyer mon avis', 'class_submit' => 'bouton',
+                'comment_field' => '<p class="avis-champ"><label for="rating">Votre note</label><select name="rating" id="rating" required><option value="">Choisir…</option><option value="5">5 – Excellent</option><option value="4">4 – Très bien</option><option value="3">3 – Bien</option><option value="2">2 – Moyen</option><option value="1">1 – Décevant</option></select></p>'
+                  . '<p class="avis-champ"><label for="comment">Votre avis</label><textarea id="comment" name="comment" rows="5" required></textarea></p>'
+                  . '<p class="avis-mention">Votre avis sera publié après relecture, avec votre prénom et la mention « Achat vérifié ».</p>',
+              ], get_the_ID()))
+            </div>
+          @endif
+        </div>
+      </section>
+    @endif
+
     @if ($rituel)
       <section class="section section-lin">
         <div class="conteneur">

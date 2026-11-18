@@ -48,6 +48,8 @@ Relançable sans doublon. Le seed active WooCommerce et Yoast SEO, règle la bou
 | `scripts/seed.php` | Réglages, rayons, catalogue, livraison, pages |
 | `scripts/seo.json`, `scripts/seo.php` | Titres, descriptions et mots-clés (Yoast) des pages et des rayons |
 | `scripts/pages/*.html` | Texte des pages |
+| `scripts/journal.php`, `scripts/blog/` | Articles du journal (un fichier HTML par article, `articles.json` pour le reste) |
+| `scripts/avis.json` | Avis clients repris de l'ancienne boutique (voir `docs/00-projet/avis-ancienne-boutique.md`) |
 | `scripts/catalogue/catalogue.json` | Les 375 fiches, nettoyées |
 | `scripts/catalogue/rayons.json` | Univers, rayons et leurs textes |
 | `scripts/catalogue/selection.json` | Produits vedettes (accueil, tête de rayon) |
