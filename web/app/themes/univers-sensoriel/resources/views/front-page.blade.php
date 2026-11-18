@@ -184,16 +184,16 @@
     <section class="section avis-accueil">
       <div class="conteneur">
         <header class="section-tete">
-          <p class="surtitre">Paroles de clientes et de clients</p>
-          <h2>Ce qu'ils en disent, mot pour mot</h2>
-          <p class="section-intro">Nous reproduisons les avis tels qu'ils ont été écrits, avec leur date. Rien n'est retouché, rien n'est inventé.</p>
+          <p class="surtitre surtitre-clair">Avis clients</p>
+          <h2>Mot pour mot</h2>
+          <p class="section-intro">De vrais avis, publiés tels quels.</p>
         </header>
         <div class="avis-grille">
           @foreach ($avisAccueil as $avis)
             @include('partials.carte-avis', ['avis' => $avis, 'lienProduit' => true])
           @endforeach
         </div>
-        <p class="avis-note">Avis déposés sur notre précédente boutique. La mention « Achat vérifié » n'apparaît que lorsque la commande a été contrôlée. <a class="lien-simple" href="{{ home_url('/avis-clients/') }}">Comment nous recueillons les avis</a></p>
+        <p class="avis-note"><a class="lien-or" href="{{ home_url('/avis-clients/') }}">Tous les avis {!! App\icone('fleche', 16) !!}</a></p>
       </div>
     </section>
   @endif
