@@ -34,3 +34,42 @@ vendor\bin\wp.bat <commande>                           # PowerShell
 ```
 
 Sous Git Bash, préfixer par `MSYS_NO_PATHCONV=1` les commandes dont un argument commence par `/` (ex. `wp rewrite structure '/%postname%/'`).
+
+## Contenus de départ
+
+```bash
+composer seed
+```
+
+Relançable sans doublon. Le seed active WooCommerce et Yoast SEO, règle la boutique (euros, France, livraison offerte dès 49 €, retrait à Metz), crée les rayons et les attributs, importe le catalogue, les pages et le référencement. Une fiche n'est retraitée que si ses données ont changé ; `US_SEED_FORCE=1` réécrit tout, y compris les pages.
+
+| Fichier | Rôle |
+| --- | --- |
+| `scripts/seed.php` | Réglages, rayons, catalogue, livraison, pages |
+| `scripts/seo.json`, `scripts/seo.php` | Titres, descriptions et mots-clés (Yoast) des pages et des rayons |
+| `scripts/pages/*.html` | Texte des pages |
+| `scripts/catalogue/catalogue.json` | Les 375 fiches, nettoyées |
+| `scripts/catalogue/rayons.json` | Univers, rayons et leurs textes |
+| `scripts/catalogue/selection.json` | Produits vedettes (accueil, tête de rayon) |
+
+### Refaire le catalogue depuis l'export de l'ancienne boutique
+
+```bash
+cd scripts/catalogue
+python preparer.py <dossier scrape>            # données seules
+python preparer.py <dossier scrape> --images   # + détourage et WebP (Pillow, NumPy, rembg)
+python visuels_site.py <dossier scrape>        # visuels du thème (accueil, univers)
+```
+
+Règles appliquées (audit de novembre 2026) : aucune marque tierce dans les fiches, pas de « Chogan » dans les titres, entretien de la maison et compléments alimentaires importés en brouillon. Les images écartées à la main sont dans `exclusions.txt`, les recadrages dans `recadrages.json`, les visuels à ne pas détourer dans `sans-detourage.txt`.
+
+## Charte
+
+`docs/00-projet/Audit-et-charte-Univers-Sensoriel.pdf` (page 3). Les couleurs et les polices sont déclarées dans `resources/css/charte.css` : sapin, ivoire, lin, or (jamais pour du texte sur fond clair), bronze. Titres en Marcellus, texte en Jost, hébergées dans le thème.
+
+## Boutique
+
+- Filtres : `?genre[]=femme&famille[]=floral&format[]=…&gamme[]=…&prix=20-40` (`app/woocommerce.php`).
+- Familles olfactives : archives publiques `/famille-olfactive/<famille>/`.
+- Seuil de livraison offerte : constante `App\SEUIL_LIVRAISON` (`app/helpers.php`), à garder égale au réglage WooCommerce › Expédition.
+- Coordonnées et boutiques : `App\coordonnees()` (`app/helpers.php`).
