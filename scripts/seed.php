@@ -328,6 +328,10 @@ if (! get_option('us_livraison_creee')) {
     us_log('zone France : forfait, offerte dès 49 €, retrait à Metz');
 }
 
+// Paiement par carte (Stripe).
+WP_CLI::log('Paiement');
+require __DIR__ . '/paiement.php';
+
 /*
 |--------------------------------------------------------------------------
 | Pages
