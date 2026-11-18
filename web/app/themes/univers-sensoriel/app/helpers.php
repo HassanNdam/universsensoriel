@@ -101,6 +101,17 @@ function coordonnees(): array
     ];
 }
 
+/**
+ * Formulaire Forminator (« contact », « newsletter »), rendu par son shortcode.
+ * Les identifiants sont rangés dans l'option « us_formulaires » par scripts/formulaires.php.
+ */
+function formulaire(string $cle): string
+{
+    $id = (int) (get_option('us_formulaires', [])[$cle] ?? 0);
+
+    return $id && shortcode_exists('forminator_form') ? do_shortcode('[forminator_form id="' . $id . '"]') : '';
+}
+
 function lien_whatsapp(string $message = 'Bonjour, j\'ai une question.'): string
 {
     return 'https://wa.me/' . coordonnees()['whatsapp'] . '?text=' . rawurlencode($message);
