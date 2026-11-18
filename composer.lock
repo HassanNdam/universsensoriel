@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "02c8543627a8955a208160a837a6e207",
+    "content-hash": "d317e2d2c41d5428bd2849459ba626df",
     "packages": [
         {
             "name": "brick/math",
@@ -7256,6 +7256,37 @@
                 "source": "https://plugins.svn.wordpress.org/woocommerce"
             },
             "time": "2026-11-11T16:56:56+00:00"
+        },
+        {
+            "name": "wp-plugin/woocommerce-gateway-stripe",
+            "version": "11.2.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/woocommerce-gateway-stripe/",
+                "reference": "tags/11.2.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/woocommerce-gateway-stripe.11.2.0.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0|~2.0"
+            },
+            "type": "wordpress-plugin",
+            "notification-url": "https://wp-packages.org/downloads",
+            "authors": [
+                {
+                    "name": "WooCommerce"
+                }
+            ],
+            "description": "Accept debit and credit cards in 135+ currencies, many local methods like Alipay, ACH, and SEPA, and express checkout with Apple Pay and Google Pay.",
+            "homepage": "https://wordpress.org/plugins/woocommerce-gateway-stripe/",
+            "support": {
+                "changelog": "https://wordpress.org/plugins/woocommerce-gateway-stripe/#developers",
+                "issues": "https://wordpress.org/support/plugin/woocommerce-gateway-stripe",
+                "source": "https://plugins.svn.wordpress.org/woocommerce-gateway-stripe"
+            },
+            "time": "2026-11-11T16:07:27+00:00"
         },
         {
             "name": "wp-plugin/wordpress-seo",

@@ -79,6 +79,16 @@ Règles appliquées (audit de novembre 2026) : aucune marque tierce dans les fic
 - Seuil de livraison offerte : constante `App\SEUIL_LIVRAISON` (`app/helpers.php`), à garder égale au réglage WooCommerce › Expédition.
 - Coordonnées et boutiques : `App\coordonnees()` (`app/helpers.php`).
 
+## Paiement (Stripe)
+
+- Extension : passerelle Stripe officielle de WooCommerce. Les moyens de paiement proposés se choisissent dans le tableau de bord Stripe.
+- Clés : `STRIPE_PUBLISHABLE_KEY` et `STRIPE_SECRET_KEY` dans le `.env`, jamais en base ni dans Git (`web/app/mu-plugins/stripe.php`). Une clé `sk_test_…` met la boutique en mode test.
+- Réglages : `scripts/paiement.php`, rejoué par `composer seed`.
+- Carte de test : `4242 4242 4242 4242`, date future, trois chiffres au choix.
+- Webhooks en local : `stripe listen --api-key <clé secrète> --forward-to "http://univers-sensoriel.localhost/?wc-api=wc_stripe"`, puis recopier le `whsec_…` affiché dans `STRIPE_WEBHOOK_SECRET`.
+- En ligne : créer le webhook dans le tableau de bord Stripe vers `https://<domaine>/?wc-api=wc_stripe` et mettre les clés `live` dans le `.env` du serveur.
+- TVA : taxes WooCommerce désactivées tant que le statut de l'entreprise n'est pas fixé. Stripe Tax (`stripe-tax-for-woocommerce`) ne sert que si la boutique collecte la TVA.
+
 ## Branches et versions
 
 Le dépôt suit Git flow (`main`, `develop`, `feature/*`, `release/*`, `hotfix/*`) : voir [CONTRIBUTING.md](CONTRIBUTING.md). Les versions sont décrites dans [CHANGELOG.md](CHANGELOG.md).
