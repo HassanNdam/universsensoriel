@@ -1,0 +1,247 @@
+/* Compte client : liste des commandes, détail d'une commande, adresses (resources/views/woocommerce/compte-*.blade.php). */
+
+.compte h2 {
+  font-size: clamp(1.4rem, 2vw, 1.75rem);
+}
+
+.compte-intro {
+  color: var(--mousse);
+  margin-bottom: 1.5rem;
+}
+
+/* Pastille d'état d'une commande */
+.etat {
+  align-items: center;
+  border: 1px solid var(--filet);
+  border-radius: 99px;
+  display: inline-flex;
+  font-size: 0.7rem;
+  font-weight: 500;
+  gap: 0.5rem;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  padding: 0.5rem 0.9rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.etat::before {
+  background: var(--or);
+  border-radius: 50%;
+  content: "";
+  height: 0.45rem;
+  width: 0.45rem;
+}
+
+.etat-terminee {
+  background: var(--sapin);
+  border-color: var(--sapin);
+  color: var(--ivoire);
+}
+
+.etat-terminee::before {
+  background: var(--or-clair);
+}
+
+.etat-arretee {
+  color: var(--brique);
+}
+
+.etat-arretee::before {
+  background: var(--brique);
+}
+
+/* Liste des commandes */
+.commandes {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.commande-carte {
+  background: var(--lin-clair);
+  border: 1px solid var(--filet);
+  display: grid;
+  gap: 1.25rem;
+  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.commande-carte:hover {
+  border-color: var(--or);
+  box-shadow: var(--ombre);
+}
+
+.commande-carte-tete,
+.commande-carte-corps,
+.compte-tete {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  justify-content: space-between;
+}
+
+.commande-carte-numero {
+  display: grid;
+  font-family: var(--font-titre);
+  font-size: 1.35rem;
+  line-height: 1.25;
+}
+
+.commande-carte-numero a:hover {
+  color: var(--bronze);
+}
+
+.commande-carte-numero small,
+.commande-carte-total small {
+  color: var(--mousse);
+  font-family: var(--font-texte);
+  font-size: 0.85rem;
+}
+
+.commande-carte-vignettes {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.commande-carte-vignettes .confirmation-vignette {
+  width: 3.75rem;
+}
+
+.commande-carte-reste {
+  color: var(--mousse);
+  font-size: 0.9rem;
+}
+
+.commande-carte-total {
+  display: grid;
+  font-family: var(--font-titre);
+  font-size: 1.5rem;
+  line-height: 1.2;
+  text-align: right;
+}
+
+.commande-carte-actions {
+  align-items: center;
+  border-top: 1px solid var(--filet);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 2rem;
+  padding-top: 1.1rem;
+}
+
+.compte-pages {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  margin-top: 1.75rem;
+}
+
+.compte-vide {
+  align-items: center;
+  background: var(--lin-clair);
+  border: 1px solid var(--filet);
+  display: grid;
+  gap: 1.25rem;
+  justify-items: start;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+/* Détail d'une commande */
+.compte-retour {
+  margin-bottom: 1.25rem;
+}
+
+.compte-commande .compte-tete h2 {
+  font-size: clamp(1.75rem, 3vw, 2.4rem);
+}
+
+.confirmation-resume.compte-resume {
+  box-shadow: none;
+  margin-top: 1.5rem;
+}
+
+.compte-commande .confirmation-etapes {
+  margin-top: 2rem;
+}
+
+.compte-commande > .compte-vide {
+  margin-top: 1.5rem;
+}
+
+.compte-notes {
+  margin-top: 2rem;
+}
+
+.compte-notes ol {
+  border-left: 1px solid var(--or);
+  display: grid;
+  gap: 1rem;
+  margin-top: 0.9rem;
+  padding-left: 1.25rem;
+}
+
+.compte-notes time {
+  color: var(--bronze);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* Dans le compte, la colonne est étroite : articles puis cartes en dessous jusqu'aux grands écrans. */
+@media (min-width: 960px) {
+  .compte .confirmation-grille {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .compte .confirmation-cote {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .compte .confirmation-aide {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 1380px) {
+  .compte .confirmation-grille {
+    grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  }
+
+  .compte .confirmation-cote {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Adresses */
+.adresses {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 720px) {
+  .adresses {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.adresse-carte {
+  display: flex;
+  flex-direction: column;
+}
+
+.adresse-vide {
+  color: var(--mousse);
+}
+
+.adresse-action {
+  border-top: 1px solid var(--filet);
+  margin-top: auto;
+  padding-top: 1.1rem;
+}
+
+.adresse-carte address,
+.adresse-vide {
+  margin-bottom: 1.4rem;
+}

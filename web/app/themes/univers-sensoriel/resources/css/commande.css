@@ -114,6 +114,33 @@
   color: var(--sapin);
 }
 
+/* Variante sur fond clair (compte client). */
+.confirmation-etapes-clair li {
+  color: var(--mousse);
+}
+
+.confirmation-etapes-clair li + li::before {
+  background: var(--filet);
+}
+
+.confirmation-etapes-clair .confirmation-etape-point {
+  border-color: var(--filet);
+}
+
+.confirmation-etapes-clair .est-faite {
+  color: var(--sapin);
+}
+
+.confirmation-etapes-clair .est-faite .confirmation-etape-point {
+  background: var(--sapin);
+  border-color: var(--sapin);
+  color: var(--or-clair);
+}
+
+.confirmation-etapes-clair .est-faite + .est-faite::before {
+  background: var(--sapin);
+}
+
 /* Corps : le résumé chevauche le bandeau. */
 .confirmation-corps {
   max-width: 76rem;
@@ -195,7 +222,7 @@
   padding: clamp(1.5rem, 3vw, 2.25rem);
 }
 
-.confirmation h2 {
+.commande-detail h2 {
   font-size: clamp(1.4rem, 2vw, 1.75rem);
 }
 

@@ -1,12 +1,14 @@
 <?php
 
 /**
- * Page « commande reçue » : le gabarit de WooCommerce est remplacé par une vue Blade du thème.
+ * Commande reçue et compte client : les gabarits de WooCommerce sont remplacés par des vues Blade du thème.
  *
- * Rien n'est copié depuis l'extension : la vue ne lit la commande que par les méthodes publiques
- * de WC_Order et rejoue les crochets de WooCommerce. Une mise à jour de WooCommerce, de la
- * passerelle de paiement ou de WordPress ne touche donc ni ce fichier, ni la vue
- * (resources/views/woocommerce/commande-recue.blade.php), ni les styles (resources/css/commande.css).
+ * Rien n'est copié depuis l'extension : les vues ne lisent les commandes que par les méthodes publiques
+ * de WC_Order et rejouent les crochets de WooCommerce. Une mise à jour de WooCommerce, de la
+ * passerelle de paiement ou de WordPress ne touche donc ni ces fichiers, ni les vues
+ * (resources/views/woocommerce/), ni les styles (resources/css/commande.css et compte.css).
+ *
+ * Ce fichier : la table des gabarits remplacés et la page « commande reçue ». Le compte client est dans app/compte.php.
  */
 
 namespace App;
@@ -15,9 +17,16 @@ if (! function_exists('WC')) {
     return;
 }
 
-/** WooCommerce demande « checkout/thankyou.php » : on lui tend le pont du thème. */
+/** Gabarit de WooCommerce => pont du thème (app/ponts/<nom>.php), qui rend la vue Blade du même nom. */
+const PONTS = [
+    'checkout/thankyou.php' => 'commande-recue',
+    'myaccount/orders.php' => 'compte-commandes',
+    'myaccount/view-order.php' => 'compte-commande',
+    'myaccount/my-address.php' => 'compte-adresses',
+];
+
 add_filter('wc_get_template', function ($fichier, $nom) {
-    return $nom === 'checkout/thankyou.php' ? get_theme_file_path('app/commande-pont.php') : $fichier;
+    return isset(PONTS[$nom]) ? get_theme_file_path('app/ponts/' . PONTS[$nom] . '.php') : $fichier;
 }, 10, 2);
 
 /** Vrai sur la page affichée après le paiement. */
