@@ -21,7 +21,7 @@
               @endif
             </ol>
           </nav>
-          <h1>{{ get_the_title() }}</h1>
+          <h1>{!! get_the_title() !!}</h1>
           <p class="article-meta">
             <time datetime="{{ get_the_date('c') }}">{{ get_the_date('j F Y') }}</time>
             <span aria-hidden="true">·</span>
