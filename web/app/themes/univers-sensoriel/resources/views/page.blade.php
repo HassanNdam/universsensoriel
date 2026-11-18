@@ -14,7 +14,7 @@
       </div>
     </header>
     <div class="conteneur {{ $boutique ? 'page-boutique' : 'page-texte' }}">
-      <div class="prose">
+      <div class="{{ $boutique ? 'boutique-contenu' : 'prose' }}">
         @php(the_content())
       </div>
     </div>

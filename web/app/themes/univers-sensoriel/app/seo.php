@@ -54,17 +54,25 @@ function titre_fiche(\WC_Product $produit): string
             $type .= ' ' . mb_strtolower(implode(' ', array_map(fn ($f) => $f->name, array_slice($infos['familles'], 0, 2))));
         }
     } elseif ($infos['rayon'] && ! str_contains(mb_strtolower($nom), mb_strtolower(explode(' ', $infos['rayon']->name)[0]))) {
-        $type = $infos['rayon']->name;
+        $type = wp_specialchars_decode($infos['rayon']->name);
     }
     $titre = $type ? "$nom – $type" : $nom;
+    if (mb_strlen($titre) > 60) {
+        $titre = $nom;
+    }
 
-    return mb_strlen($titre) <= 40 ? "$titre | Univers Sensoriel" : $titre;
+    return mb_strlen($titre) <= 41 ? "$titre | Univers Sensoriel" : $titre;
 }
 
 function description_fiche(\WC_Product $produit): string
 {
     $infos = fiche($produit);
-    $texte = raccourcir($produit->get_short_description() ?: $produit->get_description(), 118);
+    $brut = fn (string $html) => trim(preg_replace('/\s+/u', ' ', html_entity_decode(wp_strip_all_tags($html), ENT_QUOTES, 'UTF-8')));
+    $accroche = $brut($produit->get_short_description());
+    $description = $brut($produit->get_description());
+    // Accroche trop courte (un simple titre) : on prend la description, qui commence souvent par ce même titre.
+    $source = mb_strlen($accroche) >= 90 ? $accroche : (str_starts_with($description, $accroche) ? $description : trim("$accroche. $description"));
+    $texte = raccourcir($source, 128);
     $suite = '';
     if ($produit->is_type('variable') && ($min = $produit->get_variation_price('min', true)) !== '') {
         $suite = ' Dès ' . html_entity_decode(wp_strip_all_tags(wc_price($min)), ENT_QUOTES, 'UTF-8') . '.';

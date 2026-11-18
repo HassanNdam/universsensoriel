@@ -8,12 +8,12 @@
       "motcle": "extraits de parfum"
     },
     "boutique": {
-      "titre": "Boutique : parfums, soins et art de vivre | Univers Sensoriel",
+      "titre": "Boutique : parfums, soins, art de vivre | Univers Sensoriel",
       "description": "Toute la sélection Univers Sensoriel : extraits de parfum pour elle et lui, soins, huiles essentielles et parfums d'ambiance. Livraison offerte dès 49 €.",
       "motcle": "parfums et soins"
     },
     "la-maison": {
-      "titre": "La Maison : notre histoire et nos valeurs | Univers Sensoriel",
+      "titre": "La Maison : notre histoire, nos valeurs | Univers Sensoriel",
       "description": "Univers Sensoriel by K.Elle : une Maison de parfums, de soins et de bien-être née d'une conviction, le luxe discret pour tous. Boutiques à Metz et Yaoundé.",
       "motcle": "Univers Sensoriel"
     },
@@ -62,7 +62,7 @@
 
   "rayons": {
     "parfums": {
-      "titre": "Extraits de parfum longue tenue dès 11,90 € | Univers Sensoriel",
+      "titre": "Extraits de parfum longue tenue | Univers Sensoriel",
       "description": "Plus de 140 extraits de parfum concentrés à 30 %, pour elle et pour lui, en 15, 30 et 70 ml. Choisissez par famille olfactive. Livraison offerte dès 49 €.",
       "motcle": "extraits de parfum"
     },
@@ -82,7 +82,7 @@
       "motcle": "collection Luxury"
     },
     "collection-mytologik": {
-      "titre": "Collection Mytologik : parfums d'exception | Univers Sensoriel",
+      "titre": "Collection Mytologik : parfums d'exception",
       "description": "Sept extraits de parfum inspirés des dieux de l'Olympe, chacun avec son buste sculpté. Coffret découverte et testeurs 3 ml pour choisir le vôtre.",
       "motcle": "Mytologik"
     },

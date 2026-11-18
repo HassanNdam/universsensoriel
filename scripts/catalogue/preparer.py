@@ -137,6 +137,22 @@ def familles_notes(brut):
     return libelle, fams, notes[:7]
 
 
+def paragraphes_lisibles(description):
+    """Paragraphes en texte brut ; une liste écrite avec des retours à la ligne devient une phrase."""
+    sortie = []
+    for bloc in re.findall(r'<p>(.*?)</p>', description, flags=re.S):
+        lignes = [texte_brut(x).strip(' .;') for x in bloc.split('<br>')]
+        lignes = [x for x in lignes if x]
+        if len(lignes) < 2:
+            sortie.append(texte_brut(bloc))
+            continue
+        phrase = ' ; '.join([lignes[0]] + [x[:1].lower() + x[1:] for x in lignes[1:]]) + '.'
+        if sortie and sortie[-1].rstrip().endswith(':'):  # « … pour : » suivi de la liste
+            phrase = sortie.pop().rstrip() + ' ' + phrase[:1].lower() + phrase[1:]
+        sortie.append(phrase)
+    return sortie
+
+
 def format_propre(v):
     v = re.sub(r'\s+', ' ', v).strip()
     v = re.sub(r'(\d)\s*m[lL]\b', r'\1 ml', v)
@@ -188,7 +204,7 @@ def construire(scrape):
             s, i = f'{base_slug}-{i}', i + 1
         slugs.add(s)
         description = nettoyer_html(p['body_html'], nom)
-        paragraphes = [texte_brut(x) for x in re.findall(r'<p>(.*?)</p>', description, flags=re.S)]
+        paragraphes = paragraphes_lisibles(description)
         accroche = next((x for x in paragraphes if len(x) > 60 and x.upper() != x), '') or texte_brut(description)[:240]
         if len(accroche) > 320:
             accroche = re.sub(r'\s+\S*$', '', accroche[:300]) + '…'

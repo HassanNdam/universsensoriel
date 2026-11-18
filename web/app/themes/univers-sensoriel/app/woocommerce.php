@@ -212,3 +212,8 @@ add_action('wp_enqueue_scripts', function () {
         wp_enqueue_style('wc-blocks-style');
     }
 }, 100);
+
+/** Le compteur du panier se met à jour sans recharger la page (ajout depuis une carte produit). */
+add_action('wp_enqueue_scripts', function () {
+    wp_enqueue_script('wc-cart-fragments');
+});
