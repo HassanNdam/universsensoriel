@@ -26,9 +26,8 @@
   <section class="ouverture">
     <div class="conteneur ouverture-grille">
       <div class="ouverture-texte">
-        <p class="surtitre surtitre-clair">Parfums · Soins · Rituels</p>
         <h1>Parfums, soins et rituels pour éveiller les sens</h1>
-        <p class="chapo">Des extraits de parfum longue tenue, des soins aux actifs choisis et des senteurs pour la maison. Une sélection faite pour ce qu'elle fait ressentir.</p>
+        <p class="chapo">Extraits de parfum longue tenue, soins et senteurs pour la maison.</p>
         <div class="ouverture-actions">
           <a class="bouton bouton-clair" href="{{ $lien('parfums') }}">Découvrir les parfums</a>
           <a class="lien-or" href="{{ $lien('beaute') }}">Explorer les soins {!! App\icone('fleche', 18) !!}</a>
@@ -48,7 +47,6 @@
     <section class="section selection" data-onglets>
       <div class="conteneur">
         <header class="section-tete">
-          <p class="surtitre">La sélection de la Maison</p>
           <h2>Nos essentiels</h2>
           <div class="onglets" role="tablist" aria-label="Sélection par univers">
             @foreach ($onglets as $cle => [$libelle])
@@ -74,8 +72,7 @@
   <section class="section univers">
     <div class="conteneur">
       <header class="section-tete">
-        <p class="surtitre">Beauté · Bien-être · Art de vivre</p>
-        <h2>Entrez dans l'univers</h2>
+        <h2>Nos univers</h2>
       </header>
       <ul class="univers-grille">
         @foreach ($univers as [$slug, $nom, $texte, $image, $alt])
@@ -101,11 +98,11 @@
       <blockquote>
         <p>Le vrai luxe n'est pas ce que l'on voit. C'est ce que l'on ressent.</p>
       </blockquote>
-      <p>Univers Sensoriel est né d'une conviction simple : prendre soin de soi est un droit, pas un privilège. Nous choisissons chaque parfum et chaque soin pour sa qualité, sa tenue et le plaisir qu'il procure, loin de l'ostentation.</p>
+      <p>Nous choisissons chaque parfum et chaque soin pour sa qualité, sa tenue et le plaisir qu'il procure.</p>
       <ul class="maison-points">
-        <li>{!! App\icone('goutte', 22) !!} Extraits concentrés à 30 %, pensés pour durer</li>
-        <li>{!! App\icone('feuille', 22) !!} Des formules et des actifs choisis avec soin</li>
-        <li>{!! App\icone('boutique', 22) !!} Deux boutiques, à Metz et à Yaoundé</li>
+        <li>{!! App\icone('goutte', 22) !!} Extraits de parfum concentrés à 30 %</li>
+        <li>{!! App\icone('feuille', 22) !!} Formules et actifs choisis avec soin</li>
+        <li>{!! App\icone('boutique', 22) !!} Deux boutiques : Metz et Yaoundé</li>
       </ul>
       <a class="bouton bouton-clair" href="{{ home_url('/la-maison/') }}">Notre histoire</a>
     </div>
@@ -116,9 +113,7 @@
     <section class="section familles">
       <div class="conteneur">
         <header class="section-tete">
-          <p class="surtitre">Trouver son parfum</p>
           <h2>Choisir par famille olfactive</h2>
-          <p class="section-intro">Florale, boisée, ambrée ou gourmande : chaque famille raconte une humeur. Laissez-vous guider par les notes que vous aimez.</p>
         </header>
         <div class="familles-grille">
           <ul class="familles-photos">
@@ -154,7 +149,7 @@
       <div class="honneur-texte">
         <p class="surtitre">Collection Luxury</p>
         <h2>Les matières les plus précieuses</h2>
-        <p>Oud, safran, vanille, fleurs rares : la collection Luxury réunit nos compositions de caractère, pour elle et pour lui. Des sillages profonds, à porter comme une signature.</p>
+        <p>Oud, safran, vanille, fleurs rares. Pour elle et pour lui.</p>
         <a class="bouton" href="{{ $lien('collection-luxury') }}">Voir la collection</a>
       </div>
     </div>
@@ -165,9 +160,7 @@
     <section class="section">
       <div class="conteneur">
         <header class="section-tete">
-          <p class="surtitre">Le rituel</p>
-          <h2>Prolonger le parfum sur la peau</h2>
-          <p class="section-intro">Brumes, huiles précieuses et soins du corps : les gestes qui font durer le plaisir.</p>
+          <h2>Brumes, huiles et soins du corps</h2>
         </header>
         <div class="grille-produits">
           @foreach ($rituels as $produit)
@@ -184,9 +177,8 @@
     <section class="section avis-accueil">
       <div class="conteneur">
         <header class="section-tete">
-          <p class="surtitre surtitre-clair">Avis clients</p>
-          <h2>Mot pour mot</h2>
-          <p class="section-intro">De vrais avis, publiés tels quels.</p>
+          <h2>Avis clients</h2>
+          <p class="section-intro">Publiés mot pour mot.</p>
         </header>
         <div class="avis-grille">
           @foreach ($avisAccueil as $avis)
@@ -203,8 +195,7 @@
     <section class="section section-blanche">
       <div class="conteneur">
         <header class="section-tete">
-          <p class="surtitre">Le journal</p>
-          <h2>Conseils et rituels</h2>
+          <h2>Le journal</h2>
         </header>
         <div class="journal-grille">
           @foreach ($articles as $article)
@@ -220,9 +211,8 @@
   <section class="rendez-vous">
     <div class="conteneur rendez-vous-grille">
       <div>
-        <p class="surtitre surtitre-clair">Nous rencontrer</p>
         <h2>Sentir, essayer, demander conseil</h2>
-        <p>Venez découvrir les parfums en boutique, ou écrivez-nous : nous vous aidons à choisir selon vos goûts et vos habitudes.</p>
+        <p>En boutique ou par message, nous vous aidons à choisir.</p>
         <div class="ouverture-actions">
           <a class="bouton bouton-clair" href="{{ App\lien_whatsapp('Bonjour, j\'aimerais un conseil pour choisir un parfum.') }}" target="_blank" rel="noopener">{!! App\icone('whatsapp', 20) !!} Demander conseil</a>
           <a class="lien-or" href="{{ home_url('/nos-boutiques/') }}">Nos boutiques {!! App\icone('fleche', 18) !!}</a>

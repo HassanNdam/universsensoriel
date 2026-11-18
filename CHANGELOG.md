@@ -4,6 +4,8 @@ Les versions suivent `MAJEUR.MINEUR.CORRECTIF`. Le site n'est pas encore en lign
 
 ## À venir
 
+- Textes raccourcis sur tout le site : surtitres et phrases d'introduction retirés quand ils n'apportaient rien, page Contact allégée, rayons décrits en une phrase, pages de contenu resserrées.
+
 - Formulaires (Forminator) : formulaire de contact avec accusé de réception, page Contact réorganisée en deux colonnes, inscription à la lettre d'information en tête du pied de page. Formulaires décrits dans `scripts/formulaires.php` et recréés par le seed.
 - Le journal : huit articles repris de l'ancien blog et relus, quatre rubriques, page d'article, derniers articles sur l'accueil.
 - Nouveaux avis : invitation dans l'e-mail « commande terminée », relecture dans Produits › Avis, choix des avis de l'accueil par la colonne « Accueil », compte client créé à la commande.
