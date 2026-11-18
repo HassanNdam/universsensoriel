@@ -20,7 +20,7 @@ Première version complète en local.
 - 375 fiches reprises de l'ancienne boutique, nettoyées : 374 publiées, 1 en brouillon (prix à vérifier).
 - Aucune marque tierce ni « Chogan » dans les fiches.
 - Entretien de la maison et compléments alimentaires réécrits : ton sobre, sans allégation de santé, mention réglementaire sur chaque complément.
-- 348 images en WebP : packshots détourés, photos d'ambiance triées à la main, aucune image générée de l'ancien site.
+- 370 images en WebP : packshots détourés, photos d'ambiance triées à la main, aucune image générée de l'ancien site.
 
 ### Référencement
 
