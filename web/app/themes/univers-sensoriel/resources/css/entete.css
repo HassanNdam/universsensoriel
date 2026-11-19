@@ -504,6 +504,60 @@
   font-size: 0.92rem;
 }
 
+/* Moyens de paiement : logos aux couleurs des marques, posés tels quels sur le sapin. */
+.pied-paiement {
+  align-items: center;
+  border-top: 1px solid var(--filet-clair);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  justify-content: space-between;
+  padding-block: 1.4rem;
+}
+
+.pied-paiement p {
+  align-items: center;
+  color: rgb(247 240 228 / 78%);
+  display: flex;
+  font-size: 0.75rem;
+  font-weight: 500;
+  gap: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.pied-paiement p .icone {
+  color: var(--or-clair);
+}
+
+.pied-paiement ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.pied-paiement img {
+  border-radius: 3px;
+  display: block;
+  height: 1.6rem;
+  width: auto;
+}
+
+/* Sur téléphone, les logos se partagent la largeur : tous sur une ligne. */
+@media (max-width: 560px) {
+  .pied-paiement ul {
+    display: grid;
+    gap: 0.4rem;
+    grid-template-columns: repeat(auto-fill, minmax(2.1rem, 1fr));
+    width: 100%;
+  }
+
+  .pied-paiement img {
+    height: auto;
+    width: 100%;
+  }
+}
+
 .pied-bas {
   align-items: center;
   border-top: 1px solid var(--filet-clair);

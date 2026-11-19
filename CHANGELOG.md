@@ -4,6 +4,8 @@ Les versions suivent `MAJEUR.MINEUR.CORRECTIF`. Le site n'est pas encore en lign
 
 ## À venir
 
+- Pied de page : logos des moyens de paiement acceptés (cartes, Apple Pay, Google Pay, Klarna, Bancontact), affichés seulement s'ils sont activés dans Stripe.
+
 - Compte client refait : commandes en cartes (état, vignettes, total), détail d'une commande avec son avancement, adresses en deux cartes. L'écran de vérification de l'e-mail garde la mise en page du site.
 - Page « commande reçue » refaite : bandeau de remerciement, avancement en trois étapes, résumé, articles avec vignettes, livraison et facturation. Vue du thème, indépendante des gabarits de WooCommerce.
 - Paiement par carte avec Stripe (passerelle officielle de WooCommerce), en mode test. Clés lues dans le `.env`, réglages dans `scripts/paiement.php`.
