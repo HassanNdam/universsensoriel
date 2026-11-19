@@ -76,7 +76,7 @@
         <div class="fiche-panier">
           @php(wc_print_notices())
           @if ($product->is_in_stock())
-            <p class="fiche-stock">{!! App\icone('coche', 16) !!} En stock</p>
+            <p class="fiche-stock">{!! App\icone('coche', 16) !!} {{ App\texte('produit_stock') }}</p>
           @endif
           @php(woocommerce_template_single_add_to_cart())
         </div>
@@ -120,7 +120,7 @@
               @if ($infos['parfum'] && $infos['rayon']->slug !== 'parfums-enfant')
                 <div>
                   <dt>{!! App\icone('sablier', 20) !!} Concentration</dt>
-                  <dd>Extrait de parfum, 30 %</dd>
+                  <dd>{{ App\texte('produit_concentration') }}</dd>
                 </div>
               @endif
             </dl>
@@ -134,19 +134,19 @@
               <div class="prose">{!! wpautop(wp_kses_post($product->get_description())) !!}</div>
             </details>
           @endif
-          @if ($infos['parfum'])
+          @if ($infos['parfum'] && App\texte('produit_conseils'))
             <details class="accordeon">
               <summary>Conseils d'utilisation <span class="facette-signe" aria-hidden="true"></span></summary>
               <div class="prose">
-                <p>Deux ou trois vaporisations sur les points de pulsation (poignets, cou), sans frotter. À conserver à l'abri de la lumière et de la chaleur.</p>
+                <p>{{ App\texte('produit_conseils') }}</p>
               </div>
             </details>
           @endif
           <details class="accordeon">
             <summary>Livraison et retours <span class="facette-signe" aria-hidden="true"></span></summary>
             <div class="prose">
-              <p>Livraison offerte dès {{ App\SEUIL_LIVRAISON }} € d'achat en France, ou retrait gratuit à la boutique de Metz.</p>
-              <p>14 jours pour changer d'avis, si le produit n'a pas été ouvert. <a href="{{ home_url('/livraison-et-retours/') }}">En savoir plus</a></p>
+              <p>{{ App\texte('produit_livraison') }}</p>
+              <p>{{ App\texte('produit_retours') }} <a href="{{ home_url('/livraison-et-retours/') }}">En savoir plus</a></p>
             </div>
           </details>
         </div>
@@ -162,7 +162,7 @@
             <h2>{{ $avisProduit ? 'Avis clients' : 'Donnez votre avis' }}</h2>
           </header>
           @if ($avisRecu)
-            <p class="woocommerce-message" role="status">Merci ! Votre avis est bien reçu. Il sera publié après relecture.</p>
+            <p class="woocommerce-message" role="status">{{ App\texte('avis_merci') }}</p>
           @endif
           @if ($avisProduit)
             @include('partials.avis-carrousel', ['liste' => $avisProduit, 'lienProduit' => false, 'titre' => 'Avis sur ce produit'])
@@ -179,7 +179,7 @@
                 'comment_notes_before' => '', 'logged_in_as' => '', 'label_submit' => 'Envoyer mon avis', 'class_submit' => 'bouton',
                 'comment_field' => '<p class="avis-champ"><label for="rating">Votre note</label><select name="rating" id="rating" required><option value="">Choisir…</option><option value="5">5 – Excellent</option><option value="4">4 – Très bien</option><option value="3">3 – Bien</option><option value="2">2 – Moyen</option><option value="1">1 – Décevant</option></select></p>'
                   . '<p class="avis-champ"><label for="comment">Votre avis</label><textarea id="comment" name="comment" rows="5" required></textarea></p>'
-                  . '<p class="avis-mention">Publié après relecture, avec votre prénom.</p>',
+                  . '<p class="avis-mention">' . esc_html(App\texte('avis_mention')) . '</p>',
               ], get_the_ID()))
             </div>
           @endif
@@ -191,7 +191,7 @@
       <section class="section section-lin">
         <div class="conteneur">
           <header class="section-tete">
-            <h2>Dans la même senteur</h2>
+            <h2>{{ App\texte('produit_meme_senteur') }}</h2>
           </header>
           <div class="grille-produits">
             @foreach ($rituel as $produit)
@@ -206,7 +206,7 @@
       <section class="section">
         <div class="conteneur">
           <header class="section-tete">
-            <h2>Vous aimerez aussi</h2>
+            <h2>{{ App\texte('produit_voisins') }}</h2>
           </header>
           <div class="grille-produits">
             @foreach ($voisins as $produit)

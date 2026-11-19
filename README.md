@@ -72,12 +72,25 @@ Règles appliquées (audit de novembre 2026) : aucune marque tierce dans les fic
 
 `docs/00-projet/Audit-et-charte-Univers-Sensoriel.pdf` (page 3). Les couleurs et les polices sont déclarées dans `resources/css/charte.css` : sapin, ivoire, lin, or (jamais pour du texte sur fond clair), bronze. Titres en Marcellus, texte en Jost, hébergées dans le thème.
 
+## Administration des textes (menu « Univers Sensoriel »)
+
+Textes, coordonnées, boutiques, photos de l'accueil et page d'attente se modifient dans l'administration, menu **Univers Sensoriel** (extension Secure Custom Fields) : Coordonnées, Accueil, Textes du site, Page d'attente.
+
+- Une seule description : `App\REGLAGES` (`app/reglages.php`). Elle fabrique les écrans et donne à chaque réglage sa valeur d'origine. Ajouter un champ = ajouter une ligne, puis le lire dans le gabarit avec `App	exte('cle')`, `Appeglage('cle')`, `App\lignes('cle')` (liste) ou `App\media()` (image).
+- Valeur lue : jamais enregistrée → valeur d'origine ; texte vidé → rien ; image vide → image du thème.
+- `composer reglages` (rejoué par `composer seed`) recopie les valeurs d'origine dans l'administration tant qu'elles n'y sont pas ; un réglage enregistré n'est jamais écrasé.
+- Repères dans un texte : `{seuil}` (livraison offerte), `{annee}`, `{numero}` (commande). Dans un titre, les `*mots*` entre étoiles sont en or.
+- Coordonnées dans le texte d'une page : codes courts `[us_contact champ="courriel"]`, `[us_contact champ="telephone"]`, `[us_whatsapp message="…"]Texte[/us_whatsapp]`, `[us_boutiques]`, `[us_editeur]`, `[us_hebergeur]` (`app/coordonnees.php`). Un numéro n'est écrit qu'à un seul endroit.
+- L'adresse e-mail des coordonnées reçoit les messages du formulaire de contact : la changer met à jour les formulaires Forminator.
+- Page d'attente : « Automatique » suit `WP_ENV` et `US_MAINTENANCE` du `.env` ; « Affichée » et « Masquée » passent avant.
+- Restent dans le code : libellés d'interface (boutons du panier, filtres, tri, pagination), menus et liens du pied de page, logos.
+- Le menu « SCF » n'apparaît qu'en développement.
+
 ## Boutique
 
 - Filtres : `?genre[]=femme&famille[]=floral&format[]=…&gamme[]=…&prix=20-40` (`app/woocommerce.php`).
 - Familles olfactives : archives publiques `/famille-olfactive/<famille>/`.
-- Seuil de livraison offerte : constante `App\SEUIL_LIVRAISON` (`app/helpers.php`), à garder égale au réglage WooCommerce › Expédition.
-- Coordonnées et boutiques : `App\coordonnees()` (`app/helpers.php`).
+- Seuil de livraison offerte : lu dans WooCommerce › Réglages › Expédition (`App\seuil_livraison()`), jamais écrit ailleurs. Dans un texte réglable, `{seuil}` le reprend.
 - Commande reçue et compte client : la table `App\PONTS` (`app/commande.php`) remplace quatre gabarits de WooCommerce (`checkout/thankyou`, `myaccount/orders`, `myaccount/view-order`, `myaccount/my-address`) par des vues du thème (`resources/views/woocommerce/`), via les ponts de `app/ponts/`. Données préparées dans `app/commande.php` et `app/compte.php`, styles dans `commande.css` et `compte.css`. Aucun fichier de WooCommerce n'est copié : une mise à jour de l'extension ne défait rien.
 - Compte client d'essai en local : identifiant `client-test`, mot de passe dans le `.env` (`US_CLIENT_TEST_PASSWORD`).
 

@@ -15,7 +15,7 @@
           <nav class="fil" aria-label="Fil d'Ariane">
             <ol>
               <li><a href="{{ home_url('/') }}">Accueil</a></li>
-              <li><a href="{{ $journal }}">Le journal</a></li>
+              <li><a href="{{ $journal }}">{{ App\texte('journal_titre') }}</a></li>
               @if ($rubrique)
                 <li><a href="{{ get_category_link($rubrique) }}">{{ $rubrique->name }}</a></li>
               @endif
@@ -41,7 +41,7 @@
           @php(the_content())
         </div>
         <footer class="article-pied">
-          <a class="lien-or" href="{{ $journal }}">{!! App\icone('fleche', 16, 'icone-retour') !!} Tous les articles</a>
+          <a class="lien-or" href="{{ $journal }}">{!! App\icone('fleche', 16, 'icone-retour') !!} {{ App\texte('journal_bouton') }}</a>
           <a class="bouton bouton-contour" href="{{ home_url('/boutique/') }}">Voir la boutique</a>
         </footer>
       </div>
@@ -51,7 +51,7 @@
       <section class="section section-lin">
         <div class="conteneur">
           <header class="section-tete">
-            <h2>À lire aussi</h2>
+            <h2>{{ App\texte('journal_suite') }}</h2>
           </header>
           <div class="journal-grille">
             @foreach ($autres as $article)

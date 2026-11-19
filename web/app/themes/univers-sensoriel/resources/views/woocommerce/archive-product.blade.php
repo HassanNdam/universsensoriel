@@ -6,7 +6,7 @@
     $objet = get_queried_object();
     $terme = $objet instanceof WP_Term ? $objet : null;
     $recherche = is_search();
-    $titre = $recherche ? 'Résultats pour « ' . get_search_query() . ' »' : ($terme ? $terme->name : 'La boutique');
+    $titre = $recherche ? 'Résultats pour « ' . get_search_query() . ' »' : ($terme ? $terme->name : App\texte('boutique_titre'));
     $surtitre = 'Univers Sensoriel';
     if ($terme && $terme->taxonomy === 'pa_famille-olfactive') {
       $titre = 'Parfums ' . App\famille_au_pluriel($terme->name);
@@ -14,7 +14,7 @@
     } elseif ($terme && $terme->parent) {
       $surtitre = get_term($terme->parent)->name;
     }
-    $description = $terme ? $terme->description : 'Parfums, soins, bien-être et art de vivre : toute la sélection Univers Sensoriel.';
+    $description = $terme ? $terme->description : App\texte('boutique_intro');
 
     // Pastilles : les sous-rayons du rayon affiché (ou ses rayons frères), sinon les quatre univers.
     $pastilles = [];
@@ -124,15 +124,15 @@
     @else
       <div class="rayon-vide">
         {!! App\icone('etoile', 36) !!}
-        <h2>Aucun produit ne correspond</h2>
-        <p>Essayez d'élargir vos critères, ou demandez-nous conseil : nous vous aidons à trouver.</p>
+        <h2>{{ App\texte('boutique_vide_titre') }}</h2>
+        <p>{{ App\texte('boutique_vide_texte') }}</p>
         <p><a class="bouton" href="{{ $base }}">Effacer les filtres</a></p>
       </div>
     @endif
 
     @if ($terme && $terme->taxonomy === 'pa_famille-olfactive')
       <aside class="rayon-note">
-        <p>Vous hésitez entre plusieurs familles ? <a class="lien-or" href="{{ home_url('/guide-des-familles-olfactives/') }}">Lire le guide des familles olfactives</a></p>
+        <p>{{ App\texte('boutique_guide') }} <a class="lien-or" href="{{ home_url('/guide-des-familles-olfactives/') }}">Lire le guide des familles olfactives</a></p>
       </aside>
     @endif
   </div>

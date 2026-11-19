@@ -4,7 +4,13 @@ Les versions suivent `MAJEUR.MINEUR.CORRECTIF`. Le site n'est pas encore en lign
 
 ## À venir
 
-Rien pour le moment.
+Textes et coordonnées modifiables dans l'administration.
+
+- Menu « Univers Sensoriel » (Secure Custom Fields) : Coordonnées (contact, boutiques et horaires, mentions légales), Accueil (textes, photos, rayons de chaque bloc), Textes du site (bandeau, garanties, pied de page, fiche produit, boutique, journal, contact, commande, page introuvable), Page d'attente (affichage, textes, titre et image de partage).
+- Une seule description des réglages (`app/reglages.php`) : écrans de l'administration et valeurs d'origine. `composer reglages` les recopie dans l'administration.
+- Un numéro ou une adresse n'est plus écrit qu'à un seul endroit : pages légales, « Nos boutiques » et « Devenir consultante » les lisent par codes courts ; les formulaires suivent l'adresse e-mail.
+- Seuil de livraison offerte lu dans WooCommerce › Expédition (plus de constante à tenir à jour) ; `{seuil}` dans les textes.
+- Page d'attente : interrupteur dans l'administration (Automatique, Affichée, Masquée).
 
 ## 0.3.0 – 19 novembre 2026
 
