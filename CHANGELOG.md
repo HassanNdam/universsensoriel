@@ -4,6 +4,8 @@ Les versions suivent `MAJEUR.MINEUR.CORRECTIF`. Le site n'est pas encore en lign
 
 ## À venir
 
+- Accueil : « éveiller les sens » en or, avec un reflet qui passe, le ruban du logo dessiné dessous et l'étoile qui scintille.
+
 - Pied de page : logos des moyens de paiement acceptés (cartes, Apple Pay, Google Pay, Klarna, Bancontact), affichés seulement s'ils sont activés dans Stripe.
 
 - Compte client refait : commandes en cartes (état, vignettes, total), détail d'une commande avec son avancement, adresses en deux cartes. L'écran de vérification de l'e-mail garde la mise en page du site.
