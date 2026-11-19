@@ -76,7 +76,8 @@ Règles appliquées (audit de novembre 2026) : aucune marque tierce dans les fic
 
 Textes, coordonnées, boutiques, photos de l'accueil et page d'attente se modifient dans l'administration, menu **Univers Sensoriel** (extension Secure Custom Fields) : Coordonnées, Accueil, Textes du site, Page d'attente.
 
-- Une seule description : `App\REGLAGES` (`app/reglages.php`). Elle fabrique les écrans et donne à chaque réglage sa valeur d'origine. Ajouter un champ = ajouter une ligne, puis le lire dans le gabarit avec `App	exte('cle')`, `Appeglage('cle')`, `App\lignes('cle')` (liste) ou `App\media()` (image).
+- Une seule description : `App\REGLAGES` (`app/reglages.php`). Elle fabrique les écrans et donne à chaque réglage sa valeur d'origine. Ajouter un champ = ajouter une ligne, puis le lire dans le gabarit avec `App	exte('cle')`, `App
+eglage('cle')`, `App\lignes('cle')` (liste) ou `App\media()` (image).
 - Valeur lue : jamais enregistrée → valeur d'origine ; texte vidé → rien ; image vide → image du thème.
 - `composer reglages` (rejoué par `composer seed`) recopie les valeurs d'origine dans l'administration tant qu'elles n'y sont pas ; un réglage enregistré n'est jamais écrasé.
 - Repères dans un texte : `{seuil}` (livraison offerte), `{annee}`, `{numero}` (commande). Dans un titre, les `*mots*` entre étoiles sont en or.
@@ -90,7 +91,8 @@ Textes, coordonnées, boutiques, photos de l'accueil et page d'attente se modifi
 ### Pages et articles en blocs (Gutenberg)
 
 - Pages de texte et articles du journal sont en blocs : paragraphes, titres, listes, boutons, questions (bloc « Détails »). L'éditeur reprend polices, couleurs et mise en page du site (`resources/css/editor.css`, règles du texte en `:is(.prose, .is-root-container)`).
-- Blocs du thème, catégorie « Univers Sensoriel » (`resources/blocks/<nom>/block.json`, rendus par `Appendu_bloc()` dans `app/blocs.php`) : Nos boutiques, Coordonnées, Bouton WhatsApp, Éditeur du site, Hébergeur. Leur contenu est lu dans Univers Sensoriel › Coordonnées.
+- Blocs du thème, catégorie « Univers Sensoriel » (`resources/blocks/<nom>/block.json`, rendus par `App
+endu_bloc()` dans `app/blocs.php`) : Nos boutiques, Coordonnées, Bouton WhatsApp, Éditeur du site, Hébergeur. Leur contenu est lu dans Univers Sensoriel › Coordonnées.
 - Dans un paragraphe : `[us_seuil]` et `[us_forfait]` (montants de livraison lus dans WooCommerce › Expédition), `[us_contact champ="courriel"]`, `[us_contact champ="telephone"]`.
 - Blocs proposés : seulement ceux qui ont un style dans le thème (`App\BLOCS_AUTORISES`) ; ni couleur, ni police, ni taille libres (`theme.json`, Tailwind désactivé dans `vite.config.js`).
 - Questions fréquentes : chaque bloc « Détails » d'une page devient une question des données Google (FAQPage).
@@ -104,6 +106,19 @@ Textes, coordonnées, boutiques, photos de l'accueil et page d'attente se modifi
 - Seuil de livraison offerte : lu dans WooCommerce › Réglages › Expédition (`App\seuil_livraison()`), jamais écrit ailleurs. Dans un texte réglable, `{seuil}` le reprend.
 - Commande reçue et compte client : la table `App\PONTS` (`app/commande.php`) remplace quatre gabarits de WooCommerce (`checkout/thankyou`, `myaccount/orders`, `myaccount/view-order`, `myaccount/my-address`) par des vues du thème (`resources/views/woocommerce/`), via les ponts de `app/ponts/`. Données préparées dans `app/commande.php` et `app/compte.php`, styles dans `commande.css` et `compte.css`. Aucun fichier de WooCommerce n'est copié : une mise à jour de l'extension ne défait rien.
 - Compte client d'essai en local : identifiant `client-test`, mot de passe dans le `.env` (`US_CLIENT_TEST_PASSWORD`).
+
+## E-mails
+
+Tous les e-mails du site partent dans le même habillage, à la charte : en-tête sapin au logo, titre en Marcellus, bouton sapin, pied avec WhatsApp, e-mail et téléphone des Coordonnées.
+
+- Code : `app/mails.php`, ponts `app/ponts/mail-*.php`, vues `resources/views/mails/`, styles `resources/css/mail.css` (lu tel quel, pas compilé : pas de variables CSS). Aucun gabarit de WooCommerce n'est copié.
+- Commandes et compte (WooCommerce) : l'habillage, le détail de commande et les adresses remplacent les gabarits partagés (`App\PONTS_MAILS`), donc tout e-mail WooCommerce les reçoit, y compris ceux de Stripe. Le texte des quatorze e-mails courants est écrit dans `App\mail_message()` (`App\MAILS_REDIGES`).
+- Formulaires et notifications de WordPress : enveloppés à l'envoi (filtre `wp_mail`). Un `<h1>` en tête du message devient le titre ; sinon c'est l'objet.
+- Objet, titre et contenu additionnel de chaque e-mail : WooCommerce › Réglages › E-mails (aperçu compris). Valeurs d'origine dans `scripts/mails.php`, rejoué par `composer seed`.
+- Destinataire des e-mails pour la boutique (nouvelle commande, annulée, paiement échoué) : l'adresse e-mail d'Univers Sensoriel › Coordonnées, sauf si le champ « Destinataire(s) » de l'e-mail est rempli dans WooCommerce.
+- Expéditeur : `MAIL_FROM_ADDRESS` et `MAIL_FROM_NAME` du `.env`, pour WooCommerce comme pour le reste (`web/app/mu-plugins/smtp.php`).
+- Relire tous les e-mails dans Mailpit : `php vendor/wp-cli/wp-cli/php/boot-fs.php eval-file scripts/mails-essai.php [n° de commande] --user=admin`.
+- Logo : `resources/images/mail/` en PNG (Outlook n'affiche pas le WebP). Les photos des produits restent en WebP : Outlook pour Windows ne les montre pas.
 
 ## Paiement (Stripe)
 

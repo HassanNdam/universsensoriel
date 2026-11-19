@@ -332,6 +332,10 @@ if (! get_option('us_livraison_creee')) {
 WP_CLI::log('Paiement');
 require __DIR__ . '/paiement.php';
 
+// E-mails : objets et titres en français, couleurs de la charte.
+WP_CLI::log('E-mails');
+require __DIR__ . '/mails.php';
+
 /*
 |--------------------------------------------------------------------------
 | Pages
