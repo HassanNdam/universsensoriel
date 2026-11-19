@@ -56,21 +56,34 @@ function us_media(string $path, string $alt = '', string $cle = ''): int
     return (int) $id;
 }
 
+/**
+ * Page (créée si besoin) : renvoie son identifiant.
+ * Avec US_SEED_FORCE ou US_SEED_PAGES, le texte est réécrit depuis scripts/pages/, sauf si la page a été modifiée
+ * dans l'éditeur depuis le dernier seed (empreinte « _us_contenu_seed ») : le texte de la Maison passe avant.
+ */
 function us_page(string $slug, string $title, string $content = '', int $parent = 0): int
 {
     $page = get_page_by_path($slug, OBJECT, 'page');
     if ($page) {
         if ((getenv('US_SEED_FORCE') || getenv('US_SEED_PAGES')) && $content !== '' && $page->post_content !== $content) {
-            wp_update_post(['ID' => $page->ID, 'post_content' => $content, 'post_title' => $title]);
+            $empreinte = (string) get_post_meta($page->ID, '_us_contenu_seed', true);
+            if ($empreinte !== '' && $empreinte !== md5($page->post_content)) {
+                us_log("page modifiée dans l'éditeur, conservée : $title");
+
+                return (int) $page->ID;
+            }
+            wp_update_post(wp_slash(['ID' => $page->ID, 'post_content' => $content, 'post_title' => $title]));
+            update_post_meta($page->ID, '_us_contenu_seed', md5((string) get_post_field('post_content', $page->ID)));
             us_log("page mise à jour : $title");
         }
 
         return (int) $page->ID;
     }
-    $id = wp_insert_post([
+    $id = wp_insert_post(wp_slash([
         'post_type' => 'page', 'post_status' => 'publish', 'post_name' => $slug,
         'post_title' => $title, 'post_content' => $content, 'post_parent' => $parent,
-    ]);
+    ]));
+    update_post_meta($id, '_us_contenu_seed', md5((string) get_post_field('post_content', $id)));
     us_log("page créée : $title");
 
     return (int) $id;

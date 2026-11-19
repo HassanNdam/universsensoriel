@@ -120,6 +120,7 @@ a {
 
 /* Boutons : un seul bouton plein par écran, libellé sur une ligne. */
 .bouton,
+.wp-block-button__link,
 .single_add_to_cart_button,
 .wc-block-components-button:not(.is-link) {
   align-items: center;
@@ -144,6 +145,7 @@ a {
 }
 
 .bouton:hover,
+.wp-block-button__link:hover,
 .single_add_to_cart_button:hover {
   background: var(--sapin-doux);
   border-color: var(--sapin-doux);
@@ -161,12 +163,16 @@ a {
   color: var(--sapin);
 }
 
-.bouton-contour {
+.bouton-contour,
+.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-background) {
   background: transparent;
+  border: 1px solid var(--sapin);
   color: var(--sapin);
+  padding: 0.9rem 2.2rem;
 }
 
-.bouton-contour:hover {
+.bouton-contour:hover,
+.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-background):hover {
   background: var(--sapin);
   color: var(--ivoire);
 }
@@ -590,34 +596,34 @@ summary::-webkit-details-marker {
 }
 
 /* Texte courant des pages et des descriptions */
-.prose {
+:is(.prose, .is-root-container) {
   font-size: 1.05rem;
 }
 
-.prose > * + * {
+:is(.prose, .is-root-container) > * + * {
   margin-top: 1.1em;
 }
 
-.prose h2 {
+:is(.prose, .is-root-container) h2 {
   font-size: clamp(1.6rem, 2.6vw, 2.2rem);
   margin-top: 2.2em;
 }
 
-.prose h3 {
+:is(.prose, .is-root-container) h3 {
   margin-top: 1.8em;
 }
 
-.prose ul {
+:is(.prose, .is-root-container) ul {
   display: grid;
   gap: 0.55em;
 }
 
-.prose ul li {
+:is(.prose, .is-root-container) ul li {
   padding-left: 1.5em;
   position: relative;
 }
 
-.prose ul li::before {
+:is(.prose, .is-root-container) ul li::before {
   background: var(--or);
   content: "";
   height: 1px;
@@ -627,21 +633,21 @@ summary::-webkit-details-marker {
   width: 0.85em;
 }
 
-.prose ol {
+:is(.prose, .is-root-container) ol {
   list-style: decimal;
   padding-left: 1.3em;
 }
 
-.prose a:not(.bouton) {
+:is(.prose, .is-root-container) a:not(.bouton, .wp-block-button__link) {
   border-bottom: 1px solid var(--or);
   color: var(--bronze);
 }
 
-.prose strong {
+:is(.prose, .is-root-container) strong {
   font-weight: 500;
 }
 
-.prose .alerte {
+:is(.prose, .is-root-container) .alerte {
   background: var(--lin);
   border-left: 2px solid var(--or);
   padding: 1rem 1.25rem;

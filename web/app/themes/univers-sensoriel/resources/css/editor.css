@@ -1,1 +1,39 @@
-@import "tailwindcss";
+/*
+ * Éditeur de blocs : la page s'affiche comme sur le site (polices, couleurs, titres, listes, questions, boutons).
+ * Les règles du texte des pages visent :is(.prose, .is-root-container) dans base.css et pages.css.
+ */
+@import "tailwindcss" theme(static);
+
+@import "./charte.css";
+@import "./base.css";
+@import "./pages.css";
+
+.editor-styles-wrapper {
+  background: var(--ivoire);
+  color: var(--sapin);
+  font-family: var(--font-texte);
+}
+
+.editor-styles-wrapper .editor-post-title {
+  font-family: var(--font-titre);
+  font-weight: 400;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+/* Comme sur le site : le premier paragraphe de la page sert d'introduction, plus grand et plus léger. */
+.is-root-container > p:first-child {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+/* Questions : ouvertes ou fermées dans l'éditeur, le signe reste celui du site. */
+.is-root-container details summary {
+  cursor: text;
+}
+
+.bloc-vide {
+  border: 1px dashed var(--or);
+  color: var(--mousse);
+  font-size: 0.9rem;
+  padding: 1rem;
+}

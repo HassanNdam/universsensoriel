@@ -74,6 +74,7 @@
             "@php vendor/wp-cli/wp-cli/php/boot-fs.php rewrite flush"
         ],
         "seo": "@php vendor/wp-cli/wp-cli/php/boot-fs.php eval-file scripts/seo.php --user=admin",
-        "reglages": "@php vendor/wp-cli/wp-cli/php/boot-fs.php eval-file scripts/reglages.php --user=admin"
+        "reglages": "@php vendor/wp-cli/wp-cli/php/boot-fs.php eval-file scripts/reglages.php --user=admin",
+        "blocs": "@php vendor/wp-cli/wp-cli/php/boot-fs.php eval-file scripts/blocs.php --user=admin"
     }
 }

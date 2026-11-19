@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "us/editeur",
+  "title": "Éditeur du site",
+  "description": "Identité de la société pour les mentions légales, lue dans Univers Sensoriel › Coordonnées › Mentions légales.",
+  "category": "univers-sensoriel",
+  "icon": "id",
+  "keywords": ["mentions", "société", "siret"],
+  "supports": { "html": false, "align": false, "customClassName": false, "reusable": false },
+  "acf": { "mode": "preview", "renderCallback": "App\\rendu_bloc" }
+}
