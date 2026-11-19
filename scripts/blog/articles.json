@@ -1,0 +1,91 @@
+{
+  "_lisez-moi": "Articles du journal, repris de l'ancien blog (flux Atom du 18/11/2026) et relus : nom de la Maison mis à jour, titres en casse normale, promesses de santé retirées. Le texte de chaque article est dans <slug>.html. `ancien` est l'adresse d'origine, à rediriger à la mise en ligne. Les titres et descriptions Yoast sont dans scripts/seo.json.",
+  "rubriques": {
+    "parfum": "Parfum",
+    "soin-de-la-peau": "Soin de la peau",
+    "cheveux": "Cheveux",
+    "bien-etre": "Bien-être"
+  },
+  "articles": [
+    {
+      "slug": "comment-faire-tenir-son-parfum",
+      "ancien": "/blogs/le-guide-sensoriel-du-bien-etre/astuces-parfumage",
+      "titre": "Comment faire tenir son parfum toute la journée",
+      "date": "2026-01-16",
+      "rubrique": "parfum",
+      "extrait": "Peau hydratée, points de pulsation, gestes à éviter : cinq conseils simples pour que votre parfum vous accompagne du matin au soir.",
+      "image": "parfum-flacon-notes-boisees.webp",
+      "alt": "Flacon d'extrait de parfum posé sur une écorce, entouré de fleurs"
+    },
+    {
+      "slug": "types-de-peau",
+      "ancien": "/blogs/le-guide-sensoriel-du-bien-etre/les-types-de-peaux",
+      "titre": "Quel est votre type de peau ? Le guide pour bien choisir ses soins",
+      "date": "2026-01-23",
+      "rubrique": "soin-de-la-peau",
+      "extrait": "Normale, grasse, sèche, déshydratée ou mixte : reconnaître sa peau est la première étape d'une routine qui lui convient vraiment.",
+      "image": "soin-visage-serum.webp",
+      "alt": "Trois soins du visage en spray sur fond jaune"
+    },
+    {
+      "slug": "routine-capillaire",
+      "ancien": "/blogs/le-guide-sensoriel-du-bien-etre/vos-besoins-capillaires",
+      "titre": "Routine capillaire : neuf gestes pour des cheveux forts et brillants",
+      "date": "2026-01-30",
+      "rubrique": "cheveux",
+      "extrait": "Fréquence des lavages, massage du cuir chevelu, chaleur, pointes : les habitudes qui changent vraiment la vie des cheveux.",
+      "image": "huile-de-baobab.webp",
+      "alt": "Fruits du baobab sur leur branche, source d'une huile végétale pour les cheveux"
+    },
+    {
+      "slug": "peptilux-soins-aux-peptides",
+      "ancien": "/blogs/le-guide-sensoriel-du-bien-etre/pourquoi-peptilux",
+      "titre": "Peptilux : des soins du visage aux peptides",
+      "date": "2026-02-06",
+      "rubrique": "soin-de-la-peau",
+      "extrait": "Que sont les peptides, et pourquoi les retrouve-t-on dans les soins du visage ? Présentation de la gamme Peptilux.",
+      "image": "coffret-soins-peptilux.webp",
+      "alt": "Coffret de soins du visage Peptilux ouvert sur une table de marbre"
+    },
+    {
+      "slug": "nettoyage-du-visage",
+      "ancien": "/blogs/le-guide-sensoriel-du-bien-etre/limportance-du-nettoyage-du-visage",
+      "titre": "Nettoyage du visage : le premier geste de la routine",
+      "date": "2026-02-13",
+      "rubrique": "soin-de-la-peau",
+      "extrait": "Avant le sérum et la crème, il y a le nettoyage. Pourquoi ce geste compte, et ce qui se passe quand on le néglige.",
+      "image": "nettoyant-visage.webp",
+      "alt": "Gel nettoyant pour le visage posé contre une pierre claire"
+    },
+    {
+      "slug": "collagene-a-boire",
+      "ancien": "/blogs/le-guide-sensoriel-du-bien-etre/action-polyvalente-et-saveur-delicieuse",
+      "titre": "Collagène à boire : comment l'intégrer à sa routine beauté",
+      "date": "2026-02-20",
+      "rubrique": "bien-etre",
+      "extrait": "Collagène hydrolysé, goût neutre, un sachet à diluer : ce qu'il faut savoir sur le Beauty Drink Collagen avant de commencer.",
+      "image": "collagene-a-boire.webp",
+      "alt": "Sachets de collagène à boire à côté de deux verres d'eau citronnée"
+    },
+    {
+      "slug": "huiles-essentielles-rituels",
+      "ancien": "/blogs/le-guide-sensoriel-du-bien-etre/le-pouvoir-de-la-nature-dans-des-concentres-de-beaute-et-de-bien-etre",
+      "titre": "Huiles essentielles : sept senteurs pour vos rituels",
+      "date": "2026-03-06",
+      "rubrique": "bien-etre",
+      "extrait": "Marjolaine veloutée, estragon anisé, agrumes lumineux : à chaque moment de la journée son huile essentielle ou sa synergie.",
+      "image": "encens-et-huiles-essentielles.webp",
+      "alt": "Volutes de fumée au-dessus d'un bol en bois"
+    },
+    {
+      "slug": "pellicules-cuir-chevelu",
+      "ancien": "/blogs/actualites/pellicules-comprendre-traiter-et-retrouver-un-cuir-chevelu-sain-durablement",
+      "titre": "Pellicules : comprendre et retrouver un cuir chevelu confortable",
+      "date": "2026-04-24",
+      "rubrique": "cheveux",
+      "extrait": "D'où viennent les pellicules, quels gestes adopter et quels soins choisir pour retrouver un cuir chevelu équilibré.",
+      "image": "aloe-vera.webp",
+      "alt": "Feuilles d'aloe vera"
+    }
+  ]
+}

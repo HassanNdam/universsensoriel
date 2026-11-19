@@ -1,0 +1,45 @@
+{
+  "_lisez-moi": "Avis repris de l'ancienne boutique (Judge.me, relevé du 18/11/2026), reproduits tels quels. `verifie` reprend l'indication « acheteur vérifié » de Judge.me : on ne l'invente jamais. `extrait: true` signale un avis dont on n'affiche qu'une partie (le reste citait une marque tierce ou un effet sur la santé). `produit` est l'identifiant de la fiche dans l'ancienne boutique ; vide = avis sur la boutique. Les avis non retenus et la raison sont dans docs/00-projet/avis-ancienne-boutique.md.",
+  "avis": [
+    {
+      "id": "d-2026-06-21-lea", "auteur": "Léa", "date": "2026-06-21", "note": 5, "verifie": false, "extrait": false,
+      "produit": "goddess-burberry", "accueil": true,
+      "texte": "Il est divin ! Des notes de vanille. Il tient 28h sur mes poignets et mon cou ! Incroyable"
+    },
+    {
+      "id": "d-2026-06-28-anonyme", "auteur": "Anonyme", "date": "2026-06-28", "note": 5, "verifie": false, "extrait": false,
+      "produit": "the-muse-parfum-femme-096", "accueil": true,
+      "texte": "Un de mes préféré, enfin j'ai trouvé un parfum de qualité et qui tient toute la journée à un prix très convenable du coup adopté ,je vous le recommande avec une équipe commerciale très professionnelle"
+    },
+    {
+      "id": "d-2026-06-10-jean-marc", "auteur": "Jean-Marc D.", "date": "2026-06-10", "note": 4, "verifie": true, "extrait": true,
+      "produit": "gels-douche-parfumes-bsf020-250-ml", "accueil": true,
+      "texte": "Super produit odeur délicieuse."
+    },
+    {
+      "id": "d-2026-04-10-olivia-boutique", "auteur": "Olivia", "date": "2026-04-10", "note": 5, "verifie": false, "extrait": false,
+      "produit": "", "accueil": true,
+      "texte": "Très belle expérience, livraison rapide"
+    },
+    {
+      "id": "d-2026-04-10-olivia-armozent", "auteur": "Olivia", "date": "2026-04-10", "note": 5, "verifie": false, "extrait": true,
+      "produit": "armozent™-melange-calmant-sommeil", "accueil": false,
+      "texte": "L'odeur est incroyable 😍, merci beaucoup pour le service."
+    },
+    {
+      "id": "d-2026-07-17-ann-pacific", "auteur": "Ann", "date": "2026-07-17", "note": 5, "verifie": true, "extrait": false,
+      "produit": "lush-cloud-pacific-aura", "accueil": true,
+      "texte": "🌸Parfait!!🌸"
+    },
+    {
+      "id": "d-2026-07-17-ann-brazilian", "auteur": "Ann", "date": "2026-07-17", "note": 5, "verifie": true, "extrait": false,
+      "produit": "lush-cloud-brazilian-sunset", "accueil": false,
+      "texte": "🌸Parfait!!🌸"
+    },
+    {
+      "id": "d-2026-07-17-ann-golden", "auteur": "Ann", "date": "2026-07-17", "note": 5, "verifie": true, "extrait": false,
+      "produit": "lush-cloud-golden-hour", "accueil": false,
+      "texte": "🌸Parfait!!🌸"
+    }
+  ]
+}

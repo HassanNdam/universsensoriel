@@ -58,6 +58,7 @@
             </div>
           </li>
         @endforeach
+        <li class="entete-entree"><a href="{{ home_url('/journal/') }}">Le journal</a></li>
         <li class="entete-entree"><a href="{{ home_url('/la-maison/') }}">La Maison</a></li>
       </ul>
     </nav>
@@ -112,6 +113,7 @@
           </ul>
         </details>
       @endforeach
+      <a class="mobile-lien" href="{{ home_url('/journal/') }}">Le journal</a>
       <a class="mobile-lien" href="{{ home_url('/la-maison/') }}">La Maison</a>
       <a class="mobile-lien" href="{{ home_url('/nos-boutiques/') }}">Nos boutiques</a>
       <a class="mobile-lien" href="{{ home_url('/contact/') }}">Contact</a>

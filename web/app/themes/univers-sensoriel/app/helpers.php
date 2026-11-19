@@ -95,10 +95,25 @@ function coordonnees(): array
         'telephone' => '+33 6 05 78 40 11',
         'whatsapp' => '33605784011',
         'boutiques' => [
-            ['ville' => 'Metz', 'pays' => 'France', 'enseigne' => 'Kacy Afro Center', 'telephone' => '+33 6 41 25 22 71'],
+            [
+                'ville' => 'Metz', 'pays' => 'France', 'enseigne' => 'Kacy Afro Center', 'telephone' => '+33 6 41 25 22 71',
+                'adresse' => '57 rue des Allemands, 57000 Metz',
+                'horaires' => ['Lundi, mardi et jeudi' => '14 h – 19 h', 'Mercredi' => '11 h – 19 h', 'Vendredi et samedi' => '10 h – 19 h', 'Dimanche' => 'Fermé'],
+            ],
             ['ville' => 'Yaoundé', 'pays' => 'Cameroun', 'enseigne' => 'Style Mondial', 'telephone' => '+237 56 22 82 25'],
         ],
     ];
+}
+
+/**
+ * Formulaire Forminator (« contact », « newsletter »), rendu par son shortcode.
+ * Les identifiants sont rangés dans l'option « us_formulaires » par scripts/formulaires.php.
+ */
+function formulaire(string $cle): string
+{
+    $id = (int) (get_option('us_formulaires', [])[$cle] ?? 0);
+
+    return $id && shortcode_exists('forminator_form') ? do_shortcode('[forminator_form id="' . $id . '"]') : '';
 }
 
 function lien_whatsapp(string $message = 'Bonjour, j\'ai une question.'): string
@@ -113,7 +128,7 @@ function reassurances(): array
         ['livraison', 'Livraison offerte', 'Dès ' . SEUIL_LIVRAISON . ' € d\'achat en France'],
         ['boutique', 'Retrait en boutique', 'Gratuit, à Metz'],
         ['cadenas', 'Paiement sécurisé', 'Vos données restent protégées'],
-        ['whatsapp', 'Conseil personnalisé', 'Par WhatsApp, réponse sous 24 h'],
+        ['whatsapp', 'Conseil personnalisé', 'WhatsApp ou formulaire, réponse sous 24 h'],
     ];
 }
 
@@ -276,4 +291,35 @@ function fil_ariane(): array
     }
 
     return $fil;
+}
+
+/**
+ * Moyens de paiement affichés dans le pied de page : seulement ceux qui sont activés dans WooCommerce (Stripe).
+ * Une carte activée vaut Visa, Mastercard, CB et American Express ; le paiement express vaut Apple Pay et Google Pay.
+ * Renvoie [[fichier de resources/images/paiement, nom], …].
+ */
+function moyens_de_paiement(): array
+{
+    static $liste = null;
+    if ($liste !== null) {
+        return $liste;
+    }
+    $liste = [];
+    if (! function_exists('WC') || ! WC()->payment_gateways()) {
+        return $liste;
+    }
+    $actifs = array_filter(WC()->payment_gateways()->payment_gateways(), fn ($passerelle) => $passerelle->enabled === 'yes');
+    if (isset($actifs['stripe'])) {
+        array_push($liste, ['visa', 'Visa'], ['mastercard', 'Mastercard'], ['cartes-bancaires', 'CB'], ['american-express', 'American Express']);
+        if ($actifs['stripe']->get_option('express_checkout', 'no') === 'yes') {
+            array_push($liste, ['apple-pay', 'Apple Pay'], ['google-pay', 'Google Pay']);
+        }
+    }
+    foreach (['stripe_klarna' => ['klarna', 'Klarna'], 'stripe_bancontact' => ['bancontact', 'Bancontact']] as $passerelle => $moyen) {
+        if (isset($actifs[$passerelle])) {
+            $liste[] = $moyen;
+        }
+    }
+
+    return $liste;
 }

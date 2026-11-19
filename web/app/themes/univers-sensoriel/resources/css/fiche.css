@@ -327,7 +327,7 @@
 }
 
 .fiche-garanties {
-  background: var(--blanc);
+  background: var(--lin-clair);
   border: 1px solid var(--filet);
   display: grid;
   gap: 0.9rem 1.5rem;

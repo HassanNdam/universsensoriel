@@ -24,6 +24,7 @@
 
 .rayon-tete {
   background: linear-gradient(180deg, var(--lin) 0%, var(--ivoire) 100%);
+  display: flow-root; /* sans fil d'Ariane, la marge du surtitre ne sort plus du bandeau */
   padding-bottom: clamp(2.5rem, 5vw, 4rem);
   text-align: center;
 }
@@ -38,6 +39,10 @@
 
 .rayon-tete h1 {
   font-size: clamp(2.5rem, 5vw, 4.25rem);
+  margin-top: clamp(2rem, 4vw, 3.25rem);
+}
+
+.rayon-tete .surtitre + h1 {
   margin-top: 0.9rem;
 }
 

@@ -1,0 +1,122 @@
+/*
+ * Bandeau de cookies Complianz. Couleurs, angles et textes viennent de scripts/cookies.php ;
+ * ici, seulement ce que Complianz ne règle pas : polices, boutons de la charte, espacements.
+ */
+/* « Toujours activé » : Complianz le met en vert vif, hors charte. */
+.cmplz-cookiebanner,
+#cmplz-manage-consent-container {
+  --cmplz_category_header_always_active_color: var(--mousse);
+}
+
+.cmplz-cookiebanner {
+  font-family: var(--font-texte);
+  padding: 1.6rem 1.75rem 1.25rem;
+}
+
+.cmplz-cookiebanner .cmplz-header {
+  grid-template-columns: 0 1fr 0; /* ni logo ni croix : le titre s'aligne à gauche */
+}
+
+.cmplz-cookiebanner .cmplz-title {
+  font-family: var(--font-titre);
+  font-size: 1.5rem;
+  font-weight: 400;
+  justify-self: start;
+  line-height: 1.2;
+}
+
+.cmplz-cookiebanner .cmplz-divider {
+  display: none;
+}
+
+.cmplz-cookiebanner .cmplz-message {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.cmplz-cookiebanner .cmplz-categories .cmplz-category {
+  background: var(--ivoire);
+  border-radius: var(--rayon);
+}
+
+.cmplz-cookiebanner .cmplz-category-title,
+.cmplz-cookiebanner .cmplz-always-active {
+  color: var(--sapin);
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+/* Libellé réservé aux lecteurs d'écran (bandeau et politique de cookies) : le thème n'a pas la classe de WordPress. */
+.screen-reader-text {
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.cmplz-cookiebanner .cmplz-buttons .cmplz-btn {
+  font-family: var(--font-texte);
+  font-size: 0.75rem;
+  font-weight: 500;
+  height: auto;
+  letter-spacing: 0.16em;
+  min-height: 3rem;
+  padding: 0.75rem 1rem;
+  text-transform: uppercase;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+  white-space: nowrap;
+}
+
+.cmplz-cookiebanner .cmplz-buttons .cmplz-btn.cmplz-accept:hover {
+  background: var(--sapin-doux);
+  border-color: var(--sapin-doux);
+}
+
+.cmplz-cookiebanner .cmplz-buttons .cmplz-btn.cmplz-deny:hover,
+.cmplz-cookiebanner .cmplz-buttons .cmplz-btn.cmplz-save-preferences:hover {
+  background: var(--sapin);
+  border-color: var(--sapin);
+  color: var(--ivoire);
+}
+
+.cmplz-cookiebanner .cmplz-buttons .cmplz-btn.cmplz-view-preferences:hover {
+  border-color: var(--sapin);
+}
+
+.cmplz-cookiebanner .cmplz-btn:focus-visible,
+.cmplz-cookiebanner .cmplz-link:focus-visible {
+  outline: 2px solid var(--bronze);
+  outline-offset: 2px;
+}
+
+.cmplz-cookiebanner .cmplz-documents .cmplz-link {
+  font-size: 0.8125rem;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.cmplz-cookiebanner .cmplz-documents ul {
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  justify-content: center;
+}
+
+.cmplz-cookiebanner .cmplz-documents .cmplz-link {
+  white-space: nowrap;
+}
+
+/* Pied de page : « Gérer mes cookies » rouvre le bandeau. */
+.pied-bas .pied-cookies {
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+}
+
+.pied-bas .pied-cookies:hover {
+  color: var(--or-clair);
+}

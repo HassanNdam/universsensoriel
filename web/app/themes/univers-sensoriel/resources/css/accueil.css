@@ -21,6 +21,98 @@
   margin-block: 1.4rem 1.6rem;
 }
 
+/*
+ * « éveiller les sens » : or de la charte, avec un reflet qui passe, le ruban du logo dessiné
+ * dessous et l'étoile du logo qui scintille. Sans animation si le visiteur l'a demandé.
+ */
+.titre-or {
+  display: inline-block;
+  padding-bottom: 0.18em;
+  position: relative;
+}
+
+/* Le dégradé ne s'applique qu'au texte : le ruban et l'étoile, hors de sa boîte, restent visibles. */
+.titre-or-texte {
+  background: linear-gradient(105deg, #b98234 0%, var(--or-clair) 30%, #fff3d6 48%, var(--or-clair) 66%, #b98234 100%);
+  background-size: 260% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: var(--or-clair);
+  -webkit-text-fill-color: transparent;
+}
+
+.titre-ruban {
+  bottom: -0.12em;
+  fill: none;
+  height: 0.32em;
+  left: 0;
+  overflow: visible;
+  position: absolute;
+  stroke: var(--or);
+  stroke-linecap: round;
+  stroke-width: 3;
+  vector-effect: non-scaling-stroke;
+  width: 100%;
+}
+
+.titre-etoile {
+  color: var(--or-clair);
+  height: 0.4em;
+  position: absolute;
+  right: -0.5em;
+  top: -0.12em;
+  width: 0.4em;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .titre-or-texte {
+    animation: reflet-or 1.8s 0.3s ease-out both, reflet-or 2.4s 9s ease-in-out infinite;
+  }
+
+  .titre-ruban path {
+    animation: trace-ruban 1.4s 0.7s cubic-bezier(0.65, 0, 0.35, 1) both;
+    stroke-dasharray: 340;
+  }
+
+  .titre-etoile {
+    animation: scintille 3.2s 1.6s ease-in-out infinite both;
+  }
+}
+
+@keyframes reflet-or {
+  from {
+    background-position: 100% 0;
+  }
+
+  to {
+    background-position: 0 0;
+  }
+}
+
+@keyframes trace-ruban {
+  from {
+    stroke-dashoffset: 340;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes scintille {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.7) rotate(0deg);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.1) rotate(45deg);
+  }
+}
+
 .ouverture-texte .chapo {
   color: rgb(247 240 228 / 82%);
   max-width: 33rem;
@@ -155,7 +247,8 @@
 
 /* Univers : tuiles portrait */
 .univers {
-  background: var(--blanc);
+  --fond-carte: var(--ivoire);
+  background: var(--lin-clair);
 }
 
 .univers-grille {

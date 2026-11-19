@@ -26,6 +26,7 @@
   --color-ivoire: #f7f0e4;
   --color-blanc-chaud: #fffdf9;
   --color-lin: #eadfcd;
+  --color-lin-clair: #f1e8d8; /* à mi-chemin de l'ivoire et du lin : fond des cartes et des encarts */
   --color-or: #aa742c;
   --color-bronze: #7b4c0f;
   --color-or-clair: #e3b56f;
@@ -43,6 +44,7 @@
   --ivoire: var(--color-ivoire);
   --blanc: var(--color-blanc-chaud);
   --lin: var(--color-lin);
+  --lin-clair: var(--color-lin-clair);
   --or: var(--color-or);
   --bronze: var(--color-bronze);
   --or-clair: var(--color-or-clair);

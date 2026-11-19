@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d118757864284e7729373e1d54ad762b",
+    "content-hash": "64be611fea18aa6acb5f561e34b88259",
     "packages": [
         {
             "name": "brick/math",
@@ -7196,6 +7196,68 @@
             "time": "2026-04-26T05:33:54+00:00"
         },
         {
+            "name": "wp-plugin/complianz-gdpr",
+            "version": "7.5.7",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/complianz-gdpr/",
+                "reference": "tags/7.5.7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/complianz-gdpr.7.5.7.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0|~2.0"
+            },
+            "type": "wordpress-plugin",
+            "notification-url": "https://wp-packages.org/downloads",
+            "authors": [
+                {
+                    "name": "Complianz"
+                }
+            ],
+            "description": "Publish your cookie banner or notice in minutes. Automatically scan cookies, and create policies to align with GDPR, CCPA, and Google Consent Mode.",
+            "homepage": "https://www.wordpress.org/plugins/complianz-gdpr",
+            "support": {
+                "changelog": "https://wordpress.org/plugins/complianz-gdpr/#developers",
+                "issues": "https://wordpress.org/support/plugin/complianz-gdpr",
+                "source": "https://plugins.svn.wordpress.org/complianz-gdpr"
+            },
+            "time": "2026-11-04T15:46:39+00:00"
+        },
+        {
+            "name": "wp-plugin/forminator",
+            "version": "1.58.6",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/forminator/",
+                "reference": "tags/1.58.6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/forminator.1.58.6.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0|~2.0"
+            },
+            "type": "wordpress-plugin",
+            "notification-url": "https://wp-packages.org/downloads",
+            "authors": [
+                {
+                    "name": "WPMU DEV - Your All-in-One WordPress Platform"
+                }
+            ],
+            "description": "Best WordPress form builder plugin. Create contact forms, payment forms & order forms with 1000+ integrations.",
+            "homepage": "https://wpmudev.com/project/forminator/",
+            "support": {
+                "changelog": "https://wordpress.org/plugins/forminator/#developers",
+                "issues": "https://wordpress.org/support/plugin/forminator",
+                "source": "https://plugins.svn.wordpress.org/forminator"
+            },
+            "time": "2026-11-17T10:04:28+00:00"
+        },
+        {
             "name": "wp-plugin/woocommerce",
             "version": "11.3.0",
             "source": {
@@ -7225,6 +7287,37 @@
                 "source": "https://plugins.svn.wordpress.org/woocommerce"
             },
             "time": "2026-11-11T16:56:56+00:00"
+        },
+        {
+            "name": "wp-plugin/woocommerce-gateway-stripe",
+            "version": "11.2.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/woocommerce-gateway-stripe/",
+                "reference": "tags/11.2.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/woocommerce-gateway-stripe.11.2.0.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0|~2.0"
+            },
+            "type": "wordpress-plugin",
+            "notification-url": "https://wp-packages.org/downloads",
+            "authors": [
+                {
+                    "name": "WooCommerce"
+                }
+            ],
+            "description": "Accept debit and credit cards in 135+ currencies, many local methods like Alipay, ACH, and SEPA, and express checkout with Apple Pay and Google Pay.",
+            "homepage": "https://wordpress.org/plugins/woocommerce-gateway-stripe/",
+            "support": {
+                "changelog": "https://wordpress.org/plugins/woocommerce-gateway-stripe/#developers",
+                "issues": "https://wordpress.org/support/plugin/woocommerce-gateway-stripe",
+                "source": "https://plugins.svn.wordpress.org/woocommerce-gateway-stripe"
+            },
+            "time": "2026-11-11T16:07:27+00:00"
         },
         {
             "name": "wp-plugin/wordpress-seo",

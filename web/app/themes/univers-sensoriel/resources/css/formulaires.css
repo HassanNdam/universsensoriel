@@ -1,0 +1,448 @@
+/*
+ * Formulaires Forminator (contact, lettre d'information) et page Contact.
+ * Les formulaires sont créés sans habillage Forminator (« form-substyle: none ») :
+ * tout leur aspect vient d'ici, enveloppé dans .formulaire.
+ */
+
+/* Champs */
+.formulaire .forminator-row {
+  display: grid;
+  gap: 1.4rem 1.25rem;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  margin-bottom: 1.4rem;
+}
+
+.formulaire .forminator-col {
+  grid-column: 1 / -1;
+  min-width: 0;
+}
+
+@media (min-width: 640px) {
+  .formulaire .forminator-col-6 {
+    grid-column: span 6;
+  }
+}
+
+.formulaire .forminator-label {
+  color: var(--mousse);
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  margin-bottom: 0.55rem;
+  text-transform: uppercase;
+}
+
+.formulaire .forminator-required {
+  color: var(--bronze);
+}
+
+.formulaire .forminator-input,
+.formulaire .forminator-textarea,
+.formulaire select {
+  appearance: none;
+  background: var(--blanc);
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon);
+  color: var(--sapin);
+  display: block;
+  font-family: var(--font-texte);
+  font-size: 1rem;
+  line-height: 1.4;
+  min-height: 3.4rem;
+  padding: 0.9rem 1.1rem;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  width: 100%;
+}
+
+.formulaire select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' fill='none' stroke='%231f3124' stroke-width='1.4'%3E%3Cpath d='m1 1 6 6 6-6'/%3E%3C/svg%3E");
+  background-position: right 1.1rem center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  padding-right: 2.8rem;
+}
+
+.formulaire .forminator-textarea {
+  min-height: 11rem;
+  resize: vertical;
+}
+
+.formulaire .forminator-input:focus,
+.formulaire .forminator-textarea:focus,
+.formulaire select:focus {
+  border-color: var(--sapin);
+  box-shadow: 0 0 0 3px rgb(31 49 36 / 10%);
+  outline: none;
+}
+
+.formulaire ::placeholder {
+  color: rgb(79 90 76 / 75%);
+}
+
+.formulaire .forminator-description {
+  color: var(--mousse);
+  display: flex;
+  font-size: 0.875rem;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+/* Erreurs et confirmation */
+.formulaire .forminator-has_error .forminator-input,
+.formulaire .forminator-has_error .forminator-textarea,
+.formulaire .forminator-has_error select {
+  border-color: var(--brique);
+}
+
+.formulaire .forminator-error-message {
+  color: var(--brique);
+  display: block;
+  font-size: 0.875rem;
+  margin-top: 0.45rem;
+}
+
+.formulaire .forminator-response-message {
+  border-left: 2px solid var(--sapin);
+  background: var(--lin);
+  color: var(--sapin);
+  margin-bottom: 1.6rem;
+  outline: none; /* Forminator y place le focus : le filet de gauche suffit */
+  padding: 1rem 1.3rem;
+}
+
+.formulaire .forminator-response-message[aria-hidden="true"],
+.formulaire .forminator-response-message:empty,
+.formulaire .forminator-hidden {
+  display: none !important;
+}
+
+.formulaire .forminator-response-message.forminator-error {
+  background: #fbefe9;
+  border-color: var(--brique);
+  color: var(--brique);
+}
+
+.formulaire .forminator-response-message ul {
+  display: none; /* le détail figure déjà sous chaque champ */
+}
+
+/* Bouton d'envoi : celui de la charte */
+.formulaire .forminator-row-last {
+  margin-bottom: 0;
+}
+
+.formulaire .forminator-button {
+  align-items: center;
+  background: var(--sapin);
+  border: 1px solid var(--sapin);
+  border-radius: var(--rayon);
+  color: var(--ivoire);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font-texte);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  justify-content: center;
+  letter-spacing: 0.18em;
+  line-height: 1.2;
+  min-height: 3.4rem;
+  padding: 0.9rem 2.2rem;
+  text-transform: uppercase;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+  white-space: nowrap;
+}
+
+.formulaire .forminator-button:hover {
+  background: var(--sapin-doux);
+  border-color: var(--sapin-doux);
+}
+
+.formulaire .forminator-button:disabled,
+.formulaire .forminator-button.forminator-button-onload {
+  cursor: progress;
+  opacity: 0.6;
+}
+
+.formulaire-mention {
+  color: var(--mousse);
+  font-size: 0.875rem;
+  margin-top: 1.4rem;
+}
+
+.formulaire-mention a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Page Contact */
+.contact-grille {
+  display: grid;
+  gap: 2.5rem;
+  padding-block: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+@media (min-width: 960px) {
+  .contact-grille {
+    align-items: start;
+    gap: clamp(2rem, 4vw, 4rem);
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  }
+}
+
+.contact-grille h2 {
+  font-size: clamp(1.7rem, 2.6vw, 2.3rem);
+  margin-block: 0.8rem 2rem;
+}
+
+.contact-formulaire {
+  background: var(--lin-clair);
+  border: 1px solid var(--filet);
+  padding: clamp(1.75rem, 4vw, 3.25rem);
+}
+
+.contact-direct {
+  background: var(--sapin);
+  color: var(--ivoire);
+  padding: clamp(1.75rem, 4vw, 3.25rem);
+}
+
+@media (min-width: 960px) {
+  .contact-direct {
+    position: sticky;
+    top: 7rem;
+  }
+}
+
+.contact-direct h2 {
+  color: var(--ivoire);
+}
+
+.contact-moyens {
+  display: grid;
+  gap: 1.6rem;
+}
+
+.contact-moyens li {
+  align-items: start;
+  display: grid;
+  gap: 1.1rem;
+  grid-template-columns: auto 1fr;
+}
+
+.contact-picto {
+  align-items: center;
+  border: 1px solid var(--filet-clair);
+  border-radius: 50%;
+  color: var(--or-clair);
+  display: inline-flex;
+  height: 3rem;
+  justify-content: center;
+  width: 3rem;
+}
+
+.contact-moyens p {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.contact-moyens strong,
+.contact-boutiques strong {
+  font-family: var(--font-titre);
+  font-size: 1.15rem;
+  font-weight: 400;
+}
+
+.contact-direct a:not(.lien-or) {
+  color: var(--or-clair);
+  transition: color var(--transition);
+  width: fit-content;
+}
+
+.contact-direct a:not(.lien-or):hover {
+  color: var(--ivoire);
+}
+
+.contact-moyens span:not(.contact-picto),
+.contact-boutiques li span {
+  color: rgb(247 240 228 / 78%);
+  font-size: 0.95rem;
+  font-weight: 300;
+}
+
+.contact-boutiques {
+  border-top: 1px solid var(--filet-clair);
+  margin-top: 2.2rem;
+  padding-top: 2.2rem;
+}
+
+.contact-boutiques ul {
+  display: grid;
+  gap: 1.4rem 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  margin-block: 1.3rem 1.8rem;
+}
+
+.contact-boutiques li {
+  display: grid;
+  gap: 0.15rem;
+}
+
+/* Liens d'aide sous le formulaire */
+.contact-aide {
+  padding-bottom: var(--section);
+  text-align: center;
+}
+
+.contact-aide h2 {
+  font-size: clamp(1.7rem, 2.6vw, 2.3rem);
+  margin-bottom: 2.2rem;
+}
+
+.contact-aide ul {
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 720px) {
+  .contact-aide ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.contact-aide a {
+  align-items: center;
+  background: var(--lin-clair);
+  border: 1px solid var(--filet);
+  display: grid;
+  gap: 0.5rem;
+  height: 100%;
+  justify-items: center;
+  padding: 2.2rem 1.5rem;
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.contact-aide a:hover {
+  border-color: var(--bronze);
+  transform: translateY(-3px);
+}
+
+.contact-aide .contact-picto {
+  border-color: var(--filet);
+  color: var(--bronze);
+  margin-bottom: 0.6rem;
+}
+
+.contact-aide strong {
+  font-family: var(--font-titre);
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.contact-aide a > span:last-child {
+  color: var(--mousse);
+  font-size: 0.95rem;
+}
+
+/* Lettre d'information, en tête du pied de page */
+.pied-lettre {
+  align-items: center;
+  border-bottom: 1px solid var(--filet-clair);
+  display: grid;
+  gap: 1.8rem;
+  padding-block: clamp(2.75rem, 5vw, 4.25rem);
+}
+
+@media (min-width: 960px) {
+  .pied-lettre {
+    gap: 4rem;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+
+.pied-lettre h2 {
+  color: var(--ivoire);
+  font-size: clamp(1.6rem, 2.6vw, 2.3rem);
+  margin-top: 0.8rem;
+  max-width: 26rem;
+}
+
+.formulaire-lettre form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+@media (min-width: 520px) {
+  .formulaire-lettre form {
+    align-items: start;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+}
+
+.formulaire-lettre .forminator-response-message {
+  grid-column: 1 / -1;
+  margin-bottom: 0.4rem;
+}
+
+.formulaire-lettre .forminator-row {
+  display: block;
+  margin-bottom: 0;
+}
+
+.formulaire-lettre .forminator-label {
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.formulaire-lettre .forminator-input {
+  background: transparent;
+  border-color: rgb(247 240 228 / 45%);
+  color: var(--ivoire);
+}
+
+.formulaire-lettre .forminator-input:focus {
+  border-color: var(--or-clair);
+  box-shadow: 0 0 0 3px rgb(227 181 111 / 18%);
+}
+
+.formulaire-lettre ::placeholder {
+  color: rgb(247 240 228 / 65%);
+}
+
+.formulaire-lettre .forminator-button {
+  background: var(--ivoire);
+  border-color: var(--ivoire);
+  color: var(--sapin);
+  width: 100%;
+}
+
+.formulaire-lettre .forminator-button:hover {
+  background: var(--blanc);
+  border-color: var(--or-clair);
+}
+
+.formulaire-lettre .forminator-error-message {
+  color: #f3b9a8;
+}
+
+.formulaire-lettre .forminator-response-message {
+  background: rgb(247 240 228 / 10%);
+  border-color: var(--or-clair);
+  color: var(--ivoire);
+}
+
+.formulaire-lettre .forminator-response-message.forminator-error {
+  background: rgb(166 61 42 / 25%);
+  border-color: #f3b9a8;
+  color: #f8d5c9;
+}
+
+.formulaire-lettre .formulaire-mention {
+  color: rgb(247 240 228 / 65%);
+  margin-top: 1rem;
+}

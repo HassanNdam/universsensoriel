@@ -13,102 +13,10 @@ if (! defined('ABSPATH')) {
     exit("À lancer avec WP-CLI : wp eval-file scripts/seed.php\n");
 }
 
-require_once ABSPATH . 'wp-admin/includes/image.php';
-require_once ABSPATH . 'wp-admin/includes/file.php';
-require_once ABSPATH . 'wp-admin/includes/media.php';
+require_once __DIR__ . '/fonctions.php';
 
 $root = dirname(__DIR__);
 $force = (bool) getenv('US_SEED_FORCE');
-
-function us_log(string $message): void
-{
-    WP_CLI::log('  ' . $message);
-}
-
-/** Importe un fichier local dans la médiathèque (une seule fois, repéré par son chemin relatif). */
-function us_media(string $path, string $alt = '', string $cle = ''): int
-{
-    if (! is_file($path)) {
-        WP_CLI::warning("Média introuvable : $path");
-
-        return 0;
-    }
-    $cle = ($cle ?: basename($path)) . ':' . filesize($path);
-    $existing = get_posts([
-        'post_type' => 'attachment', 'post_status' => 'inherit', 'numberposts' => 1, 'fields' => 'ids',
-        'meta_key' => '_us_source', 'meta_value' => $cle,
-    ]);
-    if ($existing) {
-        return (int) $existing[0];
-    }
-    // Ancienne clé (sans la taille) : gardée si le fichier n'a pas changé.
-    $anciens = get_posts([
-        'post_type' => 'attachment', 'post_status' => 'inherit', 'numberposts' => 1, 'fields' => 'ids',
-        'meta_key' => '_us_source', 'meta_value' => substr($cle, 0, (int) strrpos($cle, ':')),
-    ]);
-    if ($anciens && is_file((string) get_attached_file($anciens[0])) && filesize(get_attached_file($anciens[0])) === filesize($path)) {
-        update_post_meta($anciens[0], '_us_source', $cle);
-
-        return (int) $anciens[0];
-    }
-    $name = basename($path);
-    $tmp = wp_tempnam($name);
-    copy($path, $tmp);
-    $id = media_handle_sideload(['name' => $name, 'tmp_name' => $tmp], 0, $alt);
-    if (is_wp_error($id)) {
-        WP_CLI::warning("$name : " . $id->get_error_message());
-
-        return 0;
-    }
-    update_post_meta($id, '_us_source', $cle);
-    if ($alt) {
-        update_post_meta($id, '_wp_attachment_image_alt', $alt);
-    }
-
-    return (int) $id;
-}
-
-function us_page(string $slug, string $title, string $content = '', int $parent = 0): int
-{
-    $page = get_page_by_path($slug, OBJECT, 'page');
-    if ($page) {
-        if (getenv('US_SEED_FORCE') && $content !== '' && $page->post_content !== $content) {
-            wp_update_post(['ID' => $page->ID, 'post_content' => $content, 'post_title' => $title]);
-            us_log("page mise à jour : $title");
-        }
-
-        return (int) $page->ID;
-    }
-    $id = wp_insert_post([
-        'post_type' => 'page', 'post_status' => 'publish', 'post_name' => $slug,
-        'post_title' => $title, 'post_content' => $content, 'post_parent' => $parent,
-    ]);
-    us_log("page créée : $title");
-
-    return (int) $id;
-}
-
-/** Terme (créé si besoin) : renvoie son identifiant. */
-function us_terme(string $nom, string $taxonomie, array $args = []): int
-{
-    $slug = $args['slug'] ?? sanitize_title($nom);
-    $terme = get_term_by('slug', $slug, $taxonomie);
-    if ($terme) {
-        if (! empty($args['description']) && $terme->description !== $args['description']) {
-            wp_update_term($terme->term_id, $taxonomie, ['description' => $args['description']]);
-        }
-
-        return (int) $terme->term_id;
-    }
-    $r = wp_insert_term($nom, $taxonomie, $args + ['slug' => $slug]);
-    if (is_wp_error($r)) {
-        WP_CLI::warning("$taxonomie / $nom : " . $r->get_error_message());
-
-        return 0;
-    }
-
-    return (int) $r['term_id'];
-}
 
 /*
 |--------------------------------------------------------------------------
@@ -129,7 +37,6 @@ $options = [
     'woocommerce_calc_taxes' => 'no',
     'woocommerce_weight_unit' => 'g',
     'woocommerce_dimension_unit' => 'cm',
-    'woocommerce_enable_reviews' => 'no',
     'woocommerce_manage_stock' => 'no',
     'woocommerce_catalog_columns' => 4,
     'woocommerce_catalog_rows' => 6,
@@ -271,7 +178,7 @@ foreach ($catalogue as $rang => $p) {
     $produit->set_description($p['description']);
     $produit->set_sku($p['sku']);
     $produit->set_menu_order($ordre);
-    $produit->set_reviews_allowed(false);
+    $produit->set_reviews_allowed(true); // réservés aux acheteurs (voir scripts/journal.php)
     $produit->set_featured($vedette);
 
     $categories = array_filter(array_map(fn ($nom) => $idsRayons[$nom] ?? 0, array_merge([$p['univers'], $p['rayon']], $p['collections'])));
@@ -421,6 +328,10 @@ if (! get_option('us_livraison_creee')) {
     us_log('zone France : forfait, offerte dès 49 €, retrait à Metz');
 }
 
+// Paiement par carte (Stripe).
+WP_CLI::log('Paiement');
+require __DIR__ . '/paiement.php';
+
 /*
 |--------------------------------------------------------------------------
 | Pages
@@ -430,7 +341,15 @@ WP_CLI::log('Pages');
 $contenu = fn (string $fichier) => is_file(__DIR__ . "/pages/$fichier.html") ? trim(file_get_contents(__DIR__ . "/pages/$fichier.html")) : '';
 $accueil = us_page('accueil', 'Univers Sensoriel');
 us_page('la-maison', 'La Maison', $contenu('la-maison'));
-us_page('contact', 'Contact', $contenu('contact'));
+// Contact : la page n'appelle que le shortcode du formulaire, le reste est dans page-contact.blade.php.
+require __DIR__ . '/formulaires.php';
+$formulaireContact = (int) (get_option('us_formulaires', [])['contact'] ?? 0);
+$codeContact = $formulaireContact ? '[forminator_form id="' . $formulaireContact . '"]' : '';
+$contact = us_page('contact', 'Contact', $codeContact);
+if ($codeContact && ! str_contains((string) get_post_field('post_content', $contact), '[forminator_form')) {
+    wp_update_post(['ID' => $contact, 'post_content' => $codeContact]);
+    us_log('page Contact : shortcode du formulaire en place');
+}
 us_page('nos-boutiques', 'Nos boutiques', $contenu('nos-boutiques'));
 us_page('livraison-et-retours', 'Livraison et retours', $contenu('livraison-et-retours'));
 us_page('questions-frequentes', 'Questions fréquentes', $contenu('questions-frequentes'));
@@ -444,6 +363,9 @@ update_option('show_on_front', 'page');
 update_option('page_on_front', $accueil);
 update_option('wp_page_for_privacy_policy', $confidentialite);
 update_option('woocommerce_terms_page_id', get_page_by_path('conditions-generales-de-vente')->ID);
+
+// Bandeau de cookies : après les pages légales, auxquelles il renvoie.
+require __DIR__ . '/cookies.php';
 
 // Pages WooCommerce (boutique, panier, commande, compte) si elles manquent, puis slugs en français.
 WC_Install::create_pages();
@@ -463,6 +385,8 @@ foreach (['hello-world' => 'post', 'bonjour-tout-le-monde' => 'post', 'sample-pa
 wc_delete_product_transients();
 delete_transient('wc_term_counts');
 flush_rewrite_rules();
+
+require __DIR__ . '/journal.php';
 
 if (is_file(__DIR__ . '/seo.php')) {
     require __DIR__ . '/seo.php';

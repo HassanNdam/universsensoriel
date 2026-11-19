@@ -46,8 +46,13 @@ Relançable sans doublon. Le seed active WooCommerce et Yoast SEO, règle la bou
 | Fichier | Rôle |
 | --- | --- |
 | `scripts/seed.php` | Réglages, rayons, catalogue, livraison, pages |
-| `scripts/seo.json`, `scripts/seo.php` | Titres, descriptions et mots-clés (Yoast) des pages et des rayons |
+| `scripts/seo.json`, `scripts/seo.php` | Titres, descriptions, requêtes cibles et images de partage (Yoast) des pages, des rayons et des articles. `composer seo` les réapplique seuls |
+| `scripts/seo-fiches.json` | Titre, description et requête cible de chaque fiche produit, fabriqués par `python scripts/catalogue/seo_fiches.py` (règles par rayon + `catalogue/seo-manuel.json` pour les fiches rédigées à la main) |
+| `scripts/seo-scores.json` | Notes SEO et lisibilité de Yoast, relevées par `scripts/seo-export.php` puis `scripts/seo-scores.js` (mode d'emploi en tête du script) |
+| `docs/03-images-site/partage/` | Images de partage 1200 × 630 des pages et des rayons. Celles des fiches sont fabriquées par le thème dans `uploads/partage/` |
 | `scripts/pages/*.html` | Texte des pages |
+| `scripts/journal.php`, `scripts/blog/` | Articles du journal (un fichier HTML par article, `articles.json` pour le reste) |
+| `scripts/avis.json` | Avis clients repris de l'ancienne boutique (voir `docs/00-projet/avis-ancienne-boutique.md`) |
 | `scripts/catalogue/catalogue.json` | Les 375 fiches, nettoyées |
 | `scripts/catalogue/rayons.json` | Univers, rayons et leurs textes |
 | `scripts/catalogue/selection.json` | Produits vedettes (accueil, tête de rayon) |
@@ -73,7 +78,29 @@ Règles appliquées (audit de novembre 2026) : aucune marque tierce dans les fic
 - Familles olfactives : archives publiques `/famille-olfactive/<famille>/`.
 - Seuil de livraison offerte : constante `App\SEUIL_LIVRAISON` (`app/helpers.php`), à garder égale au réglage WooCommerce › Expédition.
 - Coordonnées et boutiques : `App\coordonnees()` (`app/helpers.php`).
+- Commande reçue et compte client : la table `App\PONTS` (`app/commande.php`) remplace quatre gabarits de WooCommerce (`checkout/thankyou`, `myaccount/orders`, `myaccount/view-order`, `myaccount/my-address`) par des vues du thème (`resources/views/woocommerce/`), via les ponts de `app/ponts/`. Données préparées dans `app/commande.php` et `app/compte.php`, styles dans `commande.css` et `compte.css`. Aucun fichier de WooCommerce n'est copié : une mise à jour de l'extension ne défait rien.
+- Compte client d'essai en local : identifiant `client-test`, mot de passe dans le `.env` (`US_CLIENT_TEST_PASSWORD`).
+
+## Paiement (Stripe)
+
+- Extension : passerelle Stripe officielle de WooCommerce. Les moyens de paiement proposés se choisissent dans le tableau de bord Stripe.
+- Clés : `STRIPE_PUBLISHABLE_KEY` et `STRIPE_SECRET_KEY` dans le `.env`, jamais en base ni dans Git (`web/app/mu-plugins/stripe.php`). Une clé `sk_test_…` met la boutique en mode test.
+- Réglages : `scripts/paiement.php`, rejoué par `composer seed`.
+- Carte de test : `4242 4242 4242 4242`, date future, trois chiffres au choix.
+- Webhooks en local : lancer `scripts/stripe-ecoute.ps1` et le laisser tourner pendant les essais (il lit la clé dans le `.env` et transmet les événements à `/?wc-api=wc_stripe`). Le `whsec_…` qu'il affiche va dans `STRIPE_WEBHOOK_SECRET` ; il ne change pas d'un lancement à l'autre.
+- En ligne : créer le webhook dans le tableau de bord Stripe vers `https://<domaine>/?wc-api=wc_stripe` et mettre les clés `live` dans le `.env` du serveur.
+- TVA : taxes WooCommerce désactivées tant que le statut de l'entreprise n'est pas fixé. Stripe Tax (`stripe-tax-for-woocommerce`) ne sert que si la boutique collecte la TVA.
 
 ## Branches et versions
 
 Le dépôt suit Git flow (`main`, `develop`, `feature/*`, `release/*`, `hotfix/*`) : voir [CONTRIBUTING.md](CONTRIBUTING.md). Les versions sont décrites dans [CHANGELOG.md](CHANGELOG.md).
+
+## Avis clients
+
+1. À la commande, un compte est créé pour l'acheteur. Quand la commande passe à « Terminée », l'e-mail l'invite à donner son avis, avec un lien vers chaque fiche.
+2. Sur la fiche, le formulaire n'apparaît qu'aux personnes connectées qui ont acheté le produit.
+3. L'avis arrive en attente dans **Produits › Avis** ; la boutique reçoit un e-mail. On l'approuve ou on le met à la corbeille, sans jamais modifier son texte.
+4. Approuvé, il s'affiche sur la fiche du produit et en tête de la page « Avis clients », avec la mention « Achat vérifié ».
+5. Pour l'accueil, c'est un choix : colonne **Accueil** de Produits › Avis (ou la case « Page d'accueil » dans l'avis). L'accueil montre les six avis choisis les plus récents (`App\AVIS_ACCUEIL`).
+
+Le code est dans `app/avis.php` (affichage) et `app/avis-gestion.php` (admin, e-mail).

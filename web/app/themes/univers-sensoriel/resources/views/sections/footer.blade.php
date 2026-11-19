@@ -15,10 +15,23 @@
 </section>
 
 <footer class="pied">
+  @if ($lettre = App\formulaire('newsletter'))
+    <section class="conteneur pied-lettre" aria-labelledby="lettre-titre">
+      <div>
+        <h2 id="lettre-titre">Nouveautés et offres, par e-mail</h2>
+      </div>
+      <div class="formulaire formulaire-lettre">
+        {!! $lettre !!}
+        <p class="formulaire-mention">Désinscription à tout moment. <a href="{{ home_url('/politique-de-confidentialite/') }}">Confidentialité</a></p>
+      </div>
+    </section>
+  @endif
+
   <div class="conteneur pied-haut">
     <div class="pied-marque">
-      <img src="{{ App\image('logo-univers-sensoriel-clair.webp') }}" alt="Univers Sensoriel by K.Elle : beauté, bien-être, art de vivre" width="1452" height="716" loading="lazy">
-      <p>Parfums, soins et rituels choisis pour ce qu'ils font ressentir.</p>
+      <a href="{{ home_url('/') }}" rel="home">
+        <img src="{{ App\image('logo-univers-sensoriel-clair.webp') }}" alt="Univers Sensoriel by K.Elle : beauté, bien-être, art de vivre" width="1452" height="716" loading="lazy">
+      </a>
       <a class="lien-or" href="{{ App\lien_whatsapp() }}" rel="noopener" target="_blank">{!! App\icone('whatsapp', 20) !!} Écrire sur WhatsApp</a>
     </div>
 
@@ -36,6 +49,8 @@
       <p class="surtitre">La Maison</p>
       <ul>
         <li><a href="{{ home_url('/la-maison/') }}">Notre histoire</a></li>
+        <li><a href="{{ home_url('/journal/') }}">Le journal</a></li>
+        <li><a href="{{ home_url('/avis-clients/') }}">Avis clients</a></li>
         <li><a href="{{ home_url('/nos-boutiques/') }}">Nos boutiques</a></li>
         <li><a href="{{ home_url('/contact/') }}">Contact</a></li>
         <li><a href="{{ home_url('/devenir-consultante/') }}">Devenir consultante</a></li>
@@ -63,12 +78,28 @@
     </div>
   </div>
 
+  @if ($moyens = App\moyens_de_paiement())
+    <div class="conteneur pied-paiement">
+      <p>{!! App\icone('cadenas', 18) !!} Paiement sécurisé</p>
+      <ul aria-label="Moyens de paiement acceptés">
+        @foreach ($moyens as [$fichier, $nom])
+          <li><img src="{{ App\image("paiement/{$fichier}.svg") }}" alt="{{ $nom }}" width="38" height="24" loading="lazy" decoding="async"></li>
+        @endforeach
+      </ul>
+    </div>
+  @endif
+
   <div class="conteneur pied-bas">
-    <p>© {{ date('Y') }} Univers Sensoriel by K.Elle</p>
+    <p>© {{ date('Y') }} Univers Sensoriel by K.Elle · Site réalisé par <a href="https://hassan-ndam.com" rel="noopener" target="_blank">hassan-ndam.com</a></p>
     <ul>
       <li><a href="{{ home_url('/mentions-legales/') }}">Mentions légales</a></li>
       <li><a href="{{ home_url('/conditions-generales-de-vente/') }}">Conditions générales de vente</a></li>
       <li><a href="{{ home_url('/politique-de-confidentialite/') }}">Confidentialité</a></li>
+      @if (function_exists('cmplz_get_option'))
+        <li><a href="{{ home_url('/politique-de-cookies/') }}">Cookies</a></li>
+        {{-- « button.cmplz-manage-consent » : Complianz rouvre le bandeau au clic. --}}
+        <li><button type="button" class="cmplz-manage-consent pied-cookies">Gérer mes cookies</button></li>
+      @endif
     </ul>
   </div>
 </footer>

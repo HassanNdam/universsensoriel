@@ -1,0 +1,453 @@
+/* Journal (liste et article) et avis clients. */
+
+.section-blanche {
+  --fond-carte: var(--ivoire); /* sur fond teinté, les cartes passent en ivoire */
+  background: var(--lin-clair);
+}
+
+/* Cartes d'articles */
+.journal {
+  padding-block: clamp(2.5rem, 5vw, 4rem) var(--section);
+}
+
+.journal-grille {
+  display: grid;
+  gap: clamp(2.5rem, 4vw, 3.5rem) clamp(1.5rem, 3vw, 2.75rem);
+}
+
+@media (min-width: 700px) {
+  .journal-grille {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1000px) {
+  .journal-grille {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  /* À la une : le dernier article occupe toute la largeur, image à gauche. */
+  .journal-grille-une > .article-carte:first-child {
+    align-items: center;
+    display: grid;
+    gap: clamp(2rem, 5vw, 5rem);
+    grid-column: 1 / -1;
+    grid-template-columns: 1.25fr 1fr;
+  }
+
+  .journal-grille-une > .article-carte:first-child .article-carte-titre {
+    font-size: clamp(2rem, 3.2vw, 3rem);
+  }
+
+  .journal-grille-une > .article-carte:first-child .article-carte-extrait {
+    font-size: 1.15rem;
+  }
+
+  .journal-grille-une > .article-carte:first-child .article-carte-corps {
+    padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 3vw, 3rem) clamp(1.5rem, 3vw, 2.5rem) 0;
+  }
+
+  .journal-grille-une > .article-carte:first-child .article-carte-image {
+    border-radius: var(--rayon) 0 0 var(--rayon);
+    height: 100%;
+  }
+
+  .journal-grille-une > .article-carte:first-child .lien-or {
+    margin-top: 0.4rem;
+  }
+}
+
+.article-carte {
+  background: var(--fond-carte, var(--lin-clair));
+  border-radius: var(--rayon);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: box-shadow var(--transition);
+}
+
+.article-carte:hover {
+  box-shadow: 0 18px 40px -28px rgb(31 49 36 / 45%);
+}
+
+.article-carte-image {
+  aspect-ratio: 3 / 2;
+  background: var(--lin);
+  border-radius: var(--rayon) var(--rayon) 0 0;
+  display: block;
+  overflow: hidden;
+}
+
+.article-carte-image img {
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.2, 0.7, 0.2, 1);
+  width: 100%;
+}
+
+.article-carte:hover .article-carte-image img {
+  transform: scale(1.05);
+}
+
+.article-carte-corps {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1.5rem clamp(1.1rem, 2vw, 1.6rem) 1.6rem;
+}
+
+/* « Lire l'article » calé en bas, quelle que soit la longueur du titre et de l'extrait. */
+.article-carte-corps .lien-or {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+.article-carte-corps .surtitre span {
+  color: var(--mousse);
+  letter-spacing: 0.1em;
+}
+
+.article-carte-titre {
+  font-family: var(--font-titre);
+  font-size: clamp(1.45rem, 2vw, 1.8rem);
+  line-height: 1.18;
+  margin-block: 0.7rem 0.8rem;
+}
+
+.article-carte-titre a::after {
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.article-carte-extrait {
+  color: var(--mousse);
+  font-weight: 300;
+  margin-bottom: 1.2rem;
+}
+
+/* Article */
+.article-tete {
+  background:
+    radial-gradient(50rem 30rem at 85% 0%, rgb(227 181 111 / 13%), transparent 70%),
+    linear-gradient(180deg, var(--sapin) 0%, var(--sapin-profond) 100%);
+  color: var(--ivoire);
+  padding-bottom: clamp(7rem, 14vw, 12rem);
+  text-align: center;
+}
+
+.article-tete .fil {
+  color: rgb(247 240 228 / 70%);
+}
+
+.article-tete .fil ol {
+  justify-content: center;
+}
+
+.article-tete .fil li + li::before {
+  color: var(--or-clair);
+}
+
+.article-tete .fil a:hover {
+  color: var(--or-clair);
+}
+
+.article-tete .surtitre {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+.article-tete h1 {
+  font-size: clamp(2.3rem, 4.6vw, 4rem);
+  margin: clamp(2.5rem, 5vw, 4rem) auto 0;
+  max-width: 54rem;
+}
+
+.article-meta {
+  color: rgb(247 240 228 / 75%);
+  display: flex;
+  font-size: 0.95rem;
+  gap: 0.7rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.article-image {
+  margin-top: clamp(-9rem, -11vw, -5rem);
+  max-width: 68rem;
+}
+
+.article-image img {
+  aspect-ratio: 3 / 2;
+  border-radius: var(--rayon);
+  box-shadow: var(--ombre);
+  object-fit: cover;
+  width: 100%;
+}
+
+.article-corps {
+  padding-bottom: clamp(3.5rem, 7vw, 6rem);
+}
+
+.article-corps .prose {
+  font-size: 1.14rem;
+  line-height: 1.75;
+}
+
+.article-corps .prose > p:first-child {
+  font-size: 1.35rem;
+  line-height: 1.6;
+}
+
+.article-corps .prose small {
+  color: var(--mousse);
+  display: block;
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.article-pied {
+  align-items: center;
+  border-top: 1px solid var(--filet);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: space-between;
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+  padding-top: 2rem;
+}
+
+.icone-retour {
+  transform: rotate(180deg);
+}
+
+/*
+ * Avis clients : la citation d'abord, en grand ; la note reste discrète.
+ * Pas de moyenne, pas de compteur : seulement ce que les personnes ont écrit.
+ */
+.avis-accueil {
+  background:
+    radial-gradient(55rem 32rem at 88% 0%, rgb(227 181 111 / 12%), transparent 70%),
+    linear-gradient(180deg, var(--sapin) 0%, var(--sapin-profond) 100%);
+  color: var(--ivoire);
+}
+
+.avis-accueil .section-intro {
+  color: rgb(247 240 228 / 78%);
+}
+
+.avis-accueil {
+  --fond-avis: var(--ivoire);
+}
+
+.avis-accueil .avis {
+  color: var(--sapin);
+}
+
+.avis-accueil .avis-note {
+  color: var(--ivoire);
+  margin-top: 2.25rem;
+}
+
+.avis-grille {
+  columns: 1;
+  column-gap: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+@media (min-width: 700px) {
+  .avis-grille {
+    columns: 2;
+  }
+}
+
+@media (min-width: 1100px) {
+  .avis-grille {
+    columns: 3;
+  }
+}
+
+.avis {
+  background: var(--fond-avis, var(--lin-clair));
+  border-radius: var(--rayon);
+  break-inside: avoid;
+  margin-bottom: clamp(1.25rem, 2.5vw, 2rem);
+  padding: clamp(1.6rem, 3vw, 2.4rem);
+}
+
+.avis blockquote p {
+  font-family: var(--font-titre);
+  font-size: clamp(1.25rem, 1.7vw, 1.5rem);
+  line-height: 1.38;
+  text-wrap: pretty;
+}
+
+.avis figcaption {
+  align-items: center;
+  border-top: 1px solid var(--filet);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.2rem;
+}
+
+.etoiles {
+  color: var(--or);
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+}
+
+.etoiles-vides {
+  color: var(--lin);
+}
+
+.avis-auteur {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.6rem;
+  line-height: 1.3;
+}
+
+.avis-auteur strong {
+  font-weight: 500;
+}
+
+.avis-auteur span {
+  color: var(--mousse);
+  font-size: 0.9rem;
+}
+
+.avis-auteur span::first-letter {
+  text-transform: uppercase;
+}
+
+.avis-badge {
+  align-items: center;
+  color: #3f6b41;
+  display: inline-flex;
+  font-size: 0.78rem;
+  font-weight: 500;
+  gap: 0.35rem;
+  letter-spacing: 0.06em;
+}
+
+.avis-mention {
+  color: var(--mousse);
+  font-size: 0.82rem;
+  font-style: italic;
+}
+
+.avis-produit {
+  align-items: center;
+  color: var(--mousse);
+  display: flex;
+  flex-basis: 100%;
+  font-size: 0.9rem;
+  gap: 0.85rem;
+  line-height: 1.35;
+  transition: color var(--transition);
+}
+
+.avis-produit strong {
+  color: var(--sapin);
+  display: block;
+  font-weight: 500;
+}
+
+a.avis-produit:hover strong {
+  color: var(--bronze);
+}
+
+.avis-vignette {
+  background: radial-gradient(circle at 50% 38%, var(--blanc), var(--lin) 85%);
+  border-radius: var(--rayon);
+  flex: none;
+  height: 3.4rem;
+  overflow: hidden;
+  width: 3.4rem;
+}
+
+.avis-vignette img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.avis-vignette img.est-detoure {
+  object-fit: contain;
+  padding: 8%;
+}
+
+.avis-produit-boutique .icone {
+  color: var(--or);
+}
+
+.avis-note {
+  color: var(--mousse);
+  font-size: 0.9rem;
+  margin: 1.5rem auto 0;
+  max-width: 46rem;
+  text-align: center;
+}
+
+.avis-page {
+  padding-block: clamp(2.5rem, 5vw, 4rem) 0;
+}
+
+.avis-page .avis {
+  border: 1px solid var(--filet);
+}
+
+/* Sur la fiche produit */
+.avis-fiche {
+  border-top: 1px solid var(--filet);
+}
+
+.avis-grille-fiche {
+  margin-inline: auto;
+  max-width: 62rem;
+}
+
+.avis-fiche .avis {
+  border: 1px solid var(--filet);
+}
+
+.avis-formulaire {
+  background: var(--lin-clair);
+  border: 1px solid var(--filet);
+  margin: 2.5rem auto 0;
+  max-width: 40rem;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.avis-formulaire h3 {
+  margin-bottom: 1.25rem;
+}
+
+.avis-champ {
+  display: grid;
+  gap: 0.4rem;
+  margin-bottom: 1.1rem;
+}
+
+.avis-champ label {
+  color: var(--bronze);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.avis-champ select,
+.avis-champ textarea {
+  background: var(--ivoire);
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon);
+  font: inherit;
+  padding: 0.75rem 1rem;
+  width: 100%;
+}
+
+.avis-formulaire .form-submit {
+  margin-top: 1.25rem;
+}
