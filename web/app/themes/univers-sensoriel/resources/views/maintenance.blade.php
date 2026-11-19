@@ -66,27 +66,20 @@
             @if ($lettre)
               <div class="attente-lettre">
                 <p class="attente-invite">Recevoir un e-mail à l'ouverture</p>
-                <div class="formulaire formulaire-lettre">
-                  {!! $lettre !!}
-                  <p class="formulaire-mention">Désinscription à tout moment. <a href="{{ home_url('/politique-de-confidentialite/') }}">Confidentialité</a></p>
-                </div>
+                <div class="formulaire formulaire-lettre">{!! $lettre !!}</div>
               </div>
             @endif
-
-            <ul class="attente-contact">
-              <li><a class="lien-or" href="{{ App\lien_whatsapp() }}" rel="noopener" target="_blank">{!! App\icone('whatsapp', 18) !!} WhatsApp</a></li>
-              <li><a class="lien-or" href="mailto:{{ $c['courriel'] }}">{!! App\icone('courriel', 18) !!} {{ $c['courriel'] }}</a></li>
-            </ul>
           </div>
         </main>
       @endif
 
       <footer class="attente-pied conteneur">
-        <p>© {{ date('Y') }} Univers Sensoriel by K.Elle</p>
+        <p>© {{ date('Y') }} Univers Sensoriel by K.Elle · Site réalisé par <a href="https://hassan-ndam.com" rel="noopener" target="_blank">hassan-ndam.com</a></p>
         <ul>
+          <li><a class="attente-picto" href="{{ App\lien_whatsapp() }}" rel="noopener" target="_blank" aria-label="Écrire sur WhatsApp">{!! App\icone('whatsapp', 18) !!}</a></li>
+          <li><a class="attente-picto" href="mailto:{{ $c['courriel'] }}" aria-label="Écrire à {{ $c['courriel'] }}">{!! App\icone('courriel', 18) !!}</a></li>
           <li><a href="{{ home_url('/mentions-legales/') }}">Mentions légales</a></li>
           <li><a href="{{ home_url('/politique-de-confidentialite/') }}">Confidentialité</a></li>
-          <li><a href="{{ wp_login_url(home_url('/')) }}" rel="nofollow">Connexion</a></li>
         </ul>
       </footer>
     </div>
