@@ -55,6 +55,13 @@ foreach (array_keys($fiches) as $sku) {
     }
 }
 
+// Adresse de lecture avec le jeton signé de l'analyse : la page d'attente (thème, app/maintenance.php) la laisse passer.
+$jeton = function_exists('App\jeton_analyse') ? App\jeton_analyse() : (string) time();
+foreach ($liste as &$element) {
+    $element['analyse'] = add_query_arg('us-analyse', $jeton, $element['url']);
+}
+unset($element);
+
 $fichier = wp_upload_dir()['basedir'] . '/seo-export.json';
 file_put_contents($fichier, wp_json_encode($liste, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
 WP_CLI::success(count($liste) . ' éléments à noter : ' . $fichier);

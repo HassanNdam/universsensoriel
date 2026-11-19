@@ -263,7 +263,8 @@ add_action('admin_enqueue_scripts', function ($ecran) {
     wp_register_script('us-analyse-yoast', false, [], null, true);
     wp_enqueue_script('us-analyse-yoast');
     wp_add_inline_script('us-analyse-yoast', 'window.usAnalyseYoast = ' . wp_json_encode([
-        'url' => add_query_arg('us-analyse', time(), get_permalink($post)),
+        // Jeton signé : la page d'attente (app/maintenance.php) laisse passer cette lecture.
+        'url' => add_query_arg('us-analyse', jeton_analyse(), get_permalink($post)),
     ]) . ';' . <<<'JS'
 (function () {
     var contenu = null;
