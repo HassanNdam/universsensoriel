@@ -2,7 +2,17 @@
 
 .page-texte {
   max-width: 52rem;
-  padding-block: clamp(2.5rem, 5vw, 4.5rem) var(--section);
+  padding-block: clamp(1rem, 2vw, 1.5rem) var(--section);
+}
+
+/* Pages de texte : le bandeau du titre se resserre, le texte commence juste dessous. */
+.rayon-tete:has(+ .page-texte) {
+  padding-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+/* Le premier bloc suit le titre de la page sans marge de plus. */
+.page-texte .prose > :first-child {
+  margin-top: 0;
 }
 
 .page-boutique {
@@ -37,12 +47,24 @@
   margin-top: 0;
 }
 
-.prose .a-completer {
-  background: #fbefe9;
-  border-left: 2px solid var(--brique);
-  color: var(--brique);
-  font-size: 0.95rem;
-  padding: 0.9rem 1.2rem;
+/* Horaires d'une boutique : le jour à gauche, l'heure à droite. */
+.prose .horaires {
+  gap: 0.3em;
+}
+
+.prose .horaires li {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  padding-left: 0;
+}
+
+.prose .horaires li::before {
+  content: none;
+}
+
+.prose .horaires span {
+  color: var(--mousse);
 }
 
 .prose details {

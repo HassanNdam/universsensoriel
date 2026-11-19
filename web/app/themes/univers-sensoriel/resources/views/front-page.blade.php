@@ -215,6 +215,7 @@
         <p>En boutique ou par message, nous vous aidons à choisir.</p>
         <div class="ouverture-actions">
           <a class="bouton bouton-clair" href="{{ App\lien_whatsapp('Bonjour, j\'aimerais un conseil pour choisir un parfum.') }}" target="_blank" rel="noopener">{!! App\icone('whatsapp', 20) !!} Demander conseil</a>
+          <a class="lien-or" href="{{ home_url('/contact/') }}">Formulaire de contact {!! App\icone('fleche', 18) !!}</a>
           <a class="lien-or" href="{{ home_url('/nos-boutiques/') }}">Nos boutiques {!! App\icone('fleche', 18) !!}</a>
         </div>
       </div>

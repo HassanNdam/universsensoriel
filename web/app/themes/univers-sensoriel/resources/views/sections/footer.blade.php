@@ -90,7 +90,7 @@
   @endif
 
   <div class="conteneur pied-bas">
-    <p>© {{ date('Y') }} Univers Sensoriel by K.Elle</p>
+    <p>© {{ date('Y') }} Univers Sensoriel by K.Elle · Site réalisé par <a href="https://hassan-ndam.com" rel="noopener" target="_blank">hassan-ndam.com</a></p>
     <ul>
       <li><a href="{{ home_url('/mentions-legales/') }}">Mentions légales</a></li>
       <li><a href="{{ home_url('/conditions-generales-de-vente/') }}">Conditions générales de vente</a></li>

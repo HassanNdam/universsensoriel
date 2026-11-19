@@ -95,7 +95,11 @@ function coordonnees(): array
         'telephone' => '+33 6 05 78 40 11',
         'whatsapp' => '33605784011',
         'boutiques' => [
-            ['ville' => 'Metz', 'pays' => 'France', 'enseigne' => 'Kacy Afro Center', 'telephone' => '+33 6 41 25 22 71'],
+            [
+                'ville' => 'Metz', 'pays' => 'France', 'enseigne' => 'Kacy Afro Center', 'telephone' => '+33 6 41 25 22 71',
+                'adresse' => '57 rue des Allemands, 57000 Metz',
+                'horaires' => ['Lundi, mardi et jeudi' => '14 h – 19 h', 'Mercredi' => '11 h – 19 h', 'Vendredi et samedi' => '10 h – 19 h', 'Dimanche' => 'Fermé'],
+            ],
             ['ville' => 'Yaoundé', 'pays' => 'Cameroun', 'enseigne' => 'Style Mondial', 'telephone' => '+237 56 22 82 25'],
         ],
     ];
@@ -124,7 +128,7 @@ function reassurances(): array
         ['livraison', 'Livraison offerte', 'Dès ' . SEUIL_LIVRAISON . ' € d\'achat en France'],
         ['boutique', 'Retrait en boutique', 'Gratuit, à Metz'],
         ['cadenas', 'Paiement sécurisé', 'Vos données restent protégées'],
-        ['whatsapp', 'Conseil personnalisé', 'Par WhatsApp, réponse sous 24 h'],
+        ['whatsapp', 'Conseil personnalisé', 'WhatsApp ou formulaire, réponse sous 24 h'],
     ];
 }
 

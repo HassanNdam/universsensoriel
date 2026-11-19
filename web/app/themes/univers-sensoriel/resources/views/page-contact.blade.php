@@ -52,6 +52,9 @@
               <li>
                 <strong>{{ $b['ville'] }}</strong>
                 <span>{{ $b['enseigne'] }} · {{ $b['pays'] }}</span>
+                @isset($b['adresse'])
+                  <span>{{ $b['adresse'] }}</span>
+                @endisset
                 <a href="tel:{{ preg_replace('/[^+\d]/', '', $b['telephone']) }}">{{ $b['telephone'] }}</a>
               </li>
             @endforeach
