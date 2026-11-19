@@ -55,7 +55,7 @@ body.attente-page {
 
 .attente-logo img {
   height: auto;
-  width: clamp(8rem, 11vw, 9.5rem);
+  width: clamp(11rem, 16vw, 14.5rem);
 }
 
 /* Cœur : l'arche puis l'annonce (une colonne), côte à côte sur grand écran. */
