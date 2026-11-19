@@ -78,6 +78,17 @@
     </div>
   </div>
 
+  @if ($moyens = App\moyens_de_paiement())
+    <div class="conteneur pied-paiement">
+      <p>{!! App\icone('cadenas', 18) !!} Paiement sécurisé</p>
+      <ul aria-label="Moyens de paiement acceptés">
+        @foreach ($moyens as [$fichier, $nom])
+          <li><img src="{{ App\image("paiement/{$fichier}.svg") }}" alt="{{ $nom }}" width="38" height="24" loading="lazy" decoding="async"></li>
+        @endforeach
+      </ul>
+    </div>
+  @endif
+
   <div class="conteneur pied-bas">
     <p>© {{ date('Y') }} Univers Sensoriel by K.Elle</p>
     <ul>

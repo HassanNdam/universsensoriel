@@ -288,3 +288,34 @@ function fil_ariane(): array
 
     return $fil;
 }
+
+/**
+ * Moyens de paiement affichés dans le pied de page : seulement ceux qui sont activés dans WooCommerce (Stripe).
+ * Une carte activée vaut Visa, Mastercard, CB et American Express ; le paiement express vaut Apple Pay et Google Pay.
+ * Renvoie [[fichier de resources/images/paiement, nom], …].
+ */
+function moyens_de_paiement(): array
+{
+    static $liste = null;
+    if ($liste !== null) {
+        return $liste;
+    }
+    $liste = [];
+    if (! function_exists('WC') || ! WC()->payment_gateways()) {
+        return $liste;
+    }
+    $actifs = array_filter(WC()->payment_gateways()->payment_gateways(), fn ($passerelle) => $passerelle->enabled === 'yes');
+    if (isset($actifs['stripe'])) {
+        array_push($liste, ['visa', 'Visa'], ['mastercard', 'Mastercard'], ['cartes-bancaires', 'CB'], ['american-express', 'American Express']);
+        if ($actifs['stripe']->get_option('express_checkout', 'no') === 'yes') {
+            array_push($liste, ['apple-pay', 'Apple Pay'], ['google-pay', 'Google Pay']);
+        }
+    }
+    foreach (['stripe_klarna' => ['klarna', 'Klarna'], 'stripe_bancontact' => ['bancontact', 'Bancontact']] as $passerelle => $moyen) {
+        if (isset($actifs[$passerelle])) {
+            $liste[] = $moyen;
+        }
+    }
+
+    return $liste;
+}
