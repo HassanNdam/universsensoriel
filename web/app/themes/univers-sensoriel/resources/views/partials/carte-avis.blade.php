@@ -1,10 +1,11 @@
 {{-- Un avis client, reproduit tel quel. Variables : $avis (voir App\avis()), $lienProduit (bool). --}}
 <figure class="avis">
+  {!! App\etoiles($avis['note']) !!}
   <blockquote>
-    <p>{{ $avis['extrait'] ? '« ' . rtrim($avis['texte']) . ' […] »' : '« ' . $avis['texte'] . ' »' }}</p>
+    <p data-avis-texte>{{ $avis['extrait'] ? '« ' . rtrim($avis['texte']) . ' […] »' : '« ' . $avis['texte'] . ' »' }}</p>
   </blockquote>
+  <button class="avis-suite" type="button" data-avis-suite hidden>Lire la suite</button>
   <figcaption>
-    {!! App\etoiles($avis['note']) !!}
     <p class="avis-auteur">
       <strong>{{ $avis['auteur'] }}</strong>
       <span>{{ $avis['date_lisible'] }}</span>
