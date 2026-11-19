@@ -11,6 +11,10 @@ Textes et coordonnées modifiables dans l'administration.
 - Un numéro ou une adresse n'est plus écrit qu'à un seul endroit : pages légales, « Nos boutiques » et « Devenir consultante » les lisent par codes courts ; les formulaires suivent l'adresse e-mail.
 - Seuil de livraison offerte lu dans WooCommerce › Expédition (plus de constante à tenir à jour) ; `{seuil}` dans les textes.
 - Page d'attente : interrupteur dans l'administration (Automatique, Affichée, Masquée).
+- Pages de texte et articles en blocs Gutenberg (paragraphes, titres, listes, boutons, questions), éditeur aux couleurs et polices du site, sans couleur ni taille libre.
+- Blocs du thème : Nos boutiques, Coordonnées, Bouton WhatsApp, Éditeur du site, Hébergeur, lus dans les réglages. Montants de livraison des pages lus dans WooCommerce (`[us_seuil]`, `[us_forfait]`).
+- Questions fréquentes : données Google FAQPage tirées des blocs « Détails ».
+- Le seed ne réécrit plus une page modifiée dans l'éditeur.
 
 ## 0.3.0 – 19 novembre 2026
 

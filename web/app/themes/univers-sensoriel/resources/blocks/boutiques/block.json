@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "us/boutiques",
+  "title": "Nos boutiques",
+  "description": "Les boutiques : enseigne, adresse, horaires, téléphones. À modifier dans Univers Sensoriel › Coordonnées.",
+  "category": "univers-sensoriel",
+  "icon": "store",
+  "keywords": ["boutique", "horaires", "adresse"],
+  "supports": { "html": false, "align": false, "customClassName": false, "reusable": false },
+  "acf": { "mode": "preview", "renderCallback": "App\\rendu_bloc" }
+}

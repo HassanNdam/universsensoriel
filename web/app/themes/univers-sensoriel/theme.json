@@ -1,5 +1,5 @@
 {
-  "__preprocessed__": "This file is used to build the theme.json file in the `public/build/assets` directory. The built artifact includes Tailwind's colors, fonts, and font sizes.",
+  "__preprocessed__": "This file is used to build the theme.json file in the `public/build/assets` directory. Couleurs, polices et tailles de Tailwind ne sont pas proposées dans l'éditeur (vite.config.js) : la charte décide.",
   "$schema": "https://schemas.wp.org/trunk/theme.json",
   "version": 3,
   "settings": {
@@ -7,7 +7,8 @@
       "contentSize": "48rem"
     },
     "background": {
-      "backgroundImage": true
+      "backgroundImage": false,
+      "backgroundSize": false
     },
     "color": {
       "custom": false,
@@ -16,7 +17,11 @@
       "defaultDuotone": false,
       "defaultGradients": false,
       "defaultPalette": false,
-      "duotone": []
+      "duotone": [],
+      "background": false,
+      "text": false,
+      "link": false,
+      "palette": []
     },
     "custom": {
       "spacing": {},
@@ -26,12 +31,40 @@
       }
     },
     "spacing": {
-      "padding": true,
-      "units": ["px", "%", "em", "rem", "vw", "vh"]
+      "padding": false,
+      "margin": false,
+      "blockGap": false,
+      "units": [
+        "px",
+        "%",
+        "em",
+        "rem"
+      ]
     },
     "typography": {
       "defaultFontSizes": false,
-      "customFontSize": false
+      "customFontSize": false,
+      "dropCap": false,
+      "fontStyle": false,
+      "fontWeight": false,
+      "letterSpacing": false,
+      "lineHeight": false,
+      "textDecoration": false,
+      "textTransform": false,
+      "writingMode": false,
+      "fontSizes": []
+    },
+    "border": {
+      "color": false,
+      "radius": false,
+      "style": false,
+      "width": false
+    },
+    "shadow": {
+      "defaultPresets": false
+    },
+    "dimensions": {
+      "minHeight": false
     }
   }
 }

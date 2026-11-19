@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "us/whatsapp",
+  "title": "Bouton WhatsApp",
+  "description": "Bouton qui ouvre une conversation WhatsApp avec un message prérempli.",
+  "category": "univers-sensoriel",
+  "icon": "whatsapp",
+  "keywords": ["whatsapp", "bouton", "message"],
+  "supports": { "html": false, "align": false, "customClassName": false, "reusable": false },
+  "acf": { "mode": "preview", "renderCallback": "App\\rendu_bloc" }
+}

@@ -86,6 +86,16 @@ Textes, coordonnées, boutiques, photos de l'accueil et page d'attente se modifi
 - Restent dans le code : libellés d'interface (boutons du panier, filtres, tri, pagination), menus et liens du pied de page, logos.
 - Le menu « SCF » n'apparaît qu'en développement.
 
+### Pages et articles en blocs (Gutenberg)
+
+- Pages de texte et articles du journal sont en blocs : paragraphes, titres, listes, boutons, questions (bloc « Détails »). L'éditeur reprend polices, couleurs et mise en page du site (`resources/css/editor.css`, règles du texte en `:is(.prose, .is-root-container)`).
+- Blocs du thème, catégorie « Univers Sensoriel » (`resources/blocks/<nom>/block.json`, rendus par `Appendu_bloc()` dans `app/blocs.php`) : Nos boutiques, Coordonnées, Bouton WhatsApp, Éditeur du site, Hébergeur. Leur contenu est lu dans Univers Sensoriel › Coordonnées.
+- Dans un paragraphe : `[us_seuil]` et `[us_forfait]` (montants de livraison lus dans WooCommerce › Expédition), `[us_contact champ="courriel"]`, `[us_contact champ="telephone"]`.
+- Blocs proposés : seulement ceux qui ont un style dans le thème (`App\BLOCS_AUTORISES`) ; ni couleur, ni police, ni taille libres (`theme.json`, Tailwind désactivé dans `vite.config.js`).
+- Questions fréquentes : chaque bloc « Détails » d'une page devient une question des données Google (FAQPage).
+- `composer blocs` passe en blocs un contenu encore en HTML (fichiers de `scripts/pages`, `scripts/blog` et contenus du site) ; un contenu déjà en blocs n'est pas touché.
+- Le seed ne réécrit jamais une page modifiée dans l'éditeur depuis le dernier passage (empreinte `_us_contenu_seed`), même avec `US_SEED_FORCE=1`.
+
 ## Boutique
 
 - Filtres : `?genre[]=femme&famille[]=floral&format[]=…&gamme[]=…&prix=20-40` (`app/woocommerce.php`).

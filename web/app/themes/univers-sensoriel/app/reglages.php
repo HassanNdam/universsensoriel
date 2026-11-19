@@ -449,12 +449,44 @@ function seuil_livraison(): float
     return $seuil;
 }
 
+/** Prix de la livraison à domicile : forfait le plus bas des zones (WooCommerce › Expédition), 0 s'il n'y en a pas. */
+function forfait_livraison(): float
+{
+    static $forfait = null;
+    if ($forfait !== null) {
+        return $forfait;
+    }
+    $forfait = 0.0;
+    if (! class_exists('WC_Shipping_Zones')) {
+        return $forfait;
+    }
+    foreach (\WC_Shipping_Zones::get_zones() as $zone) {
+        foreach ($zone['shipping_methods'] ?? [] as $methode) {
+            $cout = (float) wc_format_decimal((string) $methode->get_option('cost', ''));
+            if ($methode->id === 'flat_rate' && $methode->enabled === 'yes' && $cout > 0) {
+                $forfait = $forfait > 0 ? min($forfait, $cout) : $cout;
+            }
+        }
+    }
+
+    return $forfait;
+}
+
+/** Montant tel qu'on l'écrit : « 49 », « 4,90 ». */
+function montant(float $valeur): string
+{
+    return number_format($valeur, floor($valeur) === $valeur ? 0 : 2, ',', ' ');
+}
+
+function forfait_affiche(): string
+{
+    return montant(forfait_livraison());
+}
+
 /** Seuil tel qu'on l'écrit : « 49 », « 49,50 ». */
 function seuil_affiche(): string
 {
-    $seuil = seuil_livraison();
-
-    return number_format($seuil, floor($seuil) === $seuil ? 0 : 2, ',', ' ');
+    return montant(seuil_livraison());
 }
 
 /*
