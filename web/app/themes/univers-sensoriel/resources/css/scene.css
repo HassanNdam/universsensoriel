@@ -1,0 +1,121 @@
+/*
+ * Scène des ouvertures sombres : accueil (accueil.css) et page d'attente (maintenance.css).
+ * Photos qui se relaient dans l'arche (partials/diapos), poussière d'or qui monte (partials/poussiere),
+ * et les mouvements lents communs : entrée en douceur, halo qui respire, flacons qui flottent.
+ * Aucune animation si le visiteur a demandé moins de mouvement.
+ */
+
+/* Photos de l'arche : posées les unes sur les autres, la première visible sans animation. */
+.diapos {
+  border-radius: 999px 999px var(--rayon) var(--rayon);
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.diapos::after {
+  background: linear-gradient(to top, rgb(22 36 26 / 45%), transparent 50%);
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.diapos img {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+}
+
+.diapos img + img {
+  opacity: 0;
+}
+
+/* Poussière d'or : sous le contenu de la section (qui doit être en isolation: isolate). */
+.poussiere {
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+}
+
+.poussiere span {
+  background: var(--or-clair);
+  border-radius: 50%;
+  bottom: -2%;
+  box-shadow: 0 0 calc(var(--taille) * 3) rgb(227 181 111 / 60%);
+  height: var(--taille);
+  left: var(--x);
+  opacity: 0;
+  position: absolute;
+  width: var(--taille);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Rythme calculé par partials/diapos : 7 s par photo, fondu enchaîné et léger recul du cadrage. */
+  .diapos img {
+    animation: var(--diapos-animation, none) var(--diapos-duree, 28s) var(--diapos-depart, 0s) linear infinite;
+  }
+
+  .poussiere span {
+    animation: scene-grain var(--duree) var(--depart) linear infinite;
+  }
+}
+
+@keyframes scene-monter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+
+@keyframes scene-apparaitre {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(10px);
+  }
+}
+
+@keyframes scene-respirer {
+  from {
+    opacity: 0.55;
+    transform: scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes scene-flotter {
+  from {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  to {
+    transform: translateY(-14px) rotate(-1.2deg);
+  }
+}
+
+@keyframes scene-grain {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+
+  15% {
+    opacity: 0.7;
+  }
+
+  70% {
+    opacity: 0.35;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(2.5rem, -100vh);
+  }
+}
