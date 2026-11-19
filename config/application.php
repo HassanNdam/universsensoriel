@@ -139,6 +139,12 @@ Config::define('LOGGED_IN_SALT', env('LOGGED_IN_SALT'));
 Config::define('NONCE_SALT', env('NONCE_SALT'));
 
 /**
+ * Page d'attente « bientôt en ligne » (thème : app/maintenance.php). Active tant que WP_ENV n'est pas « production ».
+ * Pour forcer : US_MAINTENANCE=true ou US_MAINTENANCE=false dans le .env.
+ */
+Config::define('US_MAINTENANCE', env('US_MAINTENANCE') ?? WP_ENV !== 'production');
+
+/**
  * Custom Settings
  */
 Config::define('AUTOMATIC_UPDATER_DISABLED', true);

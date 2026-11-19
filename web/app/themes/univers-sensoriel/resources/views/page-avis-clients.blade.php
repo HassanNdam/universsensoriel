@@ -16,11 +16,7 @@
 
     @if ($liste)
       <section class="conteneur avis-page" aria-label="Tous les avis">
-        <div class="avis-grille">
-          @foreach ($liste as $avis)
-            @include('partials.carte-avis', ['avis' => $avis, 'lienProduit' => true])
-          @endforeach
-        </div>
+        @include('partials.avis-carrousel', ['liste' => $liste, 'lienProduit' => true, 'titre' => 'Tous les avis'])
       </section>
     @endif
 

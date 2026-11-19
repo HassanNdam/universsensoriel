@@ -6,6 +6,14 @@ Les versions suivent `MAJEUR.MINEUR.CORRECTIF`. Le site n'est pas encore en lign
 
 Rien pour le moment.
 
+## 0.3.0 – 19 novembre 2026
+
+Page d'attente avant la mise en ligne et avis en carrousel.
+
+- Avis clients en carrousel horizontal (accueil, page « Avis clients », fiches) : flèches, barre de progression, défilement au doigt et au clavier, avis longs coupés à cinq lignes avec « Lire la suite ».
+- Page d'attente « bientôt en ligne » : fond sapin, titre en or, arche où des photos de matières se relaient, inscription à la lettre pour être prévenu de l'ouverture. Visible par les visiteurs non connectés tant que `WP_ENV` n'est pas `production` ; une personne connectée voit le site (aperçu : `?maintenance`). `US_MAINTENANCE=true` ou `false` dans le `.env` pour forcer.
+- Page d'attente : titre, méta-description et image de partage à elle (1200 × 630, `partage-bientot-en-ligne.jpg`) ; les robots d'aperçu des réseaux reçoivent 200 pour que le lien partagé ait son aperçu, les moteurs gardent le 503. L'analyse Yoast de l'admin et `scripts/seo-scores.js` lisent les pages avec un jeton signé qui passe la page d'attente (sinon Yoast notait la page d'attente).
+
 ## 0.2.0 – 19 novembre 2026
 
 Boutique prête à vendre en local : paiement, compte client, contenus, avis et référencement complet.

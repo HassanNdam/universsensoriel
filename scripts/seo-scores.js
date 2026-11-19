@@ -24,7 +24,8 @@
 
   for (const e of liste) {
     try {
-      const html = await fetch(e.url + (e.url.includes('?') ? '&' : '?') + 'us-analyse=' + Date.now(), { credentials: 'omit' }).then((r) => r.text());
+      // e.analyse : l'adresse avec le jeton signé de seo-export.php, que la page d'attente laisse passer.
+      const html = await fetch(e.analyse || e.url + (e.url.includes('?') ? '&' : '?') + 'us-analyse=' + Date.now(), { credentials: 'omit' }).then((r) => r.text());
       const principal = new DOMParser().parseFromString(html, 'text/html').querySelector('main');
       if (!principal) {
         erreurs.push(e.cle + ' : pas de <main>');
