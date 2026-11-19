@@ -6,10 +6,6 @@
 @php
   $c = App\coordonnees();
   $lettre = $legale ? '' : App\formulaire('newsletter');
-  // Photos de matières qui se relaient dans l'arche (resources/images/site).
-  $diapos = ['encens-bois-de-santal-parfum', 'fleur-de-lys-matiere-premiere', 'aloe-vera-feuilles', 'bois-de-cedre-matiere-premiere'];
-  // Poussière d'or : position, taille, durée et départ de chaque grain (fixes, pour un rendu identique à chaque visite).
-  $grains = [[8, 3, 17, 0], [17, 2, 21, 6], [29, 4, 19, 11], [41, 2, 23, 3], [52, 3, 18, 14], [61, 2, 22, 8], [70, 4, 20, 1], [79, 2, 24, 12], [87, 3, 19, 5], [94, 2, 21, 16]];
 @endphp
 <!doctype html>
 <html @php(language_attributes())>
@@ -25,11 +21,7 @@
     @php(wp_body_open())
 
     <div class="attente {{ $legale ? 'attente-legale' : '' }}">
-      <div class="attente-poussiere" aria-hidden="true">
-        @foreach ($grains as [$x, $taille, $duree, $depart])
-          <span style="--x: {{ $x }}%; --taille: {{ $taille }}px; --duree: {{ $duree }}s; --depart: -{{ $depart }}s"></span>
-        @endforeach
-      </div>
+      @include('partials.poussiere')
 
       <header class="attente-haut conteneur">
         <a class="attente-logo" href="{{ home_url('/') }}" rel="home">
@@ -49,11 +41,7 @@
         <main class="attente-coeur conteneur" id="main">
           <div class="attente-scene" aria-hidden="true">
             <div class="attente-arche">
-              <div class="attente-diapos">
-                @foreach ($diapos as $diapo)
-                  {!! App\visuel($diapo, '', ['loading' => $loop->first ? 'eager' : 'lazy', 'fetchpriority' => $loop->first ? 'high' : 'low', 'sizes' => '(min-width: 980px) 34rem, 80vw']) !!}
-                @endforeach
-              </div>
+              @include('partials.diapos', ['images' => App\diapos(), 'tailles' => '(min-width: 980px) 34rem, 80vw'])
             </div>
             <div class="attente-flacon attente-flacon-1">{!! App\media(App\reglage('ouverture_flacon_1'), '', ['loading' => 'eager']) !!}</div>
             <div class="attente-flacon attente-flacon-2">{!! App\media(App\reglage('ouverture_flacon_2'), '', ['loading' => 'eager']) !!}</div>

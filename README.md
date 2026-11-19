@@ -85,6 +85,7 @@ Textes, coordonnées, boutiques, photos de l'accueil et page d'attente se modifi
 - Page d'attente : « Automatique » suit `WP_ENV` et `US_MAINTENANCE` du `.env` ; « Affichée » et « Masquée » passent avant.
 - Restent dans le code : libellés d'interface (boutons du panier, filtres, tri, pagination), menus et liens du pied de page, logos.
 - Le menu « SCF » n'apparaît qu'en développement.
+- Photos de l'arche (accueil et page d'attente) : liste `ouverture_images` (Univers Sensoriel › Accueil › Ouverture), lue par `App\diapos()`. Elles se relaient en fondu, 7 s chacune, quel que soit leur nombre (`partials/diapos.blade.php` calcule le rythme). Poussière d'or : `partials/poussiere.blade.php`. Animations communes : `resources/css/scene.css`.
 
 ### Pages et articles en blocs (Gutenberg)
 

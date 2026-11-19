@@ -6,7 +6,7 @@
  * Recopie dans l'administration la valeur d'origine de chaque réglage décrit dans le thème (App\REGLAGES,
  * app/reglages.php), tant qu'il n'a pas été enregistré : les écrans s'ouvrent ainsi remplis, listes comprises.
  * Un réglage déjà enregistré n'est jamais touché, même avec US_SEED_FORCE (ce sont les textes de la Maison).
- * Les images restent vides : le site montre alors celles du thème.
+ * Une image d'origine est importée dans la médiathèque ; une image vidée dans l'écran reprend celle du thème.
  *
  * Met aussi à jour le texte des pages qui citaient les coordonnées en dur (codes courts [us_…], app/coordonnees.php).
  *
@@ -18,11 +18,16 @@ if (! function_exists('update_field') || ! function_exists('App\\reglages_champs
     return;
 }
 
-// Valeur d'origine telle que SCF l'enregistre : un rayon est un identifiant, une image d'origine reste vide.
+require_once __DIR__ . '/fonctions.php';
+
+// Valeur d'origine telle que SCF l'enregistre : un rayon est un identifiant ; une image d'origine (visuel du thème)
+// est importée dans la médiathèque, pour que l'écran montre la photo actuelle et qu'on puisse la remplacer.
 $pourScf = function (array $champ, mixed $valeur) use (&$pourScf) {
     switch ($champ[0]) {
         case 'image':
-            return '';
+            $fichier = is_string($valeur) && $valeur !== '' ? get_theme_file_path("resources/images/site/$valeur.webp") : '';
+
+            return $fichier && is_file($fichier) ? (us_media($fichier, '', "site/$valeur.webp") ?: '') : '';
         case 'rayon':
         case 'rayons':
             $ids = [];
@@ -59,6 +64,43 @@ foreach (App\reglages_champs() as $cle => $champ) {
     $recopies++;
 }
 WP_CLI::log($recopies ? "  $recopies réglages recopiés dans l'administration" : '  réglages déjà en place');
+
+// Images restées vides (premiers réglages) : la photo d'origine est importée et posée, pour que l'écran montre
+// ce que le site affiche déjà. Le rendu ne change pas : une image vide montrait déjà ce visuel.
+$images = 0;
+foreach (App\reglages_champs() as $cle => $champ) {
+    if ($champ[0] === 'image' && get_option('options_' . $cle, null) === '' && ($id = $pourScf($champ, $champ[2] ?? ''))) {
+        update_field('field_us_' . $cle, $id, 'option');
+        $images++;
+    }
+}
+// Même chose dans les listes (tuiles des univers…) : ligne par ligne, la photo d'origine de même rang.
+foreach (App\reglages_champs() as $cle => $champ) {
+    $sousImages = $champ[0] === 'liste' ? array_keys(array_filter($champ[4] ?? [], fn ($d) => $d[0] === 'image')) : [];
+    $lignes = $sousImages ? get_field($cle, 'option', false) : null;
+    if (! $sousImages || ! is_array($lignes)) {
+        continue;
+    }
+    $lignes = (array) get_field($cle, 'option');
+    $change = false;
+    foreach ($lignes as $rang => &$ligne) {
+        foreach ($sousImages as $sous) {
+            $origine = $champ[2][$rang][$sous] ?? '';
+            if (empty($ligne[$sous]) && $origine && ($id = $pourScf(['image'], $origine))) {
+                $ligne[$sous] = $id;
+                $change = true;
+                $images++;
+            }
+        }
+    }
+    unset($ligne);
+    if ($change) {
+        update_field('field_us_' . $cle, $lignes, 'option');
+    }
+}
+if ($images) {
+    WP_CLI::log("  $images images d'origine posées dans les réglages");
+}
 
 // Pages qui citaient les coordonnées en dur : seuls ces passages sont remplacés par les codes courts,
 // le reste du texte (retouché ou non dans l'administration) n'est pas touché.

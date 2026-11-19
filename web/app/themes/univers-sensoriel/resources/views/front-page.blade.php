@@ -20,6 +20,7 @@
 
   {{-- 1. Visuel d'ouverture --}}
   <section class="ouverture">
+    @include('partials.poussiere')
     <div class="conteneur ouverture-grille">
       <div class="ouverture-texte">
         <h1>{!! App\titre_or(App\texte('ouverture_titre')) !!}</h1>
@@ -30,7 +31,7 @@
         </div>
       </div>
       <div class="ouverture-scene" aria-hidden="true">
-        <div class="ouverture-arche">{!! App\media(App\reglage('ouverture_image'), '', ['loading' => 'eager', 'fetchpriority' => 'high']) !!}</div>
+        <div class="ouverture-arche">@include('partials.diapos', ['images' => App\diapos(), 'tailles' => '(min-width: 980px) 38rem, 92vw'])</div>
         <div class="ouverture-flacon ouverture-flacon-1">{!! App\media(App\reglage('ouverture_flacon_1'), '', ['loading' => 'eager']) !!}</div>
         <div class="ouverture-flacon ouverture-flacon-2">{!! App\media(App\reglage('ouverture_flacon_2'), '', ['loading' => 'eager']) !!}</div>
         <span class="ouverture-etoile">{!! App\icone('etoile', 34) !!}</span>

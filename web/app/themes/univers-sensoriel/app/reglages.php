@@ -96,7 +96,12 @@ const REGLAGES = [
                 'ouverture_texte' => ['zone', 'Texte', 'Extraits de parfum longue tenue, soins et senteurs pour la maison.'],
                 'ouverture_bouton' => ['texte', 'Bouton (vers les parfums)', 'Découvrir les parfums'],
                 'ouverture_lien' => ['texte', 'Lien (vers la beauté)', 'Explorer les soins'],
-                'ouverture_image' => ['image', 'Photo de l\'arche', 'encens-bois-de-santal-parfum'],
+                'ouverture_images' => ['liste', 'Photos de l\'arche', [
+                    ['image' => 'encens-bois-de-santal-parfum'],
+                    ['image' => 'fleur-de-lys-matiere-premiere'],
+                    ['image' => 'aloe-vera-feuilles'],
+                    ['image' => 'bois-de-cedre-matiere-premiere'],
+                ], 'Elles se relaient en fondu, 7 secondes chacune, sur l\'accueil et sur la page d\'attente. Photos en hauteur, de préférence. Glisser une ligne pour changer l\'ordre.', ['image' => ['image', 'Photo']]],
                 'ouverture_flacon_1' => ['image', 'Flacon de gauche', 'flacon-extrait-de-parfum-homme', 'Image détourée (fond transparent).'],
                 'ouverture_flacon_2' => ['image', 'Flacon de droite', 'flacon-extrait-de-parfum-femme', 'Image détourée (fond transparent).'],
             ],
@@ -323,6 +328,24 @@ function reglage(string $cle): mixed
     return $valeurs[$cle] = $valeur ?? $origine;
 }
 
+/**
+ * Photos de l'arche (accueil, page d'attente) : identifiants de la médiathèque ou noms des visuels du thème.
+ * Une ligne dont la photo est vide reprend la photo d'origine de même rang.
+ */
+function diapos(): array
+{
+    $origine = array_column(reglages_champs()['ouverture_images'][2], 'image');
+    $photos = [];
+    foreach (array_values((array) reglage('ouverture_images')) as $rang => $ligne) {
+        $photo = is_array($ligne) ? ($ligne['image'] ?? '') : $ligne;
+        if ($photo = $photo ?: ($origine[$rang] ?? '')) {
+            $photos[] = $photo;
+        }
+    }
+
+    return $photos ?: array_slice($origine, 0, 1);
+}
+
 /** Remplace {seuil}, {annee} et les repères donnés ({numero}…) dans un texte. */
 function completer(string $texte, array $reperes = []): string
 {
@@ -510,7 +533,8 @@ function reglage_scf(string $cle, array $champ, string $prefixe = ''): array
     return $scf + match ($type) {
         'zone' => ['type' => 'textarea', 'rows' => 3, 'new_lines' => '', 'default_value' => $origine],
         'courriel' => ['type' => 'email', 'default_value' => $origine],
-        'image' => ['type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'library' => 'all'],
+        // Dans une liste, la photo en vignette : l'écran reste compact.
+        'image' => ['type' => 'image', 'return_format' => 'id', 'preview_size' => $prefixe === '' ? 'medium' : 'thumbnail', 'library' => 'all'],
         'choix' => ['type' => 'select', 'choices' => $champ[4] ?? [], 'default_value' => $origine, 'ui' => 0],
         'rayon', 'rayons' => [
             'type' => 'taxonomy', 'taxonomy' => 'product_cat', 'field_type' => $type === 'rayons' ? 'multi_select' : 'select',

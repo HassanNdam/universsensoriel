@@ -1,7 +1,8 @@
 /*
  * Page d'attente « bientôt en ligne » (resources/views/maintenance.blade.php, app/maintenance.php).
  * Même fond, même titre en or et même arche que l'ouverture de l'accueil (accueil.css), sur tout l'écran.
- * Animations lentes : photos de l'arche qui se relaient, flacons qui flottent, poussière d'or qui monte.
+ * * Animations lentes : photos de l'arche qui se relaient, flacons qui flottent, poussière d'or qui monte
+ * (communes avec l'accueil : scene.css).
  */
 
 body.attente-page {
@@ -21,26 +22,6 @@ body.attente-page {
   min-height: 100dvh;
   overflow: hidden;
   position: relative;
-}
-
-/* Poussière d'or : quelques grains qui montent lentement et s'éteignent. */
-.attente-poussiere {
-  inset: 0;
-  pointer-events: none;
-  position: absolute;
-  z-index: -1;
-}
-
-.attente-poussiere span {
-  background: var(--or-clair);
-  border-radius: 50%;
-  bottom: -2%;
-  box-shadow: 0 0 calc(var(--taille) * 3) rgb(227 181 111 / 60%);
-  height: var(--taille);
-  left: var(--x);
-  opacity: 0;
-  position: absolute;
-  width: var(--taille);
 }
 
 /* En-tête : le logo seul, centré. */
@@ -131,32 +112,6 @@ body.attente-page {
   inset: 0 10% 7% 14%;
   padding: 0.7rem;
   position: absolute;
-}
-
-.attente-diapos {
-  border-radius: 999px 999px var(--rayon) var(--rayon);
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
-.attente-diapos::after {
-  background: linear-gradient(to top, rgb(22 36 26 / 45%), transparent 50%);
-  content: "";
-  inset: 0;
-  position: absolute;
-}
-
-.attente-diapos img {
-  height: 100%;
-  inset: 0;
-  object-fit: cover;
-  position: absolute;
-  width: 100%;
-}
-
-.attente-diapos img + img {
-  opacity: 0;
 }
 
 .attente-flacon {
@@ -314,7 +269,7 @@ body.attente-page {
 @media (prefers-reduced-motion: no-preference) {
   .attente-logo,
   .attente-annonce > * {
-    animation: attente-monter 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation: scene-monter 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
   }
 
   .attente-annonce > :nth-child(2) {
@@ -330,125 +285,24 @@ body.attente-page {
   }
 
   .attente-scene {
-    animation: attente-apparaitre 1.6s 0.2s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation: scene-apparaitre 1.6s 0.2s cubic-bezier(0.2, 0.7, 0.2, 1) both;
   }
 
   .attente-scene::before {
-    animation: attente-respirer 7s ease-in-out infinite alternate;
-  }
-
-  /* Quatre photos, 7 s chacune : fondu enchaîné et léger recul du cadrage. */
-  .attente-diapos img {
-    animation: attente-diapo 28s linear infinite;
-  }
-
-  .attente-diapos img:nth-child(2) {
-    animation-delay: -21s;
-  }
-
-  .attente-diapos img:nth-child(3) {
-    animation-delay: -14s;
-  }
-
-  .attente-diapos img:nth-child(4) {
-    animation-delay: -7s;
+    animation: scene-respirer 7s ease-in-out infinite alternate;
   }
 
   .attente-flacon-1 {
-    animation: attente-flotter 7s ease-in-out infinite alternate;
+    animation: scene-flotter 7s ease-in-out infinite alternate;
   }
 
   .attente-flacon-2 {
-    animation: attente-flotter 8s -3s ease-in-out infinite alternate;
+    animation: scene-flotter 8s -3s ease-in-out infinite alternate;
   }
 
   .attente-etoile {
     animation: scintille 3.2s 1.6s ease-in-out infinite both;
   }
 
-  .attente-poussiere span {
-    animation: attente-grain var(--duree) var(--depart) linear infinite;
-  }
 }
 
-@keyframes attente-monter {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-}
-
-@keyframes attente-apparaitre {
-  from {
-    opacity: 0;
-    transform: scale(0.96) translateY(10px);
-  }
-}
-
-@keyframes attente-respirer {
-  from {
-    opacity: 0.55;
-    transform: scale(0.94);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1.04);
-  }
-}
-
-@keyframes attente-diapo {
-  0% {
-    opacity: 1;
-    transform: scale(1.1);
-  }
-
-  25% {
-    opacity: 1;
-  }
-
-  31% {
-    opacity: 0;
-    transform: scale(1);
-  }
-
-  94% {
-    opacity: 0;
-    transform: scale(1.1);
-  }
-
-  100% {
-    opacity: 1;
-    transform: scale(1.1);
-  }
-}
-
-@keyframes attente-flotter {
-  from {
-    transform: translateY(0) rotate(0deg);
-  }
-
-  to {
-    transform: translateY(-14px) rotate(-1.2deg);
-  }
-}
-
-@keyframes attente-grain {
-  0% {
-    opacity: 0;
-    transform: translate(0, 0);
-  }
-
-  15% {
-    opacity: 0.7;
-  }
-
-  70% {
-    opacity: 0.35;
-  }
-
-  100% {
-    opacity: 0;
-    transform: translate(2.5rem, -100vh);
-  }
-}

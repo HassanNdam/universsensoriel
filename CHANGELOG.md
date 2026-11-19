@@ -15,6 +15,8 @@ Textes et coordonnées modifiables dans l'administration.
 - Blocs du thème : Nos boutiques, Coordonnées, Bouton WhatsApp, Éditeur du site, Hébergeur, lus dans les réglages. Montants de livraison des pages lus dans WooCommerce (`[us_seuil]`, `[us_forfait]`).
 - Questions fréquentes : données Google FAQPage tirées des blocs « Détails ».
 - Le seed ne réécrit plus une page modifiée dans l'éditeur.
+- Accueil : l'ouverture reprend la scène de la page d'attente. Photos qui se relaient dans l'arche, poussière d'or qui monte, texte et arche qui apparaissent en douceur, halo qui respire, flacons qui flottent. Photos de l'arche choisies dans Univers Sensoriel › Accueil › Ouverture (autant qu'on veut, dans l'ordre voulu), les mêmes sur la page d'attente.
+- Au chargement, la première photo de l'arche est seule (la dernière ne s'efface plus par-dessus).
 
 ## 0.3.0 – 19 novembre 2026
 
