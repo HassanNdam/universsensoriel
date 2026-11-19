@@ -4,26 +4,39 @@ Les versions suivent `MAJEUR.MINEUR.CORRECTIF`. Le site n'est pas encore en lign
 
 ## À venir
 
-- Accueil : « éveiller les sens » en or, avec un reflet qui passe, le ruban du logo dessiné dessous et l'étoile qui scintille.
+Rien pour le moment.
 
-- Pied de page : logos des moyens de paiement acceptés (cartes, Apple Pay, Google Pay, Klarna, Bancontact), affichés seulement s'ils sont activés dans Stripe.
+## 0.2.0 – 19 novembre 2026
 
-- Compte client refait : commandes en cartes (état, vignettes, total), détail d'une commande avec son avancement, adresses en deux cartes. L'écran de vérification de l'e-mail garde la mise en page du site.
-- Page « commande reçue » refaite : bandeau de remerciement, avancement en trois étapes, résumé, articles avec vignettes, livraison et facturation. Vue du thème, indépendante des gabarits de WooCommerce.
+Boutique prête à vendre en local : paiement, compte client, contenus, avis et référencement complet.
+
+### Boutique et paiement
+
 - Paiement par carte avec Stripe (passerelle officielle de WooCommerce), en mode test. Clés lues dans le `.env`, réglages dans `scripts/paiement.php`.
-- Fonds teintés : nouveau ton « lin clair » (#F1E8D8) pour les cartes, les encarts et les sections qui étaient blanches.
-- Cartes produit et cartes d'article : fond discret sous le visuel, dernier lien toujours aligné en bas ; apostrophes des titres d'article corrigées.
+- Page « commande reçue » refaite : remerciement, avancement en trois étapes, résumé, articles avec vignettes, livraison et facturation.
+- Compte client refait : commandes en cartes, détail d'une commande avec son avancement, adresses en deux cartes. L'écran de vérification de l'e-mail garde la mise en page du site.
+- Pied de page : logos des moyens de paiement acceptés, affichés seulement s'ils sont activés dans Stripe.
+- Belle Peau publiée : prix remis dans le bon sens (81,90 € la boîte, 163,80 € les trois), fiche réécrite. Les 375 fiches sont publiées.
 
-- Référencement complet : titre, méta-description et requête cible Yoast pour les 375 fiches produit (`scripts/seo-fiches.json`), les rayons, les pages et les articles ; image de partage 1200 × 630 pour chaque page (réseaux sociaux, WhatsApp) ; notes Yoast affichées dans l'admin ; l'éditeur Yoast analyse la page publiée. `composer seo` réapplique le référencement seul.
+### Contenus
 
-- Textes raccourcis sur tout le site : surtitres et phrases d'introduction retirés quand ils n'apportaient rien, page Contact allégée, rayons décrits en une phrase, pages de contenu resserrées.
-
-- Formulaires (Forminator) : formulaire de contact avec accusé de réception, page Contact réorganisée en deux colonnes, inscription à la lettre d'information en tête du pied de page. Formulaires décrits dans `scripts/formulaires.php` et recréés par le seed.
 - Le journal : huit articles repris de l'ancien blog et relus, quatre rubriques, page d'article, derniers articles sur l'accueil.
-- Nouveaux avis : invitation dans l'e-mail « commande terminée », relecture dans Produits › Avis, choix des avis de l'accueil par la colonne « Accueil », compte client créé à la commande.
-- Avis clients : huit avis de l'ancienne boutique reproduits tels quels (accueil, fiches, page « Avis clients »), mention « Achat vérifié » seulement quand elle est vraie, dépôt d'avis réservé aux acheteurs et relu avant publication.
+- Avis clients : huit avis de l'ancienne boutique reproduits tels quels (accueil, fiches, page « Avis clients »), « Achat vérifié » seulement quand c'est vrai. Les nouveaux avis sont réservés aux acheteurs, relus avant publication ; l'e-mail « commande terminée » y invite, et la colonne « Accueil » de Produits › Avis choisit ceux de l'accueil.
+- Formulaires (Forminator) : formulaire de contact avec accusé de réception, inscription à la lettre d'information dans le pied de page.
+- Pages légales complétées : mentions légales (hébergeur IONOS), CGV, confidentialité, livraison et retours, politique de cookies. Adresse et horaires de la boutique de Metz.
+- Bandeau de cookies (Complianz) aux couleurs de la charte : mesure d'audience seulement avec accord.
+- Textes raccourcis sur tout le site : surtitres et phrases d'introduction retirés quand ils n'apportaient rien.
 
-- Belle Peau publiée : prix remis dans le bon sens (81,90 € la boîte, 163,80 € les trois), fiche réécrite.
+### Rendu
+
+- Accueil : « éveiller les sens » en or, avec un reflet, le ruban du logo dessiné dessous et l'étoile qui scintille.
+- Avis de l'accueil sur fond vert sapin.
+- Fond « lin clair » (#F1E8D8) pour les cartes, les encarts et les sections qui étaient blanches ; dernier lien des cartes aligné en bas.
+- Corrections : bande vide en haut du journal, apostrophes des titres d'article.
+
+### Référencement
+
+- Titre, méta-description et requête cible Yoast pour les 375 fiches produit, les rayons, les pages et les articles ; image de partage 1200 × 630 par page ; notes Yoast affichées dans l'admin. `composer seo` réapplique le référencement seul.
 
 ## 0.1.0 – 18 novembre 2026
 
