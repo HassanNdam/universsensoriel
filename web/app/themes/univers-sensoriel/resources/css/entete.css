@@ -507,7 +507,6 @@
 /* Moyens de paiement : logos aux couleurs des marques, posés tels quels sur le sapin. */
 .pied-paiement {
   align-items: center;
-  border-top: 1px solid var(--filet-clair);
   display: flex;
   flex-wrap: wrap;
   gap: 1rem 2rem;
