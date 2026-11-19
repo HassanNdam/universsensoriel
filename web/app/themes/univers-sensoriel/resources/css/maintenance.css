@@ -43,7 +43,7 @@ body.attente-page {
   width: var(--taille);
 }
 
-/* En-tête : le logo seul, centré sur mobile. */
+/* En-tête : le logo seul, centré. */
 .attente-haut {
   padding-block: clamp(1.4rem, 3vw, 2.2rem) 0;
   text-align: center;
@@ -90,55 +90,22 @@ body.attente-page {
   max-width: 31rem;
 }
 
-/* Inscription : filet d'or, une ligne d'invitation, le formulaire du pied de page. */
+/* Inscription : une ligne d'invitation, le formulaire du pied de page. */
 .attente-lettre {
-  margin: 2.2rem auto 0;
+  margin: 2.4rem auto 0;
   max-width: 30rem;
-}
-
-.attente-lettre::before {
-  background: var(--or);
-  content: "";
-  display: block;
-  height: 1px;
-  margin: 0 auto 1.6rem;
-  width: 3.5rem;
 }
 
 .attente-invite {
   font-family: var(--font-titre);
-  font-size: clamp(1.3rem, 2vw, 1.55rem);
+  font-size: clamp(1.2rem, 1.8vw, 1.4rem);
   line-height: 1.3;
-  margin-bottom: 1.1rem;
+  margin-bottom: 1rem;
 }
 
 /* Inscription réussie : le message de remerciement reste seul. */
-.attente-lettre form:has(.forminator-success.forminator-show) .forminator-row,
-.attente-lettre .formulaire:has(.forminator-success.forminator-show) .formulaire-mention {
+.attente-lettre form:has(.forminator-success.forminator-show) .forminator-row {
   display: none;
-}
-
-.attente-lettre .formulaire-mention {
-  font-size: 0.85rem;
-}
-
-.attente-contact {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem 2rem;
-  justify-content: center;
-  margin-top: 1.8rem;
-}
-
-.attente-contact .lien-or {
-  border-color: rgb(227 181 111 / 55%);
-  font-size: 0.9rem;
-  letter-spacing: 0.06em;
-  text-transform: none;
-}
-
-.attente-contact .icone {
-  color: var(--or-clair);
 }
 
 /* La scène : comme l'ouverture de l'accueil, avec des photos qui se relaient dans l'arche. */
@@ -232,6 +199,7 @@ body.attente-page {
   gap: 0.6rem 2rem;
   justify-content: center;
   padding-block: 1.3rem;
+  text-align: center;
 }
 
 .attente-pied ul {
@@ -247,6 +215,31 @@ body.attente-page {
 
 .attente-pied a:hover {
   color: var(--or-clair);
+}
+
+.attente-pied p a {
+  border-bottom: 1px solid rgb(227 181 111 / 45%);
+}
+
+/* WhatsApp et e-mail : deux pastilles rondes. */
+.attente-picto {
+  align-items: center;
+  border: 1px solid var(--filet-clair);
+  border-radius: 50%;
+  color: var(--or-clair);
+  display: inline-flex;
+  height: 2.2rem;
+  justify-content: center;
+  transition: border-color var(--transition), color var(--transition);
+  width: 2.2rem;
+}
+
+.attente-pied .attente-picto:hover {
+  border-color: var(--or-clair);
+}
+
+.attente-pied ul {
+  align-items: center;
 }
 
 /* Page légale lue pendant l'attente : son texte seul, en clair sur le sapin. */
@@ -287,18 +280,12 @@ body.attente-page {
 }
 
 @media (min-width: 980px) {
+  /* Le texte et l'arche rapprochés au centre de l'écran, sous le logo. */
   .attente-coeur {
     gap: clamp(3rem, 6vw, 6rem);
     grid-template-areas: "annonce scene";
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-  }
-
-  .attente-haut {
-    text-align: left;
-  }
-
-  .attente-legale .attente-haut {
-    text-align: center;
+    grid-template-columns: minmax(0, 33rem) auto;
+    justify-content: center;
   }
 
   .attente-annonce {
@@ -308,18 +295,14 @@ body.attente-page {
 
   .attente-annonce .titre-or,
   .attente-annonce .chapo,
-  .attente-lettre,
-  .attente-lettre::before {
+  .attente-lettre {
     margin-inline: 0;
-  }
-
-  .attente-contact {
-    justify-content: flex-start;
   }
 
   .attente-scene {
     grid-area: scene;
-    max-width: min(34rem, 72vh);
+    max-width: none;
+    width: min(31rem, 64vh, 40vw);
   }
 
   .attente-pied {
