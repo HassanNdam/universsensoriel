@@ -165,11 +165,7 @@
             <p class="woocommerce-message" role="status">Merci ! Votre avis est bien reçu. Il sera publié après relecture.</p>
           @endif
           @if ($avisProduit)
-            <div class="avis-grille avis-grille-fiche">
-              @foreach ($avisProduit as $avis)
-                @include('partials.carte-avis', ['avis' => $avis, 'lienProduit' => false])
-              @endforeach
-            </div>
+            @include('partials.avis-carrousel', ['liste' => $avisProduit, 'lienProduit' => false, 'titre' => 'Avis sur ce produit'])
             <p class="avis-note"><a class="lien-simple" href="{{ home_url('/avis-clients/') }}">Comment nous recueillons les avis</a></p>
           @endif
           @if (! is_user_logged_in() && $avisProduit)

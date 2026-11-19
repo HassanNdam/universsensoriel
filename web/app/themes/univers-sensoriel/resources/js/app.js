@@ -139,3 +139,55 @@ document.querySelectorAll('.variations_form .variations select').forEach((liste)
   // WooCommerce reconstruit les options après chaque choix : on redessine.
   window.jQuery?.(liste.form).on('woocommerce_update_variation_values', dessiner);
 });
+
+/* Carrousels d'avis : flèches et barre de progression, affichées seulement s'il y a de quoi défiler. */
+document.querySelectorAll('[data-carrousel]').forEach((carrousel) => {
+  const piste = carrousel.querySelector('[data-carrousel-piste]');
+  const commandes = carrousel.querySelector('[data-carrousel-commandes]');
+  const precedent = carrousel.querySelector('[data-carrousel-precedent]');
+  const suivant = carrousel.querySelector('[data-carrousel-suivant]');
+  const barre = carrousel.querySelector('[data-carrousel-barre]');
+  if (!piste || !commandes) return;
+
+  const pas = () => (piste.querySelector('.carrousel-element')?.getBoundingClientRect().width ?? piste.clientWidth) + parseFloat(getComputedStyle(piste).columnGap || 0);
+
+  const mettreAJour = () => {
+    const reste = piste.scrollWidth - piste.clientWidth;
+    commandes.hidden = reste <= 2;
+    precedent.disabled = piste.scrollLeft <= 2;
+    suivant.disabled = piste.scrollLeft >= reste - 2;
+    const visible = piste.clientWidth / piste.scrollWidth;
+    barre.style.width = `${Math.max(visible, 0.08) * 100}%`;
+    barre.style.transform = `translateX(${reste > 0 ? (piste.scrollLeft / reste) * ((1 - visible) / visible) * 100 : 0}%)`;
+  };
+
+  precedent.addEventListener('click', () => piste.scrollBy({ left: -pas(), behavior: 'smooth' }));
+  suivant.addEventListener('click', () => piste.scrollBy({ left: pas(), behavior: 'smooth' }));
+  piste.addEventListener('scroll', mettreAJour, { passive: true });
+  piste.addEventListener('keydown', (evenement) => {
+    const sens = { ArrowRight: 1, ArrowLeft: -1 }[evenement.key];
+    if (!sens) return;
+    evenement.preventDefault();
+    piste.scrollBy({ left: sens * pas(), behavior: 'smooth' });
+  });
+  new ResizeObserver(mettreAJour).observe(piste);
+  mettreAJour();
+});
+
+/* Avis coupés à cinq lignes : le bouton « Lire la suite » n'apparaît que si le texte dépasse. */
+const avisLongs = () => document.querySelectorAll('[data-avis-suite]').forEach((bouton) => {
+  const carte = bouton.closest('.avis');
+  if (carte.classList.contains('est-deplie')) return;
+  const texte = carte.querySelector('[data-avis-texte]');
+  bouton.hidden = texte.scrollHeight <= texte.clientHeight + 2;
+});
+document.addEventListener('click', (evenement) => {
+  const bouton = evenement.target.closest('[data-avis-suite]');
+  if (!bouton) return;
+  const deplie = bouton.closest('.avis').classList.toggle('est-deplie');
+  bouton.textContent = deplie ? 'Réduire' : 'Lire la suite';
+  bouton.setAttribute('aria-expanded', String(deplie));
+});
+document.fonts?.ready.then(avisLongs);
+window.addEventListener('resize', avisLongs, { passive: true });
+avisLongs();

@@ -180,11 +180,7 @@
           <h2>Avis clients</h2>
           <p class="section-intro">Publiés mot pour mot.</p>
         </header>
-        <div class="avis-grille">
-          @foreach ($avisAccueil as $avis)
-            @include('partials.carte-avis', ['avis' => $avis, 'lienProduit' => true])
-          @endforeach
-        </div>
+        @include('partials.avis-carrousel', ['liste' => $avisAccueil, 'lienProduit' => true, 'titre' => 'Avis clients'])
         <p class="avis-note"><a class="lien-or" href="{{ home_url('/avis-clients/') }}">Tous les avis {!! App\icone('fleche', 16) !!}</a></p>
       </div>
     </section>
