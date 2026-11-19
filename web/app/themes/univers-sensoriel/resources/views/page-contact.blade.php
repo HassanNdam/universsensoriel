@@ -1,7 +1,7 @@
 {{--
   Page Contact. Le contenu de la page (admin) n'appelle que le shortcode Forminator :
-  [forminator_form id="…"]. Tout le reste (coordonnées, boutiques, liens d'aide) est ici
-  et se nourrit de App\coordonnees().
+  [forminator_form id="…"]. Coordonnées, boutiques, textes et liens d'aide se modifient dans
+  l'administration : Univers Sensoriel › Coordonnées et Textes du site (app/reglages.php).
 --}}
 @extends('layouts.app')
 
@@ -15,7 +15,7 @@
       <div class="conteneur">
         @include('partials.fil')
         <h1>{{ get_the_title() }}</h1>
-        <p class="rayon-intro">Réponse sous 24 heures ouvrées.</p>
+        <p class="rayon-intro">{{ App\texte('delai_reponse') }}</p>
       </div>
     </header>
 
@@ -24,7 +24,7 @@
         <div class="formulaire">
           @php(the_content())
         </div>
-        <p class="formulaire-mention">Vos données servent uniquement à vous répondre. <a href="{{ home_url('/politique-de-confidentialite/') }}">Confidentialité</a></p>
+        <p class="formulaire-mention">{{ App\texte('contact_mention') }} <a href="{{ home_url('/politique-de-confidentialite/') }}">Confidentialité</a></p>
       </section>
 
       <aside class="contact-direct" aria-label="Nous joindre directement">
@@ -46,16 +46,18 @@
         </ul>
 
         <div class="contact-boutiques">
-          <p class="surtitre surtitre-clair">En boutique</p>
+          <p class="surtitre surtitre-clair">{{ App\texte('contact_boutiques') }}</p>
           <ul>
             @foreach ($c['boutiques'] as $b)
               <li>
                 <strong>{{ $b['ville'] }}</strong>
                 <span>{{ $b['enseigne'] }} · {{ $b['pays'] }}</span>
-                @isset($b['adresse'])
+                @if ($b['adresse'])
                   <span>{{ $b['adresse'] }}</span>
-                @endisset
-                <a href="tel:{{ preg_replace('/[^+\d]/', '', $b['telephone']) }}">{{ $b['telephone'] }}</a>
+                @endif
+                @if ($b['telephone'])
+                  <a href="{{ App\lien_telephone($b['telephone']) }}">{{ $b['telephone'] }}</a>
+                @endif
               </li>
             @endforeach
           </ul>
@@ -65,29 +67,17 @@
     </div>
 
     <section class="conteneur contact-aide" aria-labelledby="aide-titre">
-      <h2 id="aide-titre">Aide</h2>
+      <h2 id="aide-titre">{{ App\texte('contact_aide_titre') }}</h2>
       <ul>
-        <li>
-          <a href="{{ home_url('/livraison-et-retours/') }}">
-            <span class="contact-picto">{!! App\icone('livraison', 24) !!}</span>
-            <strong>Livraison et retours</strong>
-            <span>Délais, frais de port, retours.</span>
-          </a>
-        </li>
-        <li>
-          <a href="{{ home_url('/questions-frequentes/') }}">
-            <span class="contact-picto">{!! App\icone('plus', 24) !!}</span>
-            <strong>Questions fréquentes</strong>
-            <span>Commande, paiement, tenue des parfums.</span>
-          </a>
-        </li>
-        <li>
-          <a href="{{ home_url('/guide-des-familles-olfactives/') }}">
-            <span class="contact-picto">{!! App\icone('fleur', 24) !!}</span>
-            <strong>Guide des familles olfactives</strong>
-            <span>Trouver son parfum.</span>
-          </a>
-        </li>
+        @foreach (App\lignes('contact_aide', ['titre']) as $aide)
+          <li>
+            <a href="{{ str_starts_with((string) $aide['lien'], '/') ? home_url($aide['lien']) : $aide['lien'] }}">
+              <span class="contact-picto">{!! App\icone($aide['icone'], 24) !!}</span>
+              <strong>{{ $aide['titre'] }}</strong>
+              <span>{{ $aide['texte'] }}</span>
+            </a>
+          </li>
+        @endforeach
       </ul>
     </section>
   @endwhile

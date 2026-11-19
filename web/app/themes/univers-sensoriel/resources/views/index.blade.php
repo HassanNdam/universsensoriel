@@ -4,7 +4,7 @@
   @php
     global $wp_query;
     $rubrique = is_category() ? get_queried_object() : null;
-    $titre = is_search() ? 'Résultats pour « ' . get_search_query() . ' »' : ($rubrique ? $rubrique->name : 'Le journal');
+    $titre = is_search() ? 'Résultats pour « ' . get_search_query() . ' »' : ($rubrique ? $rubrique->name : App\texte('journal_titre'));
     $rubriques = get_categories(['hide_empty' => true]);
     $journal = get_permalink(get_option('page_for_posts')) ?: home_url('/');
   @endphp
@@ -13,7 +13,7 @@
     <div class="conteneur">
       <h1>{{ $titre }}</h1>
       @if (! is_search() && ! is_paged())
-        <p class="rayon-intro">{{ $rubrique && $rubrique->description ? wp_strip_all_tags($rubrique->description) : 'Nos conseils pour choisir, appliquer et faire durer.' }}</p>
+        <p class="rayon-intro">{{ $rubrique && $rubrique->description ? wp_strip_all_tags($rubrique->description) : App\texte('journal_intro') }}</p>
       @endif
       @if (! is_search() && count($rubriques) > 1)
         <ul class="pastilles pastilles-centre">
@@ -30,8 +30,8 @@
     @if (! have_posts())
       <div class="rayon-vide">
         {!! App\icone('etoile', 36) !!}
-        <h2>Rien pour le moment</h2>
-        <p>Aucun article ne correspond. Revenez bientôt, ou parcourez la boutique.</p>
+        <h2>{{ App\texte('journal_vide_titre') }}</h2>
+        <p>{{ App\texte('journal_vide_texte') }}</p>
         <p><a class="bouton" href="{{ home_url('/boutique/') }}">Voir la boutique</a></p>
       </div>
     @else

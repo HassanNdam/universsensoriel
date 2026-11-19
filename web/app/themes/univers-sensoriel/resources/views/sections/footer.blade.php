@@ -18,11 +18,11 @@
   @if ($lettre = App\formulaire('newsletter'))
     <section class="conteneur pied-lettre" aria-labelledby="lettre-titre">
       <div>
-        <h2 id="lettre-titre">Nouveautés et offres, par e-mail</h2>
+        <h2 id="lettre-titre">{{ App\texte('lettre_titre') }}</h2>
       </div>
       <div class="formulaire formulaire-lettre">
         {!! $lettre !!}
-        <p class="formulaire-mention">Désinscription à tout moment. <a href="{{ home_url('/politique-de-confidentialite/') }}">Confidentialité</a></p>
+        <p class="formulaire-mention">{{ App\texte('lettre_mention') }} <a href="{{ home_url('/politique-de-confidentialite/') }}">Confidentialité</a></p>
       </div>
     </section>
   @endif
@@ -30,9 +30,9 @@
   <div class="conteneur pied-haut">
     <div class="pied-marque">
       <a href="{{ home_url('/') }}" rel="home">
-        <img src="{{ App\image('logo-univers-sensoriel-clair.webp') }}" alt="Univers Sensoriel by K.Elle : beauté, bien-être, art de vivre" width="1452" height="716" loading="lazy">
+        <img src="{{ App\image('logo-univers-sensoriel-clair.webp') }}" alt="{{ App\texte('marque') }} : {{ mb_strtolower(App\texte('slogan')) }}" width="1452" height="716" loading="lazy">
       </a>
-      <a class="lien-or" href="{{ App\lien_whatsapp() }}" rel="noopener" target="_blank">{!! App\icone('whatsapp', 20) !!} Écrire sur WhatsApp</a>
+      <a class="lien-or" href="{{ App\lien_whatsapp() }}" rel="noopener" target="_blank">{!! App\icone('whatsapp', 20) !!} {{ App\texte('pied_whatsapp') }}</a>
     </div>
 
     <nav class="pied-colonne" aria-label="La boutique">
@@ -80,7 +80,7 @@
 
   @if ($moyens = App\moyens_de_paiement())
     <div class="conteneur pied-paiement">
-      <p>{!! App\icone('cadenas', 18) !!} Paiement sécurisé</p>
+      <p>{!! App\icone('cadenas', 18) !!} {{ App\texte('pied_paiement') }}</p>
       <ul aria-label="Moyens de paiement acceptés">
         @foreach ($moyens as [$fichier, $nom])
           <li><img src="{{ App\image("paiement/{$fichier}.svg") }}" alt="{{ $nom }}" width="38" height="24" loading="lazy" decoding="async"></li>
@@ -90,7 +90,7 @@
   @endif
 
   <div class="conteneur pied-bas">
-    <p>© {{ date('Y') }} Univers Sensoriel by K.Elle · Site réalisé par <a href="https://hassan-ndam.com" rel="noopener" target="_blank">hassan-ndam.com</a></p>
+    <p>{{ App\texte('pied_copyright') }} · Site réalisé par <a href="https://hassan-ndam.com" rel="noopener" target="_blank">hassan-ndam.com</a></p>
     <ul>
       <li><a href="{{ home_url('/mentions-legales/') }}">Mentions légales</a></li>
       <li><a href="{{ home_url('/conditions-generales-de-vente/') }}">Conditions générales de vente</a></li>

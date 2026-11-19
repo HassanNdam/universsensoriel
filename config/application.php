@@ -141,6 +141,7 @@ Config::define('NONCE_SALT', env('NONCE_SALT'));
 /**
  * Page d'attente « bientôt en ligne » (thème : app/maintenance.php). Active tant que WP_ENV n'est pas « production ».
  * Pour forcer : US_MAINTENANCE=true ou US_MAINTENANCE=false dans le .env.
+ * Le choix fait dans l'administration (Univers Sensoriel › Page d'attente) passe avant, sauf sur « Automatique ».
  */
 Config::define('US_MAINTENANCE', env('US_MAINTENANCE') ?? WP_ENV !== 'production');
 

@@ -66,8 +66,8 @@
     @endif
 
     <section class="confirmation-carte confirmation-aide">
-      <h2>Une question ?</h2>
-      <p><a class="lien-or" href="{{ App\lien_whatsapp('Bonjour, j\'ai une question sur ma commande n° ' . $commande['numero'] . '.') }}" target="_blank" rel="noopener">{!! App\icone('whatsapp', 18) !!} Écrire sur WhatsApp</a></p>
+      <h2>{{ App\texte('commande_aide_titre') }}</h2>
+      <p><a class="lien-or" href="{{ App\lien_whatsapp('wa_commande', ['numero' => $commande['numero']]) }}" target="_blank" rel="noopener">{!! App\icone('whatsapp', 18) !!} {{ App\texte('pied_whatsapp') }}</a></p>
       <p><a class="lien-or" href="{{ home_url('/contact/') }}">{!! App\icone('courriel', 18) !!} Formulaire de contact</a></p>
     </section>
   </aside>

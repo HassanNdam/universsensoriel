@@ -1,17 +1,24 @@
 @php
   $menu = App\menu_principal();
   $boutique = function_exists('wc_get_page_permalink');
+  $bandeau = [App\texte('bandeau_1'), App\texte('bandeau_2')];
 @endphp
 
+@if ($bandeau[0] || $bandeau[1])
 <div class="bandeau" role="note">
   <p>
     {!! App\icone('etoile', 12) !!}
-    <span>Livraison offerte dès {{ App\SEUIL_LIVRAISON }} €</span>
-    <span class="bandeau-sep" aria-hidden="true">·</span>
-    <span class="bandeau-plus">Retrait gratuit à la boutique de Metz</span>
+    <span>{{ $bandeau[0] }}</span>
+    @if ($bandeau[0] && $bandeau[1])
+      <span class="bandeau-sep" aria-hidden="true">·</span>
+    @endif
+    @if ($bandeau[1])
+      <span class="bandeau-plus">{{ $bandeau[1] }}</span>
+    @endif
     {!! App\icone('etoile', 12) !!}
   </p>
 </div>
+@endif
 
 <header class="entete" data-entete>
   <div class="entete-barre conteneur">
@@ -51,7 +58,7 @@
                   </div>
                 @endif
                 <a class="mega-visuel" href="{{ $entree['url'] }}" tabindex="-1" aria-hidden="true">
-                  {!! App\visuel($entree['visuel'][0], '') !!}
+                  {!! App\media($entree['visuel']) !!}
                   <span>{{ $entree['titre'] }}</span>
                 </a>
               </div>

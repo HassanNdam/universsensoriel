@@ -98,7 +98,7 @@ $descriptionProduit = function ($description) {
         return description_fiche($produit);
     }
     if (is_tax('pa_famille-olfactive') && ($terme = get_queried_object())) {
-        return raccourcir($terme->description, 110) . ' Extraits longue tenue, livraison offerte dès ' . SEUIL_LIVRAISON . ' €.';
+        return raccourcir($terme->description, 110) . ' Extraits longue tenue, livraison offerte dès ' . seuil_affiche() . ' €.';
     }
 
     return $description;
@@ -115,7 +115,7 @@ add_filter('wpseo_schema_organization', function ($data) {
     $c = coordonnees();
     $data['email'] = $c['courriel'];
     $data['telephone'] = $c['telephone'];
-    $data['slogan'] = 'Beauté · Bien-être · Art de vivre';
+    $data['slogan'] = texte('slogan');
     $data['contactPoint'] = [
         '@type' => 'ContactPoint', 'contactType' => 'customer service', 'telephone' => $c['telephone'],
         'email' => $c['courriel'], 'availableLanguage' => ['French'],

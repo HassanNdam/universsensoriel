@@ -367,6 +367,10 @@ update_option('woocommerce_terms_page_id', get_page_by_path('conditions-generale
 // Bandeau de cookies : après les pages légales, auxquelles il renvoie.
 require __DIR__ . '/cookies.php';
 
+// Réglages du site (menu « Univers Sensoriel ») : valeurs d'origine recopiées dans l'administration.
+WP_CLI::log('Réglages');
+require __DIR__ . '/reglages.php';
+
 // Pages WooCommerce (boutique, panier, commande, compte) si elles manquent, puis slugs en français.
 WC_Install::create_pages();
 foreach (['shop' => ['boutique', 'Boutique'], 'cart' => ['panier', 'Panier'], 'checkout' => ['commande', 'Commande'], 'myaccount' => ['mon-compte', 'Mon compte']] as $cle => [$slug, $titre]) {

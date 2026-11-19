@@ -13,8 +13,8 @@
       <span class="confirmation-sceau" aria-hidden="true">{!! App\icone($echec ? 'fermer' : 'coche', 34) !!}</span>
 
       @if ($echec)
-        <h1>Paiement refusé</h1>
-        <p class="chapo">Votre banque n'a pas validé le paiement. Rien n'a été débité.</p>
+        <h1>{{ App\texte('commande_echec_titre') }}</h1>
+        <p class="chapo">{{ App\texte('commande_echec_texte') }}</p>
         <p class="confirmation-actions">
           <a class="bouton bouton-clair" href="{{ esc_url($commande['url_paiement']) }}">Réessayer le paiement</a>
         </p>
