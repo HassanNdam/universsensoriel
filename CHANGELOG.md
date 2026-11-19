@@ -4,7 +4,7 @@ Les versions suivent `MAJEUR.MINEUR.CORRECTIF`. Le site n'est pas encore en lign
 
 ## À venir
 
-Rien pour le moment.
+- Page d'attente « bientôt en ligne » : fond sapin, titre en or, arche où des photos de matières se relaient, inscription à la lettre pour être prévenu de l'ouverture. Visible par les visiteurs non connectés tant que `WP_ENV` n'est pas `production` ; une personne connectée voit le site (aperçu : `?maintenance`). `US_MAINTENANCE=true` ou `false` dans le `.env` pour forcer.
 
 ## 0.2.0 – 19 novembre 2026
 
