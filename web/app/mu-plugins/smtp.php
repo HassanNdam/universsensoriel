@@ -24,8 +24,11 @@ add_action('phpmailer_init', function ($mailer) {
 
 if ($from = env('MAIL_FROM_ADDRESS')) {
     add_filter('wp_mail_from', fn () => $from);
+    // WooCommerce a son propre réglage d'expéditeur : tous les e-mails partent de la même adresse.
+    add_filter('woocommerce_email_from_address', fn () => $from);
 }
 
 if ($name = env('MAIL_FROM_NAME')) {
     add_filter('wp_mail_from_name', fn () => $name);
+    add_filter('woocommerce_email_from_name', fn () => $name);
 }

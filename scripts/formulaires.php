@@ -17,7 +17,8 @@ if (! class_exists('Forminator_API')) {
 }
 
 $destinataire = function_exists('App\\coordonnees') ? App\coordonnees()['courriel'] : get_option('admin_email');
-$signature = '<br/><br/>Univers Sensoriel by K.Elle<br/>{site_url}';
+// Les e-mails partent dans l'habillage du thème (app/mails.php) : logo, coordonnées et pied y sont déjà.
+// Un <h1> en tête du message devient le grand titre de l'e-mail ; sans lui, c'est l'objet.
 
 // Réglages communs : aucun habillage Forminator (le thème s'en charge), envoi sans rechargement, piège à robots.
 $reglages = [
@@ -96,7 +97,7 @@ $formulaires = [
                 'email-recipients' => 'default',
                 'recipients' => $destinataire,
                 'email-subject' => 'Contact · {select-1} · {name-1}',
-                'email-editor' => 'Nouveau message depuis la page Contact :<br/><br/>{all_fields}<br/><br/>Répondre à ce courriel écrit directement à {email-1}.',
+                'email-editor' => '<h1>Nouveau message</h1>{all_fields}<p>Répondre à cet e-mail écrit directement à {email-1}.</p>',
                 'replyto-email' => '{email-1}',
                 'from-name' => 'Univers Sensoriel',
                 'email-attachment' => 'false',
@@ -109,7 +110,7 @@ $formulaires = [
                 'email-recipients' => 'default',
                 'recipients' => '{email-1}',
                 'email-subject' => 'Nous avons bien reçu votre message',
-                'email-editor' => 'Bonjour {name-1},<br/><br/>Votre message nous est bien parvenu. Nous vous répondons en général sous 24 heures ouvrées.<br/><br/>Pour mémoire, vous nous avez écrit :<br/><em>{textarea-1}</em>' . $signature,
+                'email-editor' => '<h1>Message bien reçu</h1><p>Bonjour {name-1},</p><p>Votre message nous est bien parvenu. Nous vous répondons en général sous 24 heures ouvrées.</p><p>Vous nous avez écrit :</p><blockquote>{textarea-1}</blockquote>',
                 'replyto-email' => $destinataire,
                 'from-name' => 'Univers Sensoriel',
                 'email-attachment' => 'false',
@@ -144,7 +145,7 @@ $formulaires = [
                 'email-recipients' => 'default',
                 'recipients' => '{email-1}',
                 'email-subject' => 'Bienvenue dans la lettre d\'Univers Sensoriel',
-                'email-editor' => 'Bonjour,<br/><br/>Votre inscription à notre lettre est enregistrée. Vous recevrez nos nouveautés, nos conseils parfum et nos offres, sans excès.<br/><br/>Pour vous désinscrire, il suffit de répondre à ce courriel.' . $signature,
+                'email-editor' => '<h1>Bienvenue</h1><p>Bonjour,</p><p>Votre inscription à notre lettre est enregistrée. Vous recevrez nos nouveautés, nos conseils parfum et nos offres, sans excès.</p><p>Pour vous désinscrire, il suffit de répondre à cet e-mail.</p>',
                 'replyto-email' => $destinataire,
                 'from-name' => 'Univers Sensoriel',
                 'email-attachment' => 'false',
