@@ -26,7 +26,7 @@
   <section class="ouverture">
     <div class="conteneur ouverture-grille">
       <div class="ouverture-texte">
-        <h1>Parfums, soins et rituels pour éveiller les sens</h1>
+        <h1>Parfums, soins et rituels pour <span class="titre-or"><span class="titre-or-texte">éveiller les sens</span><svg class="titre-ruban" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M6 19C62 6 118 24 176 15S268 3 314 11"/></svg>{!! App\icone('etoile', 24, 'titre-etoile') !!}</span></h1>
         <p class="chapo">Extraits de parfum longue tenue, soins et senteurs pour la maison.</p>
         <div class="ouverture-actions">
           <a class="bouton bouton-clair" href="{{ $lien('parfums') }}">Découvrir les parfums</a>
