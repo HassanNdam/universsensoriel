@@ -653,20 +653,6 @@ summary::-webkit-details-marker {
   padding: 1rem 1.25rem;
 }
 
-/* Apparition douce au défilement : jamais de contenu caché sans script. */
-@media (prefers-reduced-motion: no-preference) {
-  .js [data-apparait] {
-    opacity: 0;
-    transform: translateY(18px);
-    transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
-  }
-
-  .js [data-apparait].est-visible {
-    opacity: 1;
-    transform: none;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

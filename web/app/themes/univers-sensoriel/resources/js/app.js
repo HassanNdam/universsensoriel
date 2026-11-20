@@ -1,3 +1,5 @@
+import { apparitions } from './apparitions.js';
+
 import.meta.glob(['../images/**', '../fonts/**']);
 import './langues.js';
 
@@ -228,3 +230,6 @@ document.querySelectorAll('[data-compte]').forEach((compte) => {
   const minuterie = setInterval(battre, 1000);
   battre();
 });
+
+/* Apparitions au défilement (apparitions.js). */
+apparitions();
