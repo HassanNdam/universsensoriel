@@ -166,10 +166,13 @@ add_action('widgets_init', function () {
  * Favicon, couleur du navigateur et polices préchargées (hébergées sur le site, sans appel à Google).
  */
 add_action('wp_head', function () {
-    echo '<link rel="icon" href="' . esc_url(home_url('/favicon.ico')) . '" sizes="48x48">' . "\n";
-    echo '<link rel="icon" href="' . esc_url(home_url('/favicon-32.png')) . '" type="image/png" sizes="32x32">' . "\n";
-    echo '<link rel="apple-touch-icon" href="' . esc_url(home_url('/apple-touch-icon.png')) . '">' . "\n";
-    echo '<link rel="manifest" href="' . esc_url(home_url('/site.webmanifest')) . '">' . "\n";
+    // Fichiers à la racine du site : get_option('home') plutôt que home_url(), que TranslatePress préfixe de
+    // la langue (/en/favicon.ico n'existe pas).
+    $racine = untrailingslashit(get_option('home'));
+    echo '<link rel="icon" href="' . esc_url("$racine/favicon.ico") . '" sizes="48x48">' . "\n";
+    echo '<link rel="icon" href="' . esc_url("$racine/favicon-32.png") . '" type="image/png" sizes="32x32">' . "\n";
+    echo '<link rel="apple-touch-icon" href="' . esc_url("$racine/apple-touch-icon.png") . '">' . "\n";
+    echo '<link rel="manifest" href="' . esc_url("$racine/site.webmanifest") . '">' . "\n";
     echo '<meta name="theme-color" content="#1F3124">' . "\n";
     foreach (['marcellus', 'jost'] as $police) {
         echo '<link rel="preload" href="' . esc_url(Vite::asset("resources/fonts/{$police}.woff2")) . '" as="font" type="font/woff2" crossorigin>' . "\n";
