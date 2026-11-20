@@ -1,6 +1,13 @@
 # Univers Sensoriel
 
-WordPress sous [Bedrock](https://roots.io/bedrock/), thème sur mesure basé sur [Sage 11](https://roots.io/sage/) (Blade, Acorn, Vite, Tailwind CSS 4).
+**Univers Sensoriel by K.Elle**, boutique en ligne de parfums, soins, bien-être et art de vivre, avec deux boutiques à Metz et Yaoundé.
+
+- **Socle** : WordPress en [Bedrock](https://roots.io/bedrock/), thème sur mesure basé sur [Sage 11](https://roots.io/sage/) (Acorn, Blade, Tailwind CSS 4, Vite), développé sous Laragon.
+- **Boutique** : WooCommerce, 375 fiches produit, filtres par famille olfactive, paiement Stripe, commande et compte client redessinés sans copier les gabarits de WooCommerce.
+- **Langues et pays** : français et anglais (TranslatePress) ; néerlandais, allemand, espagnol, italien et portugais en traduction automatique ; prix et paiement en EUR, CHF, FCFA ou CDF selon le pays, avec des taux mis à jour chaque jour.
+- **Administration** : textes, coordonnées, accueil et page d'attente modifiables dans WordPress (Secure Custom Fields), pages en blocs Gutenberg.
+- **Le reste** : e-mails à la charte, formulaires Forminator, bandeau de cookies Complianz, référencement Yoast.
+- **Reproductible** : `composer seed` remet en place réglages, catalogue, pages, traductions et référencement. Les mises à jour des extensions ne défont rien.
 
 ## Organisation
 
