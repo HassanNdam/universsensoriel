@@ -1,0 +1,580 @@
+/*
+ * Bandeau du haut (resources/views/partials/bandeau.blade.php, app/bandeau.php).
+ * 1. L'événement du moment : une ambiance par fête (couleurs, illustrations au trait, particules, titre qui brille).
+ * 2. Les messages permanents, qui défilent sans fin sur le lin.
+ * Mouvement réduit demandé par le système : tout s'arrête, les messages restent lisibles.
+ */
+
+/* ------------------------------------------------------------------ */
+/* 1. Événement                                                         */
+/* ------------------------------------------------------------------ */
+
+.evenement {
+  --fond: var(--sapin);
+  --encre: var(--ivoire);
+  --accent: var(--or-clair);
+  --eclat: #fff8e8;
+  --fil: rgb(227 181 111 / 70%);
+  --ill-1: var(--or-clair);
+  --ill-2: var(--ivoire);
+  --ill-3: var(--sapin-doux);
+  --ill-4: var(--or);
+  --particule: var(--or-clair);
+
+  align-items: center;
+  background: var(--fond);
+  color: var(--encre);
+  display: flex;
+  isolation: isolate;
+  justify-content: center;
+  min-height: 3.5rem;
+  overflow: hidden;
+  /* De quoi loger les grappes d'illustrations (170 px) de chaque côté. */
+  padding: 0.55rem calc(max(0.5rem, (100% - var(--largeur)) / 2) + 11.25rem);
+  position: relative;
+  text-decoration: none;
+}
+
+/* Filet d'or qui court sous l'événement. */
+.evenement::after {
+  background: linear-gradient(90deg, transparent, var(--accent), transparent) no-repeat;
+  background-size: 35% 100%;
+  bottom: 0;
+  content: "";
+  height: 1px;
+  left: 0;
+  opacity: 0.8;
+  position: absolute;
+  right: 0;
+}
+
+.evenement:hover,
+.evenement:focus-visible {
+  color: var(--encre);
+}
+
+.evenement:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -4px;
+}
+
+.evenement-contenu {
+  align-items: center;
+  display: flex;
+  gap: 1.3rem;
+  justify-content: center;
+  min-width: 0;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.evenement-message {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.evenement-titre {
+  /* Le titre en or, parcouru d'un reflet. */
+  background: linear-gradient(105deg, var(--accent) 38%, var(--eclat) 50%, var(--accent) 62%) 0 0 / 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: var(--accent);
+  font-family: var(--font-titre);
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+  -webkit-text-fill-color: transparent;
+}
+
+.evenement-message,
+.evenement-compte-libelle,
+.evenement-lien {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.evenement-compte {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.6rem;
+}
+
+.evenement-compte-libelle {
+  opacity: 0.8;
+}
+
+.evenement-chiffres {
+  display: inline-flex;
+  gap: 0.3rem;
+}
+
+.evenement-chiffres > span {
+  align-items: baseline;
+  border: 1px solid color-mix(in srgb, var(--accent) 50%, transparent);
+  border-radius: var(--rayon);
+  display: inline-flex;
+  font-size: 0.66rem;
+  gap: 0.1rem;
+  justify-content: center;
+  min-width: 2.35rem;
+  padding: 0.2rem 0.35rem;
+  text-transform: uppercase;
+}
+
+.evenement-chiffres b {
+  color: var(--accent);
+  display: inline-block;
+  font-size: 0.92rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+
+.evenement-lien {
+  align-items: center;
+  border-bottom: 1px solid var(--accent);
+  display: inline-flex;
+  gap: 0.4rem;
+  padding-bottom: 0.15rem;
+}
+
+.evenement-lien .icone {
+  transition: transform var(--transition);
+}
+
+.evenement:hover .evenement-lien .icone {
+  transform: translateX(4px);
+}
+
+/* Illustrations : une grappe de chaque côté, de toute la hauteur du bandeau. */
+.evenement-ill {
+  aspect-ratio: 170 / 56;
+  fill: none;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  position: absolute;
+  stroke: var(--fil);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.1;
+  top: 0;
+  z-index: 0;
+}
+
+.evenement-ill-gauche {
+  left: max(0.5rem, calc((100% - var(--largeur)) / 2));
+}
+
+.evenement-ill-droite {
+  right: max(0.5rem, calc((100% - var(--largeur)) / 2));
+}
+
+.evenement-ill .ill-p1 { fill: var(--ill-1); }
+.evenement-ill .ill-p2 { fill: var(--ill-2); }
+.evenement-ill .ill-p3 { fill: var(--ill-3); }
+.evenement-ill .ill-p4 { fill: var(--ill-4); }
+.evenement-ill .ill-fil { fill: none; stroke: var(--fil); }
+.evenement-ill .ill-encre { fill: none; stroke: var(--fond); stroke-width: 1.3; }
+.evenement-ill .ill-reflet { fill: none; stroke: rgb(255 255 255 / 60%); stroke-width: 1.2; }
+.evenement-ill .ill-rayon { fill: none; stroke-width: 1.5; }
+.evenement-ill .ill-rayon.ill-p1 { stroke: var(--ill-1); }
+.evenement-ill .ill-rayon.ill-p2 { stroke: var(--ill-2); }
+.evenement-ill .ill-bulle { fill: var(--eclat); stroke: none; }
+
+/* Seules les pièces animées tournent autour de leur propre boîte : un groupe déjà incliné (flûtes) garde son repère. */
+.evenement-ill g[class] {
+  transform-box: fill-box;
+}
+
+/* Particules du fond : neige, paillettes, confettis, cœurs, pétales selon l'ambiance. */
+.evenement-particules {
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+}
+
+.evenement-particules i {
+  background: var(--particule);
+  border-radius: 50%;
+  height: 4px;
+  left: var(--x);
+  opacity: var(--o);
+  position: absolute;
+  top: var(--y, -8px);
+  transform: scale(var(--t));
+  width: 4px;
+}
+
+/* Paillettes : petites étoiles à quatre branches qui s'allument sur place. */
+.evenement--black-friday .evenement-particules i,
+.evenement--fete-des-peres .evenement-particules i,
+.evenement--maison .evenement-particules i {
+  border-radius: 0;
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+  height: 9px;
+  width: 9px;
+}
+
+/* Confettis. */
+.evenement--nouvel-an .evenement-particules i,
+.evenement--soldes .evenement-particules i {
+  border-radius: 1px;
+  height: 7px;
+  width: 3px;
+}
+
+.evenement--nouvel-an .evenement-particules i:nth-child(3n),
+.evenement--soldes .evenement-particules i:nth-child(3n) { background: var(--ill-2); }
+.evenement--nouvel-an .evenement-particules i:nth-child(3n + 1),
+.evenement--soldes .evenement-particules i:nth-child(3n + 1) { background: var(--ill-4); }
+
+/* Cœurs. */
+.evenement--saint-valentin .evenement-particules i {
+  border-radius: 0;
+  clip-path: path("M5 9C2 6.500 0 5 0 2.800 0 1.200 1.200 0 2.700 0 3.700 0 4.500.6 5 1.400 5.500.6 6.300 0 7.300 0 8.800 0 10 1.200 10 2.800 10 5 8 6.500 5 9Z");
+  height: 9px;
+  width: 10px;
+}
+
+.evenement--saint-valentin .evenement-particules i:nth-child(2n) { background: var(--ill-2); }
+
+/* Pétales. */
+.evenement--fete-des-meres .evenement-particules i {
+  border-radius: 60% 0 60% 0;
+  height: 8px;
+  width: 6px;
+}
+
+.evenement--fete-des-meres .evenement-particules i:nth-child(2n) { background: var(--ill-2); }
+
+/* Ambiances --------------------------------------------------------- */
+
+.evenement--noel {
+  --fond: var(--sapin-profond);
+  --ill-1: var(--or-clair);
+  --ill-2: #b5482f;
+  --ill-3: #2f4a36;
+  --ill-4: var(--ivoire);
+  --particule: var(--blanc);
+
+  background-image: radial-gradient(ellipse 60% 140% at 50% 130%, rgb(227 181 111 / 16%), transparent 70%);
+}
+
+.evenement--black-friday {
+  --fond: #0c0f0d;
+  --ill-1: var(--or-clair);
+  --ill-2: var(--or);
+  --ill-4: var(--ivoire);
+
+  background-image: linear-gradient(90deg, #0c0f0d, #171b18 50%, #0c0f0d);
+}
+
+.evenement--nouvel-an {
+  --fond: #121c15;
+  --ill-1: var(--or-clair);
+  --ill-2: var(--ivoire);
+  --ill-4: var(--or);
+
+  background-image: radial-gradient(ellipse 50% 160% at 50% -40%, rgb(227 181 111 / 18%), transparent 70%);
+}
+
+.evenement--saint-valentin {
+  --fond: #4a1c24;
+  --encre: #fbeee8;
+  --accent: #f2c2b4;
+  --fil: rgb(242 194 180 / 70%);
+  --ill-1: #e8907f;
+  --ill-2: #f2c2b4;
+  --ill-4: var(--or-clair);
+  --particule: #e8907f;
+
+  background-image: radial-gradient(ellipse 60% 140% at 50% 130%, rgb(232 144 127 / 22%), transparent 70%);
+}
+
+.evenement--fete-des-meres {
+  --fond: #f3e2da;
+  --encre: var(--sapin);
+  --accent: var(--bronze);
+  --eclat: var(--or-clair);
+  --fil: #6f8a6a;
+  --ill-1: #d98c87;
+  --ill-2: var(--or-clair);
+  --ill-3: #6f8a6a;
+  --ill-4: #b86b77;
+  --particule: #e2a19a;
+}
+
+.evenement--fete-des-peres {
+  --fond: var(--sapin-doux);
+  --ill-1: var(--or-clair);
+  --ill-2: var(--or);
+  --ill-4: rgb(247 240 228 / 16%);
+}
+
+.evenement--soldes {
+  --fond: var(--brique);
+  --accent: var(--ivoire);
+  --eclat: var(--or-clair);
+  --fil: rgb(247 240 228 / 70%);
+  --ill-1: var(--ivoire);
+  --ill-2: var(--or-clair);
+  --ill-4: #7a2a1c;
+  --particule: var(--ivoire);
+}
+
+/* Écrans moyens : grappes resserrées, message masqué. */
+@media (max-width: 1320px) {
+  .evenement-message {
+    display: none;
+  }
+}
+
+@media (max-width: 1180px) {
+  .evenement {
+    padding-inline: 7.5rem;
+  }
+
+  .evenement-ill {
+    height: 75%;
+    top: 12.5%;
+  }
+
+  .evenement-ill-gauche {
+    left: -1.5rem;
+  }
+
+  .evenement-ill-droite {
+    right: -1.5rem;
+  }
+}
+
+/* Téléphone : titre, compte à rebours, flèche. Les particules gardent l'ambiance. */
+@media (max-width: 760px) {
+  .evenement {
+    min-height: 3rem;
+    padding: 0.45rem var(--gouttiere);
+  }
+
+  .evenement-ill,
+  .evenement-compte-libelle {
+    display: none;
+  }
+
+  .evenement-contenu {
+    gap: 0.9rem;
+  }
+
+  .evenement-titre {
+    font-size: 1.05rem;
+    white-space: nowrap;
+  }
+
+  .evenement-chiffres > span {
+    min-width: 0;
+    padding: 0.15rem 0.3rem;
+  }
+
+  .evenement-chiffres b {
+    font-size: 0.8rem;
+  }
+
+  /* Seule la flèche reste visible ; le texte du lien est lu par les lecteurs d'écran. */
+  .evenement-lien {
+    border: 0;
+    font-size: 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .evenement-secondes {
+    display: none;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* 2. Messages permanents                                               */
+/* ------------------------------------------------------------------ */
+
+.bandeau {
+  background: var(--lin);
+  color: var(--sapin);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  overflow: hidden;
+  position: relative;
+  text-transform: uppercase;
+}
+
+/* Fondu sur les bords : les messages entrent et sortent en douceur. */
+.bandeau::before,
+.bandeau::after {
+  bottom: 0;
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: clamp(1.5rem, 6vw, 6rem);
+  z-index: 1;
+}
+
+.bandeau::before {
+  background: linear-gradient(90deg, var(--lin), transparent);
+  left: 0;
+}
+
+.bandeau::after {
+  background: linear-gradient(-90deg, var(--lin), transparent);
+  right: 0;
+}
+
+.bandeau-piste {
+  display: flex;
+  width: max-content;
+}
+
+.bandeau-defile {
+  display: flex;
+  flex-shrink: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.bandeau-defile li {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  padding: 0.62rem 0 0.62rem 2.6rem;
+  white-space: nowrap;
+}
+
+.bandeau .icone {
+  color: var(--or);
+  flex-shrink: 0;
+}
+
+/* ------------------------------------------------------------------ */
+/* Mouvements                                                           */
+/* ------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: no-preference) {
+  .evenement::after { animation: bandeau-filet 4.5s linear infinite; }
+  .evenement-titre { animation: bandeau-reflet 4.5s linear infinite; }
+  .evenement-chiffres b.est-change { animation: bandeau-chiffre 0.45s cubic-bezier(0.2, 0.7, 0.2, 1); }
+
+  .evenement-ill .ill-pend { animation: ill-pend 3.2s ease-in-out infinite alternate; transform-origin: 50% 0; }
+  .evenement-ill .ill-ondule { animation: ill-ondule 3.8s ease-in-out infinite alternate; transform-origin: 50% 100%; }
+  .evenement-ill .ill-scintille { animation: ill-scintille 2.6s ease-in-out infinite; transform-origin: center; }
+  .evenement-ill .ill-bat { animation: ill-bat 1.5s ease-in-out infinite; transform-origin: center; }
+  .evenement-ill .ill-flotte { animation: ill-flotte 3.4s ease-in-out infinite alternate; }
+  .evenement-ill .ill-eclate { animation: ill-eclate 2.8s ease-out infinite; transform-origin: center; }
+  .evenement-ill .ill-bulle { animation: ill-bulle 2.2s ease-in infinite; }
+
+  .evenement-particules i {
+    animation: particule-tombe var(--d) linear var(--r) infinite;
+    top: -10px;
+  }
+
+  .evenement--saint-valentin .evenement-particules i {
+    animation-name: particule-monte;
+    bottom: -10px;
+    top: auto;
+  }
+
+  .evenement--black-friday .evenement-particules i,
+  .evenement--fete-des-peres .evenement-particules i,
+  .evenement--maison .evenement-particules i {
+    animation: particule-brille calc(var(--d) * 0.5) ease-in-out var(--r) infinite;
+    top: var(--y);
+  }
+
+  .evenement--nouvel-an .evenement-particules i,
+  .evenement--soldes .evenement-particules i,
+  .evenement--fete-des-meres .evenement-particules i {
+    animation-name: particule-virevolte;
+  }
+
+  .bandeau-piste { animation: bandeau-defile 55s linear infinite; }
+  .bandeau:hover .bandeau-piste { animation-play-state: paused; }
+  .bandeau .icone { animation: ill-scintille 3s ease-in-out infinite; }
+}
+
+/* Mouvement réduit : messages posés au centre, une seule fois. */
+@media (prefers-reduced-motion: reduce) {
+  .bandeau-piste {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: auto;
+  }
+
+  .bandeau-defile + .bandeau-defile,
+  .bandeau-copie {
+    display: none !important;
+  }
+
+  .bandeau-defile {
+    flex-shrink: 1;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-right: 2.6rem;
+  }
+}
+
+@keyframes bandeau-defile { to { transform: translateX(-50%); } }
+@keyframes bandeau-reflet { from { background-position: 125% 0; } to { background-position: -25% 0; } }
+@keyframes bandeau-filet { from { background-position: -60% 0; } to { background-position: 160% 0; } }
+@keyframes bandeau-chiffre { from { opacity: 0; transform: translateY(-40%); } }
+
+@keyframes ill-pend { from { transform: rotate(-8deg); } to { transform: rotate(8deg); } }
+@keyframes ill-ondule { from { transform: rotate(-5deg); } to { transform: rotate(5deg); } }
+@keyframes ill-flotte { from { transform: translateY(-2px); } to { transform: translateY(2px); } }
+@keyframes ill-bulle { from { opacity: 0; transform: translateY(4px); } 40% { opacity: 1; } to { opacity: 0; transform: translateY(-6px); } }
+
+@keyframes ill-scintille {
+  0%, 100% { opacity: 0.45; transform: scale(0.7) rotate(0); }
+  50% { opacity: 1; transform: scale(1.1) rotate(45deg); }
+}
+
+@keyframes ill-bat {
+  0%, 60%, 100% { transform: scale(1); }
+  15% { transform: scale(1.14); }
+  30% { transform: scale(1.02); }
+  45% { transform: scale(1.1); }
+}
+
+@keyframes ill-eclate {
+  0% { opacity: 0; transform: scale(0.2); }
+  30% { opacity: 1; }
+  100% { opacity: 0; transform: scale(1.25); }
+}
+
+@keyframes particule-tombe {
+  from { transform: translate3d(0, 0, 0) scale(var(--t)); }
+  50% { transform: translate3d(8px, 36px, 0) scale(var(--t)); }
+  to { transform: translate3d(-4px, 76px, 0) scale(var(--t)); }
+}
+
+@keyframes particule-monte {
+  from { opacity: 0; transform: translate3d(0, 0, 0) scale(var(--t)); }
+  20% { opacity: var(--o); }
+  to { opacity: 0; transform: translate3d(10px, -70px, 0) scale(var(--t)); }
+}
+
+@keyframes particule-virevolte {
+  from { transform: translate3d(0, 0, 0) rotate(0) scale(var(--t)); }
+  50% { transform: translate3d(10px, 36px, 0) rotate(200deg) scale(var(--t)); }
+  to { transform: translate3d(-4px, 76px, 0) rotate(420deg) scale(var(--t)); }
+}
+
+@keyframes particule-brille {
+  0%, 100% { opacity: 0; transform: scale(0.2) rotate(0); }
+  50% { opacity: var(--o); transform: scale(var(--t)) rotate(90deg); }
+}

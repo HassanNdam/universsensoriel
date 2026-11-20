@@ -17,7 +17,7 @@
  * {annee} = année en cours. Dans un titre : *mots* = mots en or.
  *
  * Champ : 'cle' => [type, libellé, valeur d'origine, aide, options].
- * Types : texte, zone, courriel, image, choix, rayon, rayons, liste (options = sous-champs).
+ * Types : texte, zone, courriel, image, choix, rayon, rayons, date (AAAAMMJJ), case (oui / non), liste (options = sous-champs).
  */
 
 namespace App;
@@ -27,6 +27,28 @@ const PICTOS = [
     'livraison' => 'Camion', 'boutique' => 'Boutique', 'cadenas' => 'Cadenas', 'whatsapp' => 'WhatsApp',
     'courriel' => 'Enveloppe', 'goutte' => 'Goutte', 'feuille' => 'Feuille', 'fleur' => 'Fleur',
     'etoile' => 'Étoile', 'coche' => 'Coche', 'plus' => 'Plus', 'sablier' => 'Sablier',
+];
+
+/** Ambiances du bandeau d'événement (voir app/bandeau.php et resources/css/bandeau.css). */
+const AMBIANCES = [
+    'noel' => 'Noël : neige et boules de sapin',
+    'black-friday' => 'Black Friday : noir et or, étiquettes',
+    'nouvel-an' => 'Nouvel an : confettis dorés',
+    'saint-valentin' => 'Saint-Valentin : cœurs',
+    'fete-des-meres' => 'Fête des mères : pétales et fleurs',
+    'fete-des-peres' => 'Fête des pères : flacons et étoiles',
+    'soldes' => 'Soldes : étiquettes sur fond brique',
+    'maison' => 'Aux couleurs de la Maison : étoiles',
+];
+
+/** Événements proposés au premier remplissage (dates au format AAAAMMJJ). */
+const EVENEMENTS = [
+    ['actif' => true, 'theme' => 'black-friday', 'titre' => 'Black Friday', 'message' => 'Offres sur une sélection de parfums et de soins', 'lien_texte' => 'Voir les offres', 'lien' => '/boutique/', 'debut' => '20261120', 'fin' => '20261130', 'compte' => true],
+    ['actif' => true, 'theme' => 'noel', 'titre' => 'Noël', 'message' => 'Coffrets et parfums à offrir', 'lien_texte' => 'Idées cadeaux', 'lien' => '/collection/beaute/rituels-et-coffrets/', 'debut' => '20261201', 'fin' => '20261224', 'compte' => true],
+    ['actif' => true, 'theme' => 'nouvel-an', 'titre' => 'Bonne année', 'message' => 'Merci pour votre fidélité', 'lien_texte' => 'La boutique', 'lien' => '/boutique/', 'debut' => '20261231', 'fin' => '20270107', 'compte' => false],
+    ['actif' => true, 'theme' => 'saint-valentin', 'titre' => 'Saint-Valentin', 'message' => 'Un parfum pour elle, un parfum pour lui', 'lien_texte' => 'Choisir', 'lien' => '/collection/parfums/', 'debut' => '20270201', 'fin' => '20270214', 'compte' => true],
+    ['actif' => true, 'theme' => 'fete-des-meres', 'titre' => 'Fête des mères', 'message' => 'Parfums et coffrets pour elle', 'lien_texte' => 'Idées cadeaux', 'lien' => '/collection/parfums/parfums-femme/', 'debut' => '20270517', 'fin' => '20270530', 'compte' => true],
+    ['actif' => true, 'theme' => 'fete-des-peres', 'titre' => 'Fête des pères', 'message' => 'Parfums pour lui', 'lien_texte' => 'Idées cadeaux', 'lien' => '/collection/parfums/parfums-homme/', 'debut' => '20270607', 'fin' => '20270620', 'compte' => true],
 ];
 
 const REGLAGES = [
@@ -184,10 +206,6 @@ const REGLAGES = [
     'us-textes' => [
         'titre' => 'Textes du site',
         'onglets' => [
-            'Bandeau' => [
-                'bandeau_1' => ['texte', 'Premier message', 'Livraison offerte dès {seuil} €', '{seuil} = montant de la livraison offerte, réglé dans WooCommerce › Réglages › Expédition.'],
-                'bandeau_2' => ['texte', 'Second message', 'Retrait gratuit à la boutique de Metz', 'Masqué sur téléphone.'],
-            ],
             'Garanties' => [
                 'garanties' => ['liste', 'Garanties', [
                     ['icone' => 'livraison', 'titre' => 'Livraison offerte', 'texte' => 'Dès {seuil} € d\'achat en France'],
@@ -260,6 +278,29 @@ const REGLAGES = [
                 'e404_texte' => ['zone', 'Texte', 'Le lien est peut-être ancien.'],
                 'e404_bouton' => ['texte', 'Bouton', 'Voir la boutique'],
                 'e404_lien' => ['texte', 'Lien', 'Nous écrire'],
+            ],
+        ],
+    ],
+    'us-bandeau' => [
+        'titre' => 'Bandeau et événements',
+        'onglets' => [
+            'Messages permanents' => [
+                'bandeau_1' => ['texte', 'Premier message', 'Livraison offerte dès {seuil} €', '{seuil} = montant de la livraison offerte, réglé dans WooCommerce › Réglages › Expédition.'],
+                'bandeau_2' => ['texte', 'Deuxième message', 'Retrait gratuit à la boutique de Metz'],
+                'bandeau_3' => ['texte', 'Troisième message', '', 'Facultatif.'],
+            ],
+            'Événements' => [
+                'evenements' => ['liste', 'Événements', EVENEMENTS, 'Affiché du premier au dernier jour inclus, au-dessus des messages permanents. Si deux événements tombent en même temps, le plus bas de la liste l\'emporte. Pour voir un événement avant sa date (connectée) : ajouter ?evenement=noel à l\'adresse d\'une page, ou le nom d\'une autre ambiance (black-friday, saint-valentin…).', [
+                    'actif' => ['case', 'Affiché', true],
+                    'theme' => ['choix', 'Ambiance', 'maison', 'Couleurs, illustrations et animation.', AMBIANCES],
+                    'titre' => ['texte', 'Titre', '', 'Court : « Black Friday », « Noël ».'],
+                    'message' => ['texte', 'Message', '', 'Une ligne. Masqué sur téléphone.'],
+                    'lien_texte' => ['texte', 'Texte du lien'],
+                    'lien' => ['texte', 'Adresse du lien', '', 'Exemple : /boutique/'],
+                    'debut' => ['date', 'Premier jour'],
+                    'fin' => ['date', 'Dernier jour'],
+                    'compte' => ['case', 'Compte à rebours', true, 'Temps restant jusqu\'à la fin du dernier jour.'],
+                ]],
             ],
         ],
     ],
@@ -536,6 +577,9 @@ function reglage_scf(string $cle, array $champ, string $prefixe = ''): array
         // Dans une liste, la photo en vignette : l'écran reste compact.
         'image' => ['type' => 'image', 'return_format' => 'id', 'preview_size' => $prefixe === '' ? 'medium' : 'thumbnail', 'library' => 'all'],
         'choix' => ['type' => 'select', 'choices' => $champ[4] ?? [], 'default_value' => $origine, 'ui' => 0],
+        // Dates enregistrées et rendues en AAAAMMJJ : comparables telles quelles.
+        'date' => ['type' => 'date_picker', 'display_format' => 'd/m/Y', 'return_format' => 'Ymd', 'first_day' => 1],
+        'case' => ['type' => 'true_false', 'ui' => 1, 'default_value' => (int) (bool) $origine],
         'rayon', 'rayons' => [
             'type' => 'taxonomy', 'taxonomy' => 'product_cat', 'field_type' => $type === 'rayons' ? 'multi_select' : 'select',
             'return_format' => 'id', 'add_term' => 0, 'save_terms' => 0, 'load_terms' => 0, 'allow_null' => 1,
