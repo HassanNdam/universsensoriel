@@ -61,7 +61,7 @@
               </li>
             @endforeach
           </ul>
-          <a class="lien-or" href="{{ home_url('/nos-boutiques/') }}">Voir nos boutiques {!! App\icone('fleche', 18) !!}</a>
+          <a class="lien-or" href="{{ home_url('/notre-boutique/') }}">Horaires et retrait {!! App\icone('fleche', 18) !!}</a>
         </div>
       </aside>
     </div>

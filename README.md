@@ -1,6 +1,6 @@
 # Univers Sensoriel
 
-**Univers Sensoriel by K.Elle**, boutique en ligne de parfums, soins, bien-être et art de vivre, avec deux boutiques à Metz et Yaoundé.
+**Univers Sensoriel by K.Elle**, boutique en ligne de parfums, soins, bien-être et art de vivre, avec une boutique à Metz.
 
 - **Socle** : WordPress en [Bedrock](https://roots.io/bedrock/), thème sur mesure basé sur [Sage 11](https://roots.io/sage/) (Acorn, Blade, Tailwind CSS 4, Vite), développé sous Laragon.
 - **Boutique** : WooCommerce, 375 fiches produit, filtres par famille olfactive, paiement Stripe, commande et compte client redessinés sans copier les gabarits de WooCommerce.

@@ -51,7 +51,7 @@
         <li><a href="{{ home_url('/la-maison/') }}">Notre histoire</a></li>
         <li><a href="{{ home_url('/journal/') }}">Le journal</a></li>
         <li><a href="{{ home_url('/avis-clients/') }}">Avis clients</a></li>
-        <li><a href="{{ home_url('/nos-boutiques/') }}">Nos boutiques</a></li>
+        <li><a href="{{ home_url('/notre-boutique/') }}">{{ App\boutiques_titre() }}</a></li>
         <li><a href="{{ home_url('/contact/') }}">Contact</a></li>
         <li><a href="{{ home_url('/devenir-consultante/') }}">Devenir consultante</a></li>
       </ul>
@@ -69,10 +69,17 @@
     </nav>
 
     <div class="pied-colonne">
-      <p class="surtitre">Nos boutiques</p>
+      <p class="surtitre">{{ App\boutiques_titre() }}</p>
       <ul class="pied-boutiques">
         @foreach ($c['boutiques'] as $b)
-          <li><strong>{{ $b['ville'] }}</strong> · {{ $b['pays'] }}<br><span>{{ $b['enseigne'] }}</span></li>
+          <li>
+            <strong>{{ $b['ville'] }}</strong> · {{ $b['pays'] }}<br><span>{{ $b['enseigne'] }}</span>
+            {{-- Une seule boutique : son adresse et son numéro tiennent dans la colonne. --}}
+            @if (count($c['boutiques']) === 1)
+              @if ($b['adresse'])<br><span>{{ $b['adresse'] }}</span>@endif
+              @if ($b['telephone'])<br><a href="{{ App\lien_telephone($b['telephone']) }}">{{ $b['telephone'] }}</a>@endif
+            @endif
+          </li>
         @endforeach
       </ul>
     </div>

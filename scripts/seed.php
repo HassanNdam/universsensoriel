@@ -357,7 +357,7 @@ if ($codeContact && ! str_contains((string) get_post_field('post_content', $cont
     wp_update_post(['ID' => $contact, 'post_content' => $codeContact]);
     us_log('page Contact : shortcode du formulaire en place');
 }
-us_page('nos-boutiques', 'Nos boutiques', $contenu('nos-boutiques'));
+us_page('notre-boutique', 'Notre boutique', $contenu('notre-boutique'));
 us_page('livraison-et-retours', 'Livraison et retours', $contenu('livraison-et-retours'));
 us_page('questions-frequentes', 'Questions fréquentes', $contenu('questions-frequentes'));
 us_page('guide-des-familles-olfactives', 'Guide des familles olfactives', $contenu('guide-des-familles-olfactives'));

@@ -100,6 +100,12 @@ function coordonnees(): array
     ];
 }
 
+/** « Notre boutique », ou « Nos boutiques » si plusieurs sont saisies dans Univers Sensoriel › Coordonnées. */
+function boutiques_titre(): string
+{
+    return count(coordonnees()['boutiques']) > 1 ? 'Nos boutiques' : 'Notre boutique';
+}
+
 /** Lien tel: d'un numéro écrit avec des espaces. */
 function lien_telephone(string $numero): string
 {
