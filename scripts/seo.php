@@ -149,11 +149,19 @@ foreach ($seo['pages'] + ($seo['articles'] ?? []) as $slug => $reglage) {
     $faits[] = $id;
 }
 
-// Rayons (catégories de produits) : Yoast range ces valeurs dans l'option wpseo_taxonomy_meta.
+// Rayons (catégories de produits) et rubriques du journal (catégories d'articles) : Yoast range ces valeurs
+// dans l'option wpseo_taxonomy_meta. Une rubrique est gardée en ombre sous « journal/<slug> ».
 $autoRayons = (array) get_option('us_seo_auto_rayons', []);
 $rayonsFaits = 0;
+$termes = [];
 foreach ($seo['rayons'] as $slug => $reglage) {
-    $terme = get_term_by('slug', $slug, 'product_cat');
+    $termes[$slug] = ['product_cat', $slug, $reglage];
+}
+foreach ($seo['rubriques'] ?? [] as $slug => $reglage) {
+    $termes["journal/$slug"] = ['category', $slug, $reglage];
+}
+foreach ($termes as $cle => [$taxonomie, $slug, $reglage]) {
+    $terme = get_term_by('slug', $slug, $taxonomie);
     if (! $terme) {
         continue;
     }
@@ -168,14 +176,14 @@ foreach ($seo['rayons'] as $slug => $reglage) {
         'wpseo_content_score' => (string) $notes('rayons', $slug)[1],
     ]);
     // Retouché dans l'admin = une valeur non vide qui n'est pas celle du dernier passage (une clé nouvelle ici ne compte pas).
-    $actuel = array_filter(array_intersect_key((array) WPSEO_Taxonomy_Meta::get_term_meta($terme, 'product_cat'), $valeurs));
-    $ombre = $autoRayons[$slug] ?? null;
+    $actuel = array_filter(array_intersect_key((array) WPSEO_Taxonomy_Meta::get_term_meta($terme, $taxonomie), $valeurs));
+    $ombre = $autoRayons[$cle] ?? null;
     if (! $forcer && $ombre !== null && array_diff_assoc($actuel, $ombre)) {
         $gardes[] = "rayon {$terme->name}";
         continue;
     }
-    WPSEO_Taxonomy_Meta::set_values($terme->term_id, 'product_cat', $valeurs);
-    $autoRayons[$slug] = $valeurs;
+    WPSEO_Taxonomy_Meta::set_values($terme->term_id, $taxonomie, $valeurs);
+    $autoRayons[$cle] = $valeurs;
     $rayonsFaits++;
 }
 update_option('us_seo_auto_rayons', $autoRayons, false);
