@@ -10,9 +10,13 @@
 
 namespace App;
 
-/** Messages permanents, repères remplacés, sans les vides. */
+/** Messages permanents, repères remplacés, sans les vides. Aucun si l'interrupteur « Affichés » est coupé. */
 function bandeau_messages(): array
 {
+    if (! reglage('bandeau_affiche')) {
+        return [];
+    }
+
     return array_values(array_filter([texte('bandeau_1'), texte('bandeau_2'), texte('bandeau_3')]));
 }
 

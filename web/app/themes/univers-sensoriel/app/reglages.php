@@ -285,6 +285,7 @@ const REGLAGES = [
         'titre' => 'Bandeau et événements',
         'onglets' => [
             'Messages permanents' => [
+                'bandeau_affiche' => ['case', 'Affichés', true, 'Désactivé : les messages disparaissent du haut du site. L\'événement du moment reste affiché.'],
                 'bandeau_1' => ['texte', 'Premier message', 'Livraison offerte dès {seuil} €', '{seuil} = montant de la livraison offerte, réglé dans WooCommerce › Réglages › Expédition.'],
                 'bandeau_2' => ['texte', 'Deuxième message', 'Retrait gratuit à la boutique de Metz'],
                 'bandeau_3' => ['texte', 'Troisième message', '', 'Facultatif.'],
