@@ -213,14 +213,14 @@
         <div class="ouverture-actions">
           <a class="bouton bouton-clair" href="{{ App\lien_whatsapp('wa_conseil') }}" target="_blank" rel="noopener">{!! App\icone('whatsapp', 20) !!} {{ App\texte('conseil_bouton') }}</a>
           <a class="lien-or" href="{{ home_url('/contact/') }}">{{ App\texte('conseil_lien_contact') }} {!! App\icone('fleche', 18) !!}</a>
-          <a class="lien-or" href="{{ home_url('/nos-boutiques/') }}">{{ App\texte('conseil_lien_boutiques') }} {!! App\icone('fleche', 18) !!}</a>
+          <a class="lien-or" href="{{ home_url('/notre-boutique/') }}">{{ App\texte('conseil_lien_boutiques') }} {!! App\icone('fleche', 18) !!}</a>
         </div>
       </div>
       <ul class="rendez-vous-boutiques">
         @foreach ($c['boutiques'] as $b)
           <li>
             {!! App\icone('boutique', 28) !!}
-            <p><strong>{{ $b['ville'] }}</strong><span>{{ $b['pays'] }} · {{ $b['enseigne'] }}</span>@if ($b['telephone'])<a href="{{ App\lien_telephone($b['telephone']) }}">{{ $b['telephone'] }}</a>@endif</p>
+            <p><strong>{{ $b['ville'] }}</strong><span>{{ $b['pays'] }} · {{ $b['enseigne'] }}</span>@if ($b['adresse'])<span>{{ $b['adresse'] }}</span>@endif @if ($b['telephone'])<a href="{{ App\lien_telephone($b['telephone']) }}">{{ $b['telephone'] }}</a>@endif</p>
           </li>
         @endforeach
       </ul>

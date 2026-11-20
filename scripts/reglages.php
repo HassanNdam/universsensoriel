@@ -119,7 +119,7 @@ $remplacements = [
     'devenir-consultante' => [
         '#<a class="bouton" href="https://wa\.me/33605784011[^"]*">([^<]*)</a>#' => '[us_whatsapp message="Bonjour, j\'aimerais en savoir plus sur le programme consultante."]$1[/us_whatsapp]',
     ],
-    'nos-boutiques' => [
+    'notre-boutique' => [
         '#<div class="cartes">.*?</div>\s*</div>#s' => '[us_boutiques]',
     ],
 ];

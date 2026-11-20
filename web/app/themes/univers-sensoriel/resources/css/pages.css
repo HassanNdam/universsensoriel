@@ -32,8 +32,22 @@
 }
 
 @media (min-width: 720px) {
-  .prose .cartes {
+  .prose .cartes:not(.cartes-une) {
     grid-template-columns: 1fr 1fr;
+  }
+
+  /* Une seule boutique : une carte pleine largeur, coordonnées à gauche, horaires à droite. */
+  :is(.prose, .is-root-container) .cartes-une > div {
+    align-items: start;
+    column-gap: clamp(2rem, 5vw, 4rem);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  :is(.prose, .is-root-container) .cartes.cartes-une > div > .horaires {
+    border-top: 0;
+    margin-top: 0;
+    padding-top: 0;
   }
 }
 
@@ -41,6 +55,16 @@
   background: var(--lin-clair);
   border: 1px solid var(--filet);
   padding: 1.75rem;
+}
+
+:is(.prose, .is-root-container) .cartes > div > div > :last-child {
+  margin-bottom: 0;
+}
+
+:is(.prose, .is-root-container) .cartes > div > .horaires {
+  border-top: 1px solid var(--filet);
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
 }
 
 :is(.prose, .is-root-container) .cartes h3 {

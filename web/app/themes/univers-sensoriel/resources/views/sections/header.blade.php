@@ -111,7 +111,7 @@
       @endforeach
       <a class="mobile-lien" href="{{ home_url('/journal/') }}">Le journal</a>
       <a class="mobile-lien" href="{{ home_url('/la-maison/') }}">La Maison</a>
-      <a class="mobile-lien" href="{{ home_url('/nos-boutiques/') }}">Nos boutiques</a>
+      <a class="mobile-lien" href="{{ home_url('/notre-boutique/') }}">{{ App\boutiques_titre() }}</a>
       <a class="mobile-lien" href="{{ home_url('/contact/') }}">Contact</a>
       @if ($boutique)
         <a class="mobile-lien" href="{{ wc_get_page_permalink('myaccount') }}">Mon compte</a>

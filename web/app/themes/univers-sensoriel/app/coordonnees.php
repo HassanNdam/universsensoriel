@@ -41,25 +41,27 @@ add_shortcode('us_whatsapp', function ($atts, $contenu = ''): string {
 
 add_shortcode('us_boutiques', function (): string {
     $html = '';
-    foreach (coordonnees()['boutiques'] as $b) {
-        $html .= '<div><h3>' . esc_html(implode(', ', array_filter([$b['ville'], $b['pays']]))) . '</h3>';
+    $boutiques = coordonnees()['boutiques'];
+    foreach ($boutiques as $b) {
+        // Carte : coordonnées d'un côté, horaires de l'autre (côte à côte quand la boutique est seule).
+        $html .= '<div><div><h3>' . esc_html(implode(', ', array_filter([$b['ville'], $b['pays']]))) . '</h3>';
         if ($lignes = array_filter([$b['enseigne'], $b['adresse']])) {
             $html .= '<p>' . implode('<br>', array_map('esc_html', $lignes)) . '</p>';
         }
+        if ($numeros = array_filter([$b['telephone'], $b['telephone_2']])) {
+            $html .= '<p>' . implode('<br>', array_map(fn ($n) => sprintf('<a href="%s">%s</a>', esc_url(lien_telephone($n), ['tel']), esc_html($n)), $numeros)) . '</p>';
+        }
+        $html .= ($b['mention'] ? '<p>' . esc_html($b['mention']) . '</p>' : '') . '</div>';
         $horaires = '';
         foreach ($b['horaires'] as $h) {
             if (! empty($h['jours'])) {
                 $horaires .= sprintf('<li><span>%s</span> %s</li>', esc_html($h['jours']), esc_html($h['heures'] ?? ''));
             }
         }
-        $html .= $horaires ? '<ul class="horaires">' . $horaires . '</ul>' : '';
-        if ($numeros = array_filter([$b['telephone'], $b['telephone_2']])) {
-            $html .= '<p>' . implode('<br>', array_map(fn ($n) => sprintf('<a href="%s">%s</a>', esc_url(lien_telephone($n), ['tel']), esc_html($n)), $numeros)) . '</p>';
-        }
-        $html .= ($b['mention'] ? '<p>' . esc_html($b['mention']) . '</p>' : '') . '</div>';
+        $html .= ($horaires ? '<ul class="horaires">' . $horaires . '</ul>' : '') . '</div>';
     }
 
-    return $html ? '<div class="cartes">' . $html . '</div>' : '';
+    return $html ? '<div class="cartes' . (count($boutiques) === 1 ? ' cartes-une' : '') . '">' . $html . '</div>' : '';
 });
 
 add_shortcode('us_editeur', function (): string {

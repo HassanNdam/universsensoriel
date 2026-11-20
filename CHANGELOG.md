@@ -4,6 +4,13 @@ Les versions suivent `MAJEUR.MINEUR.CORRECTIF`. Le site n'est pas encore en lign
 
 ## À venir
 
+Une seule boutique : la boutique de Yaoundé a fermé, seule reste celle de Metz.
+
+- Yaoundé retiré des boutiques, de l'accueil, de La Maison, de la page d'attente, du référencement et des traductions.
+- Page « Nos boutiques » renommée « Notre boutique » (`/notre-boutique/`, l'ancienne adresse y renvoie). Les titres passent d'eux-mêmes au pluriel si une autre boutique est ajoutée dans Univers Sensoriel › Coordonnées.
+- Boutique seule : carte pleine largeur (coordonnées à gauche, horaires à droite) ; adresse et téléphone dans le pied de page.
+- `app/mises-a-jour.php` : mises à jour ponctuelles de la base en ligne, appliquées une fois au premier passage après l'envoi du thème, sans écraser un texte retouché dans l'administration.
+
 Textes et coordonnées modifiables dans l'administration.
 
 - Menu « Univers Sensoriel » (Secure Custom Fields) : Coordonnées (contact, boutiques et horaires, mentions légales), Accueil (textes, photos, rayons de chaque bloc), Textes du site (bandeau, garanties, pied de page, fiche produit, boutique, journal, contact, commande, page introuvable), Page d'attente (affichage, textes, titre et image de partage).

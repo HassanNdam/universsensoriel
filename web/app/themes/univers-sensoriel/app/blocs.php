@@ -3,7 +3,7 @@
 /**
  * Éditeur de blocs (Gutenberg) des pages et des articles.
  *
- * - Blocs du thème (catégorie « Univers Sensoriel ») : Nos boutiques, Coordonnées, Bouton WhatsApp,
+ * - Blocs du thème (catégorie « Univers Sensoriel ») : Notre boutique, Coordonnées, Bouton WhatsApp,
  *   Éditeur du site, Hébergeur. Ce sont des blocs Secure Custom Fields décrits dans resources/blocks/<nom>/block.json,
  *   rendus par rendu_bloc() : leur contenu est lu dans Univers Sensoriel › Coordonnées, jamais recopié dans la page.
  * - Valeurs au fil du texte (dans un paragraphe) : codes courts [us_seuil], [us_forfait] (livraison, lus dans

@@ -81,11 +81,7 @@ const REGLAGES = [
                         ],
                         'mention' => 'Retrait gratuit des commandes passées sur le site.',
                     ],
-                    [
-                        'ville' => 'Yaoundé', 'pays' => 'Cameroun', 'enseigne' => 'Style Mondial', 'adresse' => '',
-                        'telephone' => '+237 56 22 82 25', 'telephone_2' => '', 'horaires' => [], 'mention' => '',
-                    ],
-                ], 'Affichées dans le pied de page, l\'accueil, la page Contact et la page Nos boutiques.', [
+                ], 'Affichées dans le pied de page, l\'accueil, la page Contact et la page Notre boutique. Avec plusieurs boutiques, les titres passent au pluriel.', [
                     'ville' => ['texte', 'Ville'],
                     'pays' => ['texte', 'Pays'],
                     'enseigne' => ['texte', 'Enseigne'],
@@ -162,7 +158,7 @@ const REGLAGES = [
                 'maison_points' => ['liste', 'Points forts', [
                     ['icone' => 'goutte', 'texte' => 'Extraits de parfum concentrés à 30 %'],
                     ['icone' => 'feuille', 'texte' => 'Formules et actifs choisis avec soin'],
-                    ['icone' => 'boutique', 'texte' => 'Deux boutiques : Metz et Yaoundé'],
+                    ['icone' => 'boutique', 'texte' => 'Notre boutique à Metz'],
                 ], '', ['icone' => ['choix', 'Picto', '', '', PICTOS], 'texte' => ['texte', 'Texte']]],
                 'maison_bouton' => ['texte', 'Bouton', 'Notre histoire'],
                 'maison_image' => ['image', 'Photo', 'aloe-vera-feuilles'],
@@ -199,7 +195,7 @@ const REGLAGES = [
                 'conseil_texte' => ['zone', 'Texte', 'En boutique ou par message, nous vous aidons à choisir.'],
                 'conseil_bouton' => ['texte', 'Bouton WhatsApp', 'Demander conseil'],
                 'conseil_lien_contact' => ['texte', 'Lien vers le contact', 'Formulaire de contact'],
-                'conseil_lien_boutiques' => ['texte', 'Lien vers les boutiques', 'Nos boutiques'],
+                'conseil_lien_boutiques' => ['texte', 'Lien vers la boutique', 'Notre boutique'],
             ],
         ],
     ],
@@ -317,12 +313,12 @@ const REGLAGES = [
             ],
             'Textes' => [
                 'attente_titre' => ['texte', 'Titre', 'Notre boutique en ligne *ouvre bientôt*', 'Les mots entre *étoiles* sont en or.'],
-                'attente_texte' => ['zone', 'Texte', 'Extraits de parfum, soins et senteurs pour la maison. En attendant, nos boutiques de Metz et Yaoundé vous accueillent.'],
+                'attente_texte' => ['zone', 'Texte', 'Extraits de parfum, soins et senteurs pour la maison. En attendant, notre boutique de Metz vous accueille.'],
                 'attente_invite' => ['texte', 'Invitation à la lettre', 'Recevoir un e-mail à l\'ouverture'],
             ],
             'Google et partage' => [
                 'attente_seo_titre' => ['texte', 'Titre', 'Univers Sensoriel : la boutique en ligne ouvre bientôt', '60 caractères au plus.'],
-                'attente_seo_description' => ['zone', 'Description', 'Univers Sensoriel ouvre bientôt sa boutique en ligne : extraits de parfum, soins et senteurs pour la maison. Boutiques ouvertes à Metz et Yaoundé.', '120 à 155 caractères.'],
+                'attente_seo_description' => ['zone', 'Description', 'Univers Sensoriel ouvre bientôt sa boutique en ligne : extraits de parfum, soins et senteurs pour la maison. Boutique ouverte à Metz.', '120 à 155 caractères.'],
                 'attente_seo_image' => ['image', 'Image de partage', '', '1200 × 630 pixels. Vide : image d\'origine.'],
                 'attente_seo_alt' => ['texte', 'Description de l\'image', 'Univers Sensoriel : la boutique en ligne ouvre bientôt, extraits de parfum devant un bol d’encens'],
             ],

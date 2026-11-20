@@ -15,7 +15,7 @@
     },
     "la-maison": {
       "titre": "La Maison : notre histoire, nos valeurs | Univers Sensoriel",
-      "description": "Univers Sensoriel by K.Elle : une Maison de parfums, de soins et de bien-être née d'une conviction, le luxe discret pour tous. Boutiques à Metz et Yaoundé.",
+      "description": "Univers Sensoriel by K.Elle : une Maison de parfums, de soins et de bien-être née d'une conviction, le luxe discret pour tous. Boutique à Metz.",
       "motcle": "Univers Sensoriel",
       "image": "partage-la-maison-encens-santal.jpg",
       "alt": "Encens de bois de santal fumant dans un bol en bois"
@@ -27,10 +27,10 @@
       "image": "partage-contact-conseil-soin.jpg",
       "alt": "Gel visage Aurodhea posé sur une pierre"
     },
-    "nos-boutiques": {
-      "titre": "Nos boutiques à Metz et à Yaoundé | Univers Sensoriel",
-      "description": "Venez sentir les parfums et demander conseil dans nos boutiques de Metz (France) et de Yaoundé (Cameroun). Retrait gratuit des commandes à Metz.",
-      "motcle": "boutiques",
+    "notre-boutique": {
+      "titre": "Notre boutique à Metz | Univers Sensoriel",
+      "description": "Venez sentir les parfums et demander conseil dans notre boutique de Metz, 57 rue des Allemands. Retrait gratuit des commandes passées sur le site.",
+      "motcle": "boutique Metz",
       "image": "partage-boutiques-parfum-d-ambiance.jpg",
       "alt": "Diffuseur de parfum d'ambiance à bâtonnets dans un salon"
     },
