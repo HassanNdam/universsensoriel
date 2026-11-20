@@ -18,6 +18,8 @@ Textes et coordonnées modifiables dans l'administration.
 - Accueil : l'ouverture reprend la scène de la page d'attente. Photos qui se relaient dans l'arche, poussière d'or qui monte, texte et arche qui apparaissent en douceur, halo qui respire, flacons qui flottent. Photos de l'arche choisies dans Univers Sensoriel › Accueil › Ouverture (autant qu'on veut, dans l'ordre voulu), les mêmes sur la page d'attente.
 - Au chargement, la première photo de l'arche est seule (la dernière ne s'efface plus par-dessus).
 - E-mails à la charte : commandes, compte, formulaires et notifications partent dans le même habillage (logo sur sapin, Marcellus, bouton sapin, coordonnées dans le pied). Textes des e-mails de commande et de compte réécrits, courts ; objets et titres en français, modifiables dans WooCommerce › Réglages › E-mails. Même expéditeur pour tous. `scripts/mails-essai.php` les envoie tous dans Mailpit.
+- Langues : français et anglais sous `/en/` (TranslatePress gratuit), traductions anglaises de départ dans `scripts/traductions/en_GB.json`, corrigeables dans l'éditeur visuel. Néerlandais, allemand, espagnol, italien et portugais en traduction automatique de Google, chargée seulement à la demande du visiteur.
+- Pays et devises : sélecteur « Langue et pays » (en-tête, menu mobile, pied de page) avec les 14 pays de l'ancienne boutique ; prix et paiement en CHF, FCFA (XAF, XOF) ou CDF selon le pays (Price Based on Country gratuit). Taux du jour mis à jour chaque jour, pays deviné par l'adresse IP (base DB-IP gratuite). `composer langues`.
 
 ## 0.3.0 – 19 novembre 2026
 

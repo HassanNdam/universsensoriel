@@ -107,6 +107,28 @@ endu_bloc()` dans `app/blocs.php`) : Nos boutiques, Coordonnées, Bouton WhatsAp
 - Commande reçue et compte client : la table `App\PONTS` (`app/commande.php`) remplace quatre gabarits de WooCommerce (`checkout/thankyou`, `myaccount/orders`, `myaccount/view-order`, `myaccount/my-address`) par des vues du thème (`resources/views/woocommerce/`), via les ponts de `app/ponts/`. Données préparées dans `app/commande.php` et `app/compte.php`, styles dans `commande.css` et `compte.css`. Aucun fichier de WooCommerce n'est copié : une mise à jour de l'extension ne défait rien.
 - Compte client d'essai en local : identifiant `client-test`, mot de passe dans le `.env` (`US_CLIENT_TEST_PASSWORD`).
 
+## Langues et pays
+
+Un seul sélecteur « Langue et pays » : bouton `FR · EUR` dans l'en-tête (ordinateur), entrée du menu mobile, bouton du pied de page. Vue `resources/views/partials/langue-pays.blade.php`, styles `langues.css`, script `langues.js`.
+
+### Langues
+
+- Français par défaut, anglais sous `/en/` : TranslatePress (gratuit, une seule langue en plus). Vraies pages, indexées par Google (balises `hreflang` posées par l'extension).
+- Corriger ou compléter l'anglais : barre d'administration › « Traduire le site », sur la page concernée. Un nouveau produit apparaît en français sur `/en/` tant que ses textes ne sont pas traduits.
+- Traductions de départ : `scripts/traductions/en_GB.json` (texte français → anglais), versées par `composer langues` (rejoué par `composer seed`). Une traduction saisie dans l'éditeur n'est jamais écrasée, sauf avec `US_SEED_FORCE=1`.
+- Le thème traduit aussi, avec le même dictionnaire, ce que la version gratuite laisse en français : textes alternatifs des images, titres et descriptions Yoast, modes de livraison et de paiement du panier (`app/langues.php`).
+- Néerlandais, allemand, espagnol, italien, portugais (`App\LANGUES_AUTO`) : traduction automatique de Google dans le navigateur du visiteur, chargée seulement s'il choisit l'une d'elles (cookie `us_langue`). Rien à saisir, pages non indexées. Le panier et la commande (blocs React que Google casserait) s'ouvrent alors en anglais.
+- Passer une de ces langues en vraie langue : extension payante « Multiple Languages » de TranslatePress, puis ajouter la langue dans Réglages › TranslatePress. Elle quitte d'elle-même la traduction automatique.
+
+### Pays et devises
+
+- Price Based on Country (gratuit). Pays proposés : les pays de vente de WooCommerce › Réglages › Général (ceux de l'ancienne boutique). Devise de chaque pays : WooCommerce › Réglages › Zones tarifaires (Suisse en CHF, Afrique centrale en FCFA XAF, Afrique de l'Ouest en FCFA XOF, RD Congo en CDF), l'euro pour les autres.
+- Pays deviné par l'adresse IP à la première visite, modifiable dans le sélecteur : base gratuite DB-IP (licence CC BY 4.0, d'où la mention dans le sélecteur), téléchargée chaque mois par le thème dans `uploads/woocommerce_uploads/`. Une clé MaxMind (WooCommerce › Réglages › Intégration) ou l'en-tête pays de Cloudflare passent avant. Le client paie dans la devise affichée ; Stripe verse en euros.
+- Taux de change : mis à jour chaque jour par le thème (`app/devises.php`, source open.er-api.com) ; francs CFA à leur parité fixe (655,957). Un taux saisi à la main dans une zone est remplacé le lendemain.
+- Francs CFA et franc congolais sans centimes.
+- Livraison : seule la zone France a des tarifs. Un client d'un autre pays voit ses prix mais ne peut pas commander tant qu'une zone de livraison n'existe pas pour lui (WooCommerce › Réglages › Expédition).
+- Réglages : `scripts/langues.php`, rejoué par `composer seed`.
+
 ## E-mails
 
 Tous les e-mails du site partent dans le même habillage, à la charte : en-tête sapin au logo, titre en Marcellus, bouton sapin, pied avec WhatsApp, e-mail et téléphone des Coordonnées.

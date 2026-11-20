@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "43bc581ac78db8f130c394d28188ef9c",
+    "content-hash": "89cfc091a46f6d163a06e8025f5eae09",
     "packages": [
         {
             "name": "brick/math",
@@ -7289,6 +7289,37 @@
             "time": "2026-11-11T15:25:06+00:00"
         },
         {
+            "name": "wp-plugin/translatepress-multilingual",
+            "version": "3.4",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/translatepress-multilingual/",
+                "reference": "tags/3.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/translatepress-multilingual.3.4.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0|~2.0"
+            },
+            "type": "wordpress-plugin",
+            "notification-url": "https://wp-packages.org/downloads",
+            "authors": [
+                {
+                    "name": "Cozmoslabs"
+                }
+            ],
+            "description": "Translate your site visually, directly from the front-end. Go multilingual in minutes using automatic AI translation. Works with any theme or plugin.",
+            "homepage": "https://translatepress.com/",
+            "support": {
+                "changelog": "https://wordpress.org/plugins/translatepress-multilingual/#developers",
+                "issues": "https://wordpress.org/support/plugin/translatepress-multilingual",
+                "source": "https://plugins.svn.wordpress.org/translatepress-multilingual"
+            },
+            "time": "2026-11-17T11:36:34+00:00"
+        },
+        {
             "name": "wp-plugin/woocommerce",
             "version": "11.3.0",
             "source": {
@@ -7349,6 +7380,37 @@
                 "source": "https://plugins.svn.wordpress.org/woocommerce-gateway-stripe"
             },
             "time": "2026-11-11T16:07:27+00:00"
+        },
+        {
+            "name": "wp-plugin/woocommerce-product-price-based-on-countries",
+            "version": "4.3.6",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/woocommerce-product-price-based-on-countries/",
+                "reference": "tags/4.3.6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/woocommerce-product-price-based-on-countries.4.3.6.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0|~2.0"
+            },
+            "type": "wordpress-plugin",
+            "notification-url": "https://wp-packages.org/downloads",
+            "authors": [
+                {
+                    "name": "Oscar Gare"
+                }
+            ],
+            "description": "Product Pricing and Currency based on Shopper's Country for WooCommerce with multi-currency support and geolocation to boost international sales.",
+            "homepage": "https://wordpress.org/plugins/woocommerce-product-price-based-on-countries/",
+            "support": {
+                "changelog": "https://wordpress.org/plugins/woocommerce-product-price-based-on-countries/#developers",
+                "issues": "https://wordpress.org/support/plugin/woocommerce-product-price-based-on-countries",
+                "source": "https://plugins.svn.wordpress.org/woocommerce-product-price-based-on-countries"
+            },
+            "time": "2026-10-14T08:01:32+00:00"
         },
         {
             "name": "wp-plugin/wordpress-seo",

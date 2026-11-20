@@ -1,4 +1,5 @@
 import.meta.glob(['../images/**', '../fonts/**']);
+import './langues.js';
 
 document.documentElement.classList.add('js');
 
