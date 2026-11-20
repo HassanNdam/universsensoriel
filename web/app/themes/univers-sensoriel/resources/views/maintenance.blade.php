@@ -20,6 +20,10 @@
   <body @php(body_class())>
     @php(wp_body_open())
 
+    {{-- Même bandeau que le site (événement et messages permanents), réglé au même endroit. --}}
+    <div class="attente-cadre">
+    @include('partials.bandeau', ['sans_lien' => true])
+
     <div class="attente {{ $legale ? 'attente-legale' : '' }}">
       @include('partials.poussiere')
 
@@ -71,6 +75,7 @@
           <li><a href="{{ home_url('/politique-de-confidentialite/') }}">Confidentialité</a></li>
         </ul>
       </footer>
+    </div>
     </div>
 
     @php(wp_footer())

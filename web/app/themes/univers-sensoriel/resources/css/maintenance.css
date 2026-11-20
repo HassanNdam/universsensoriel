@@ -9,6 +9,18 @@ body.attente-page {
   background: var(--sapin-profond);
 }
 
+/* Bandeau du site au-dessus : la page d'attente remplit le reste de l'écran. */
+.attente-cadre {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.attente-cadre > .attente {
+  flex: 1;
+  min-height: 0;
+}
 .attente {
   background:
     radial-gradient(56rem 38rem at 76% 38%, rgb(227 181 111 / 12%), transparent 70%),
