@@ -1,10 +1,14 @@
 {{--
   Bandeau du haut (app/bandeau.php) : l'événement du moment, puis les messages permanents qui défilent.
   Les copies qui servent à la boucle du défilement sont cachées aux lecteurs d'écran : ils lisent la liste une fois.
+  $sans_lien (page d'attente) : l'événement s'affiche sans son lien, qui mènerait vers une boutique encore fermée.
 --}}
 @php
   $messages = App\bandeau_messages();
   $evenement = App\evenement();
+  if ($evenement && ($sans_lien ?? false)) {
+    $evenement['lien'] = '';
+  }
 @endphp
 
 @if ($evenement)
