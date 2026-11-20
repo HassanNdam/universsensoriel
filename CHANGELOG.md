@@ -1,8 +1,12 @@
 # Journal des versions
 
-Les versions suivent `MAJEUR.MINEUR.CORRECTIF`. Le site n'est pas encore en ligne : la mise en ligne sera la 1.0.0.
+Les versions suivent `MAJEUR.MINEUR.CORRECTIF`. Le site est en ligne depuis la 1.0.0 : `main` est ce qui tourne sur https://universsensoriel.com.
 
 ## À venir
+
+## 1.0.0 – 20 novembre 2026
+
+Mise en ligne sur https://universsensoriel.com (hébergement IONOS), page d'attente active jusqu'à l'ouverture, paiement Stripe en mode test.
 
 Partage sur les réseaux : description sur toutes les adresses (458 relevées, toutes avec image 1200 × 630, titre et description).
 
