@@ -16,6 +16,7 @@ namespace App;
 const MISES_A_JOUR = [
     'boutique-unique' => __NAMESPACE__ . '\\maj_boutique_unique',
     'descriptions-partage' => __NAMESPACE__ . '\\maj_descriptions_partage',
+    'partage-attente' => __NAMESPACE__ . '\\maj_partage_attente',
 ];
 
 add_action('init', function (): void {
@@ -234,4 +235,17 @@ function maj_descriptions_partage(): void
         'Conseils soin de la peau du journal Univers Sensoriel : reconnaître son type de peau, nettoyer son visage, choisir des soins aux peptides.' => 'Skincare advice from the Univers Sensoriel journal: identifying your skin type, cleansing your face and choosing peptide skincare.',
         'Accessoires parfum Univers Sensoriel : de quoi emporter votre extrait de parfum partout et le garder intact, en voyage comme au quotidien.' => 'Univers Sensoriel perfume accessories: everything to take your extrait de parfum anywhere and keep it intact, travelling or every day.',
     ]);
+}
+
+/**
+ * 20/11/2026 : la page d'attente partageait le logo (PNG transparent 1452 × 716, rogné dans les aperçus).
+ * Le réglage est vidé s'il pointe encore sur le logo : le visuel d'origine reprend sa place
+ * (resources/images/partage-bientot-en-ligne.jpg, 1200 × 630). Une autre image choisie n'est pas touchée.
+ */
+function maj_partage_attente(): void
+{
+    $id = (int) get_option('options_attente_seo_image');
+    if ($id && str_starts_with(basename((string) get_attached_file($id)), 'logo-univers-sensoriel')) {
+        update_option('options_attente_seo_image', '');
+    }
 }
