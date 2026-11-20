@@ -30,3 +30,17 @@ if (! is_admin()) {
     add_filter('get_term', $decoder);
     add_filter('get_terms', fn ($termes) => is_array($termes) ? array_map($decoder, $termes) : $termes);
 }
+
+/** Pages renommées (ancien chemin => nouveau) : l'ancienne adresse renvoie vers la nouvelle (301). */
+const PAGES_RENOMMEES = ['nos-boutiques' => 'notre-boutique'];
+
+add_action('template_redirect', function () {
+    if (! is_404()) {
+        return;
+    }
+    $ancien = basename(trim((string) wp_parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH), '/'));
+    if (isset(PAGES_RENOMMEES[$ancien]) && ($page = get_page_by_path(PAGES_RENOMMEES[$ancien]))) {
+        wp_safe_redirect(get_permalink($page), 301);
+        exit;
+    }
+});

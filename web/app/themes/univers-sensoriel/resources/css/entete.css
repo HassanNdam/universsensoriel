@@ -1,33 +1,4 @@
-/* Bandeau, en-tête sapin collant, méga-menu, recherche, menu mobile, garanties, pied de page. */
-
-.bandeau {
-  background: var(--lin);
-  color: var(--sapin);
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  padding: 0.6rem var(--gouttiere);
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.bandeau p {
-  align-items: center;
-  display: flex;
-  gap: 0.85rem;
-  justify-content: center;
-}
-
-.bandeau .icone {
-  color: var(--or);
-}
-
-@media (max-width: 720px) {
-  .bandeau-sep,
-  .bandeau-plus {
-    display: none;
-  }
-}
+/* En-tête sapin collant, méga-menu, recherche, menu mobile, garanties, pied de page. */
 
 .entete {
   background: var(--sapin);
@@ -507,7 +478,6 @@
 /* Moyens de paiement : logos aux couleurs des marques, posés tels quels sur le sapin. */
 .pied-paiement {
   align-items: center;
-  border-top: 1px solid var(--filet-clair);
   display: flex;
   flex-wrap: wrap;
   gap: 1rem 2rem;
@@ -560,7 +530,6 @@
 
 .pied-bas {
   align-items: center;
-  border-top: 1px solid var(--filet-clair);
   color: rgb(247 240 228 / 70%);
   display: flex;
   flex-wrap: wrap;

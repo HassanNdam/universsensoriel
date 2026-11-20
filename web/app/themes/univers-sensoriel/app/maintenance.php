@@ -4,10 +4,9 @@
  * Page d'attente « bientôt en ligne ». Tant que le site n'est pas en production, les visiteurs non connectés
  * ne voient que resources/views/maintenance.blade.php ; une personne connectée navigue normalement.
  *
- * Interrupteur : constante US_MAINTENANCE (config/application.php), vraie dès que WP_ENV n'est pas « production ».
- * Pour forcer : US_MAINTENANCE=true ou US_MAINTENANCE=false dans le .env.
- *
- * Titre, description et image de partage : MAINTENANCE_SEO ci-dessous.
+ * Interrupteur, textes, titre et image de partage : Univers Sensoriel › Page d'attente (réglages attente_* de app/reglages.php).
+ * Sur « Automatique », la constante US_MAINTENANCE décide (config/application.php) : vraie dès que WP_ENV n'est pas
+ * « production », ou forcée par US_MAINTENANCE=true / false dans le .env. « Affichée » et « Masquée » passent avant le .env.
  *
  * Restent ouverts : l'analyse Yoast de l'admin (jeton signé ?us-analyse=…), la connexion (/wp/wp-login.php), l'administration, l'API REST, admin-ajax (formulaires Forminator)
  * et les retours de paiement (wc-api, wc-ajax). Les pages légales liées depuis la page d'attente restent lisibles,
@@ -21,6 +20,11 @@ const MAINTENANCE_PAGES_OUVERTES = ['mentions-legales', 'politique-de-confidenti
 
 function maintenance_active(): bool
 {
+    $mode = reglage('attente_mode');
+    if ($mode === 'oui' || $mode === 'non') {
+        return $mode === 'oui';
+    }
+
     return defined('US_MAINTENANCE') ? (bool) US_MAINTENANCE : (defined('WP_ENV') && WP_ENV !== 'production');
 }
 
@@ -64,20 +68,16 @@ function jeton_analyse_valide(string $jeton): bool
 
 /**
  * Titre, description et aperçu de partage de la page d'attente (Yoast) : les mêmes pour toutes les adresses,
- * et non ceux de la page d'accueil. Requête cible « Univers Sensoriel », en tête du titre et de la description.
- * Image de partage : resources/images/partage-bientot-en-ligne.jpg (1200 × 630, source dans docs/03-images-site/partage).
+ * et non ceux de la page d'accueil. Saisis dans Univers Sensoriel › Page d'attente › Google et partage.
+ * Image de partage d'origine : resources/images/partage-bientot-en-ligne.jpg (1200 × 630, source dans docs/03-images-site/partage).
  */
-const MAINTENANCE_SEO = [
-    'titre' => 'Univers Sensoriel : la boutique en ligne ouvre bientôt',
-    'description' => 'Univers Sensoriel ouvre bientôt sa boutique en ligne : extraits de parfum, soins et senteurs pour la maison. Boutiques ouvertes à Metz et Yaoundé.',
-    'image' => 'partage-bientot-en-ligne.jpg',
-    'alt' => 'Univers Sensoriel : la boutique en ligne ouvre bientôt, extraits de parfum devant un bol d’encens',
-];
-
 function maintenance_referencement(): void
 {
-    $seo = MAINTENANCE_SEO;
-    $image = image($seo['image']);
+    $seo = ['titre' => texte('attente_seo_titre'), 'description' => texte('attente_seo_description'), 'alt' => texte('attente_seo_alt')];
+    $choisie = (int) reglage('attente_seo_image');
+    $fichier = $choisie ? wp_get_attachment_image_src($choisie, 'full') : false;
+    [$image, $largeur, $hauteur] = $fichier ?: [image('partage-bientot-en-ligne.jpg'), 1200, 630];
+    $type = $choisie ? (string) get_post_mime_type($choisie) : 'image/jpeg';
     $valeurs = [
         'pre_get_document_title' => $seo['titre'],
         'wpseo_title' => $seo['titre'],
@@ -87,9 +87,9 @@ function maintenance_referencement(): void
         'wpseo_opengraph_url' => home_url('/'),
         'wpseo_opengraph_type' => 'website',
         'wpseo_opengraph_image' => $image,
-        'wpseo_opengraph_image_width' => 1200,
-        'wpseo_opengraph_image_height' => 630,
-        'wpseo_opengraph_image_type' => 'image/jpeg',
+        'wpseo_opengraph_image_width' => $largeur,
+        'wpseo_opengraph_image_height' => $hauteur,
+        'wpseo_opengraph_image_type' => $type,
         'wpseo_twitter_title' => $seo['titre'],
         'wpseo_twitter_description' => $seo['description'],
         'wpseo_twitter_image' => $image,
@@ -152,4 +152,10 @@ add_action('admin_bar_menu', function (\WP_Admin_Bar $barre) {
         'href' => add_query_arg('maintenance', '1', home_url('/')),
         'meta' => ['title' => 'Voir la page que reçoivent les visiteurs non connectés'],
     ]);
+    if (function_exists('acf_add_options_page')) {
+        $barre->add_node([
+            'parent' => 'us-maintenance', 'id' => 'us-maintenance-reglages', 'title' => 'Régler la page d’attente',
+            'href' => admin_url('admin.php?page=us-attente'),
+        ]);
+    }
 }, 90);

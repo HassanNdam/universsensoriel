@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "us/hebergeur",
+  "title": "Hébergeur",
+  "description": "Hébergeur du site pour les mentions légales, lu dans Univers Sensoriel › Coordonnées › Mentions légales.",
+  "category": "univers-sensoriel",
+  "icon": "cloud",
+  "keywords": ["mentions", "hébergement"],
+  "supports": { "html": false, "align": false, "customClassName": false, "reusable": false },
+  "acf": { "mode": "preview", "renderCallback": "App\\rendu_bloc" }
+}

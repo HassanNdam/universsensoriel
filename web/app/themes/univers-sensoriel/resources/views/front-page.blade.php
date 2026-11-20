@@ -3,19 +3,15 @@
 @section('content')
   @php
     $boutique = function_exists('wc_get_products');
-    $lien = fn (string $slug) => $boutique && ! is_wp_error($u = get_term_link($slug, 'product_cat')) ? $u : home_url('/boutique/');
-    $onglets = $boutique ? [
-      'elle' => ['Pour elle', App\produits_vedettes('parfums-femme', 8), $lien('parfums-femme')],
-      'lui' => ['Pour lui', App\produits_vedettes('parfums-homme', 8), $lien('parfums-homme')],
-      'soins' => ['Soins', App\produits_vedettes(['rituels-et-coffrets', 'soin-du-visage'], 8), $lien('beaute')],
-      'maison' => ['Maison', App\produits_vedettes(['parfums-d-ambiance', 'huiles-essentielles'], 8), $lien('art-de-vivre')],
-    ] : [];
-    $univers = [
-      ['parfums', 'Parfums', 'Extraits concentrés à 30 %', 'extrait-de-parfum-homme-notes-boisees', 'Flacon d\'extrait de parfum posé sur une écorce, entouré de fleurs'],
-      ['beaute', 'Beauté', 'Visage, corps et cheveux', 'coffret-soins-visage-peptilux', 'Coffret de soins du visage ouvert sur une table de marbre'],
-      ['bien-etre', 'Bien-être', 'Huiles essentielles et végétales', 'huile-vegetale-amande-douce', 'Flacon d\'huile d\'amande douce entouré d\'amandes et de fleurs'],
-      ['art-de-vivre', 'Art de vivre', 'Parfums d\'ambiance', 'parfum-d-ambiance-diffuseur-salon', 'Diffuseur de parfum à bâtonnets dans un salon'],
-    ];
+    // Textes, photos et rayons de cette page : Univers Sensoriel › Accueil (app/reglages.php).
+    $onglets = [];
+    foreach ($boutique ? App\lignes('essentiels', ['libelle']) : [] as $rang => $onglet) {
+      $produits = ($slugs = App\rayons($onglet['rayons'] ?? [])) ? App\produits_vedettes($slugs, 8) : [];
+      if ($produits) {
+        $onglets[$rang] = [$onglet['libelle'], $produits, App\lien_rayon($onglet['lien'] ?: $slugs)];
+      }
+    }
+    $univers = $boutique ? App\univers() : [];
     $familles = $boutique && taxonomy_exists('pa_famille-olfactive')
       ? get_terms(['taxonomy' => 'pa_famille-olfactive', 'hide_empty' => true, 'orderby' => 'count', 'order' => 'DESC', 'number' => 8]) : [];
     $matieres = ['floral' => 'fleur-de-lys-matiere-premiere', 'boise' => 'bois-de-cedre-matiere-premiere', 'gourmand' => 'cacao-matiere-premiere', 'epice' => 'gingembre-matiere-premiere'];
@@ -24,19 +20,20 @@
 
   {{-- 1. Visuel d'ouverture --}}
   <section class="ouverture">
+    @include('partials.poussiere')
     <div class="conteneur ouverture-grille">
       <div class="ouverture-texte">
-        <h1>Parfums, soins et rituels pour <span class="titre-or"><span class="titre-or-texte">éveiller les sens</span><svg class="titre-ruban" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M6 19C62 6 118 24 176 15S268 3 314 11"/></svg>{!! App\icone('etoile', 24, 'titre-etoile') !!}</span></h1>
-        <p class="chapo">Extraits de parfum longue tenue, soins et senteurs pour la maison.</p>
+        <h1>{!! App\titre_or(App\texte('ouverture_titre')) !!}</h1>
+        <p class="chapo">{{ App\texte('ouverture_texte') }}</p>
         <div class="ouverture-actions">
-          <a class="bouton bouton-clair" href="{{ $lien('parfums') }}">Découvrir les parfums</a>
-          <a class="lien-or" href="{{ $lien('beaute') }}">Explorer les soins {!! App\icone('fleche', 18) !!}</a>
+          <a class="bouton bouton-clair" href="{{ App\lien_rayon('parfums') }}">{{ App\texte('ouverture_bouton') }}</a>
+          <a class="lien-or" href="{{ App\lien_rayon('beaute') }}">{{ App\texte('ouverture_lien') }} {!! App\icone('fleche', 18) !!}</a>
         </div>
       </div>
       <div class="ouverture-scene" aria-hidden="true">
-        <div class="ouverture-arche">{!! App\visuel('encens-bois-de-santal-parfum', '', ['loading' => 'eager', 'fetchpriority' => 'high']) !!}</div>
-        <div class="ouverture-flacon ouverture-flacon-1">{!! App\visuel('flacon-extrait-de-parfum-homme', '', ['loading' => 'eager']) !!}</div>
-        <div class="ouverture-flacon ouverture-flacon-2">{!! App\visuel('flacon-extrait-de-parfum-femme', '', ['loading' => 'eager']) !!}</div>
+        <div class="ouverture-arche">@include('partials.diapos', ['images' => App\diapos(), 'tailles' => '(min-width: 980px) 38rem, 92vw'])</div>
+        <div class="ouverture-flacon ouverture-flacon-1">{!! App\media(App\reglage('ouverture_flacon_1'), '', ['loading' => 'eager']) !!}</div>
+        <div class="ouverture-flacon ouverture-flacon-2">{!! App\media(App\reglage('ouverture_flacon_2'), '', ['loading' => 'eager']) !!}</div>
         <span class="ouverture-etoile">{!! App\icone('etoile', 34) !!}</span>
       </div>
     </div>
@@ -47,8 +44,8 @@
     <section class="section selection" data-onglets>
       <div class="conteneur">
         <header class="section-tete">
-          <h2>Nos essentiels</h2>
-          <div class="onglets" role="tablist" aria-label="Sélection par univers">
+          <h2>{{ App\texte('essentiels_titre') }}</h2>
+          <div class="onglets" role="tablist" aria-label="{{ App\texte('essentiels_titre') }}">
             @foreach ($onglets as $cle => [$libelle])
               <button type="button" role="tab" id="onglet-{{ $cle }}" aria-controls="panneau-{{ $cle }}" aria-selected="{{ $loop->first ? 'true' : 'false' }}" @if (! $loop->first) tabindex="-1" @endif>{{ $libelle }}</button>
             @endforeach
@@ -61,7 +58,7 @@
                 @include('partials.carte-produit', ['produit' => $produit])
               @endforeach
             </div>
-            <p class="section-suite"><a class="bouton bouton-contour" href="{{ $url }}">Tout voir</a></p>
+            <p class="section-suite"><a class="bouton bouton-contour" href="{{ $url }}">{{ App\texte('essentiels_bouton') }}</a></p>
           </div>
         @endforeach
       </div>
@@ -69,42 +66,46 @@
   @endif
 
   {{-- 3. Les quatre univers --}}
-  <section class="section univers">
-    <div class="conteneur">
-      <header class="section-tete">
-        <h2>Nos univers</h2>
-      </header>
-      <ul class="univers-grille">
-        @foreach ($univers as [$slug, $nom, $texte, $image, $alt])
-          <li>
-            <a class="tuile" href="{{ $lien($slug) }}">
-              <span class="tuile-image">{!! App\visuel($image, $alt, ['sizes' => '(min-width: 900px) 25vw, 50vw']) !!}</span>
-              <span class="tuile-texte">
-                <strong>{{ $nom }}</strong>
-                <span>{{ $texte }}</span>
-              </span>
-            </a>
-          </li>
-        @endforeach
-      </ul>
-    </div>
-  </section>
+  @if ($univers)
+    <section class="section univers">
+      <div class="conteneur">
+        <header class="section-tete">
+          <h2>{{ App\texte('univers_titre') }}</h2>
+        </header>
+        <ul class="univers-grille">
+          @foreach ($univers as $tuile)
+            <li>
+              <a class="tuile" href="{{ get_term_link($tuile['terme']) }}">
+                <span class="tuile-image">{!! App\media($tuile['image'], $tuile['alt'], ['sizes' => '(min-width: 900px) 25vw, 50vw']) !!}</span>
+                <span class="tuile-texte">
+                  <strong>{{ $tuile['terme']->name }}</strong>
+                  <span>{{ $tuile['texte'] }}</span>
+                </span>
+              </a>
+            </li>
+          @endforeach
+        </ul>
+      </div>
+    </section>
+  @endif
 
   {{-- 4. La Maison : bloc sombre --}}
   <section class="maison">
-    <div class="maison-image">{!! App\visuel('aloe-vera-feuilles', 'Feuilles d\'aloe vera, l\'un des actifs de nos soins') !!}</div>
+    <div class="maison-image">{!! App\media(App\reglage('maison_image'), App\texte('maison_image_alt')) !!}</div>
     <div class="maison-texte">
-      <p class="surtitre surtitre-clair">La Maison</p>
-      <blockquote>
-        <p>Le vrai luxe n'est pas ce que l'on voit. C'est ce que l'on ressent.</p>
-      </blockquote>
-      <p>Nous choisissons chaque parfum et chaque soin pour sa qualité, sa tenue et le plaisir qu'il procure.</p>
+      <p class="surtitre surtitre-clair">{{ App\texte('maison_surtitre') }}</p>
+      @if ($citation = App\texte('maison_citation'))
+        <blockquote>
+          <p>{{ $citation }}</p>
+        </blockquote>
+      @endif
+      <p>{{ App\texte('maison_texte') }}</p>
       <ul class="maison-points">
-        <li>{!! App\icone('goutte', 22) !!} Extraits de parfum concentrés à 30 %</li>
-        <li>{!! App\icone('feuille', 22) !!} Formules et actifs choisis avec soin</li>
-        <li>{!! App\icone('boutique', 22) !!} Deux boutiques : Metz et Yaoundé</li>
+        @foreach (App\lignes('maison_points', ['texte']) as $point)
+          <li>{!! App\icone($point['icone'], 22) !!} {{ $point['texte'] }}</li>
+        @endforeach
       </ul>
-      <a class="bouton bouton-clair" href="{{ home_url('/la-maison/') }}">Notre histoire</a>
+      <a class="bouton bouton-clair" href="{{ home_url('/la-maison/') }}">{{ App\texte('maison_bouton') }}</a>
     </div>
   </section>
 
@@ -113,7 +114,7 @@
     <section class="section familles">
       <div class="conteneur">
         <header class="section-tete">
-          <h2>Choisir par famille olfactive</h2>
+          <h2>{{ App\texte('familles_titre') }}</h2>
         </header>
         <div class="familles-grille">
           <ul class="familles-photos">
@@ -133,7 +134,7 @@
             @foreach ($familles as $famille)
               <li><a class="pastille" href="{{ get_term_link($famille) }}">{{ $famille->name }} <small>{{ $famille->count }}</small></a></li>
             @endforeach
-            <li><a class="pastille pastille-pleine" href="{{ home_url('/guide-des-familles-olfactives/') }}">Lire le guide</a></li>
+            <li><a class="pastille pastille-pleine" href="{{ home_url('/guide-des-familles-olfactives/') }}">{{ App\texte('familles_bouton') }}</a></li>
           </ul>
         </div>
       </div>
@@ -144,23 +145,23 @@
   <section class="honneur">
     <div class="conteneur honneur-grille">
       <div class="honneur-image">
-        {!! App\visuel('parfum-luxury-fleurs-et-epices', 'Flacon de la collection Luxury posé parmi des fleurs et des épices') !!}
+        {!! App\media(App\reglage('honneur_image'), App\texte('honneur_image_alt')) !!}
       </div>
       <div class="honneur-texte">
-        <p class="surtitre">Collection Luxury</p>
-        <h2>Les matières les plus précieuses</h2>
-        <p>Oud, safran, vanille, fleurs rares. Pour elle et pour lui.</p>
-        <a class="bouton" href="{{ $lien('collection-luxury') }}">Voir la collection</a>
+        <p class="surtitre">{{ App\texte('honneur_surtitre') }}</p>
+        <h2>{{ App\texte('honneur_titre') }}</h2>
+        <p>{{ App\texte('honneur_texte') }}</p>
+        <a class="bouton" href="{{ App\lien_rayon(App\reglage('honneur_rayon')) }}">{{ App\texte('honneur_bouton') }}</a>
       </div>
     </div>
   </section>
 
   {{-- 7. Nouveautés bien-être --}}
-  @if ($boutique && ($rituels = App\produits_vedettes(['huiles-vegetales', 'brumes-parfumees', 'corps-et-bain'], 4)))
+  @if ($boutique && ($slugs = App\rayons(App\reglage('rituels_rayons'))) && ($rituels = App\produits_vedettes($slugs, 4)))
     <section class="section">
       <div class="conteneur">
         <header class="section-tete">
-          <h2>Brumes, huiles et soins du corps</h2>
+          <h2>{{ App\texte('rituels_titre') }}</h2>
         </header>
         <div class="grille-produits">
           @foreach ($rituels as $produit)
@@ -177,11 +178,11 @@
     <section class="section avis-accueil">
       <div class="conteneur">
         <header class="section-tete">
-          <h2>Avis clients</h2>
-          <p class="section-intro">Publiés mot pour mot.</p>
+          <h2>{{ App\texte('avis_titre') }}</h2>
+          <p class="section-intro">{{ App\texte('avis_intro') }}</p>
         </header>
-        @include('partials.avis-carrousel', ['liste' => $avisAccueil, 'lienProduit' => true, 'titre' => 'Avis clients'])
-        <p class="avis-note"><a class="lien-or" href="{{ home_url('/avis-clients/') }}">Tous les avis {!! App\icone('fleche', 16) !!}</a></p>
+        @include('partials.avis-carrousel', ['liste' => $avisAccueil, 'lienProduit' => true, 'titre' => App\texte('avis_titre')])
+        <p class="avis-note"><a class="lien-or" href="{{ home_url('/avis-clients/') }}">{{ App\texte('avis_lien') }} {!! App\icone('fleche', 16) !!}</a></p>
       </div>
     </section>
   @endif
@@ -191,14 +192,14 @@
     <section class="section section-blanche">
       <div class="conteneur">
         <header class="section-tete">
-          <h2>Le journal</h2>
+          <h2>{{ App\texte('journal_titre') }}</h2>
         </header>
         <div class="journal-grille">
           @foreach ($articles as $article)
             @include('partials.carte-article', ['article' => $article])
           @endforeach
         </div>
-        <p class="section-suite"><a class="bouton bouton-contour" href="{{ get_permalink(get_option('page_for_posts')) }}">Tous les articles</a></p>
+        <p class="section-suite"><a class="bouton bouton-contour" href="{{ get_permalink(get_option('page_for_posts')) }}">{{ App\texte('journal_bouton') }}</a></p>
       </div>
     </section>
   @endif
@@ -207,19 +208,19 @@
   <section class="rendez-vous">
     <div class="conteneur rendez-vous-grille">
       <div>
-        <h2>Sentir, essayer, demander conseil</h2>
-        <p>En boutique ou par message, nous vous aidons à choisir.</p>
+        <h2>{{ App\texte('conseil_titre') }}</h2>
+        <p>{{ App\texte('conseil_texte') }}</p>
         <div class="ouverture-actions">
-          <a class="bouton bouton-clair" href="{{ App\lien_whatsapp('Bonjour, j\'aimerais un conseil pour choisir un parfum.') }}" target="_blank" rel="noopener">{!! App\icone('whatsapp', 20) !!} Demander conseil</a>
-          <a class="lien-or" href="{{ home_url('/contact/') }}">Formulaire de contact {!! App\icone('fleche', 18) !!}</a>
-          <a class="lien-or" href="{{ home_url('/nos-boutiques/') }}">Nos boutiques {!! App\icone('fleche', 18) !!}</a>
+          <a class="bouton bouton-clair" href="{{ App\lien_whatsapp('wa_conseil') }}" target="_blank" rel="noopener">{!! App\icone('whatsapp', 20) !!} {{ App\texte('conseil_bouton') }}</a>
+          <a class="lien-or" href="{{ home_url('/contact/') }}">{{ App\texte('conseil_lien_contact') }} {!! App\icone('fleche', 18) !!}</a>
+          <a class="lien-or" href="{{ home_url('/notre-boutique/') }}">{{ App\texte('conseil_lien_boutiques') }} {!! App\icone('fleche', 18) !!}</a>
         </div>
       </div>
       <ul class="rendez-vous-boutiques">
         @foreach ($c['boutiques'] as $b)
           <li>
             {!! App\icone('boutique', 28) !!}
-            <p><strong>{{ $b['ville'] }}</strong><span>{{ $b['pays'] }} · {{ $b['enseigne'] }}</span><a href="tel:{{ preg_replace('/\s+/', '', $b['telephone']) }}">{{ $b['telephone'] }}</a></p>
+            <p><strong>{{ $b['ville'] }}</strong><span>{{ $b['pays'] }} · {{ $b['enseigne'] }}</span>@if ($b['adresse'])<span>{{ $b['adresse'] }}</span>@endif @if ($b['telephone'])<a href="{{ App\lien_telephone($b['telephone']) }}">{{ $b['telephone'] }}</a>@endif</p>
           </li>
         @endforeach
       </ul>

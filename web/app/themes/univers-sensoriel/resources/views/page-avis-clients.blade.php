@@ -10,7 +10,7 @@
       <div class="conteneur">
         @include('partials.fil')
         <h1>{{ get_the_title() }}</h1>
-        <p class="rayon-intro">Publiés mot pour mot, avec leur date.</p>
+        <p class="rayon-intro">{{ App\texte('avis_page_intro') }}</p>
       </div>
     </header>
 

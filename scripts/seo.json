@@ -1,5 +1,5 @@
 {
-  "_lisez-moi": "Référencement (Yoast SEO) des pages, des rayons et des articles. Appliqué par scripts/seo.php à chaque `composer seed` (ou `composer seo` seul) ; une valeur retouchée dans Yoast est conservée (US_SEED_FORCE=1 pour tout réappliquer). Pages repérées par slug, rayons par slug de catégorie. Titre ≤ 60 caractères, description 120-155, « image » = fichier de docs/03-images-site/partage (1200 × 630) montré lors d'un partage. Les fiches produit sont dans scripts/seo-fiches.json (fabriqué par scripts/catalogue/seo_fiches.py), les notes Yoast dans scripts/seo-scores.json.",
+  "_lisez-moi": "Référencement (Yoast SEO) des pages, des rayons et des articles. Appliqué par scripts/seo.php à chaque `composer seed` (ou `composer seo` seul) ; une valeur retouchée dans Yoast est conservée (US_SEED_FORCE=1 pour tout réappliquer). Pages repérées par slug, rayons par slug de catégorie, rubriques du journal par slug de catégorie d'articles. Titre ≤ 60 caractères, description 120-155, « image » = fichier de docs/03-images-site/partage (1200 × 630) montré lors d'un partage. Les fiches produit sont dans scripts/seo-fiches.json (fabriqué par scripts/catalogue/seo_fiches.py), les notes Yoast dans scripts/seo-scores.json.",
   "pages": {
     "accueil": {
       "titre": "Extraits de parfum, soins et bien-être | Univers Sensoriel",
@@ -15,7 +15,7 @@
     },
     "la-maison": {
       "titre": "La Maison : notre histoire, nos valeurs | Univers Sensoriel",
-      "description": "Univers Sensoriel by K.Elle : une Maison de parfums, de soins et de bien-être née d'une conviction, le luxe discret pour tous. Boutiques à Metz et Yaoundé.",
+      "description": "Univers Sensoriel by K.Elle : une Maison de parfums, de soins et de bien-être née d'une conviction, le luxe discret pour tous. Boutique à Metz.",
       "motcle": "Univers Sensoriel",
       "image": "partage-la-maison-encens-santal.jpg",
       "alt": "Encens de bois de santal fumant dans un bol en bois"
@@ -27,10 +27,10 @@
       "image": "partage-contact-conseil-soin.jpg",
       "alt": "Gel visage Aurodhea posé sur une pierre"
     },
-    "nos-boutiques": {
-      "titre": "Nos boutiques à Metz et à Yaoundé | Univers Sensoriel",
-      "description": "Venez sentir les parfums et demander conseil dans nos boutiques de Metz (France) et de Yaoundé (Cameroun). Retrait gratuit des commandes à Metz.",
-      "motcle": "boutiques",
+    "notre-boutique": {
+      "titre": "Notre boutique à Metz | Univers Sensoriel",
+      "description": "Venez sentir les parfums et demander conseil dans notre boutique de Metz, 57 rue des Allemands. Retrait gratuit des commandes passées sur le site.",
+      "motcle": "boutique Metz",
       "image": "partage-boutiques-parfum-d-ambiance.jpg",
       "alt": "Diffuseur de parfum d'ambiance à bâtonnets dans un salon"
     },
@@ -76,13 +76,16 @@
       "motcle": "politique de confidentialité"
     },
     "panier": {
-      "noindex": true
+      "noindex": true,
+      "description": "Votre panier Univers Sensoriel : extraits de parfum, soins et bien-être. Paiement sécurisé, livraison en France ou retrait gratuit à Metz."
     },
     "commande": {
-      "noindex": true
+      "noindex": true,
+      "description": "Finaliser votre commande Univers Sensoriel : livraison en France ou retrait gratuit à la boutique de Metz, paiement sécurisé."
     },
     "mon-compte": {
-      "noindex": true
+      "noindex": true,
+      "description": "Votre compte Univers Sensoriel : suivi de vos commandes, adresses de livraison et de facturation, détails du compte et mot de passe."
     },
     "journal": {
       "titre": "Le journal : conseils parfum, soin et bien-être",
@@ -97,6 +100,10 @@
       "motcle": "avis clients",
       "image": "partage-avis-brume-parfumee.jpg",
       "alt": "Femme tenant une brume parfumée Aurodhea"
+    },
+    "politique-de-cookies": {
+      "titre": "Politique de cookies | Univers Sensoriel",
+      "description": "Cookies du site Univers Sensoriel by K.Elle : cookies nécessaires au panier et au compte, mesure d'audience, durée de conservation et vos choix."
     }
   },
   "rayons": {
@@ -237,7 +244,8 @@
       "motcle": "compléments alimentaires"
     },
     "accessoires-parfum": {
-      "noindex": true
+      "noindex": true,
+      "description": "Accessoires parfum Univers Sensoriel : de quoi emporter votre extrait de parfum partout et le garder intact, en voyage comme au quotidien."
     }
   },
   "articles": {
@@ -285,5 +293,19 @@
   "partage": {
     "defaut": "partage-univers-sensoriel-parfums-soins.jpg",
     "alt": "Extraits de parfum Univers Sensoriel devant un bol d'encens"
+  },
+  "rubriques": {
+    "bien-etre": {
+      "description": "Conseils bien-être du journal Univers Sensoriel : huiles essentielles pour vos rituels, collagène à boire et gestes simples pour prendre soin de soi."
+    },
+    "cheveux": {
+      "description": "Conseils cheveux du journal Univers Sensoriel : routine capillaire en neuf gestes, pellicules et cuir chevelu, pour des cheveux forts et brillants."
+    },
+    "parfum": {
+      "description": "Conseils parfum du journal Univers Sensoriel : faire tenir son parfum toute la journée, les bons gestes pour l'appliquer et le conserver."
+    },
+    "soin-de-la-peau": {
+      "description": "Conseils soin de la peau du journal Univers Sensoriel : reconnaître son type de peau, nettoyer son visage, choisir des soins aux peptides."
+    }
   }
 }

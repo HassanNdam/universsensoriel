@@ -8,9 +8,6 @@ namespace App;
 
 use Illuminate\Support\Facades\Vite;
 
-/** Seuil de livraison offerte (charte) : doit rester égal au réglage WooCommerce › Expédition. */
-const SEUIL_LIVRAISON = 49;
-
 /** Pluriel d'une famille olfactive : « Parfums floraux », « Parfums boisés ». */
 function famille_au_pluriel(string $nom): string
 {
@@ -56,6 +53,7 @@ function icone(string $nom, int $taille = 24, string $classe = ''): string
         'instagram' => '<rect x="4" y="4" width="16" height="16" rx="4.500"/><circle cx="12" cy="12" r="3.600"/><circle cx="16.700" cy="7.300" r=".6"/>',
         'facebook' => '<path d="M14 21v-7.500h2.600l.4-3H14V8.700c0-.9.300-1.500 1.600-1.500H17V4.500c-.300 0-1.200-.1-2.200-.1-2.200 0-3.700 1.300-3.700 3.800v2.300H8.500v3h2.600V21"/>',
         'coche' => '<path d="m5 12.500 4.500 4.500L19 7.500"/>',
+        'globe' => '<circle cx="12" cy="12" r="8.500"/><path d="M3.500 12h17M12 3.500c2.400 2.500 3.600 5.300 3.600 8.500s-1.200 6-3.600 8.500c-2.400-2.500-3.600-5.300-3.600-8.500S9.600 6 12 3.500Z"/>',
     ];
     if (! isset($traces[$nom])) {
         return '';
@@ -87,22 +85,31 @@ function visuel(string $nom, string $alt, array $attributs = []): string
     return sprintf('<img src="%s" alt="%s" width="%d" height="%d"%s>', esc_url(image("site/{$nom}.webp")), esc_attr($alt), $taille[0], $taille[1], $html);
 }
 
-/** Coordonnées de la Maison. À tenir à jour ici : elles alimentent pied de page, contact et données structurées. */
+/**
+ * Coordonnées de la Maison, saisies dans Univers Sensoriel › Coordonnées (app/reglages.php) :
+ * elles alimentent pied de page, contact, pages légales et données structurées.
+ */
 function coordonnees(): array
 {
     return [
-        'courriel' => 'contact@universsensoriel.com',
-        'telephone' => '+33 6 05 78 40 11',
-        'whatsapp' => '33605784011',
-        'boutiques' => [
-            [
-                'ville' => 'Metz', 'pays' => 'France', 'enseigne' => 'Kacy Afro Center', 'telephone' => '+33 6 41 25 22 71',
-                'adresse' => '57 rue des Allemands, 57000 Metz',
-                'horaires' => ['Lundi, mardi et jeudi' => '14 h – 19 h', 'Mercredi' => '11 h – 19 h', 'Vendredi et samedi' => '10 h – 19 h', 'Dimanche' => 'Fermé'],
-            ],
-            ['ville' => 'Yaoundé', 'pays' => 'Cameroun', 'enseigne' => 'Style Mondial', 'telephone' => '+237 56 22 82 25'],
-        ],
+        'courriel' => sanitize_email(texte('courriel')),
+        'telephone' => texte('telephone'),
+        'whatsapp' => preg_replace('/\D+/', '', texte('whatsapp')),
+        'boutiques' => array_map(fn ($b) => $b + ['ville' => '', 'pays' => '', 'enseigne' => '', 'adresse' => '', 'telephone' => '', 'telephone_2' => '', 'mention' => '']
+            + ['horaires' => []], array_map(fn ($b) => ['horaires' => array_values(array_filter((array) ($b['horaires'] ?? []), 'is_array'))] + $b, lignes('boutiques', ['ville', 'enseigne']))),
     ];
+}
+
+/** « Notre boutique », ou « Nos boutiques » si plusieurs sont saisies dans Univers Sensoriel › Coordonnées. */
+function boutiques_titre(): string
+{
+    return count(coordonnees()['boutiques']) > 1 ? 'Nos boutiques' : 'Notre boutique';
+}
+
+/** Lien tel: d'un numéro écrit avec des espaces. */
+function lien_telephone(string $numero): string
+{
+    return 'tel:' . preg_replace('/[^+\d]/', '', $numero);
 }
 
 /**
@@ -116,20 +123,42 @@ function formulaire(string $cle): string
     return $id && shortcode_exists('forminator_form') ? do_shortcode('[forminator_form id="' . $id . '"]') : '';
 }
 
-function lien_whatsapp(string $message = 'Bonjour, j\'ai une question.'): string
+/** Lien WhatsApp avec un message prérempli : celui du réglage $message (wa_message, wa_conseil, wa_commande), ou un texte libre. */
+function lien_whatsapp(string $message = 'wa_message', array $reperes = []): string
 {
-    return 'https://wa.me/' . coordonnees()['whatsapp'] . '?text=' . rawurlencode($message);
+    $texte = isset(reglages_champs()[$message]) ? texte($message, $reperes) : $message;
+
+    return 'https://wa.me/' . coordonnees()['whatsapp'] . ($texte !== '' ? '?text=' . rawurlencode($texte) : '');
 }
 
-/** Les quatre garanties affichées sous le visuel d'accueil et sur la fiche produit. */
+/** Garanties affichées au-dessus du pied de page et sur la fiche produit : [[icone, titre, texte], …]. */
 function reassurances(): array
 {
-    return [
-        ['livraison', 'Livraison offerte', 'Dès ' . SEUIL_LIVRAISON . ' € d\'achat en France'],
-        ['boutique', 'Retrait en boutique', 'Gratuit, à Metz'],
-        ['cadenas', 'Paiement sécurisé', 'Vos données restent protégées'],
-        ['whatsapp', 'Conseil personnalisé', 'WhatsApp ou formulaire, réponse sous 24 h'],
-    ];
+    return array_map(
+        fn ($g) => [(string) ($g['icone'] ?? ''), completer((string) ($g['titre'] ?? '')), completer((string) ($g['texte'] ?? ''))],
+        lignes('garanties', ['titre', 'texte'])
+    );
+}
+
+/** Tuiles « Nos univers » de l'accueil : [slug du rayon => [terme, texte, image, alt]]. Leur photo sert aussi dans le menu. */
+function univers(): array
+{
+    static $univers = null;
+    if ($univers === null) {
+        $univers = [];
+        // Photo d'origine d'un univers, gardée tant qu'aucune photo n'est choisie dans l'administration.
+        $origine = array_column(reglages_champs()['univers'][2], 'image', 'rayon');
+        foreach (lignes('univers', ['rayon']) as $ligne) {
+            if ($terme = rayon($ligne['rayon'])) {
+                $univers[$terme->slug] = [
+                    'terme' => $terme, 'texte' => (string) ($ligne['texte'] ?? ''),
+                    'image' => ($ligne['image'] ?? '') ?: ($origine[$terme->slug] ?? ''), 'alt' => (string) ($ligne['alt'] ?? ''),
+                ];
+            }
+        }
+    }
+
+    return $univers;
 }
 
 /**
@@ -142,18 +171,10 @@ function menu_principal(): array
     if ($menu !== null || ! taxonomy_exists('product_cat')) {
         return $menu ?? [];
     }
-    $visuels = [
-        'parfums' => ['extrait-de-parfum-homme-notes-boisees', 'Extrait de parfum aux notes boisées'],
-        'beaute' => ['coffret-soins-visage-peptilux', 'Coffret de soins du visage'],
-        'bien-etre' => ['huile-vegetale-amande-douce', 'Huile végétale d\'amande douce'],
-        'art-de-vivre' => ['parfum-d-ambiance-diffuseur-salon', 'Diffuseur de parfum d\'ambiance dans un salon'],
-    ];
+    $visuels = univers();
     $menu = [];
     $univers = get_terms(['taxonomy' => 'product_cat', 'parent' => 0, 'hide_empty' => true, 'meta_key' => 'order', 'orderby' => 'meta_value_num']);
     foreach (is_array($univers) ? $univers : [] as $terme) {
-        if (! isset($visuels[$terme->slug])) {
-            continue;
-        }
         $rayons = get_terms(['taxonomy' => 'product_cat', 'parent' => $terme->term_id, 'hide_empty' => true, 'meta_key' => 'order', 'orderby' => 'meta_value_num']);
         $explorer = [];
         if ($terme->slug === 'parfums' && taxonomy_exists('pa_famille-olfactive')) {
@@ -169,7 +190,7 @@ function menu_principal(): array
             'accroche' => get_term_meta($terme->term_id, '_us_accroche', true),
             'rayons' => array_map(fn ($r) => ['titre' => $r->name, 'url' => get_term_link($r), 'nombre' => $r->count], is_array($rayons) ? $rayons : []),
             'explorer' => $explorer,
-            'visuel' => $visuels[$terme->slug],
+            'visuel' => $visuels[$terme->slug]['image'] ?? '',
         ];
     }
 

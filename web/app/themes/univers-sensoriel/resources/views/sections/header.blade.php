@@ -3,15 +3,7 @@
   $boutique = function_exists('wc_get_page_permalink');
 @endphp
 
-<div class="bandeau" role="note">
-  <p>
-    {!! App\icone('etoile', 12) !!}
-    <span>Livraison offerte dès {{ App\SEUIL_LIVRAISON }} €</span>
-    <span class="bandeau-sep" aria-hidden="true">·</span>
-    <span class="bandeau-plus">Retrait gratuit à la boutique de Metz</span>
-    {!! App\icone('etoile', 12) !!}
-  </p>
-</div>
+@include('partials.bandeau')
 
 <header class="entete" data-entete>
   <div class="entete-barre conteneur">
@@ -51,7 +43,7 @@
                   </div>
                 @endif
                 <a class="mega-visuel" href="{{ $entree['url'] }}" tabindex="-1" aria-hidden="true">
-                  {!! App\visuel($entree['visuel'][0], '') !!}
+                  {!! App\media($entree['visuel']) !!}
                   <span>{{ $entree['titre'] }}</span>
                 </a>
               </div>
@@ -64,6 +56,10 @@
     </nav>
 
     <div class="entete-outils">
+      <button class="entete-reglages" type="button" aria-controls="langue-pays" aria-expanded="false" data-ouvrir="langue-pays">
+        @include('partials.langue-pays-libelle')
+        <span class="sr-only">Langue et pays</span>
+      </button>
       <button class="entete-bouton" type="button" aria-controls="recherche" aria-expanded="false" data-ouvrir="recherche">
         {!! App\icone('recherche', 24) !!}
         <span class="sr-only">Rechercher</span>
@@ -115,11 +111,16 @@
       @endforeach
       <a class="mobile-lien" href="{{ home_url('/journal/') }}">Le journal</a>
       <a class="mobile-lien" href="{{ home_url('/la-maison/') }}">La Maison</a>
-      <a class="mobile-lien" href="{{ home_url('/nos-boutiques/') }}">Nos boutiques</a>
+      <a class="mobile-lien" href="{{ home_url('/notre-boutique/') }}">{{ App\boutiques_titre() }}</a>
       <a class="mobile-lien" href="{{ home_url('/contact/') }}">Contact</a>
       @if ($boutique)
         <a class="mobile-lien" href="{{ wc_get_page_permalink('myaccount') }}">Mon compte</a>
       @endif
+      <button class="mobile-lien mobile-reglages" type="button" aria-controls="langue-pays" aria-expanded="false" data-ouvrir="langue-pays">
+        Langue et pays @include('partials.langue-pays-libelle')
+      </button>
     </nav>
   </div>
 </div>
+
+@include('partials.langue-pays')

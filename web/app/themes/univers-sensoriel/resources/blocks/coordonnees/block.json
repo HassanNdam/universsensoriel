@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "us/coordonnees",
+  "title": "Coordonnées",
+  "description": "E-mail, téléphone et WhatsApp de la Maison, lus dans Univers Sensoriel › Coordonnées.",
+  "category": "univers-sensoriel",
+  "icon": "phone",
+  "keywords": ["contact", "téléphone", "e-mail"],
+  "supports": { "html": false, "align": false, "customClassName": false, "reusable": false },
+  "acf": { "mode": "preview", "renderCallback": "App\\rendu_bloc" }
+}

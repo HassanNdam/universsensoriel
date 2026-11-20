@@ -195,7 +195,7 @@ function reste_livraison_offerte(): float
 {
     $total = WC()->cart ? (float) WC()->cart->get_displayed_subtotal() : 0;
 
-    return $total > 0 ? max(0, SEUIL_LIVRAISON - $total) : 0;
+    return $total > 0 ? max(0, seuil_livraison() - $total) : 0;
 }
 
 /** Données structurées Product : une fiche en Blade ne passe pas par le crochet habituel. */

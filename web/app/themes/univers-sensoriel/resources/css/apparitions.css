@@ -1,0 +1,43 @@
+/*
+ * Apparitions au défilement (resources/js/apparitions.js).
+ * Le script ne pose ces classes que sur les blocs encore sous l'écran au chargement : rien de ce qui est
+ * visible d'emblée n'est caché, aucun contenu ne dépend du script. Classes retirées une fois l'entrée jouée.
+ * Les transitions ne sont déclarées que sur l'état visible : le bloc se cache d'un coup, et seule l'entrée s'anime.
+ * Mouvement réduit demandé par le système : le script ne fait rien.
+ */
+
+/* Montée en fondu. --delai décale les cartes d'une même rangée. */
+.js .apparition {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+}
+
+.js .apparition.est-visible {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.9s ease var(--delai, 0ms),
+    transform 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) var(--delai, 0ms);
+}
+
+/*
+ * Rideau : la photo se dévoile de bas en haut, en reculant légèrement.
+ * Le découpage est posé sur la photo, jamais sur le cadre observé : Chrome tient compte du clip-path
+ * pour l'IntersectionObserver, et un cadre entièrement découpé ne serait jamais « vu ».
+ */
+.js .devoile {
+  overflow: hidden;
+}
+
+.js .devoile img {
+  clip-path: inset(100% 0 0 0);
+  transform: scale(1.14);
+}
+
+.js .devoile.est-visible img {
+  clip-path: inset(0);
+  transform: none;
+  transition:
+    clip-path 1.4s cubic-bezier(0.65, 0, 0.35, 1),
+    transform 2s cubic-bezier(0.2, 0.7, 0.2, 1);
+}

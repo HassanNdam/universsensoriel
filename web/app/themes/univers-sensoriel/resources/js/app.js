@@ -1,4 +1,7 @@
+import { apparitions } from './apparitions.js';
+
 import.meta.glob(['../images/**', '../fonts/**']);
+import './langues.js';
 
 document.documentElement.classList.add('js');
 
@@ -191,3 +194,42 @@ document.addEventListener('click', (evenement) => {
 document.fonts?.ready.then(avisLongs);
 window.addEventListener('resize', avisLongs, { passive: true });
 avisLongs();
+
+/* Bandeau d'événement : compte à rebours jusqu'à la fin du dernier jour ; disparaît une fois l'échéance passée. */
+document.querySelectorAll('[data-compte]').forEach((compte) => {
+  const echeance = Date.parse(compte.dataset.compte);
+  const cases = Object.fromEntries(['j', 'h', 'm', 's'].map((unite) => [unite, compte.querySelector(`[data-${unite}]`)]));
+  const lu = compte.querySelector('.sr-only');
+  const deux = (nombre) => String(nombre).padStart(2, '0');
+
+  const battre = () => {
+    const reste = Math.max(0, Math.floor((echeance - Date.now()) / 1000));
+    if (!reste) {
+      compte.hidden = true;
+      clearInterval(minuterie);
+      return;
+    }
+    const valeurs = {
+      j: String(Math.floor(reste / 86400)),
+      h: deux(Math.floor((reste % 86400) / 3600)),
+      m: deux(Math.floor((reste % 3600) / 60)),
+      s: deux(reste % 60),
+    };
+    Object.entries(valeurs).forEach(([unite, valeur]) => {
+      const chiffre = cases[unite];
+      if (!chiffre || chiffre.textContent === valeur) return;
+      chiffre.textContent = valeur;
+      // Le chiffre qui change tombe en place.
+      chiffre.classList.remove('est-change');
+      void chiffre.offsetWidth;
+      chiffre.classList.add('est-change');
+    });
+    if (lu) lu.textContent = `${valeurs.j} jours et ${Number(valeurs.h)} heures`;
+  };
+
+  const minuterie = setInterval(battre, 1000);
+  battre();
+});
+
+/* Apparitions au défilement (apparitions.js). */
+apparitions();

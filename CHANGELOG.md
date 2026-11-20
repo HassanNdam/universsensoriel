@@ -1,10 +1,41 @@
 # Journal des versions
 
-Les versions suivent `MAJEUR.MINEUR.CORRECTIF`. Le site n'est pas encore en ligne : la mise en ligne sera la 1.0.0.
+Les versions suivent `MAJEUR.MINEUR.CORRECTIF`. Le site est en ligne depuis la 1.0.0 : `main` est ce qui tourne sur https://universsensoriel.com.
 
 ## À venir
 
-Rien pour le moment.
+## 1.0.0 – 20 novembre 2026
+
+Mise en ligne sur https://universsensoriel.com (hébergement IONOS), page d'attente active jusqu'à l'ouverture, paiement Stripe en mode test.
+
+Partage sur les réseaux : description sur toutes les adresses (458 relevées, toutes avec image 1200 × 630, titre et description).
+
+- Descriptions ajoutées : rubriques du journal (Bien-être, Cheveux, Parfum, Soin de la peau), politique de cookies, panier, commande, compte, rayon Accessoires parfum. En anglais aussi.
+- `scripts/seo.json` : nouvelle section `rubriques` (catégories d'articles), appliquée par `scripts/seo.php` comme les rayons.
+
+Une seule boutique : la boutique de Yaoundé a fermé, seule reste celle de Metz.
+
+- Yaoundé retiré des boutiques, de l'accueil, de La Maison, de la page d'attente, du référencement et des traductions.
+- Page « Nos boutiques » renommée « Notre boutique » (`/notre-boutique/`, l'ancienne adresse y renvoie). Les titres passent d'eux-mêmes au pluriel si une autre boutique est ajoutée dans Univers Sensoriel › Coordonnées.
+- Boutique seule : carte pleine largeur (coordonnées à gauche, horaires à droite) ; adresse et téléphone dans le pied de page.
+- `app/mises-a-jour.php` : mises à jour ponctuelles de la base en ligne, appliquées une fois au premier passage après l'envoi du thème, sans écraser un texte retouché dans l'administration.
+
+Textes et coordonnées modifiables dans l'administration.
+
+- Menu « Univers Sensoriel » (Secure Custom Fields) : Coordonnées (contact, boutiques et horaires, mentions légales), Accueil (textes, photos, rayons de chaque bloc), Textes du site (bandeau, garanties, pied de page, fiche produit, boutique, journal, contact, commande, page introuvable), Page d'attente (affichage, textes, titre et image de partage).
+- Une seule description des réglages (`app/reglages.php`) : écrans de l'administration et valeurs d'origine. `composer reglages` les recopie dans l'administration.
+- Un numéro ou une adresse n'est plus écrit qu'à un seul endroit : pages légales, « Nos boutiques » et « Devenir consultante » les lisent par codes courts ; les formulaires suivent l'adresse e-mail.
+- Seuil de livraison offerte lu dans WooCommerce › Expédition (plus de constante à tenir à jour) ; `{seuil}` dans les textes.
+- Page d'attente : interrupteur dans l'administration (Automatique, Affichée, Masquée).
+- Pages de texte et articles en blocs Gutenberg (paragraphes, titres, listes, boutons, questions), éditeur aux couleurs et polices du site, sans couleur ni taille libre.
+- Blocs du thème : Nos boutiques, Coordonnées, Bouton WhatsApp, Éditeur du site, Hébergeur, lus dans les réglages. Montants de livraison des pages lus dans WooCommerce (`[us_seuil]`, `[us_forfait]`).
+- Questions fréquentes : données Google FAQPage tirées des blocs « Détails ».
+- Le seed ne réécrit plus une page modifiée dans l'éditeur.
+- Accueil : l'ouverture reprend la scène de la page d'attente. Photos qui se relaient dans l'arche, poussière d'or qui monte, texte et arche qui apparaissent en douceur, halo qui respire, flacons qui flottent. Photos de l'arche choisies dans Univers Sensoriel › Accueil › Ouverture (autant qu'on veut, dans l'ordre voulu), les mêmes sur la page d'attente.
+- Au chargement, la première photo de l'arche est seule (la dernière ne s'efface plus par-dessus).
+- E-mails à la charte : commandes, compte, formulaires et notifications partent dans le même habillage (logo sur sapin, Marcellus, bouton sapin, coordonnées dans le pied). Textes des e-mails de commande et de compte réécrits, courts ; objets et titres en français, modifiables dans WooCommerce › Réglages › E-mails. Même expéditeur pour tous. `scripts/mails-essai.php` les envoie tous dans Mailpit.
+- Langues : français et anglais sous `/en/` (TranslatePress gratuit), traductions anglaises de départ dans `scripts/traductions/en_GB.json`, corrigeables dans l'éditeur visuel. Néerlandais, allemand, espagnol, italien et portugais en traduction automatique de Google, chargée seulement à la demande du visiteur.
+- Pays et devises : sélecteur « Langue et pays » (en-tête, menu mobile, pied de page) avec les 14 pays de l'ancienne boutique ; prix et paiement en CHF, FCFA (XAF, XOF) ou CDF selon le pays (Price Based on Country gratuit). Taux du jour mis à jour chaque jour, pays deviné par l'adresse IP (base DB-IP gratuite). `composer langues`.
 
 ## 0.3.0 – 19 novembre 2026
 

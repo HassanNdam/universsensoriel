@@ -1,6 +1,13 @@
 # Univers Sensoriel
 
-WordPress sous [Bedrock](https://roots.io/bedrock/), thème sur mesure basé sur [Sage 11](https://roots.io/sage/) (Blade, Acorn, Vite, Tailwind CSS 4).
+**Univers Sensoriel by K.Elle**, boutique en ligne de parfums, soins, bien-être et art de vivre, avec une boutique à Metz.
+
+- **Socle** : WordPress en [Bedrock](https://roots.io/bedrock/), thème sur mesure basé sur [Sage 11](https://roots.io/sage/) (Acorn, Blade, Tailwind CSS 4, Vite), développé sous Laragon.
+- **Boutique** : WooCommerce, 375 fiches produit, filtres par famille olfactive, paiement Stripe, commande et compte client redessinés sans copier les gabarits de WooCommerce.
+- **Langues et pays** : français et anglais (TranslatePress) ; néerlandais, allemand, espagnol, italien et portugais en traduction automatique ; prix et paiement en EUR, CHF, FCFA ou CDF selon le pays, avec des taux mis à jour chaque jour.
+- **Administration** : textes, coordonnées, accueil et page d'attente modifiables dans WordPress (Secure Custom Fields), pages en blocs Gutenberg.
+- **Le reste** : e-mails à la charte, formulaires Forminator, bandeau de cookies Complianz, référencement Yoast.
+- **Reproductible** : `composer seed` remet en place réglages, catalogue, pages, traductions et référencement. Les mises à jour des extensions ne défont rien.
 
 ## Organisation
 
@@ -72,14 +79,75 @@ Règles appliquées (audit de novembre 2026) : aucune marque tierce dans les fic
 
 `docs/00-projet/Audit-et-charte-Univers-Sensoriel.pdf` (page 3). Les couleurs et les polices sont déclarées dans `resources/css/charte.css` : sapin, ivoire, lin, or (jamais pour du texte sur fond clair), bronze. Titres en Marcellus, texte en Jost, hébergées dans le thème.
 
+## Administration des textes (menu « Univers Sensoriel »)
+
+Textes, coordonnées, boutiques, photos de l'accueil et page d'attente se modifient dans l'administration, menu **Univers Sensoriel** (extension Secure Custom Fields) : Coordonnées, Accueil, Textes du site, Page d'attente.
+
+- Une seule description : `App\REGLAGES` (`app/reglages.php`). Elle fabrique les écrans et donne à chaque réglage sa valeur d'origine. Ajouter un champ = ajouter une ligne, puis le lire dans le gabarit avec `App	exte('cle')`, `App
+eglage('cle')`, `App\lignes('cle')` (liste) ou `App\media()` (image).
+- Valeur lue : jamais enregistrée → valeur d'origine ; texte vidé → rien ; image vide → image du thème.
+- `composer reglages` (rejoué par `composer seed`) recopie les valeurs d'origine dans l'administration tant qu'elles n'y sont pas ; un réglage enregistré n'est jamais écrasé.
+- Repères dans un texte : `{seuil}` (livraison offerte), `{annee}`, `{numero}` (commande). Dans un titre, les `*mots*` entre étoiles sont en or.
+- Coordonnées dans le texte d'une page : codes courts `[us_contact champ="courriel"]`, `[us_contact champ="telephone"]`, `[us_whatsapp message="…"]Texte[/us_whatsapp]`, `[us_boutiques]`, `[us_editeur]`, `[us_hebergeur]` (`app/coordonnees.php`). Un numéro n'est écrit qu'à un seul endroit.
+- L'adresse e-mail des coordonnées reçoit les messages du formulaire de contact : la changer met à jour les formulaires Forminator.
+- Page d'attente : « Automatique » suit `WP_ENV` et `US_MAINTENANCE` du `.env` ; « Affichée » et « Masquée » passent avant.
+- Restent dans le code : libellés d'interface (boutons du panier, filtres, tri, pagination), menus et liens du pied de page, logos.
+- Le menu « SCF » n'apparaît qu'en développement.
+- Photos de l'arche (accueil et page d'attente) : liste `ouverture_images` (Univers Sensoriel › Accueil › Ouverture), lue par `App\diapos()`. Elles se relaient en fondu, 7 s chacune, quel que soit leur nombre (`partials/diapos.blade.php` calcule le rythme). Poussière d'or : `partials/poussiere.blade.php`. Animations communes : `resources/css/scene.css`.
+
+### Pages et articles en blocs (Gutenberg)
+
+- Pages de texte et articles du journal sont en blocs : paragraphes, titres, listes, boutons, questions (bloc « Détails »). L'éditeur reprend polices, couleurs et mise en page du site (`resources/css/editor.css`, règles du texte en `:is(.prose, .is-root-container)`).
+- Blocs du thème, catégorie « Univers Sensoriel » (`resources/blocks/<nom>/block.json`, rendus par `App
+endu_bloc()` dans `app/blocs.php`) : Nos boutiques, Coordonnées, Bouton WhatsApp, Éditeur du site, Hébergeur. Leur contenu est lu dans Univers Sensoriel › Coordonnées.
+- Dans un paragraphe : `[us_seuil]` et `[us_forfait]` (montants de livraison lus dans WooCommerce › Expédition), `[us_contact champ="courriel"]`, `[us_contact champ="telephone"]`.
+- Blocs proposés : seulement ceux qui ont un style dans le thème (`App\BLOCS_AUTORISES`) ; ni couleur, ni police, ni taille libres (`theme.json`, Tailwind désactivé dans `vite.config.js`).
+- Questions fréquentes : chaque bloc « Détails » d'une page devient une question des données Google (FAQPage).
+- `composer blocs` passe en blocs un contenu encore en HTML (fichiers de `scripts/pages`, `scripts/blog` et contenus du site) ; un contenu déjà en blocs n'est pas touché.
+- Le seed ne réécrit jamais une page modifiée dans l'éditeur depuis le dernier passage (empreinte `_us_contenu_seed`), même avec `US_SEED_FORCE=1`.
+
 ## Boutique
 
 - Filtres : `?genre[]=femme&famille[]=floral&format[]=…&gamme[]=…&prix=20-40` (`app/woocommerce.php`).
 - Familles olfactives : archives publiques `/famille-olfactive/<famille>/`.
-- Seuil de livraison offerte : constante `App\SEUIL_LIVRAISON` (`app/helpers.php`), à garder égale au réglage WooCommerce › Expédition.
-- Coordonnées et boutiques : `App\coordonnees()` (`app/helpers.php`).
+- Seuil de livraison offerte : lu dans WooCommerce › Réglages › Expédition (`App\seuil_livraison()`), jamais écrit ailleurs. Dans un texte réglable, `{seuil}` le reprend.
 - Commande reçue et compte client : la table `App\PONTS` (`app/commande.php`) remplace quatre gabarits de WooCommerce (`checkout/thankyou`, `myaccount/orders`, `myaccount/view-order`, `myaccount/my-address`) par des vues du thème (`resources/views/woocommerce/`), via les ponts de `app/ponts/`. Données préparées dans `app/commande.php` et `app/compte.php`, styles dans `commande.css` et `compte.css`. Aucun fichier de WooCommerce n'est copié : une mise à jour de l'extension ne défait rien.
 - Compte client d'essai en local : identifiant `client-test`, mot de passe dans le `.env` (`US_CLIENT_TEST_PASSWORD`).
+
+## Langues et pays
+
+Un seul sélecteur « Langue et pays » : bouton `FR · EUR` dans l'en-tête (ordinateur), entrée du menu mobile, bouton du pied de page. Vue `resources/views/partials/langue-pays.blade.php`, styles `langues.css`, script `langues.js`.
+
+### Langues
+
+- Français par défaut, anglais sous `/en/` : TranslatePress (gratuit, une seule langue en plus). Vraies pages, indexées par Google (balises `hreflang` posées par l'extension).
+- Corriger ou compléter l'anglais : barre d'administration › « Traduire le site », sur la page concernée. Un nouveau produit apparaît en français sur `/en/` tant que ses textes ne sont pas traduits.
+- Traductions de départ : `scripts/traductions/en_GB.json` (texte français → anglais), versées par `composer langues` (rejoué par `composer seed`). Une traduction saisie dans l'éditeur n'est jamais écrasée, sauf avec `US_SEED_FORCE=1`.
+- Le thème traduit aussi, avec le même dictionnaire, ce que la version gratuite laisse en français : textes alternatifs des images, titres et descriptions Yoast, modes de livraison et de paiement du panier (`app/langues.php`).
+- Néerlandais, allemand, espagnol, italien, portugais (`App\LANGUES_AUTO`) : traduction automatique de Google dans le navigateur du visiteur, chargée seulement s'il choisit l'une d'elles (cookie `us_langue`). Rien à saisir, pages non indexées. Le panier et la commande (blocs React que Google casserait) s'ouvrent alors en anglais.
+- Passer une de ces langues en vraie langue : extension payante « Multiple Languages » de TranslatePress, puis ajouter la langue dans Réglages › TranslatePress. Elle quitte d'elle-même la traduction automatique.
+
+### Pays et devises
+
+- Price Based on Country (gratuit). Pays proposés : les pays de vente de WooCommerce › Réglages › Général (ceux de l'ancienne boutique). Devise de chaque pays : WooCommerce › Réglages › Zones tarifaires (Suisse en CHF, Afrique centrale en FCFA XAF, Afrique de l'Ouest en FCFA XOF, RD Congo en CDF), l'euro pour les autres.
+- Pays deviné par l'adresse IP à la première visite, modifiable dans le sélecteur : base gratuite DB-IP (licence CC BY 4.0, d'où la mention dans le sélecteur), téléchargée chaque mois par le thème dans `uploads/woocommerce_uploads/`. Une clé MaxMind (WooCommerce › Réglages › Intégration) ou l'en-tête pays de Cloudflare passent avant. Le client paie dans la devise affichée ; Stripe verse en euros.
+- Taux de change : mis à jour chaque jour par le thème (`app/devises.php`, source open.er-api.com) ; francs CFA à leur parité fixe (655,957). Un taux saisi à la main dans une zone est remplacé le lendemain.
+- Francs CFA et franc congolais sans centimes.
+- Livraison : seule la zone France a des tarifs. Un client d'un autre pays voit ses prix mais ne peut pas commander tant qu'une zone de livraison n'existe pas pour lui (WooCommerce › Réglages › Expédition).
+- Réglages : `scripts/langues.php`, rejoué par `composer seed`.
+
+## E-mails
+
+Tous les e-mails du site partent dans le même habillage, à la charte : en-tête sapin au logo, titre en Marcellus, bouton sapin, pied avec WhatsApp, e-mail et téléphone des Coordonnées.
+
+- Code : `app/mails.php`, ponts `app/ponts/mail-*.php`, vues `resources/views/mails/`, styles `resources/css/mail.css` (lu tel quel, pas compilé : pas de variables CSS). Aucun gabarit de WooCommerce n'est copié.
+- Commandes et compte (WooCommerce) : l'habillage, le détail de commande et les adresses remplacent les gabarits partagés (`App\PONTS_MAILS`), donc tout e-mail WooCommerce les reçoit, y compris ceux de Stripe. Le texte des quatorze e-mails courants est écrit dans `App\mail_message()` (`App\MAILS_REDIGES`).
+- Formulaires et notifications de WordPress : enveloppés à l'envoi (filtre `wp_mail`). Un `<h1>` en tête du message devient le titre ; sinon c'est l'objet.
+- Objet, titre et contenu additionnel de chaque e-mail : WooCommerce › Réglages › E-mails (aperçu compris). Valeurs d'origine dans `scripts/mails.php`, rejoué par `composer seed`.
+- Destinataire des e-mails pour la boutique (nouvelle commande, annulée, paiement échoué) : l'adresse e-mail d'Univers Sensoriel › Coordonnées, sauf si le champ « Destinataire(s) » de l'e-mail est rempli dans WooCommerce.
+- Expéditeur : `MAIL_FROM_ADDRESS` et `MAIL_FROM_NAME` du `.env`, pour WooCommerce comme pour le reste (`web/app/mu-plugins/smtp.php`).
+- Relire tous les e-mails dans Mailpit : `php vendor/wp-cli/wp-cli/php/boot-fs.php eval-file scripts/mails-essai.php [n° de commande] --user=admin`.
+- Logo : `resources/images/mail/` en PNG (Outlook n'affiche pas le WebP). Les photos des produits restent en WebP : Outlook pour Windows ne les montre pas.
 
 ## Paiement (Stripe)
 

@@ -50,7 +50,7 @@ Application::configure()
 |
 */
 
-collect(['helpers', 'setup', 'filters', 'woocommerce', 'commande', 'compte', 'avis', 'avis-gestion', 'seo', 'maintenance'])
+collect(['reglages', 'bandeau', 'coordonnees', 'blocs', 'helpers', 'setup', 'filters', 'woocommerce', 'commande', 'compte', 'mails', 'langues', 'devises', 'avis', 'avis-gestion', 'seo', 'maintenance', 'mises-a-jour'])
     ->each(function ($file) {
         if (! locate_template($file = "app/{$file}.php", true, true)) {
             wp_die(

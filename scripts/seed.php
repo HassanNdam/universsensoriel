@@ -332,6 +332,13 @@ if (! get_option('us_livraison_creee')) {
 WP_CLI::log('Paiement');
 require __DIR__ . '/paiement.php';
 
+// Langues (français, anglais) et pays (devise de chaque pays).
+require __DIR__ . '/langues.php';
+
+// E-mails : objets et titres en français, couleurs de la charte.
+WP_CLI::log('E-mails');
+require __DIR__ . '/mails.php';
+
 /*
 |--------------------------------------------------------------------------
 | Pages
@@ -350,7 +357,7 @@ if ($codeContact && ! str_contains((string) get_post_field('post_content', $cont
     wp_update_post(['ID' => $contact, 'post_content' => $codeContact]);
     us_log('page Contact : shortcode du formulaire en place');
 }
-us_page('nos-boutiques', 'Nos boutiques', $contenu('nos-boutiques'));
+us_page('notre-boutique', 'Notre boutique', $contenu('notre-boutique'));
 us_page('livraison-et-retours', 'Livraison et retours', $contenu('livraison-et-retours'));
 us_page('questions-frequentes', 'Questions fréquentes', $contenu('questions-frequentes'));
 us_page('guide-des-familles-olfactives', 'Guide des familles olfactives', $contenu('guide-des-familles-olfactives'));
@@ -366,6 +373,10 @@ update_option('woocommerce_terms_page_id', get_page_by_path('conditions-generale
 
 // Bandeau de cookies : après les pages légales, auxquelles il renvoie.
 require __DIR__ . '/cookies.php';
+
+// Réglages du site (menu « Univers Sensoriel ») : valeurs d'origine recopiées dans l'administration.
+WP_CLI::log('Réglages');
+require __DIR__ . '/reglages.php';
 
 // Pages WooCommerce (boutique, panier, commande, compte) si elles manquent, puis slugs en français.
 WC_Install::create_pages();

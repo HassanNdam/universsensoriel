@@ -22,8 +22,11 @@
         "vlucas/phpdotenv": "^5.0",
         "wp-plugin/complianz-gdpr": "^7.5",
         "wp-plugin/forminator": "^1.58",
+        "wp-plugin/secure-custom-fields": "^6.9",
+        "wp-plugin/translatepress-multilingual": "^3.4",
         "wp-plugin/woocommerce": "^11.3",
         "wp-plugin/woocommerce-gateway-stripe": "^11.2",
+        "wp-plugin/woocommerce-product-price-based-on-countries": "^4.3",
         "wp-plugin/wordpress-seo": "^28.9",
         "wp-theme/twentytwentyfive": "^1.0"
     },
@@ -67,11 +70,14 @@
             "Roots\\Acorn\\ComposerScripts::postAutoloadDump"
         ],
         "seed": [
-            "@php vendor/wp-cli/wp-cli/php/boot-fs.php plugin activate woocommerce wordpress-seo forminator complianz-gdpr woocommerce-gateway-stripe",
+            "@php vendor/wp-cli/wp-cli/php/boot-fs.php plugin activate woocommerce wordpress-seo forminator complianz-gdpr woocommerce-gateway-stripe secure-custom-fields translatepress-multilingual woocommerce-product-price-based-on-countries",
             "@php vendor/wp-cli/wp-cli/php/boot-fs.php language plugin install --all fr_FR",
             "@php vendor/wp-cli/wp-cli/php/boot-fs.php eval-file scripts/seed.php --user=admin",
             "@php vendor/wp-cli/wp-cli/php/boot-fs.php rewrite flush"
         ],
-        "seo": "@php vendor/wp-cli/wp-cli/php/boot-fs.php eval-file scripts/seo.php --user=admin"
+        "seo": "@php vendor/wp-cli/wp-cli/php/boot-fs.php eval-file scripts/seo.php --user=admin",
+        "reglages": "@php vendor/wp-cli/wp-cli/php/boot-fs.php eval-file scripts/reglages.php --user=admin",
+        "blocs": "@php vendor/wp-cli/wp-cli/php/boot-fs.php eval-file scripts/blocs.php --user=admin",
+        "langues": "@php vendor/wp-cli/wp-cli/php/boot-fs.php eval-file scripts/langues.php --user=admin"
     }
 }
