@@ -4,6 +4,11 @@ Les versions suivent `MAJEUR.MINEUR.CORRECTIF`. Le site n'est pas encore en lign
 
 ## À venir
 
+Partage sur les réseaux : description sur toutes les adresses (458 relevées, toutes avec image 1200 × 630, titre et description).
+
+- Descriptions ajoutées : rubriques du journal (Bien-être, Cheveux, Parfum, Soin de la peau), politique de cookies, panier, commande, compte, rayon Accessoires parfum. En anglais aussi.
+- `scripts/seo.json` : nouvelle section `rubriques` (catégories d'articles), appliquée par `scripts/seo.php` comme les rayons.
+
 Une seule boutique : la boutique de Yaoundé a fermé, seule reste celle de Metz.
 
 - Yaoundé retiré des boutiques, de l'accueil, de La Maison, de la page d'attente, du référencement et des traductions.

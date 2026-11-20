@@ -15,6 +15,7 @@ namespace App;
 /** Nom de la mise à jour => fonction qui l'applique (idempotente). */
 const MISES_A_JOUR = [
     'boutique-unique' => __NAMESPACE__ . '\\maj_boutique_unique',
+    'descriptions-partage' => __NAMESPACE__ . '\\maj_descriptions_partage',
 ];
 
 add_action('init', function (): void {
@@ -164,4 +165,73 @@ function maj_traductions(array $traductions): void
             $fr,
         ));
     }
+}
+
+/**
+ * 20/11/2026 : description de partage (méta-description, Open Graph, Twitter) des adresses qui n'en avaient pas.
+ * Les mêmes textes sont dans scripts/seo.json (pages, rayons, rubriques) et scripts/traductions/en_GB.json.
+ * Une description déjà saisie dans Yoast n'est pas touchée.
+ */
+function maj_descriptions_partage(): void
+{
+    if (! class_exists('WPSEO_Taxonomy_Meta')) {
+        return;
+    }
+    $pages = [
+        'politique-de-cookies' => ['Politique de cookies | Univers Sensoriel', 'Cookies du site Univers Sensoriel by K.Elle : cookies nécessaires au panier et au compte, mesure d\'audience, durée de conservation et vos choix.'],
+        'panier' => ['', 'Votre panier Univers Sensoriel : extraits de parfum, soins et bien-être. Paiement sécurisé, livraison en France ou retrait gratuit à Metz.'],
+        'commande' => ['', 'Finaliser votre commande Univers Sensoriel : livraison en France ou retrait gratuit à la boutique de Metz, paiement sécurisé.'],
+        'mon-compte' => ['', 'Votre compte Univers Sensoriel : suivi de vos commandes, adresses de livraison et de facturation, détails du compte et mot de passe.'],
+    ];
+    $termes = [
+        'journal/bien-etre' => ['category', 'bien-etre', 'Conseils bien-être du journal Univers Sensoriel : huiles essentielles pour vos rituels, collagène à boire et gestes simples pour prendre soin de soi.'],
+        'journal/cheveux' => ['category', 'cheveux', 'Conseils cheveux du journal Univers Sensoriel : routine capillaire en neuf gestes, pellicules et cuir chevelu, pour des cheveux forts et brillants.'],
+        'journal/parfum' => ['category', 'parfum', 'Conseils parfum du journal Univers Sensoriel : faire tenir son parfum toute la journée, les bons gestes pour l\'appliquer et le conserver.'],
+        'journal/soin-de-la-peau' => ['category', 'soin-de-la-peau', 'Conseils soin de la peau du journal Univers Sensoriel : reconnaître son type de peau, nettoyer son visage, choisir des soins aux peptides.'],
+        'accessoires-parfum' => ['product_cat', 'accessoires-parfum', 'Accessoires parfum Univers Sensoriel : de quoi emporter votre extrait de parfum partout et le garder intact, en voyage comme au quotidien.'],
+    ];
+    $construire = YoastSEO()->classes->get(\Yoast\WP\SEO\Builders\Indexable_Builder::class);
+    $depot = YoastSEO()->classes->get(\Yoast\WP\SEO\Repositories\Indexable_Repository::class);
+
+    foreach ($pages as $slug => [$titre, $description]) {
+        if (! $page = get_page_by_path($slug)) {
+            continue;
+        }
+        foreach (['_yoast_wpseo_title' => $titre, '_yoast_wpseo_metadesc' => $description] as $meta => $valeur) {
+            if ($valeur !== '' && (string) get_post_meta($page->ID, $meta, true) === '') {
+                update_post_meta($page->ID, $meta, $valeur);
+                update_post_meta($page->ID, '_us_seo_auto' . $meta, $valeur);
+            }
+        }
+        $construire->build_for_id_and_type($page->ID, 'post', $depot->find_by_id_and_type($page->ID, 'post', false));
+    }
+
+    // Ombre du seed (scripts/seo.php) : la valeur posée ici ne doit pas passer pour une retouche dans l'admin.
+    $ombres = (array) get_option('us_seo_auto_rayons', []);
+    foreach ($termes as $cle => [$taxonomie, $slug, $description]) {
+        $terme = get_term_by('slug', $slug, $taxonomie);
+        if (! $terme) {
+            continue;
+        }
+        $actuel = (array) \WPSEO_Taxonomy_Meta::get_term_meta($terme, $taxonomie);
+        if (($actuel['wpseo_desc'] ?? '') === '') {
+            \WPSEO_Taxonomy_Meta::set_values($terme->term_id, $taxonomie, array_merge(array_filter($actuel, 'is_string'), ['wpseo_desc' => $description]));
+            $ombres[$cle] = array_merge((array) ($ombres[$cle] ?? []), ['wpseo_desc' => $description]);
+        }
+        $construire->build_for_id_and_type($terme->term_id, 'term', $depot->find_by_id_and_type($terme->term_id, 'term', false));
+    }
+    update_option('us_seo_auto_rayons', $ombres, false);
+
+    maj_traductions([
+        'Politique de cookies' => 'Cookie policy',
+        'Cookies du site Univers Sensoriel by K.Elle : cookies nécessaires au panier et au compte, mesure d\'audience, durée de conservation et vos choix.' => 'Cookies on the Univers Sensoriel by K.Elle website: cookies needed for the basket and account, audience measurement, retention period and your choices.',
+        'Votre panier Univers Sensoriel : extraits de parfum, soins et bien-être. Paiement sécurisé, livraison en France ou retrait gratuit à Metz.' => 'Your Univers Sensoriel basket: extraits de parfum, skincare and wellbeing. Secure payment, delivery in France or free collection in Metz.',
+        'Finaliser votre commande Univers Sensoriel : livraison en France ou retrait gratuit à la boutique de Metz, paiement sécurisé.' => 'Complete your Univers Sensoriel order: delivery in France or free collection from the Metz boutique, secure payment.',
+        'Votre compte Univers Sensoriel : suivi de vos commandes, adresses de livraison et de facturation, détails du compte et mot de passe.' => 'Your Univers Sensoriel account: order tracking, delivery and billing addresses, account details and password.',
+        'Conseils bien-être du journal Univers Sensoriel : huiles essentielles pour vos rituels, collagène à boire et gestes simples pour prendre soin de soi.' => 'Wellbeing advice from the Univers Sensoriel journal: essential oils for your rituals, drinkable collagen and simple ways to take care of yourself.',
+        'Conseils cheveux du journal Univers Sensoriel : routine capillaire en neuf gestes, pellicules et cuir chevelu, pour des cheveux forts et brillants.' => 'Hair advice from the Univers Sensoriel journal: a nine-step hair routine, dandruff and scalp care, for strong and shiny hair.',
+        'Conseils parfum du journal Univers Sensoriel : faire tenir son parfum toute la journée, les bons gestes pour l\'appliquer et le conserver.' => 'Perfume advice from the Univers Sensoriel journal: making your perfume last all day, how to apply it and how to store it.',
+        'Conseils soin de la peau du journal Univers Sensoriel : reconnaître son type de peau, nettoyer son visage, choisir des soins aux peptides.' => 'Skincare advice from the Univers Sensoriel journal: identifying your skin type, cleansing your face and choosing peptide skincare.',
+        'Accessoires parfum Univers Sensoriel : de quoi emporter votre extrait de parfum partout et le garder intact, en voyage comme au quotidien.' => 'Univers Sensoriel perfume accessories: everything to take your extrait de parfum anywhere and keep it intact, travelling or every day.',
+    ]);
 }
