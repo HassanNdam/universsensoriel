@@ -39,6 +39,9 @@ $pourScf = function (array $champ, mixed $valeur) use (&$pourScf) {
             }
 
             return $champ[0] === 'rayon' ? ($ids[0] ?? '') : $ids;
+        case 'case':
+            // « false » n'est pas enregistré : la case reprendrait sa valeur par défaut.
+            return $valeur ? 1 : 0;
         case 'liste':
             $lignes = [];
             foreach ((array) $valeur as $ligne) {

@@ -1,24 +1,9 @@
 @php
   $menu = App\menu_principal();
   $boutique = function_exists('wc_get_page_permalink');
-  $bandeau = [App\texte('bandeau_1'), App\texte('bandeau_2')];
 @endphp
 
-@if ($bandeau[0] || $bandeau[1])
-<div class="bandeau" role="note">
-  <p>
-    {!! App\icone('etoile', 12) !!}
-    <span>{{ $bandeau[0] }}</span>
-    @if ($bandeau[0] && $bandeau[1])
-      <span class="bandeau-sep" aria-hidden="true">·</span>
-    @endif
-    @if ($bandeau[1])
-      <span class="bandeau-plus">{{ $bandeau[1] }}</span>
-    @endif
-    {!! App\icone('etoile', 12) !!}
-  </p>
-</div>
-@endif
+@include('partials.bandeau')
 
 <header class="entete" data-entete>
   <div class="entete-barre conteneur">
