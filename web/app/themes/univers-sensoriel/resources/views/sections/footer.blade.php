@@ -90,6 +90,10 @@
   @endif
 
   <div class="conteneur pied-bas">
+    <button class="pied-reglages" type="button" aria-controls="langue-pays" aria-expanded="false" data-ouvrir="langue-pays">
+      {!! App\icone('globe', 18) !!} @include('partials.langue-pays-libelle', ['complet' => true])
+      <span class="sr-only">Changer de langue ou de pays</span>
+    </button>
     <p>{{ App\texte('pied_copyright') }} · Site réalisé par <a href="https://hassan-ndam.com" rel="noopener" target="_blank">hassan-ndam.com</a></p>
     <ul>
       <li><a href="{{ home_url('/mentions-legales/') }}">Mentions légales</a></li>

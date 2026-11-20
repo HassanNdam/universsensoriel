@@ -56,6 +56,10 @@
     </nav>
 
     <div class="entete-outils">
+      <button class="entete-reglages" type="button" aria-controls="langue-pays" aria-expanded="false" data-ouvrir="langue-pays">
+        @include('partials.langue-pays-libelle')
+        <span class="sr-only">Langue et pays</span>
+      </button>
       <button class="entete-bouton" type="button" aria-controls="recherche" aria-expanded="false" data-ouvrir="recherche">
         {!! App\icone('recherche', 24) !!}
         <span class="sr-only">Rechercher</span>
@@ -112,6 +116,11 @@
       @if ($boutique)
         <a class="mobile-lien" href="{{ wc_get_page_permalink('myaccount') }}">Mon compte</a>
       @endif
+      <button class="mobile-lien mobile-reglages" type="button" aria-controls="langue-pays" aria-expanded="false" data-ouvrir="langue-pays">
+        Langue et pays @include('partials.langue-pays-libelle')
+      </button>
     </nav>
   </div>
 </div>
+
+@include('partials.langue-pays')
