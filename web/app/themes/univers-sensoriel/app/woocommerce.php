@@ -109,7 +109,7 @@ add_filter('wpseo_robots', function ($robots) {
 function facettes(): array
 {
     $objet = get_queried_object();
-    $args = ['post_type' => 'product', 'post_status' => 'publish', 'posts_per_page' => -1, 'fields' => 'ids', 'no_found_rows' => true];
+    $args = ['post_type' => 'product', 'post_status' => 'publish', 'posts_per_page' => -1, 'fields' => 'ids', 'no_found_rows' => true, 'suppress_filters' => false];
     if ($objet instanceof \WP_Term) {
         $args['tax_query'] = [['taxonomy' => $objet->taxonomy, 'field' => 'term_id', 'terms' => $objet->term_id]];
     }
