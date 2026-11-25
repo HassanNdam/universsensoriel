@@ -4,7 +4,9 @@ Les versions suivent `MAJEUR.MINEUR.CORRECTIF`. Le site est en ligne depuis la 1
 
 ## À venir
 
-Retours de la promotrice après les premiers tests.
+## 1.1.0 – 25 novembre 2026
+
+Retours de la promotrice après les premiers tests. Fichiers à envoyer : `mise-en-ligne/mise-a-jour-2026-11-25/` (hors Git) ; la base en ligne se met à jour d'elle-même au premier chargement (`app/mises-a-jour.php`).
 
 - Recherche par parfum de référence : « Dior », « J'adore », « Baccarat Rouge »… renvoient aux extraits Olfazeta correspondants, avec le gel douche et la crème de même senteur (`app/inspirations.php`). Les maisons ne sont affichées nulle part. « Chogan » est un mot-clé caché : retiré de la recherche, seul il affiche toute la boutique.
 - E-mails : raison de chaque e-mail refusé et bouton « Envoyer un e-mail d'essai » dans l'admin (`mu-plugins/mails-echecs.php`).
