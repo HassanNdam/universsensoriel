@@ -100,10 +100,25 @@ function coordonnees(): array
     ];
 }
 
-/** « Notre boutique », ou « Nos boutiques » si plusieurs sont saisies dans Univers Sensoriel › Coordonnées. */
+/**
+ * « Notre boutique », ou « Nos boutiques » quand les adresses saisies dans Univers Sensoriel › Coordonnées sont dans
+ * plusieurs villes (deux points de retrait à Metz restent « Notre boutique »).
+ */
 function boutiques_titre(): string
 {
-    return count(coordonnees()['boutiques']) > 1 ? 'Nos boutiques' : 'Notre boutique';
+    return count(array_unique(array_column(coordonnees()['boutiques'], 'ville'))) > 1 ? 'Nos boutiques' : 'Notre boutique';
+}
+
+/** Nom affiché d'une boutique ou d'un point de retrait (« Borny », « Gare de Metz »), à défaut sa ville. */
+function boutique_nom(array $b): string
+{
+    return $b['enseigne'] ?: $b['ville'];
+}
+
+/** Ligne sous le nom : l'adresse, à défaut « ville, pays » (ou le pays seul quand la ville sert déjà de nom). */
+function boutique_lieu(array $b): string
+{
+    return $b['adresse'] ?: implode(', ', array_filter($b['enseigne'] ? [$b['ville'], $b['pays']] : [$b['pays']]));
 }
 
 /** Lien tel: d'un numéro écrit avec des espaces. */

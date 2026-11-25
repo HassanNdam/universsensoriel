@@ -44,9 +44,9 @@ add_shortcode('us_boutiques', function (): string {
     $boutiques = coordonnees()['boutiques'];
     foreach ($boutiques as $b) {
         // Carte : coordonnées d'un côté, horaires de l'autre (côte à côte quand la boutique est seule).
-        $html .= '<div><div><h3>' . esc_html(implode(', ', array_filter([$b['ville'], $b['pays']]))) . '</h3>';
-        if ($lignes = array_filter([$b['enseigne'], $b['adresse']])) {
-            $html .= '<p>' . implode('<br>', array_map('esc_html', $lignes)) . '</p>';
+        $html .= '<div><div><h3>' . esc_html(boutique_nom($b)) . '</h3>';
+        if ($lieu = boutique_lieu($b)) {
+            $html .= '<p>' . esc_html($lieu) . '</p>';
         }
         if ($numeros = array_filter([$b['telephone'], $b['telephone_2']])) {
             $html .= '<p>' . implode('<br>', array_map(fn ($n) => sprintf('<a href="%s">%s</a>', esc_url(lien_telephone($n), ['tel']), esc_html($n)), $numeros)) . '</p>';

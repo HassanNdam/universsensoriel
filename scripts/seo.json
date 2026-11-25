@@ -3,12 +3,12 @@
   "pages": {
     "accueil": {
       "titre": "Extraits de parfum, soins et bien-être | Univers Sensoriel",
-      "description": "Extraits de parfum longue tenue dès 11,90 €, soins du visage et du corps, parfums d'ambiance. Livraison offerte dès 49 €, retrait gratuit à Metz.",
+      "description": "Extraits de parfum longue tenue dès 11,90 €, soins du visage et du corps, parfums d'ambiance. Livraison offerte dès 79 €, retrait gratuit à Metz.",
       "motcle": "extraits de parfum"
     },
     "boutique": {
       "titre": "Boutique : parfums, soins, art de vivre | Univers Sensoriel",
-      "description": "Toute la sélection Univers Sensoriel : extraits de parfum pour elle et lui, soins, huiles essentielles et parfums d'ambiance. Livraison offerte dès 49 €.",
+      "description": "Toute la sélection Univers Sensoriel : extraits de parfum pour elle et lui, soins, huiles essentielles et parfums d'ambiance. Livraison offerte dès 79 €.",
       "motcle": "parfums et soins",
       "image": "partage-boutique-extraits-de-parfum.jpg",
       "alt": "Extrait de parfum Olfazeta entouré de fleurs"
@@ -28,15 +28,15 @@
       "alt": "Gel visage Aurodhea posé sur une pierre"
     },
     "notre-boutique": {
-      "titre": "Notre boutique à Metz | Univers Sensoriel",
-      "description": "Venez sentir les parfums et demander conseil dans notre boutique de Metz, 57 rue des Allemands. Retrait gratuit des commandes passées sur le site.",
+      "titre": "Notre boutique et retrait à Metz | Univers Sensoriel",
+      "description": "Boutique en ligne ouverte 24 h/24, 7 j/7. Retrait gratuit à Metz, chez nos partenaires de Borny et de la gare, sous 24 h en général.",
       "motcle": "boutique Metz",
       "image": "partage-boutiques-parfum-d-ambiance.jpg",
       "alt": "Diffuseur de parfum d'ambiance à bâtonnets dans un salon"
     },
     "livraison-et-retours": {
-      "titre": "Livraison offerte dès 49 € et retours | Univers Sensoriel",
-      "description": "Livraison offerte dès 49 € d'achat en France, retrait gratuit à la boutique de Metz, 14 jours pour changer d'avis : tout savoir sur l'envoi et les retours.",
+      "titre": "Livraison offerte dès 79 € et retours | Univers Sensoriel",
+      "description": "Livraison offerte dès 79 € d'achat en France, retrait gratuit à la boutique de Metz, 14 jours pour changer d'avis : tout savoir sur l'envoi et les retours.",
       "motcle": "livraison",
       "image": "partage-livraison-coffret-soins.jpg",
       "alt": "Coffret de soins du visage Peptilux"
@@ -81,7 +81,7 @@
     },
     "commande": {
       "noindex": true,
-      "description": "Finaliser votre commande Univers Sensoriel : livraison en France ou retrait gratuit à la boutique de Metz, paiement sécurisé."
+      "description": "Finaliser votre commande Univers Sensoriel : point relais, domicile ou retrait gratuit chez nos partenaires à Metz, paiement sécurisé."
     },
     "mon-compte": {
       "noindex": true,
@@ -109,19 +109,19 @@
   "rayons": {
     "parfums": {
       "titre": "Extraits de parfum longue tenue | Univers Sensoriel",
-      "description": "Plus de 140 extraits de parfum concentrés à 30 %, pour elle et pour lui, en 15, 30 et 70 ml. Choisissez par famille olfactive. Livraison offerte dès 49 €.",
+      "description": "Plus de 140 extraits de parfum concentrés à 30 %, pour elle et pour lui, en 15, 30 et 70 ml. Choisissez par famille olfactive. Livraison offerte dès 79 €.",
       "motcle": "extraits de parfum",
       "image": "partage-boutique-extraits-de-parfum.jpg",
       "alt": "Extrait de parfum Olfazeta entouré de fleurs"
     },
     "parfums-femme": {
       "titre": "Parfum femme : extraits longue tenue | Univers Sensoriel",
-      "description": "Extraits de parfum femme concentrés à 30 % : floraux, fruités, ambrés, chyprés. En 15, 30 et 70 ml, dès 11,90 €. Livraison offerte dès 49 € d'achat.",
+      "description": "Extraits de parfum femme concentrés à 30 % : floraux, fruités, ambrés, chyprés. En 15, 30 et 70 ml, dès 11,90 €. Livraison offerte dès 79 € d'achat.",
       "motcle": "parfum femme"
     },
     "parfums-homme": {
       "titre": "Parfum homme : extraits longue tenue | Univers Sensoriel",
-      "description": "Extraits de parfum homme concentrés à 30 % : boisés, aromatiques, épicés, aquatiques. En 15, 30 et 70 ml, dès 11,90 €. Livraison offerte dès 49 €.",
+      "description": "Extraits de parfum homme concentrés à 30 % : boisés, aromatiques, épicés, aquatiques. En 15, 30 et 70 ml, dès 11,90 €. Livraison offerte dès 79 €.",
       "motcle": "parfum homme"
     },
     "collection-luxury": {
@@ -190,7 +190,7 @@
     },
     "bebe-et-enfant": {
       "titre": "Soins bébé extra-doux | Univers Sensoriel",
-      "description": "Soins bébé extra-doux : nettoyant, lait corporel, shampoing et bain moussant pour la toilette des bébés et des enfants. Livraison offerte dès 49 €.",
+      "description": "Soins bébé extra-doux : nettoyant, lait corporel, shampoing et bain moussant pour la toilette des bébés et des enfants. Livraison offerte dès 79 €.",
       "motcle": "soins bébé"
     },
     "bien-etre": {

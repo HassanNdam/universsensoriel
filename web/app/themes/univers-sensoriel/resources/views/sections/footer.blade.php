@@ -72,15 +72,12 @@
       <p class="surtitre">{{ App\boutiques_titre() }}</p>
       <ul class="pied-boutiques">
         @foreach ($c['boutiques'] as $b)
-          <li>
-            <strong>{{ $b['ville'] }}</strong> · {{ $b['pays'] }}<br><span>{{ $b['enseigne'] }}</span>
-            {{-- Une seule boutique : son adresse et son numéro tiennent dans la colonne. --}}
-            @if (count($c['boutiques']) === 1)
-              @if ($b['adresse'])<br><span>{{ $b['adresse'] }}</span>@endif
-              @if ($b['telephone'])<br><a href="{{ App\lien_telephone($b['telephone']) }}">{{ $b['telephone'] }}</a>@endif
-            @endif
-          </li>
+          <li><strong>{{ App\boutique_nom($b) }}</strong><br><span>{{ App\boutique_lieu($b) }}</span></li>
         @endforeach
+        {{-- Le numéro une seule fois quand c'est le même partout (un seul point, ou plusieurs avec le même contact). --}}
+        @if (count($numeros = array_unique(array_filter(array_column($c['boutiques'], 'telephone')))) === 1)
+          <li><a href="{{ App\lien_telephone(reset($numeros)) }}">{{ reset($numeros) }}</a></li>
+        @endif
       </ul>
     </div>
   </div>

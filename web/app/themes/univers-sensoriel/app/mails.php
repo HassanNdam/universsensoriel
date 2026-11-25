@@ -120,9 +120,9 @@ function mail_message(\WC_Email $mail, array $v): array
         'customer_on_hold_order' => [['Votre commande est enregistrée. Nous la préparons dès réception du paiement.'], $suivi],
         'customer_processing_order' => [[
             'Votre paiement est accepté, nous préparons votre commande.',
-            commande_en_retrait($commande) ? 'Un e-mail vous préviendra dès qu\'elle sera prête en boutique.' : 'Un e-mail vous préviendra de son expédition.',
+            commande_en_retrait($commande) ? 'Un e-mail vous préviendra dès qu\'elle sera prête au retrait, à Metz (sous 24 h en général).' : 'Un e-mail vous préviendra de son expédition.',
         ], $suivi],
-        'customer_completed_order' => [[commande_en_retrait($commande) ? 'Votre commande est prête : elle vous attend en boutique.' : 'Votre colis est parti.'], $suivi],
+        'customer_completed_order' => [[commande_en_retrait($commande) ? 'Votre commande est prête : elle vous attend au point de retrait, à Metz.' : 'Votre colis est parti.'], $suivi],
         'customer_refunded_order' => [[
             empty($v['partial_refund']) ? 'Votre commande est remboursée.' : 'Un remboursement partiel a été fait sur votre commande.',
             'Le montant revient sur le moyen de paiement utilisé.',
@@ -260,7 +260,7 @@ function mail_habillage(): array
             ['Questions fréquentes', home_url('/questions-frequentes/')],
             ['Mon compte', wc_get_page_permalink('myaccount')],
         ],
-        'boutiques' => implode(' · ', array_filter(array_map(fn($b) => $b['ville'], $c['boutiques']))),
+        'boutiques' => implode(' · ', array_unique(array_filter(array_map(fn($b) => $b['ville'], $c['boutiques'])))),
     ];
 }
 

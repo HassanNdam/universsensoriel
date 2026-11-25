@@ -220,7 +220,7 @@
         @foreach ($c['boutiques'] as $b)
           <li>
             {!! App\icone('boutique', 28) !!}
-            <p><strong>{{ $b['ville'] }}</strong><span>{{ $b['pays'] }} · {{ $b['enseigne'] }}</span>@if ($b['adresse'])<span>{{ $b['adresse'] }}</span>@endif @if ($b['telephone'])<a href="{{ App\lien_telephone($b['telephone']) }}">{{ $b['telephone'] }}</a>@endif</p>
+            <p><strong>{{ App\boutique_nom($b) }}</strong><span>{{ App\boutique_lieu($b) }}</span>@foreach ($b['horaires'] as $h)<span>{{ $h['jours'] }} : {{ $h['heures'] ?? '' }}</span>@endforeach @if ($b['telephone'])<a href="{{ App\lien_telephone($b['telephone']) }}">{{ $b['telephone'] }}</a>@endif</p>
           </li>
         @endforeach
       </ul>
