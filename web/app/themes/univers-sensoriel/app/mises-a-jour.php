@@ -17,6 +17,7 @@ const MISES_A_JOUR = [
     'boutique-unique' => __NAMESPACE__ . '\\maj_boutique_unique',
     'descriptions-partage' => __NAMESPACE__ . '\\maj_descriptions_partage',
     'partage-attente' => __NAMESPACE__ . '\\maj_partage_attente',
+    'livraison-retrait-metz' => __NAMESPACE__ . '\\maj_livraison_retrait_metz',
 ];
 
 add_action('init', function (): void {
@@ -26,8 +27,10 @@ add_action('init', function (): void {
         return;
     }
     foreach ($restantes as $nom => $fonction) {
-        $fonction();
-        $faites[] = $nom;
+        // false : pas encore possible (extension inactive…), elle repassera au prochain chargement.
+        if ($fonction() !== false) {
+            $faites[] = $nom;
+        }
     }
     update_option('us_mises_a_jour', array_values(array_unique($faites)), false);
 }, 99);
@@ -249,3 +252,307 @@ function maj_partage_attente(): void
         update_option('options_attente_seo_image', '');
     }
 }
+
+/**
+ * Zones et tarifs de livraison (WooCommerce › Réglages › Expédition), créés s'ils manquent :
+ * - France : point relais ou consigne 8 €, offert dès 79 € ; à domicile 12,90 € ; retrait gratuit chez les partenaires de Metz ;
+ * - Europe (pays de vente européens) : point relais 14,90 €, à domicile 19,90 €.
+ * Un tarif n'est changé que s'il vaut encore l'ancienne valeur (domicile 4,90 €, offerte dès 49 €).
+ * Appelée par la mise à jour « livraison-retrait-metz » et par le seed (installation neuve).
+ */
+function maj_livraison(): bool
+{
+    if (! class_exists('WC_Shipping_Zones')) {
+        return false;
+    }
+    $zones = [
+        'France' => [['FR'], [
+            // L'offre gratuite d'abord : dès le seuil, elle remplace le point relais payant (app/woocommerce.php).
+            ['free_shipping', '', ['title' => 'Point relais ou consigne offert', 'requires' => 'min_amount', 'min_amount' => '79']],
+            ['flat_rate', 'relais', ['title' => 'Point relais ou consigne', 'tax_status' => 'none', 'cost' => '8']],
+            ['flat_rate', 'domicile', ['title' => 'Livraison à domicile', 'tax_status' => 'none', 'cost' => '12.90']],
+            ['local_pickup', '', ['title' => 'Retrait chez nos partenaires à Metz', 'tax_status' => 'none', 'cost' => '']],
+        ]],
+        'Europe' => [['DE', 'BE', 'IT', 'LU', 'NL', 'CH'], [
+            ['flat_rate', 'relais', ['title' => 'Point relais ou consigne', 'tax_status' => 'none', 'cost' => '14.90']],
+            ['flat_rate', 'domicile', ['title' => 'Livraison à domicile', 'tax_status' => 'none', 'cost' => '19.90']],
+        ]],
+    ];
+    // Anciennes valeurs d'origine remplacées : [méthode, réglage, ancienne valeur, nouvelle].
+    $anciennes = [
+        ['flat_rate', 'cost', '4.90', '12.90'],
+        ['free_shipping', 'min_amount', '49', '79'],
+        ['free_shipping', 'title', 'Livraison offerte', 'Point relais ou consigne offert'],
+        ['local_pickup', 'title', 'Retrait à la boutique de Metz', 'Retrait chez nos partenaires à Metz'],
+    ];
+    global $wpdb;
+    $existantes = [];
+    foreach (\WC_Shipping_Zones::get_zones() as $donnees) {
+        $existantes[$donnees['zone_name']] = new \WC_Shipping_Zone($donnees['id']);
+    }
+    foreach ($zones as $nom => [$pays, $modes]) {
+        $zone = $existantes[$nom] ?? null;
+        if (! $zone) {
+            $zone = new \WC_Shipping_Zone();
+            $zone->set_zone_name($nom);
+            foreach ($pays as $code) {
+                $zone->add_location($code, 'country');
+            }
+            $zone->save();
+        }
+        $ordre = 1;
+        foreach ($modes as [$type, $mot, $reglages]) {
+            $trouve = null;
+            foreach ($zone->get_shipping_methods() as $methode) {
+                if ($methode->id === $type && ($mot === '' || stripos(remove_accents($methode->get_title()), $mot) !== false)) {
+                    $trouve = $methode;
+                    break;
+                }
+            }
+            if (! $trouve) {
+                $id = $zone->add_shipping_method($type);
+                update_option("woocommerce_{$type}_{$id}_settings", $reglages);
+                $instance = $id;
+            } else {
+                $actuels = (array) get_option($trouve->get_instance_option_key(), []);
+                foreach ($anciennes as [$methodeType, $cle, $ancienne, $nouvelle]) {
+                    if ($trouve->id === $methodeType && isset($actuels[$cle]) && (string) $actuels[$cle] === $ancienne
+                        && ($methodeType !== 'flat_rate' || $mot === 'domicile')) {
+                        $actuels[$cle] = $nouvelle;
+                    }
+                }
+                update_option($trouve->get_instance_option_key(), $actuels);
+                $instance = $trouve->get_instance_id();
+            }
+            $wpdb->update("{$wpdb->prefix}woocommerce_shipping_zone_methods", ['method_order' => $ordre++], ['instance_id' => $instance]);
+        }
+    }
+    \WC_Cache_Helper::get_transient_version('shipping', true);
+
+    return true;
+}
+
+/**
+ * 25/11/2026 : retours de la promotrice. Livraison offerte dès 79 € (point relais), point relais et domicile
+ * en France, Europe ; retrait chez les partenaires de Metz (Borny, gare) au lieu de « la boutique », avec son numéro ;
+ * délais (72 h, retrait sous 24 h) ; engagement qualité (Italie, CPNP).
+ */
+function maj_livraison_retrait_metz(): bool
+{
+    if (! maj_livraison()) {
+        return false;
+    }
+    $donnees = json_decode(DONNEES_LIVRAISON, true);
+
+    // Points de retrait : la boutique Kacy Afro Center laisse la place à Borny et à la gare.
+    $boutiques = (array) get_field('boutiques', 'option');
+    if (count($boutiques) === 1 && ($boutiques[0]['enseigne'] ?? '') === 'Kacy Afro Center') {
+        $point = fn ($nom, $adresse) => ['ville' => 'Metz', 'pays' => 'France', 'enseigne' => $nom, 'adresse' => $adresse,
+            'telephone' => '+33 6 05 78 40 11', 'telephone_2' => '', 'horaires' => [['jours' => 'Retrait', 'heures' => '8 h – 17 h']],
+            'mention' => 'Point de retrait partenaire. Gratuit, sous 24 h en général.'];
+        update_field('field_us_boutiques', [
+            $point('Borny', 'Place du Marché, 57070 Metz'),
+            $point('Gare de Metz', '1 place du Général-de-Gaulle, 57000 Metz'),
+        ], 'option');
+    }
+
+    // Textes des réglages.
+    maj_option('options_conseil_texte', 'En boutique ou par message, nous vous aidons à choisir.', 'Par WhatsApp ou par e-mail, nous vous aidons à choisir.');
+    maj_option('options_contact_boutiques', 'En boutique', 'Retrait à Metz');
+    maj_option('options_bandeau_2', 'Retrait gratuit à la boutique de Metz', 'Retrait gratuit à Metz, sous 24 h');
+    maj_option('options_produit_livraison', 'Livraison offerte dès {seuil} € d\'achat en France, ou retrait gratuit à la boutique de Metz.',
+        'Livraison en 72 h en général, offerte en point relais dès {seuil} € d\'achat en France. Retrait gratuit à Metz, sous 24 h.');
+    for ($i = 0, $n = (int) get_option('options_maison_points', 0); $i < $n; $i++) {
+        maj_option("options_maison_points_{$i}_texte", 'Notre boutique à Metz', 'Retrait gratuit à Metz');
+    }
+    for ($i = 0, $n = (int) get_option('options_garanties', 0); $i < $n; $i++) {
+        if (get_option("options_garanties_{$i}_titre") === 'Retrait en boutique') {
+            update_option("options_garanties_{$i}_titre", 'Retrait à Metz');
+            maj_option("options_garanties_{$i}_texte", 'Gratuit, à Metz', 'Gratuit, sous 24 h');
+        }
+    }
+
+    // Pages : seuls les passages d'origine sont remplacés (un texte retouché dans l'éditeur reste tel quel).
+    foreach ($donnees['pages'] as $slug => $paires) {
+        if (! $page = get_page_by_path($slug)) {
+            continue;
+        }
+        $texte = $page->post_content;
+        $nl = str_contains($texte, "\r\n") ? "\r\n" : "\n";
+        foreach ($paires as [$ancien, $nouveau]) {
+            // Une seule fois : le nouveau texte reprend parfois l'ancien (paragraphe ajouté devant).
+            $nouveau = str_replace("\n", $nl, $nouveau);
+            if (! str_contains($texte, $nouveau)) {
+                $texte = str_replace(str_replace("\n", $nl, $ancien), $nouveau, $texte);
+            }
+        }
+        if ($texte !== $page->post_content) {
+            wp_update_post(wp_slash(['ID' => $page->ID, 'post_content' => $texte]));
+        }
+    }
+
+    // Référencement : page boutique et page commande, puis « dès 49 € » devenu « dès 79 € » partout où il est écrit.
+    foreach ($donnees['seo'] as $slug => $champs) {
+        if ($page = get_page_by_path($slug)) {
+            foreach ($champs as $champ => [$ancien, $nouveau]) {
+                maj_meta($page->ID, $champ === 'titre' ? '_yoast_wpseo_title' : '_yoast_wpseo_metadesc', $ancien, $nouveau);
+            }
+        }
+    }
+    global $wpdb;
+    $metas = $wpdb->get_results("SELECT meta_id, post_id, meta_key, meta_value FROM {$wpdb->postmeta}
+        WHERE meta_key IN ('_yoast_wpseo_metadesc', '_us_seo_auto_yoast_wpseo_metadesc', '_yoast_wpseo_title', '_us_seo_auto_yoast_wpseo_title')
+        AND meta_value LIKE '%dès 49 €%'");
+    foreach ($metas as $meta) {
+        update_post_meta($meta->post_id, $meta->meta_key, str_replace('dès 49 €', 'dès 79 €', $meta->meta_value));
+    }
+    $termes = (array) get_option('wpseo_taxonomy_meta', []);
+    array_walk_recursive($termes, function (&$valeur) {
+        $valeur = is_string($valeur) ? str_replace('dès 49 €', 'dès 79 €', $valeur) : $valeur;
+    });
+    update_option('wpseo_taxonomy_meta', $termes);
+    $ombres = (array) get_option('us_seo_auto_rayons', []);
+    array_walk_recursive($ombres, function (&$valeur) {
+        $valeur = is_string($valeur) ? str_replace('dès 49 €', 'dès 79 €', $valeur) : $valeur;
+    });
+    update_option('us_seo_auto_rayons', $ombres, false);
+    // Yoast garde une copie des descriptions (« indexables ») : elle sera refaite au prochain affichage.
+    $wpdb->query("UPDATE {$wpdb->prefix}yoast_indexable SET description = REPLACE(description, 'dès 49 €', 'dès 79 €') WHERE description LIKE '%dès 49 €%'");
+
+    // Traductions anglaises : les nouveaux textes, et chaque texte traduit « dès 49 € » repris en « dès 79 € ».
+    $anglais = $donnees['en'];
+    if (class_exists('TRP_Translate_Press')) {
+        $table = \TRP_Translate_Press::get_trp_instance()->get_component('query')->get_table_name('en_GB');
+        foreach ((array) $wpdb->get_results("SELECT original, translated FROM `$table` WHERE original LIKE '%49 €%' AND translated <> ''") as $ligne) {
+            $anglais[str_replace('49 €', '79 €', $ligne->original)] ??= str_replace(['€49', '49 €'], ['€79', '79 €'], $ligne->translated);
+        }
+    }
+    maj_traductions($anglais);
+
+    return true;
+}
+
+/** Textes de la mise à jour « livraison-retrait-metz » : pages (ancien => nouveau), SEO et anglais. */
+const DONNEES_LIVRAISON = <<<'JSON'
+{
+ "pages": {
+  "livraison-et-retours": [
+   [
+    "<li><strong>À domicile, en France.</strong> [us_forfait] €, offerte dès [us_seuil] € d'achat.</li>",
+    "<li><strong>Point relais ou consigne, en France.</strong> [us_forfait type=\"relais\" zone=\"France\"] €, offert dès [us_seuil] € d'achat. Livraison en 72 h en général.</li>\n<!-- /wp:list-item --><!-- wp:list-item -->\n<li><strong>À domicile, en France.</strong> [us_forfait type=\"domicile\" zone=\"France\"] €. Livraison en 72 h en général.</li>\n<!-- /wp:list-item --><!-- wp:list-item -->\n<li><strong>En Europe.</strong> Allemagne, Belgique, Italie, Luxembourg, Pays-Bas et Suisse : point relais [us_forfait type=\"relais\" zone=\"Europe\"] €, à domicile [us_forfait type=\"domicile\" zone=\"Europe\"] €. Livraison en 3 à 7 jours ouvrés en général.</li>"
+   ],
+   [
+    "<li><strong>Retrait à la boutique de Metz.</strong> Gratuit. Nous vous prévenons dès que la commande est prête.</li>",
+    "<li><strong>Retrait chez nos partenaires à Metz.</strong> Gratuit, sous 24 h en général, à Borny ou à la gare. <a href=\"/notre-boutique/\">Adresses et horaires</a></li>"
+   ],
+   [
+    "<p>Vous recevez un e-mail à la commande, puis à l'expédition. Les délais annoncés sont des estimations : ils peuvent varier en raison de circonstances imprévues.</p>",
+    "<p>En point relais ou en consigne, nous choisissons le point le plus proche de votre adresse : son adresse vous est envoyée avec le numéro de suivi. Une préférence ? Indiquez-la dans la note de commande.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Vous recevez un e-mail à la commande, puis à l'expédition. Les délais annoncés sont des estimations : ils peuvent varier en raison de circonstances imprévues.</p>"
+   ],
+   [
+    "<p>Tous les produits sont neufs, authentiques et sélectionnés avec exigence.</p>",
+    "<p>Tous les produits sont neufs, authentiques et fabriqués en Italie. Chaque cosmétique est conforme au règlement européen et notifié sur le portail européen CPNP, obligatoire pour sa mise sur le marché.</p>"
+   ]
+  ],
+  "conditions-generales-de-vente": [
+   [
+    "<p>Nous livrons à domicile en France : [us_forfait] €, offert dès [us_seuil] € d'achat. Le retrait à la boutique de Metz est gratuit.</p>",
+    "<p>Nous livrons en France en point relais ou en consigne ([us_forfait type=\"relais\" zone=\"France\"] €, offert dès [us_seuil] € d'achat) ou à domicile ([us_forfait type=\"domicile\" zone=\"France\"] €), ainsi qu'en Allemagne, Belgique, Italie, Luxembourg, aux Pays-Bas et en Suisse. Le retrait chez nos partenaires à Metz est gratuit. Tarifs et délais : <a href=\"/livraison-et-retours/\">Livraison et retours</a>.</p>"
+   ]
+  ],
+  "questions-frequentes": [
+   [
+    "<p>Dès [us_seuil] € d'achat, en France. Le retrait à la boutique de Metz est toujours gratuit.</p>",
+    "<p>Dès [us_seuil] € d'achat en France, en point relais ou en consigne. Le retrait chez nos partenaires à Metz est toujours gratuit.</p>"
+   ]
+  ],
+  "notre-boutique": [
+   [
+    "<p>Venez sentir les parfums, les essayer et demander conseil.</p>",
+    "<p>Boutique en ligne ouverte 24 h/24, 7 j/7. Retrait gratuit à Metz, chez nos partenaires de Borny et de la gare.</p>"
+   ],
+   [
+    "<p>Choisissez « Retrait à la boutique de Metz » en validant la commande. Nous vous prévenons dès qu'elle est prête.</p>",
+    "<p>Choisissez « Retrait chez nos partenaires à Metz » en validant la commande. Nous vous prévenons dès qu'elle est prête, sous 24 h en général, et convenons avec vous du point de retrait.</p>"
+   ]
+  ],
+  "la-maison": [
+   [
+    "<p>Notre boutique est à Metz. <a href=\"/notre-boutique/\">Adresse et horaires</a></p>",
+    "<p>Boutique en ligne, retrait gratuit à Metz. <a href=\"/notre-boutique/\">Adresses et horaires</a></p>"
+   ]
+  ],
+  "politique-de-confidentialite": [
+   [
+    "organiser l'expédition ou le retrait en boutique",
+    "organiser l'expédition ou le retrait à Metz"
+   ]
+  ]
+ },
+ "seo": {
+  "notre-boutique": {
+   "titre": [
+    "Notre boutique à Metz | Univers Sensoriel",
+    "Notre boutique et retrait à Metz | Univers Sensoriel"
+   ],
+   "description": [
+    "Venez sentir les parfums et demander conseil dans notre boutique de Metz, 57 rue des Allemands. Retrait gratuit des commandes passées sur le site.",
+    "Boutique en ligne ouverte 24 h/24, 7 j/7. Retrait gratuit à Metz, chez nos partenaires de Borny et de la gare, sous 24 h en général."
+   ]
+  },
+  "commande": {
+   "description": [
+    "Finaliser votre commande Univers Sensoriel : livraison en France ou retrait gratuit à la boutique de Metz, paiement sécurisé.",
+    "Finaliser votre commande Univers Sensoriel : point relais, domicile ou retrait gratuit chez nos partenaires à Metz, paiement sécurisé."
+   ]
+  }
+ },
+ "en": {
+  "Retrait gratuit à Metz": "Free collection in Metz",
+  "Par WhatsApp ou par e-mail, nous vous aidons à choisir.": "On WhatsApp or by email, we help you choose.",
+  "Retrait à Metz": "Collection in Metz",
+  "Gratuit, sous 24 h": "Free, within 24 hours",
+  "Retrait gratuit à Metz, sous 24 h": "Free collection in Metz, within 24 hours",
+  "Livraison en 72 h en général, offerte en point relais dès 79 € d'achat en France. Retrait gratuit à Metz, sous 24 h.": "Delivery usually within 72 hours, free to a pickup point from €79 in France. Free collection in Metz, within 24 hours.",
+  "Gare de Metz": "Metz railway station",
+  "Retrait": "Collection",
+  "Retrait : 8 h – 17 h": "Collection: 8 am – 5 pm",
+  "8 h – 17 h": "8 am – 5 pm",
+  "Point de retrait partenaire. Gratuit, sous 24 h en général.": "Partner collection point. Free, usually within 24 hours.",
+  "Prête au retrait": "Ready for collection",
+  "Adresses et horaires": "Addresses and opening hours",
+  "Point relais ou consigne": "Pickup point or locker",
+  "Livraison à domicile": "Home delivery",
+  "Point relais ou consigne offert": "Free pickup point or locker",
+  "Retrait chez nos partenaires à Metz": "Collection from our partners in Metz",
+  "Point relais ou consigne, en France.": "Pickup point or locker, in France.",
+  "8 €, offert dès 79 € d'achat. Livraison en 72 h en général.": "€8, free from €79. Usually delivered within 72 hours.",
+  "À domicile, en France.": "Home delivery, in France.",
+  "12,90 €. Livraison en 72 h en général.": "€12.90. Usually delivered within 72 hours.",
+  "En Europe.": "In Europe.",
+  "Allemagne, Belgique, Italie, Luxembourg, Pays-Bas et Suisse : point relais 14,90 €, à domicile 19,90 €. Livraison en 3 à 7 jours ouvrés en général.": "Germany, Belgium, Italy, Luxembourg, the Netherlands and Switzerland: pickup point €14.90, home delivery €19.90. Usually delivered within 3 to 7 working days.",
+  "Retrait chez nos partenaires à Metz.": "Collection from our partners in Metz.",
+  "Gratuit, sous 24 h en général, à Borny ou à la gare.": "Free, usually within 24 hours, in Borny or at the railway station.",
+  "En point relais ou en consigne, nous choisissons le point le plus proche de votre adresse : son adresse vous est envoyée avec le numéro de suivi. Une préférence ? Indiquez-la dans la note de commande.": "For pickup points and lockers, we choose the one closest to your address and send you its address with the tracking number. Have a preference? Add it in the order note.",
+  "Tous les produits sont neufs, authentiques et fabriqués en Italie. Chaque cosmétique est conforme au règlement européen et notifié sur le portail européen CPNP, obligatoire pour sa mise sur le marché.": "All products are new, authentic and made in Italy. Every cosmetic product complies with EU regulations and is notified on the European CPNP portal, which is mandatory before it can be sold.",
+  "Nous livrons en France en point relais ou en consigne (8 €, offert dès 79 € d'achat) ou à domicile (12,90 €), ainsi qu'en Allemagne, Belgique, Italie, Luxembourg, aux Pays-Bas et en Suisse. Le retrait chez nos partenaires à Metz est gratuit. Tarifs et délais :": "We deliver in France to a pickup point or locker (€8, free from €79) or to your home (€12.90), as well as to Germany, Belgium, Italy, Luxembourg, the Netherlands and Switzerland. Collection from our partners in Metz is free. Rates and delivery times:",
+  "Dès 79 € d'achat en France, en point relais ou en consigne. Le retrait chez nos partenaires à Metz est toujours gratuit.": "From €79 in France, to a pickup point or locker. Collection from our partners in Metz is always free.",
+  "Boutique en ligne ouverte 24 h/24, 7 j/7. Retrait gratuit à Metz, chez nos partenaires de Borny et de la gare.": "Online boutique open 24/7. Free collection in Metz, from our partners in Borny and at the railway station.",
+  "Choisissez « Retrait chez nos partenaires à Metz » en validant la commande. Nous vous prévenons dès qu'elle est prête, sous 24 h en général, et convenons avec vous du point de retrait.": "Choose “Collection from our partners in Metz” when placing your order. We let you know as soon as it is ready, usually within 24 hours, and agree on the collection point with you.",
+  "Boutique en ligne, retrait gratuit à Metz.": "Online boutique, free collection in Metz.",
+  "Notre boutique et retrait à Metz": "Our boutique and collection in Metz",
+  "Boutique en ligne ouverte 24 h/24, 7 j/7. Retrait gratuit à Metz, chez nos partenaires de Borny et de la gare, sous 24 h en général.": "Online boutique open 24/7. Free collection in Metz, from our partners in Borny and at the railway station, usually within 24 hours.",
+  "Finaliser votre commande Univers Sensoriel : point relais, domicile ou retrait gratuit chez nos partenaires à Metz, paiement sécurisé.": "Complete your Univers Sensoriel order: pickup point, home delivery or free collection from our partners in Metz, secure payment.",
+  "Livraison en 72 h en général, offerte en point relais dès 79 € d&rsquo;achat en France. Retrait gratuit à Metz, sous 24 h.": "Delivery usually within 72 hours, free to a pickup point from €79 in France. Free collection in Metz, within 24 hours.",
+  "Livraison en 72 h en général, offerte en point relais dès 79 € d&#039;achat en France. Retrait gratuit à Metz, sous 24 h.": "Delivery usually within 72 hours, free to a pickup point from €79 in France. Free collection in Metz, within 24 hours.",
+  "8 €, offert dès 79 € d&rsquo;achat. Livraison en 72 h en général.": "€8, free from €79. Usually delivered within 72 hours.",
+  "8 €, offert dès 79 € d&#039;achat. Livraison en 72 h en général.": "€8, free from €79. Usually delivered within 72 hours.",
+  "Nous livrons en France en point relais ou en consigne (8 €, offert dès 79 € d&rsquo;achat) ou à domicile (12,90 €), ainsi qu&rsquo;en Allemagne, Belgique, Italie, Luxembourg, aux Pays-Bas et en Suisse. Le retrait chez nos partenaires à Metz est gratuit. Tarifs et délais :": "We deliver in France to a pickup point or locker (€8, free from €79) or to your home (€12.90), as well as to Germany, Belgium, Italy, Luxembourg, the Netherlands and Switzerland. Collection from our partners in Metz is free. Rates and delivery times:",
+  "Nous livrons en France en point relais ou en consigne (8 €, offert dès 79 € d&#039;achat) ou à domicile (12,90 €), ainsi qu&#039;en Allemagne, Belgique, Italie, Luxembourg, aux Pays-Bas et en Suisse. Le retrait chez nos partenaires à Metz est gratuit. Tarifs et délais :": "We deliver in France to a pickup point or locker (€8, free from €79) or to your home (€12.90), as well as to Germany, Belgium, Italy, Luxembourg, the Netherlands and Switzerland. Collection from our partners in Metz is free. Rates and delivery times:",
+  "Dès 79 € d&rsquo;achat en France, en point relais ou en consigne. Le retrait chez nos partenaires à Metz est toujours gratuit.": "From €79 in France, to a pickup point or locker. Collection from our partners in Metz is always free.",
+  "Dès 79 € d&#039;achat en France, en point relais ou en consigne. Le retrait chez nos partenaires à Metz est toujours gratuit.": "From €79 in France, to a pickup point or locker. Collection from our partners in Metz is always free.",
+  "Choisissez « Retrait chez nos partenaires à Metz » en validant la commande. Nous vous prévenons dès qu&rsquo;elle est prête, sous 24 h en général, et convenons avec vous du point de retrait.": "Choose “Collection from our partners in Metz” when placing your order. We let you know as soon as it is ready, usually within 24 hours, and agree on the collection point with you.",
+  "Choisissez « Retrait chez nos partenaires à Metz » en validant la commande. Nous vous prévenons dès qu&#039;elle est prête, sous 24 h en général, et convenons avec vous du point de retrait.": "Choose “Collection from our partners in Metz” when placing your order. We let you know as soon as it is ready, usually within 24 hours, and agree on the collection point with you."
+ }
+}
+JSON;

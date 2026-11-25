@@ -50,12 +50,10 @@
           <ul>
             @foreach ($c['boutiques'] as $b)
               <li>
-                <strong>{{ $b['ville'] }}</strong>
-                <span>{{ $b['enseigne'] }} · {{ $b['pays'] }}</span>
-                @if ($b['adresse'])
-                  <span>{{ $b['adresse'] }}</span>
-                @endif
-                @if ($b['telephone'])
+                <strong>{{ App\boutique_nom($b) }}</strong>
+                <span>{{ App\boutique_lieu($b) }}</span>
+                {{-- Le numéro de la Maison est déjà affiché plus haut. --}}
+                @if ($b['telephone'] && $b['telephone'] !== $c['telephone'])
                   <a href="{{ App\lien_telephone($b['telephone']) }}">{{ $b['telephone'] }}</a>
                 @endif
               </li>

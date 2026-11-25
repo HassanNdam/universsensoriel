@@ -109,7 +109,7 @@ add_filter('wpseo_robots', function ($robots) {
 function facettes(): array
 {
     $objet = get_queried_object();
-    $args = ['post_type' => 'product', 'post_status' => 'publish', 'posts_per_page' => -1, 'fields' => 'ids', 'no_found_rows' => true];
+    $args = ['post_type' => 'product', 'post_status' => 'publish', 'posts_per_page' => -1, 'fields' => 'ids', 'no_found_rows' => true, 'suppress_filters' => false];
     if ($objet instanceof \WP_Term) {
         $args['tax_query'] = [['taxonomy' => $objet->taxonomy, 'field' => 'term_id', 'terms' => $objet->term_id]];
     }
@@ -216,4 +216,14 @@ add_action('wp_enqueue_scripts', function () {
 /** Le compteur du panier se met à jour sans recharger la page (ajout depuis une carte produit). */
 add_action('wp_enqueue_scripts', function () {
     wp_enqueue_script('wc-cart-fragments');
+});
+
+/** Point relais offert (dès le seuil) : le point relais payant n'est plus proposé à côté. */
+add_filter('woocommerce_package_rates', function ($tarifs) {
+    $offert = array_filter($tarifs, fn ($t) => $t->get_method_id() === 'free_shipping');
+    if (! $offert) {
+        return $tarifs;
+    }
+
+    return array_filter($tarifs, fn ($t) => ! ($t->get_method_id() === 'flat_rate' && stripos(remove_accents($t->get_label()), 'relais') !== false));
 });

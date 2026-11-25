@@ -35,10 +35,10 @@ function etat_commande(\WC_Order $commande): array
     ];
 }
 
-/** Les trois étapes d'une commande, selon qu'elle est livrée ou retirée en boutique. */
+/** Les trois étapes d'une commande, selon qu'elle est livrée ou retirée à Metz. */
 function etapes_commande(bool $retrait): array
 {
-    return ['Commande reçue', 'Préparation', $retrait ? 'Prête en boutique' : 'Expédition'];
+    return ['Commande reçue', 'Préparation', $retrait ? 'Prête au retrait' : 'Expédition'];
 }
 
 /** Commandes du compte, prêtes pour la vue : une carte par commande. */

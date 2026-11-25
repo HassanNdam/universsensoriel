@@ -20,7 +20,7 @@ import sys
 
 ICI = os.path.dirname(os.path.abspath(__file__))
 MARQUE = ' | Univers Sensoriel'
-LIVRAISON = ' Livraison offerte dès 49 €.'
+LIVRAISON = ' Livraison offerte dès 79 €.'
 INTERDITS = ('montale', 'orto parisi', 'megamare', 'chogan', 'dior', 'chanel', 'guerlain', 'lancôme', 'armani')
 TITRE_MAX, DESC_MIN, DESC_MAX = 60, 120, 150
 
