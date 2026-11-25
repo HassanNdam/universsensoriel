@@ -4,6 +4,16 @@ Les versions suivent `MAJEUR.MINEUR.CORRECTIF`. Le site est en ligne depuis la 1
 
 ## À venir
 
+Retours de la promotrice après les premiers tests.
+
+- Recherche par parfum de référence : « Dior », « J'adore », « Baccarat Rouge »… renvoient aux extraits Olfazeta correspondants, avec le gel douche et la crème de même senteur (`app/inspirations.php`). Les maisons ne sont affichées nulle part. « Chogan » est un mot-clé caché : retiré de la recherche, seul il affiche toute la boutique.
+- E-mails : raison de chaque e-mail refusé et bouton « Envoyer un e-mail d'essai » dans l'admin (`mu-plugins/mails-echecs.php`).
+- Livraison : point relais ou consigne 8 €, offert dès 79 € (au lieu de 49 €) ; à domicile 12,90 € ; Europe (Allemagne, Belgique, Italie, Luxembourg, Pays-Bas, Suisse) 14,90 € en point relais, 19,90 € à domicile. Délais : 72 h en France, 3 à 7 jours ouvrés en Europe.
+- Retrait chez les partenaires de Metz (Borny, gare, 8 h – 17 h, sous 24 h) au lieu de « la boutique de Metz », avec le numéro de la Maison ; cartes, pied de page, accueil, contact, e-mails et suivi de commande.
+- Code court `[us_forfait type="relais|domicile" zone="France|Europe"]`.
+- Engagement qualité : produits fabriqués en Italie, cosmétiques notifiés sur le portail CPNP.
+- « Livraison offerte dès 79 € » dans les descriptions Google (fiches, rayons) et leurs traductions.
+
 ## 1.0.0 – 20 novembre 2026
 
 Mise en ligne sur https://universsensoriel.com (hébergement IONOS), page d'attente active jusqu'à l'ouverture, paiement Stripe en mode test.

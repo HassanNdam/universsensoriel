@@ -6,8 +6,9 @@
  * - Blocs du thème (catégorie « Univers Sensoriel ») : Notre boutique, Coordonnées, Bouton WhatsApp,
  *   Éditeur du site, Hébergeur. Ce sont des blocs Secure Custom Fields décrits dans resources/blocks/<nom>/block.json,
  *   rendus par rendu_bloc() : leur contenu est lu dans Univers Sensoriel › Coordonnées, jamais recopié dans la page.
- * - Valeurs au fil du texte (dans un paragraphe) : codes courts [us_seuil], [us_forfait] (livraison, lus dans
- *   WooCommerce › Expédition), [us_contact champ="courriel|telephone"] (app/coordonnees.php).
+ * - Valeurs au fil du texte (dans un paragraphe) : codes courts [us_seuil], [us_forfait type="relais|domicile"
+ *   zone="France|Europe"] (livraison, lus dans WooCommerce › Expédition), [us_contact champ="courriel|telephone"]
+ *   (app/coordonnees.php).
  * - Blocs proposés : ceux qui ont un style dans le thème (BLOCS_AUTORISES), pour que la page reste à la charte.
  * - Questions fréquentes : chaque bloc « Détails » d'une page devient une question des données Google (FAQPage).
  */
@@ -131,7 +132,7 @@ add_action('acf/init', function () {
 |--------------------------------------------------------------------------
 */
 add_shortcode('us_seuil', fn () => esc_html(seuil_affiche()));
-add_shortcode('us_forfait', fn () => esc_html(forfait_affiche()));
+add_shortcode('us_forfait', fn ($atts) => esc_html(forfait_affiche(...array_values(shortcode_atts(['type' => '', 'zone' => ''], $atts)))));
 
 /*
 |--------------------------------------------------------------------------

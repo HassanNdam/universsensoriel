@@ -217,3 +217,13 @@ add_action('wp_enqueue_scripts', function () {
 add_action('wp_enqueue_scripts', function () {
     wp_enqueue_script('wc-cart-fragments');
 });
+
+/** Point relais offert (dès le seuil) : le point relais payant n'est plus proposé à côté. */
+add_filter('woocommerce_package_rates', function ($tarifs) {
+    $offert = array_filter($tarifs, fn ($t) => $t->get_method_id() === 'free_shipping');
+    if (! $offert) {
+        return $tarifs;
+    }
+
+    return array_filter($tarifs, fn ($t) => ! ($t->get_method_id() === 'flat_rate' && stripos(remove_accents($t->get_label()), 'relais') !== false));
+});

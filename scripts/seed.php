@@ -309,23 +309,14 @@ us_log("$crees fiches créées, $maj mises à jour, " . (count($catalogue) - $cr
 
 /*
 |--------------------------------------------------------------------------
-| Livraison : France, offerte dès 49 € (charte), retrait à la boutique de Metz
+| Livraison : France (point relais, domicile, offerte dès 79 €, retrait chez les partenaires de Metz) et Europe
 |--------------------------------------------------------------------------
 */
 WP_CLI::log('Livraison');
-if (! get_option('us_livraison_creee')) {
-    $zone = new WC_Shipping_Zone();
-    $zone->set_zone_name('France');
-    $zone->add_location('FR', 'country');
-    $zone->save();
-    $forfait = $zone->add_shipping_method('flat_rate');
-    update_option("woocommerce_flat_rate_{$forfait}_settings", ['title' => 'Livraison à domicile', 'tax_status' => 'none', 'cost' => '4.90']);
-    $gratuit = $zone->add_shipping_method('free_shipping');
-    update_option("woocommerce_free_shipping_{$gratuit}_settings", ['title' => 'Livraison offerte', 'requires' => 'min_amount', 'min_amount' => '49']);
-    $retrait = $zone->add_shipping_method('local_pickup');
-    update_option("woocommerce_local_pickup_{$retrait}_settings", ['title' => 'Retrait à la boutique de Metz', 'tax_status' => 'none', 'cost' => '']);
-    update_option('us_livraison_creee', 1);
-    us_log('zone France : forfait, offerte dès 49 €, retrait à Metz');
+// Une seule description des zones et des tarifs : App\maj_livraison() (thème, app/mises-a-jour.php).
+// Elle crée ce qui manque et ne change pas un tarif retouché dans WooCommerce › Réglages › Expédition.
+if (function_exists('App\\maj_livraison') && App\maj_livraison()) {
+    us_log('zones France et Europe : point relais, domicile, offerte dès 79 €, retrait à Metz');
 }
 
 // Paiement par carte (Stripe).

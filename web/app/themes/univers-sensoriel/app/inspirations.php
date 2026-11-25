@@ -361,3 +361,36 @@ add_filter('posts_search_orderby', function ($ordre, $query) {
 
     return $ordre ? "$tete, $ordre" : $tete;
 }, 20, 2);
+
+/**
+ * « Chogan », nom du fabricant, n'est écrit nulle part sur le site mais reste un mot-clé de recherche :
+ * il est retiré de la recherche (« chogan sauvage » = « sauvage ») et, tapé seul, affiche toute la boutique.
+ * La page de résultats montre toujours ce que le visiteur a tapé.
+ */
+add_action('pre_get_posts', function ($query) {
+    $recherche = (string) $query->get('s');
+    if ($recherche === '' || stripos($recherche, 'chogan') === false || ! in_array('product', (array) $query->get('post_type'), true)) {
+        return;
+    }
+    $reste = trim(preg_replace('/\s+/', ' ', preg_replace('/\bchogan\b/i', ' ', $recherche)));
+    if ($reste === '') {
+        // « chogan » seul : la recherche garde son mot (titre de la page), seul le filtre sur les produits saute.
+        $query->set('us_toute_la_boutique', true);
+
+        return;
+    }
+    if ($query->is_main_query()) {
+        $query->set('us_recherche_tapee', $recherche);
+    }
+    $query->set('s', $reste);
+});
+
+add_filter('posts_search', fn ($sql, $query) => $query->get('us_toute_la_boutique') ? '' : $sql, 30, 2);
+add_filter('posts_search_orderby', fn ($ordre, $query) => $query->get('us_toute_la_boutique') ? '' : $ordre, 30, 2);
+
+add_filter('get_search_query', function ($texte) {
+    global $wp_query;
+    $tapee = $wp_query instanceof \WP_Query ? (string) $wp_query->get('us_recherche_tapee') : '';
+
+    return $tapee !== '' ? $tapee : $texte; // get_search_query() échappe ensuite
+});

@@ -69,22 +69,23 @@ const REGLAGES = [
                 'wa_commande' => ['texte', 'Message WhatsApp : question sur une commande', 'Bonjour, j\'ai une question sur ma commande n° {numero}.', '{numero} = numéro de la commande.'],
             ],
             'Boutiques' => [
-                'boutiques' => ['liste', 'Boutiques', [
+                'boutiques' => ['liste', 'Boutiques et points de retrait', [
                     [
-                        'ville' => 'Metz', 'pays' => 'France', 'enseigne' => 'Kacy Afro Center', 'adresse' => '57 rue des Allemands, 57000 Metz',
-                        'telephone' => '+33 6 41 25 22 71', 'telephone_2' => '+33 7 66 28 66 48',
-                        'horaires' => [
-                            ['jours' => 'Lundi, mardi et jeudi', 'heures' => '14 h – 19 h'],
-                            ['jours' => 'Mercredi', 'heures' => '11 h – 19 h'],
-                            ['jours' => 'Vendredi et samedi', 'heures' => '10 h – 19 h'],
-                            ['jours' => 'Dimanche', 'heures' => 'Fermé'],
-                        ],
-                        'mention' => 'Retrait gratuit des commandes passées sur le site.',
+                        'ville' => 'Metz', 'pays' => 'France', 'enseigne' => 'Borny', 'adresse' => 'Place du Marché, 57070 Metz',
+                        'telephone' => '+33 6 05 78 40 11', 'telephone_2' => '',
+                        'horaires' => [['jours' => 'Retrait', 'heures' => '8 h – 17 h']],
+                        'mention' => 'Point de retrait partenaire. Gratuit, sous 24 h en général.',
                     ],
-                ], 'Affichées dans le pied de page, l\'accueil, la page Contact et la page Notre boutique. Avec plusieurs boutiques, les titres passent au pluriel.', [
+                    [
+                        'ville' => 'Metz', 'pays' => 'France', 'enseigne' => 'Gare de Metz', 'adresse' => '1 place du Général-de-Gaulle, 57000 Metz',
+                        'telephone' => '+33 6 05 78 40 11', 'telephone_2' => '',
+                        'horaires' => [['jours' => 'Retrait', 'heures' => '8 h – 17 h']],
+                        'mention' => 'Point de retrait partenaire. Gratuit, sous 24 h en général.',
+                    ],
+                ], 'Affichés dans le pied de page, l\'accueil, la page Contact et la page Notre boutique, sous le nom saisi dans « Nom affiché » (à défaut, la ville). Boutiques dans plusieurs villes : les titres passent au pluriel.', [
                     'ville' => ['texte', 'Ville'],
                     'pays' => ['texte', 'Pays'],
-                    'enseigne' => ['texte', 'Enseigne'],
+                    'enseigne' => ['texte', 'Nom affiché', '', 'Exemple : Borny, Gare de Metz.'],
                     'adresse' => ['texte', 'Adresse'],
                     'telephone' => ['texte', 'Téléphone'],
                     'telephone_2' => ['texte', 'Second téléphone'],
@@ -158,7 +159,7 @@ const REGLAGES = [
                 'maison_points' => ['liste', 'Points forts', [
                     ['icone' => 'goutte', 'texte' => 'Extraits de parfum concentrés à 30 %'],
                     ['icone' => 'feuille', 'texte' => 'Formules et actifs choisis avec soin'],
-                    ['icone' => 'boutique', 'texte' => 'Notre boutique à Metz'],
+                    ['icone' => 'boutique', 'texte' => 'Retrait gratuit à Metz'],
                 ], '', ['icone' => ['choix', 'Picto', '', '', PICTOS], 'texte' => ['texte', 'Texte']]],
                 'maison_bouton' => ['texte', 'Bouton', 'Notre histoire'],
                 'maison_image' => ['image', 'Photo', 'aloe-vera-feuilles'],
@@ -192,7 +193,7 @@ const REGLAGES = [
             ],
             'Conseil' => [
                 'conseil_titre' => ['texte', 'Titre', 'Sentir, essayer, demander conseil'],
-                'conseil_texte' => ['zone', 'Texte', 'En boutique ou par message, nous vous aidons à choisir.'],
+                'conseil_texte' => ['zone', 'Texte', 'Par WhatsApp ou par e-mail, nous vous aidons à choisir.'],
                 'conseil_bouton' => ['texte', 'Bouton WhatsApp', 'Demander conseil'],
                 'conseil_lien_contact' => ['texte', 'Lien vers le contact', 'Formulaire de contact'],
                 'conseil_lien_boutiques' => ['texte', 'Lien vers la boutique', 'Notre boutique'],
@@ -205,7 +206,7 @@ const REGLAGES = [
             'Garanties' => [
                 'garanties' => ['liste', 'Garanties', [
                     ['icone' => 'livraison', 'titre' => 'Livraison offerte', 'texte' => 'Dès {seuil} € d\'achat en France'],
-                    ['icone' => 'boutique', 'titre' => 'Retrait en boutique', 'texte' => 'Gratuit, à Metz'],
+                    ['icone' => 'boutique', 'titre' => 'Retrait à Metz', 'texte' => 'Gratuit, sous 24 h'],
                     ['icone' => 'cadenas', 'titre' => 'Paiement sécurisé', 'texte' => 'Vos données restent protégées'],
                     ['icone' => 'whatsapp', 'titre' => 'Conseil personnalisé', 'texte' => 'WhatsApp ou formulaire, réponse sous 24 h'],
                 ], 'Affichées au-dessus du pied de page et sur chaque fiche produit. {seuil} = montant de la livraison offerte.', [
@@ -225,7 +226,7 @@ const REGLAGES = [
                 'produit_stock' => ['texte', 'Mention de stock', 'En stock'],
                 'produit_concentration' => ['texte', 'Concentration des parfums', 'Extrait de parfum, 30 %'],
                 'produit_conseils' => ['zone', 'Conseils d\'utilisation des parfums', 'Deux ou trois vaporisations sur les points de pulsation (poignets, cou), sans frotter. À conserver à l\'abri de la lumière et de la chaleur.'],
-                'produit_livraison' => ['zone', 'Livraison', 'Livraison offerte dès {seuil} € d\'achat en France, ou retrait gratuit à la boutique de Metz.'],
+                'produit_livraison' => ['zone', 'Livraison', 'Livraison en 72 h en général, offerte en point relais dès {seuil} € d\'achat en France. Retrait gratuit à Metz, sous 24 h.'],
                 'produit_retours' => ['zone', 'Retours', '14 jours pour changer d\'avis, si le produit n\'a pas été ouvert.'],
                 'produit_meme_senteur' => ['texte', 'Titre : même senteur', 'Dans la même senteur'],
                 'produit_voisins' => ['texte', 'Titre : autres produits', 'Vous aimerez aussi'],
@@ -247,7 +248,7 @@ const REGLAGES = [
             ],
             'Contact' => [
                 'contact_mention' => ['texte', 'Mention sous le formulaire', 'Vos données servent uniquement à vous répondre.'],
-                'contact_boutiques' => ['texte', 'Titre des boutiques', 'En boutique'],
+                'contact_boutiques' => ['texte', 'Titre des boutiques', 'Retrait à Metz'],
                 'contact_aide_titre' => ['texte', 'Titre de l\'aide', 'Aide'],
                 'contact_aide' => ['liste', 'Liens d\'aide', [
                     ['icone' => 'livraison', 'titre' => 'Livraison et retours', 'texte' => 'Délais, frais de port, retours.', 'lien' => '/livraison-et-retours/'],
@@ -283,7 +284,7 @@ const REGLAGES = [
             'Messages permanents' => [
                 'bandeau_affiche' => ['case', 'Affichés', true, 'Désactivé : les messages disparaissent du haut du site. L\'événement du moment reste affiché.'],
                 'bandeau_1' => ['texte', 'Premier message', 'Livraison offerte dès {seuil} €', '{seuil} = montant de la livraison offerte, réglé dans WooCommerce › Réglages › Expédition.'],
-                'bandeau_2' => ['texte', 'Deuxième message', 'Retrait gratuit à la boutique de Metz'],
+                'bandeau_2' => ['texte', 'Deuxième message', 'Retrait gratuit à Metz, sous 24 h'],
                 'bandeau_3' => ['texte', 'Troisième message', '', 'Facultatif.'],
             ],
             'Événements' => [
@@ -510,27 +511,37 @@ function seuil_livraison(): float
     return $seuil;
 }
 
-/** Prix de la livraison à domicile : forfait le plus bas des zones (WooCommerce › Expédition), 0 s'il n'y en a pas. */
-function forfait_livraison(): float
+/**
+ * Prix d'une livraison (WooCommerce › Expédition) : forfait le plus bas, 0 s'il n'y en a pas.
+ * $type : un mot du nom du mode (« relais », « domicile ») ; $zone : nom de la zone (« France », « Europe »).
+ * Sans précision : le forfait le plus bas de toutes les zones.
+ */
+function forfait_livraison(string $type = '', string $zone = ''): float
 {
-    static $forfait = null;
-    if ($forfait !== null) {
-        return $forfait;
+    static $memoire = [];
+    $cle = "$type|$zone";
+    if (isset($memoire[$cle])) {
+        return $memoire[$cle];
     }
     $forfait = 0.0;
     if (! class_exists('WC_Shipping_Zones')) {
-        return $forfait;
+        return $memoire[$cle] = $forfait;
     }
-    foreach (\WC_Shipping_Zones::get_zones() as $zone) {
-        foreach ($zone['shipping_methods'] ?? [] as $methode) {
+    foreach (\WC_Shipping_Zones::get_zones() as $donnees) {
+        if ($zone !== '' && strcasecmp($donnees['zone_name'] ?? '', $zone) !== 0) {
+            continue;
+        }
+        foreach ($donnees['shipping_methods'] ?? [] as $methode) {
             $cout = (float) wc_format_decimal((string) $methode->get_option('cost', ''));
-            if ($methode->id === 'flat_rate' && $methode->enabled === 'yes' && $cout > 0) {
-                $forfait = $forfait > 0 ? min($forfait, $cout) : $cout;
+            if ($methode->id !== 'flat_rate' || $methode->enabled !== 'yes' || $cout <= 0
+                || ($type !== '' && stripos(remove_accents($methode->get_title()), remove_accents($type)) === false)) {
+                continue;
             }
+            $forfait = $forfait > 0 ? min($forfait, $cout) : $cout;
         }
     }
 
-    return $forfait;
+    return $memoire[$cle] = $forfait;
 }
 
 /** Montant tel qu'on l'écrit : « 49 », « 4,90 ». */
@@ -539,9 +550,9 @@ function montant(float $valeur): string
     return number_format($valeur, floor($valeur) === $valeur ? 0 : 2, ',', ' ');
 }
 
-function forfait_affiche(): string
+function forfait_affiche(string $type = '', string $zone = ''): string
 {
-    return montant(forfait_livraison());
+    return montant(forfait_livraison($type, $zone));
 }
 
 /** Seuil tel qu'on l'écrit : « 49 », « 49,50 ». */
