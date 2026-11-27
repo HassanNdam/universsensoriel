@@ -65,6 +65,28 @@
     </section>
   @endif
 
+  {{-- 2 bis. Nouveautés : les derniers produits arrivés (catégorie Nouveautés) --}}
+  @if ($boutique && ($nouveautes = App\nouveautes()) && ($recents = array_slice(App\produits_nouveautes(4), 0, 4)))
+    <section class="section section-blanche">
+      <div class="conteneur">
+        <header class="section-tete">
+          <h2>{{ App\texte('nouveautes_titre') }}</h2>
+        </header>
+        <div class="grille-produits">
+          @foreach ($recents as $produit)
+            @include('partials.carte-produit', ['produit' => $produit])
+          @endforeach
+        </div>
+        <p class="section-suite">
+          <a class="bouton bouton-contour" href="{{ $nouveautes[0] }}">{{ App\texte('nouveautes_bouton') }}</a>
+          @if (App\nombre_offres())
+            <a class="lien-or" href="{{ App\lien_offres() }}">{{ App\texte('offres_titre') }} {!! App\icone('fleche', 16) !!}</a>
+          @endif
+        </p>
+      </div>
+    </section>
+  @endif
+
   {{-- 3. Les quatre univers --}}
   @if ($univers)
     <section class="section univers">
@@ -187,24 +209,7 @@
     </section>
   @endif
 
-  {{-- 9. Le journal --}}
-  @if ($articles = App\articles_recents(3))
-    <section class="section section-blanche">
-      <div class="conteneur">
-        <header class="section-tete">
-          <h2>{{ App\texte('journal_titre') }}</h2>
-        </header>
-        <div class="journal-grille">
-          @foreach ($articles as $article)
-            @include('partials.carte-article', ['article' => $article])
-          @endforeach
-        </div>
-        <p class="section-suite"><a class="bouton bouton-contour" href="{{ get_permalink(get_option('page_for_posts')) }}">{{ App\texte('journal_bouton') }}</a></p>
-      </div>
-    </section>
-  @endif
-
-  {{-- 10. Boutiques et conseil --}}
+  {{-- 9. Boutiques et conseil (le journal n'est plus sur l'accueil : il reste dans le pied de page) --}}
   <section class="rendez-vous">
     <div class="conteneur rendez-vous-grille">
       <div>

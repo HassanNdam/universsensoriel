@@ -93,36 +93,67 @@ document.querySelectorAll('[data-envoi-auto]').forEach((champ) => {
   champ.addEventListener('change', () => champ.form.submit());
 });
 
-/* Galerie de la fiche produit. */
+/* Galerie de la fiche produit. Une teinte ou un format choisi montre sa photo (data-media = identifiant de l'image). */
 document.querySelectorAll('[data-galerie]').forEach((galerie) => {
   const vignettes = galerie.querySelectorAll('[data-image]');
   const visuels = galerie.querySelectorAll('[data-visuel]');
-  vignettes.forEach((vignette) => {
-    vignette.addEventListener('click', () => {
-      vignettes.forEach((autre) => autre.toggleAttribute('aria-current', autre === vignette));
-      vignette.setAttribute('aria-current', 'true');
-      visuels.forEach((visuel) => {
-        visuel.hidden = visuel.dataset.visuel !== vignette.dataset.image;
-      });
+  const montrer = (rang) => {
+    vignettes.forEach((autre) => autre.toggleAttribute('aria-current', autre.dataset.image === rang));
+    visuels.forEach((visuel) => {
+      visuel.hidden = visuel.dataset.visuel !== rang;
     });
+  };
+  vignettes.forEach((vignette) => {
+    vignette.addEventListener('click', () => montrer(vignette.dataset.image));
   });
+  const formulaire = document.querySelector('.variations_form');
+  if (formulaire && window.jQuery) {
+    window.jQuery(formulaire).on('found_variation', (evenement, variation) => {
+      const visuel = galerie.querySelector(`[data-media="${variation.image_id}"]`);
+      if (visuel) montrer(visuel.dataset.visuel);
+    });
+  }
 });
 
-/* Formats : le <select> de WooCommerce devient une rangée de pastilles, le <select> reste la source. */
+/*
+ * Formats : le <select> de WooCommerce devient une rangée de pastilles, le <select> reste la source.
+ * Teintes (data-palette, app/palette.php) : pastilles rondes de couleur, nom de la teinte choisie au-dessus.
+ */
 document.querySelectorAll('.variations_form .variations select').forEach((liste) => {
+  const palette = liste.dataset.palette ? JSON.parse(liste.dataset.palette) : null;
+  const libelle = liste.closest('tr')?.querySelector('label')?.textContent?.trim() || 'Format';
   const rangee = document.createElement('div');
-  rangee.className = 'formats';
+  rangee.className = palette ? 'formats palette' : 'formats';
   rangee.setAttribute('role', 'group');
-  rangee.setAttribute('aria-label', liste.closest('tr')?.querySelector('label')?.textContent?.trim() || 'Format');
+  rangee.setAttribute('aria-label', libelle);
+  const choix = palette ? document.createElement('p') : null;
+  if (choix) {
+    choix.className = 'palette-choix';
+    choix.setAttribute('aria-live', 'polite');
+  }
+  const nomTeinte = (valeur) => {
+    const teinte = palette?.[valeur];
+    return teinte ? [teinte.code, teinte.nom].filter(Boolean).join(' – ') : '';
+  };
 
   const dessiner = () => {
+    if (choix) {
+      choix.replaceChildren(`${libelle} : `, Object.assign(document.createElement('strong'), { textContent: nomTeinte(liste.value) || 'à choisir' }));
+    }
     rangee.replaceChildren(
       ...[...liste.options]
         .filter((option) => option.value)
         .map((option) => {
           const bouton = document.createElement('button');
           bouton.type = 'button';
-          bouton.textContent = option.textContent;
+          const teinte = palette?.[option.value];
+          if (teinte?.couleur) {
+            bouton.style.setProperty('--pastille', teinte.couleur);
+            bouton.title = nomTeinte(option.value);
+            bouton.append(Object.assign(document.createElement('span'), { className: 'sr-only', textContent: bouton.title }));
+          } else {
+            bouton.textContent = option.textContent;
+          }
           bouton.disabled = option.disabled;
           bouton.setAttribute('aria-pressed', String(option.value === liste.value));
           bouton.addEventListener('click', () => {
@@ -137,6 +168,7 @@ document.querySelectorAll('.variations_form .variations select').forEach((liste)
 
   liste.classList.add('est-remplace');
   liste.after(rangee);
+  if (choix) rangee.before(choix);
   dessiner();
   liste.addEventListener('change', dessiner);
   // WooCommerce reconstruit les options après chaque choix : on redessine.

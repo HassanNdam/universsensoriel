@@ -1,6 +1,10 @@
 @php
   $menu = App\menu_principal();
   $boutique = function_exists('wc_get_page_permalink');
+  // Nouveautés et promotions : une entrée du menu, avec son étiquette « New » (app/offres.php).
+  $nouveautes = $boutique ? App\nouveautes() : null;
+  $offres = $boutique ? App\nombre_offres() : 0;
+  $recents = $nouveautes ? App\produits_nouveautes(5) : [];
 @endphp
 
 @include('partials.bandeau')
@@ -50,7 +54,41 @@
             </div>
           </li>
         @endforeach
-        <li class="entete-entree"><a href="{{ home_url('/journal/') }}">Le journal</a></li>
+        @if ($nouveautes || $offres)
+          <li class="entete-entree entete-nouveautes" data-mega>
+            <a href="{{ $nouveautes[0] ?? App\lien_offres() }}" aria-haspopup="true">Nouveautés <span class="etiquette-new" aria-hidden="true">New</span></a>
+            <div class="mega">
+              <div class="mega-fond conteneur">
+                @if ($recents)
+                  <div class="mega-colonne">
+                    <p class="surtitre">Derniers arrivés</p>
+                    <ul>
+                      @foreach (array_slice($recents, 0, 5) as $recent)
+                        <li><a href="{{ $recent->get_permalink() }}">{{ $recent->get_name() }}</a></li>
+                      @endforeach
+                      <li><a class="mega-tout" href="{{ $nouveautes[0] }}">Toutes les nouveautés {!! App\icone('fleche', 16) !!}</a></li>
+                    </ul>
+                  </div>
+                @endif
+                @if ($offres)
+                  <div class="mega-colonne">
+                    <p class="surtitre">{{ App\texte('offres_titre') }}</p>
+                    <ul>
+                      <li><a href="{{ App\lien_offres() }}">{{ sprintf(_n('%d produit à prix réduit', '%d produits à prix réduit', $offres), $offres) }}</a></li>
+                      <li><a class="mega-tout" href="{{ App\lien_offres() }}">Voir les offres {!! App\icone('fleche', 16) !!}</a></li>
+                    </ul>
+                  </div>
+                @endif
+                @if ($recents)
+                  <a class="mega-visuel mega-visuel-produit" href="{{ $nouveautes[0] }}" tabindex="-1" aria-hidden="true">
+                    {!! App\image_produit($recents[0], 'medium_large') !!}
+                    <span>Nouveautés</span>
+                  </a>
+                @endif
+              </div>
+            </div>
+          </li>
+        @endif
         <li class="entete-entree"><a href="{{ home_url('/la-maison/') }}">La Maison</a></li>
       </ul>
     </nav>
@@ -98,6 +136,12 @@
       <button class="entete-bouton" type="button" data-fermer="menu-mobile">{!! App\icone('fermer', 26) !!}<span class="sr-only">Fermer le menu</span></button>
     </div>
     <nav aria-label="Menu mobile">
+      @if ($nouveautes)
+        <a class="mobile-lien mobile-nouveautes" href="{{ $nouveautes[0] }}">Nouveautés <span class="etiquette-new" aria-hidden="true">New</span></a>
+      @endif
+      @if ($offres)
+        <a class="mobile-lien" href="{{ App\lien_offres() }}">{{ App\texte('offres_titre') }}</a>
+      @endif
       @foreach ($menu as $entree)
         <details class="mobile-univers">
           <summary>{{ $entree['titre'] }} {!! App\icone('chevron', 20) !!}</summary>

@@ -4,6 +4,17 @@ Les versions suivent `MAJEUR.MINEUR.CORRECTIF`. Le site est en ligne depuis la 1
 
 ## À venir
 
+Nouveautés, promotions et documentation (demandes de la promotrice du 27 novembre 2026).
+
+- 57 nouveaux produits (fichier « nouveautés produits chogan.xlsx »), au prix client : parfums Luxury Amphera, Volt et Scarlet, Blooming Skin (163), Unfold (164), maquillage MoniAmori, bougies parfumées, soins du visage et des cheveux, sprays d'ambiance, gel douche Luxury. Compléments alimentaires en brouillon (allégations santé à relire). Deux rayons nouveaux : Maquillage (Beauté) et Bougies parfumées (Art de vivre).
+- Catégorie Nouveautés : entrée du menu avec étiquette « New » animée (à la place du journal, resté dans le pied de page), bloc sur l'accueil après les essentiels, badge « Nouveau » sur les cartes, liens dans le pied de page.
+- Teintes en palette sur la fiche : pastilles de couleur avec code et nom (rouges et encres à lèvres, crayons, fonds de teint, sticks), photo de la teinte au choix. Couleur et code modifiables dans Produits › Attributs (`app/palette.php`).
+- Page Promotions (`/promotions/`) : les produits à prix barré, avec filtres et tri ; « Voir les offres » du Black Friday y mène.
+- Page Documentation et certifications (pied de page, colonne Aide) : catalogues et certificats déposés dans Univers Sensoriel › Documentation.
+- Le bloc Journal quitte l'accueil.
+- Import des fiches dans le thème (`app/import-produits.php`) : en local par le seed, en ligne par lots depuis l'administration (`app/mises-a-jour.php`, dossier `uploads/import/nouveautes-2026-11/`). Préparation : `scripts/catalogue/nouveautes.py`.
+- Recherche par parfum de référence : Scarlet (170U) ajouté.
+
 ## 1.1.0 – 25 novembre 2026
 
 Retours de la promotrice après les premiers tests. Fichiers à envoyer : `mise-en-ligne/mise-a-jour-2026-11-25/` (hors Git) ; la base en ligne se met à jour d'elle-même au premier chargement (`app/mises-a-jour.php`).
