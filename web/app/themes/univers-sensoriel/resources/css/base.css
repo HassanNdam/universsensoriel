@@ -177,18 +177,17 @@ a {
   color: var(--ivoire);
 }
 
+/* Lien en capitales suivi d'une flèche, sans trait dessous : la flèche avance au survol. */
 .lien-or {
   align-items: center;
-  border-bottom: 1px solid var(--or);
   color: inherit;
   display: inline-flex;
   font-size: 0.8125rem;
   font-weight: 500;
   gap: 0.55rem;
   letter-spacing: 0.16em;
-  padding-bottom: 0.35rem;
   text-transform: uppercase;
-  transition: gap var(--transition), border-color var(--transition);
+  transition: gap var(--transition);
 }
 
 .lien-or:hover {
@@ -271,9 +270,20 @@ a.pastille:hover small {
   margin-top: 1.1rem;
 }
 
+/* Bouton (et lien) sous une grille : côte à côte avec de l'air, l'un sous l'autre sur mobile. */
 .section-suite {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2.5rem;
+  justify-content: center;
   margin-top: clamp(2.5rem, 4vw, 3.5rem);
   text-align: center;
+}
+
+/* Section qui finit par ses boutons : moins de vide dessous. */
+.section:has(> .conteneur > .section-suite:last-child) {
+  padding-bottom: clamp(3.5rem, 6vw, 5.5rem);
 }
 
 /* Carte produit : visuel carré sur fond lin, flacon détouré avec son ombre. */
