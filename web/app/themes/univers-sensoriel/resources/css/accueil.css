@@ -129,6 +129,61 @@
   margin-top: 2.4rem;
 }
 
+/* Vers la suite : un filet d'or qui descend dans un cercle fin, jusqu'au premier bloc (ancre #essentiels). */
+.ouverture-suite {
+  display: none;
+}
+
+@media (min-width: 980px) {
+  .ouverture-suite {
+    align-items: center;
+    background: rgb(22 36 26 / 35%);
+    border: 1px solid rgb(227 181 111 / 75%);
+    border-radius: 50%;
+    color: var(--or-clair);
+    /* En bas du visuel, mais toujours dans l'écran à l'arrivée (bandeau et en-tête font environ 10 rem au-dessus). */
+    top: min(calc(100% - 5.25rem), calc(100svh - 10rem - 5.25rem));
+    display: flex;
+    height: 3.25rem;
+    justify-content: center;
+    left: 50%;
+    overflow: hidden;
+    position: absolute;
+    transform: translateX(-50%);
+    transition: border-color var(--transition), background var(--transition), color var(--transition);
+    width: 3.25rem;
+    z-index: 2;
+  }
+
+  .ouverture-suite:hover,
+  .ouverture-suite:focus-visible {
+    background: var(--or-clair);
+    border-color: var(--or-clair);
+    color: var(--sapin-profond);
+  }
+
+  .ouverture-suite .icone {
+    transform: rotate(90deg);
+  }
+}
+
+@media (min-width: 980px) and (prefers-reduced-motion: no-preference) {
+  .ouverture-suite .icone {
+    animation: descendre 2.4s cubic-bezier(0.45, 0, 0.25, 1) infinite;
+  }
+}
+
+@keyframes descendre {
+  0% { opacity: 0; transform: translateY(-120%) rotate(90deg); }
+  35%, 65% { opacity: 1; transform: translateY(0) rotate(90deg); }
+  100% { opacity: 0; transform: translateY(120%) rotate(90deg); }
+}
+
+/* Arrivée par la flèche : le titre du bloc sous l'en-tête collant. */
+#essentiels {
+  scroll-margin-top: 2rem;
+}
+
 /* La scène : des photos de matières qui se relaient dans une arche (scene.css), deux flacons détourés au premier plan. */
 .ouverture-scene {
   aspect-ratio: 1 / 1.08;
@@ -547,4 +602,16 @@
   .rendez-vous-grille {
     grid-template-columns: 1.1fr 0.9fr;
   }
+}
+
+/*
+ * Blocs qui se suivent sur le même fond : le second ne rajoute presque pas de vide au-dessus
+ * (Nouveautés puis Nos univers ; Avis puis Sentir, essayer, demander conseil).
+ */
+.section-blanche + .univers {
+  padding-top: clamp(1rem, 2vw, 1.5rem);
+}
+
+.avis-accueil + .rendez-vous .rendez-vous-grille {
+  padding-top: clamp(1rem, 2vw, 1.5rem);
 }
