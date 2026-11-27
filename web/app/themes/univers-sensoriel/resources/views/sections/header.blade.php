@@ -58,7 +58,7 @@
         @endforeach
         @if ($nouveautes || $offres)
           <li class="entete-entree entete-nouveautes" data-mega>
-            <a href="{{ $nouveautes[0] ?? App\lien_offres() }}" aria-haspopup="true">{{ $nomNouveautes }} @if ($etiquette = App\texte('nouveautes_etiquette')) <span class="etiquette-new" aria-hidden="true">{{ $etiquette }}</span>@endif</a>
+            <a href="{{ $nouveautes[0] ?? App\lien_offres() }}" aria-haspopup="true">{{ $nomNouveautes }} @if ($nouveautes && ($etiquette = App\texte('nouveautes_etiquette'))) <span class="etiquette-new" aria-hidden="true">{{ $etiquette }}</span>@endif</a>
             <div class="mega">
               <div class="mega-fond conteneur">
                 @if ($recents)
