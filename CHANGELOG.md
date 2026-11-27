@@ -2,9 +2,11 @@
 
 Les versions suivent `MAJEUR.MINEUR.CORRECTIF`. Le site est en ligne depuis la 1.0.0 : `main` est ce qui tourne sur https://universsensoriel.com.
 
-## À venir
+## 1.2.0 – 27 novembre 2026
 
-Nouveautés, promotions et documentation (demandes de la promotrice du 27 novembre 2026).
+Nouveautés, promotions et documentation (demandes de la promotrice du 27 novembre 2026). Fichiers envoyés : `mise-en-ligne/mise-a-jour-2026-11-27/` (hors Git) ; produits et documents importés depuis l'administration (`app/mises-a-jour.php`), dossier `uploads/import/` à supprimer du serveur ensuite.
+
+- Menu : la catégorie Nouveautés n'est pas comptée parmi les univers (WooCommerce lui donne un ordre quand elle est créée depuis l'administration, elle apparaissait deux fois) ; étiquette « New » seulement quand elle existe.
 
 - 57 nouveaux produits (fichier « nouveautés produits chogan.xlsx »), au prix client : parfums Luxury Amphera, Volt et Scarlet, Blooming Skin (163), Unfold (164), maquillage MoniAmori, bougies parfumées, soins du visage et des cheveux, sprays d'ambiance, gel douche Luxury. Compléments alimentaires en brouillon (allégations santé à relire). Deux rayons nouveaux : Maquillage (Beauté) et Bougies parfumées (Art de vivre).
 - Catégorie Nouveautés : entrée du menu avec étiquette « New » animée (à la place du journal, resté dans le pied de page), bloc sur l'accueil après les essentiels, badge « Nouveau » sur les cartes, liens dans le pied de page.
