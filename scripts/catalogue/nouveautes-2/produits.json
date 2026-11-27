@@ -1,0 +1,360 @@
+{
+ "produits": [
+  {
+   "source": "nouveautes-2026-11-b/lipstick-glossy",
+   "slug": "lipstick-glossy",
+   "nom": "Lipstick Glossy",
+   "sous_titre": "Rouge à lèvres brillant",
+   "sku": "US-N2001",
+   "gamme": "Make-up",
+   "rayons": [
+    "maquillage"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "Le Lipstick Glossy est un rouge à lèvres conçu pour assurer un éclat intense et une sensation de confort immédiat.",
+   "description": "<p>Le Lipstick Glossy est un rouge à lèvres conçu pour assurer un éclat intense et une sensation de confort immédiat. Sa formule légère et crémeuse glisse facilement sur les lèvres, crée un film naturel et libère une couleur douce et veloutée. Il apporte confort et hydratation comme un baume et permet une application précise avec un fini brillant.</p>",
+   "publie": true,
+   "option": "Teinte",
+   "images": [
+    {
+     "fichier": "nouveautes/lipstick-glossy-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/lipstick-glossy-2.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/lipstick-glossy-3.webp",
+     "detoure": true
+    }
+   ],
+   "variations": [
+    {
+     "format": "Azalea",
+     "prix": "15.00",
+     "code": "MKRS07",
+     "couleur": "#E6577F",
+     "terme": "lipstick-glossy-azalea",
+     "image": "nouveautes/lipstick-glossy-azalea.webp"
+    },
+    {
+     "format": "Dark Nude",
+     "prix": "15.00",
+     "code": "MKRS08",
+     "couleur": "#9C4649",
+     "terme": "lipstick-glossy-dark-nude",
+     "image": "nouveautes/lipstick-glossy-dark-nude.webp"
+    },
+    {
+     "format": "Magenta",
+     "prix": "15.00",
+     "code": "MKRS09",
+     "couleur": "#B12B4C",
+     "terme": "lipstick-glossy-magenta",
+     "image": "nouveautes/lipstick-glossy-magenta.webp"
+    },
+    {
+     "format": "Strawberry",
+     "prix": "15.00",
+     "code": "MKRS10",
+     "couleur": "#B9252B",
+     "terme": "lipstick-glossy-strawberry",
+     "image": "nouveautes/lipstick-glossy-strawberry.webp"
+    },
+    {
+     "format": "Cherry",
+     "prix": "15.00",
+     "code": "MKRS11",
+     "couleur": "#822B2A",
+     "terme": "lipstick-glossy-cherry",
+     "image": "nouveautes/lipstick-glossy-cherry.webp"
+    },
+    {
+     "format": "Coral",
+     "prix": "15.00",
+     "code": "MKRS12",
+     "couleur": "#B91F39",
+     "terme": "lipstick-glossy-coral",
+     "image": "nouveautes/lipstick-glossy-coral.webp"
+    },
+    {
+     "format": "Light Nude",
+     "prix": "15.00",
+     "code": "MKRS13",
+     "couleur": "#B25A59",
+     "terme": "lipstick-glossy-light-nude",
+     "image": "nouveautes/lipstick-glossy-light-nude.webp"
+    },
+    {
+     "format": "Candy Pink",
+     "prix": "15.00",
+     "code": "MKRS14",
+     "couleur": "#C2456A",
+     "terme": "lipstick-glossy-candy-pink",
+     "image": "nouveautes/lipstick-glossy-candy-pink.webp"
+    }
+   ],
+   "chogan": "MKRS07",
+   "rang": 0,
+   "arrivee": "2026-11-27 12:00:00 UTC"
+  },
+  {
+   "source": "nouveautes-2026-11-b/gloss-repulpant",
+   "slug": "gloss-repulpant",
+   "nom": "Gloss repulpant",
+   "sous_titre": "Gloss à lèvres effet volume",
+   "sku": "US-N2002",
+   "gamme": "Make-up",
+   "rayons": [
+    "maquillage"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "Le Gloss à lèvres Ultra Repulpant est un baume gel qui laisse les lèvres douces et soignées. Grâce à sa texture crémeuse, il glisse délicatement sur les lèvres afin de les nourrir et d'adoucir les lèvres sèches.",
+   "description": "<p>Le Gloss à lèvres Ultra Repulpant est un baume gel qui laisse les lèvres douces et soignées. Grâce à sa texture crémeuse, il glisse délicatement sur les lèvres afin de les nourrir et d'adoucir les lèvres sèches. La combinaison de Maxi Lip (1 %), d'Extrait de Gingembre (0,5 %) et d'Oléorésine de Capsicum (0,06 %) procure aux lèvres un effet volumisant immédiat, qui met en valeur leur beauté naturelle.</p>",
+   "publie": true,
+   "option": "Teinte",
+   "images": [
+    {
+     "fichier": "nouveautes/gloss-repulpant-1.webp",
+     "detoure": true
+    }
+   ],
+   "variations": [
+    {
+     "format": "Clear",
+     "prix": "22.00",
+     "code": "MKLIP42",
+     "couleur": "#EFEFEF",
+     "terme": "gloss-repulpant-clear",
+     "image": "nouveautes/gloss-repulpant-clear.webp"
+    },
+    {
+     "format": "Cherry",
+     "prix": "22.00",
+     "code": "MKLIP43",
+     "couleur": "#DC4664",
+     "terme": "gloss-repulpant-cherry",
+     "image": "nouveautes/gloss-repulpant-cherry.webp"
+    },
+    {
+     "format": "Nude",
+     "prix": "22.00",
+     "code": "MKLIP45",
+     "couleur": "#D29B87",
+     "terme": "gloss-repulpant-nude",
+     "image": "nouveautes/gloss-repulpant-nude.webp"
+    }
+   ],
+   "chogan": "MKLIP42",
+   "rang": 1,
+   "arrivee": "2026-11-27 12:00:00 UTC"
+  },
+  {
+   "source": "nouveautes-2026-11-b/rouge-liquide-mat",
+   "slug": "rouge-a-levres-liquide-mat",
+   "nom": "Rouge à lèvres liquide mat",
+   "sous_titre": "Longue tenue",
+   "sku": "US-N2003",
+   "gamme": "Make-up",
+   "rayons": [
+    "maquillage"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "Le rouge à lèvres liquide mat longue tenue est un mélange parfait de laques qui sèche rapidement, libérant un léger voile très pigmenté qui recouvre doucement les lèvres.",
+   "description": "<p>Le rouge à lèvres liquide mat longue tenue est un mélange parfait de laques qui sèche rapidement, libérant un léger voile très pigmenté qui recouvre doucement les lèvres.\nCouleur intense, pleine et mate pour un look super captivant et sensuel, texture liquide très couvrante, effet mat et finition uniforme et longue durée.\nCe résultat étonnant est obtenu grâce aux laques légères et à la façon dont elles sont mélangées dans la formule. Le bon équilibre entre les solvants et les cires, en particulier, permet d'obtenir une texture à séchage rapide et de garantir un film résistant et parfait sans risque de tache ou de déshydratation .\nDe plus, des agents texturants et émollients spéciaux aident à garder les lèvres douces et souples.</p>",
+   "publie": true,
+   "option": "Teinte",
+   "images": [
+    {
+     "fichier": "nouveautes/rouge-a-levres-liquide-mat-1.webp",
+     "detoure": true
+    }
+   ],
+   "variations": [
+    {
+     "format": "Bold Pink",
+     "prix": "19.00",
+     "code": "MKLIP36",
+     "couleur": "#FF60A6",
+     "terme": "rouge-a-levres-liquide-mat-bold-pink",
+     "image": "nouveautes/rouge-a-levres-liquide-mat-bold-pink.webp"
+    },
+    {
+     "format": "Dark Plum",
+     "prix": "19.00",
+     "code": "MKLIP37",
+     "couleur": "#B85152",
+     "terme": "rouge-a-levres-liquide-mat-dark-plum",
+     "image": "nouveautes/rouge-a-levres-liquide-mat-dark-plum.webp"
+    },
+    {
+     "format": "Magenta",
+     "prix": "19.00",
+     "code": "MKLIP38",
+     "couleur": "#FE1439",
+     "terme": "rouge-a-levres-liquide-mat-magenta",
+     "image": "nouveautes/rouge-a-levres-liquide-mat-magenta.webp"
+    },
+    {
+     "format": "Ruby",
+     "prix": "19.00",
+     "code": "MKLIP39",
+     "couleur": "#FF4637",
+     "terme": "rouge-a-levres-liquide-mat-ruby",
+     "image": "nouveautes/rouge-a-levres-liquide-mat-ruby.webp"
+    },
+    {
+     "format": "Red Velvet",
+     "prix": "19.00",
+     "code": "MKLIP40",
+     "couleur": "#FF3322",
+     "terme": "rouge-a-levres-liquide-mat-red-velvet",
+     "image": "nouveautes/rouge-a-levres-liquide-mat-red-velvet.webp"
+    }
+   ],
+   "chogan": "MKLIP36",
+   "rang": 2,
+   "arrivee": "2026-11-27 12:00:00 UTC"
+  },
+  {
+   "source": "nouveautes-2026-11-b/lipstick-matte",
+   "slug": "lipstick-matte",
+   "nom": "Lipstick Matte",
+   "sous_titre": "Rouge à lèvres mat",
+   "sku": "US-N2004",
+   "gamme": "Make-up",
+   "rayons": [
+    "maquillage"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "Le Lipstick Matte est un rouge à lèvres qui glisse facilement sur la peau, formant un film naturel et sans bavure.",
+   "description": "<p>Le Lipstick Matte est un rouge à lèvres qui glisse facilement sur la peau, formant un film naturel et sans bavure. Sa formule légère et crémeuse se fond parfaitement sur les lèvres, les habillant d'une couleur douce et veloutée. Il offre le confort et l'hydratation d'un baume, tout en permettant une application rapide, précise et au fini mat.</p>",
+   "publie": true,
+   "option": "Teinte",
+   "images": [
+    {
+     "fichier": "nouveautes/lipstick-matte-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/lipstick-matte-2.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/lipstick-matte-3.webp",
+     "detoure": true
+    }
+   ],
+   "variations": [
+    {
+     "format": "Unique Rose",
+     "prix": "15.00",
+     "code": "MKRS04",
+     "couleur": "#D07692",
+     "terme": "lipstick-matte-unique-rose",
+     "image": "nouveautes/lipstick-matte-unique-rose.webp"
+    },
+    {
+     "format": "Raspberry",
+     "prix": "15.00",
+     "code": "MKRS05",
+     "couleur": "#BD4556",
+     "terme": "lipstick-matte-raspberry",
+     "image": "nouveautes/lipstick-matte-raspberry.webp"
+    },
+    {
+     "format": "Watermelon",
+     "prix": "15.00",
+     "code": "MKRS06",
+     "couleur": "#EA7087",
+     "terme": "lipstick-matte-watermelon",
+     "image": "nouveautes/lipstick-matte-watermelon.webp"
+    }
+   ],
+   "chogan": "MKRS04",
+   "rang": 3,
+   "arrivee": "2026-11-27 12:00:00 UTC"
+  },
+  {
+   "source": "nouveautes-2026-11-b/spicy-gloss",
+   "slug": "spicy-gloss",
+   "nom": "Spicy Gloss",
+   "sous_titre": "Gloss extra volume",
+   "sku": "US-N2005",
+   "gamme": "Make-up",
+   "rayons": [
+    "maquillage"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "« Spicy Gloss - Extra volume » est un gloss volumateur en gel crémeux qui glisse en douceur sur les lèvres, les laissant brillantes et super volumineuses.",
+   "description": "<p>« Spicy Gloss - Extra volume » est un gloss volumateur en gel crémeux qui glisse en douceur sur les lèvres, les laissant brillantes et super volumineuses.</p><p>Après l'application, vous ressentez immédiatement une sensation temporaire de chaleur (qui dure environ 10 minutes), due à la présence du Piment Africain. Le résultat est immédiat : les lèvres apparaissent plus pulpeuses, mieux dessinées, intensifiées en couleur et dans toute leur splendeur. Effet garanti pendant une heure.</p>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/spicy-gloss-1.webp",
+     "detoure": true
+    }
+   ],
+   "variations": [],
+   "chogan": "MKLIP60",
+   "rang": 4,
+   "arrivee": "2026-11-27 12:00:00 UTC",
+   "prix": "20.00",
+   "format": "7 ml"
+  },
+  {
+   "source": "nouveautes-2026-11-b/lip-balm",
+   "slug": "lip-balm",
+   "nom": "Lip Balm",
+   "sous_titre": "Baume à lèvres hydratant",
+   "sku": "US-N2006",
+   "gamme": "Make-up",
+   "rayons": [
+    "maquillage"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "Le Lip Balm est un baume à lèvres neutre à l'effet super hydratant. Sa texture riche et fondante procure une sensation de bien-être et soulage les lèvres sèches et gercées.",
+   "description": "<p>Le Lip Balm est un baume à lèvres neutre à l'effet super hydratant.\nSa texture riche et fondante procure une sensation de bien-être et soulage les lèvres sèches et gercées.\nIl est à base de bave d'Escargot, de Vitamine E, d'Aloe et de beurre de Karité : la combinaison de ces 4 extraits exerce une action hydratante, apaisante et normalisante, protège les lèvres des agressions extérieures, comme le vent et le froid, et aide à garder des lèvres belles et jeunes en prévenant le vieillissement.\nIl constitue une excellente base avant l'application du rouge à lèvres.</p>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/lip-balm-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/lip-balm-2.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [],
+   "chogan": "MKLIP61",
+   "rang": 5,
+   "arrivee": "2026-11-27 12:00:00 UTC",
+   "prix": "18.00",
+   "format": "4,5 ml"
+  }
+ ],
+ "deja_en_ligne": [],
+ "ecartees": {}
+}

@@ -36,3 +36,5 @@ supreme-lip-treatment-2
 supreme-lip-treatment-3
 ultrablast-4
 vigoractive-2
+# Lot 2 (nouveautes2.py) : essai de teinte sur un bras
+rouge-a-levres-liquide-mat-2
