@@ -20,6 +20,13 @@ const MISES_A_JOUR = [
     'livraison-retrait-metz' => __NAMESPACE__ . '\\maj_livraison_retrait_metz',
     'offres-documentation-2026-11' => __NAMESPACE__ . '\\maj_offres_documentation',
     'nouveautes-2026-11' => __NAMESPACE__ . '\\maj_nouveautes',
+    'documentation-2026-11' => __NAMESPACE__ . '\\maj_documentation',
+];
+
+/** Imports par tranches depuis l'administration : mise à jour => [fichier dans uploads/import, option du reste, libellé, [singulier, pluriel]]. */
+const IMPORTS_ADMIN = [
+    'nouveautes-2026-11' => ['nouveautes-2026-11/produits.json', 'us_import_reste', 'Import des nouveautés', ['fiche restante', 'fiches restantes']],
+    'documentation-2026-11' => ['documentation-2026-11/documents.json', 'us_import_documents_reste', 'Import de la documentation', ['document restant', 'documents restants']],
 ];
 
 add_action('init', function (): void {
@@ -584,16 +591,57 @@ function maj_nouveautes(): bool
 
 /** Import en cours (administration) : avancement, et la page se recharge pour la tranche suivante. */
 add_action('admin_notices', function () {
-    if (! current_user_can('manage_options') || in_array('nouveautes-2026-11', (array) get_option('us_mises_a_jour', []), true)
-        || ! is_file(wp_upload_dir()['basedir'] . '/import/nouveautes-2026-11/produits.json')) {
+    if (! current_user_can('manage_options')) {
         return;
     }
-    $reste = (int) get_option('us_import_reste', -1);
-    printf(
-        '<div class="notice notice-info"><p><strong>Import des nouveautés en cours</strong> : %s. Laissez cette page ouverte, elle se recharge toute seule jusqu\'à la fin.</p></div><meta http-equiv="refresh" content="2">',
-        $reste > 0 ? esc_html(sprintf(_n('%d fiche restante', '%d fiches restantes', $reste), $reste)) : 'démarrage'
-    );
+    $faites = (array) get_option('us_mises_a_jour', []);
+    foreach (IMPORTS_ADMIN as $nom => [$fichier, $option, $libelle, $unite]) {
+        if (in_array($nom, $faites, true) || ! is_file(wp_upload_dir()['basedir'] . '/import/' . $fichier)) {
+            continue;
+        }
+        $reste = (int) get_option($option, -1);
+        printf(
+            '<div class="notice notice-info"><p><strong>%s en cours</strong> : %s. Laissez cette page ouverte, elle se recharge toute seule jusqu\'à la fin.</p></div><meta http-equiv="refresh" content="2">',
+            esc_html($libelle),
+            $reste > 0 ? esc_html($reste . ' ' . $unite[$reste > 1 ? 1 : 0]) : 'démarrage'
+        );
+
+        return;
+    }
 });
+
+/**
+ * 27/11/2026 : documentation du fabricant (catalogues, certificat de conformité, engagements), 17 PDF.
+ * Les fichiers sont envoyés avec le site dans uploads/import/documentation-2026-11/ (documents.json, pdf/, couvertures/,
+ * préparés par scripts/catalogue/documentation.py) : tant que ce dossier n'est pas sur le serveur, rien ne se passe.
+ * Import depuis l'administration, par tranches de 20 secondes, après celui des nouveautés. La liste de
+ * Univers Sensoriel › Documentation n'est remplie que si elle est encore vide.
+ */
+function maj_documentation(): bool
+{
+    $dossier = wp_upload_dir()['basedir'] . '/import/documentation-2026-11';
+    if (! is_file("$dossier/documents.json")) {
+        return false;
+    }
+    $ligneDeCommande = defined('WP_CLI') && WP_CLI;
+    if (! $ligneDeCommande && (! is_admin() || wp_doing_ajax() || ! current_user_can('manage_options'))) {
+        return false;
+    }
+    // Une tranche à la fois : les nouveautés d'abord.
+    if (! $ligneDeCommande && ! in_array('nouveautes-2026-11', (array) get_option('us_mises_a_jour', []), true)) {
+        return false;
+    }
+    $reste = importer_documents((array) json_decode((string) file_get_contents("$dossier/documents.json"), true), $dossier, $ligneDeCommande ? 0 : 20);
+    update_option('us_import_documents_reste', $reste, false);
+    if ($reste === 0) {
+        if ($page = get_page_by_path('documentation-et-certifications')) {
+            maj_meta($page->ID, '_yoast_wpseo_metadesc', DESCRIPTION_DOCUMENTATION_1, DESCRIPTION_DOCUMENTATION);
+        }
+        maj_traductions(TRADUCTIONS_2026_11);
+    }
+
+    return $reste === 0;
+}
 
 /**
  * 27/11/2026 : page Promotions (/promotions/, lien « Voir les offres » du Black Friday), page Documentation et
@@ -613,7 +661,7 @@ function maj_offres_documentation(): bool
 
     // Page Documentation et certifications (le contenu vient de Univers Sensoriel › Documentation).
     if (! get_page_by_path('documentation-et-certifications')) {
-        $description = 'Catalogues des produits Univers Sensoriel et certificats de conformité : documents à consulter ou à télécharger, cosmétiques fabriqués en Italie et notifiés au CPNP.';
+        $description = DESCRIPTION_DOCUMENTATION;
         $id = wp_insert_post(['post_type' => 'page', 'post_status' => 'publish', 'post_name' => 'documentation-et-certifications', 'post_title' => 'Documentation et certifications', 'post_content' => '']);
         if ($id && ! is_wp_error($id)) {
             update_post_meta($id, '_yoast_wpseo_metadesc', $description);
@@ -625,6 +673,10 @@ function maj_offres_documentation(): bool
 
     return true;
 }
+
+/** Description Google de la page Documentation et certifications (la première version citait les certificats seuls). */
+const DESCRIPTION_DOCUMENTATION = 'Catalogues des parfums, soins et maquillage, certificat de conformité et engagements du fabricant : documents à consulter ou à télécharger.';
+const DESCRIPTION_DOCUMENTATION_1 = 'Catalogues des produits Univers Sensoriel et certificats de conformité : documents à consulter ou à télécharger, cosmétiques fabriqués en Italie et notifiés au CPNP.';
 
 /** Libellés anglais des nouveautés, promotions et documents (aussi dans scripts/traductions/en_GB.json). */
 const TRADUCTIONS_2026_11 = [
@@ -654,4 +706,15 @@ const TRADUCTIONS_2026_11 = [
     'Les derniers produits arrivés dans la boutique : parfums, maquillage, soins, bougies et parfums d\'ambiance.' => 'The latest products in the shop: perfumes, make-up, skincare, candles and home fragrances.',
     'Lèvres, teint, yeux : rouges et encres à lèvres, crayons, sticks, fonds de teint et mascaras.' => 'Lips, complexion, eyes: lip colours and inks, pencils, sticks, foundations and mascaras.',
     'Bougies en cire végétale, en 190 et 400 g : jusqu\'à 90 heures de parfum dans la pièce.' => 'Plant-wax candles, in 190 and 400 g: up to 90 hours of fragrance in the room.',
+    'Engagements du fabricant' => 'Manufacturer\'s commitments',
+    'Consulter' => 'View',
+    '(nouvel onglet)' => '(new tab)',
+    'Consulter (nouvel onglet)' => 'View (new tab)',
+    'Tous nos produits sont fabriqués en Italie. Chaque cosmétique est conforme au règlement européen et notifié sur le portail CPNP.' => 'All our products are made in Italy. Every cosmetic product complies with EU regulations and is notified on the CPNP portal.',
+    'Les documents seront bientôt disponibles ici. Pour en recevoir un dès maintenant, écrivez-nous.' => 'The documents will be available here soon. To receive one now, write to us.',
+    'Certificat de conformité' => 'Certificate of conformity',
+    'Modèle d\'organisation, de gestion et de contrôle' => 'Organisation, management and control model',
+    'Code d\'éthique et de conduite' => 'Code of ethics and conduct',
+    'Procédure de signalement (whistleblowing)' => 'Whistleblowing procedure',
+    'Catalogues des parfums, soins et maquillage, certificat de conformité et engagements du fabricant : documents à consulter ou à télécharger.' => 'Fragrance, skincare and make-up catalogues, certificate of conformity and manufacturer\'s commitments: documents to view or download.',
 ];

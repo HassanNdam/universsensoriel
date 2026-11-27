@@ -5,6 +5,8 @@
   $nouveautes = $boutique ? App\nouveautes() : null;
   $offres = $boutique ? App\nombre_offres() : 0;
   $recents = $nouveautes ? App\produits_nouveautes(5) : [];
+  // Nom de l'entrée : celui de la catégorie (Produits › Catégories) ; les autres libellés : Textes du site › Nouveautés, Promotions.
+  $nomNouveautes = $nouveautes ? $nouveautes[2]->name : App\texte('offres_titre');
 @endphp
 
 @include('partials.bandeau')
@@ -56,17 +58,17 @@
         @endforeach
         @if ($nouveautes || $offres)
           <li class="entete-entree entete-nouveautes" data-mega>
-            <a href="{{ $nouveautes[0] ?? App\lien_offres() }}" aria-haspopup="true">Nouveautés <span class="etiquette-new" aria-hidden="true">New</span></a>
+            <a href="{{ $nouveautes[0] ?? App\lien_offres() }}" aria-haspopup="true">{{ $nomNouveautes }} @if ($etiquette = App\texte('nouveautes_etiquette')) <span class="etiquette-new" aria-hidden="true">{{ $etiquette }}</span>@endif</a>
             <div class="mega">
               <div class="mega-fond conteneur">
                 @if ($recents)
                   <div class="mega-colonne">
-                    <p class="surtitre">Derniers arrivés</p>
+                    <p class="surtitre">{{ App\texte('nouveautes_menu') }}</p>
                     <ul>
                       @foreach (array_slice($recents, 0, 5) as $recent)
                         <li><a href="{{ $recent->get_permalink() }}">{{ $recent->get_name() }}</a></li>
                       @endforeach
-                      <li><a class="mega-tout" href="{{ $nouveautes[0] }}">Toutes les nouveautés {!! App\icone('fleche', 16) !!}</a></li>
+                      <li><a class="mega-tout" href="{{ $nouveautes[0] }}">{{ App\texte('nouveautes_bouton') }} {!! App\icone('fleche', 16) !!}</a></li>
                     </ul>
                   </div>
                 @endif
@@ -74,15 +76,15 @@
                   <div class="mega-colonne">
                     <p class="surtitre">{{ App\texte('offres_titre') }}</p>
                     <ul>
-                      <li><a href="{{ App\lien_offres() }}">{{ sprintf(_n('%d produit à prix réduit', '%d produits à prix réduit', $offres), $offres) }}</a></li>
-                      <li><a class="mega-tout" href="{{ App\lien_offres() }}">Voir les offres {!! App\icone('fleche', 16) !!}</a></li>
+                      <li><a href="{{ App\lien_offres() }}">{{ App\texte('offres_nombre', ['nombre' => $offres, 's' => $offres > 1 ? 's' : '']) }}</a></li>
+                      <li><a class="mega-tout" href="{{ App\lien_offres() }}">{{ App\texte('offres_bouton') }} {!! App\icone('fleche', 16) !!}</a></li>
                     </ul>
                   </div>
                 @endif
                 @if ($recents)
                   <a class="mega-visuel mega-visuel-produit" href="{{ $nouveautes[0] }}" tabindex="-1" aria-hidden="true">
                     {!! App\image_produit($recents[0], 'medium_large') !!}
-                    <span>Nouveautés</span>
+                    <span>{{ $nomNouveautes }}</span>
                   </a>
                 @endif
               </div>
@@ -137,7 +139,7 @@
     </div>
     <nav aria-label="Menu mobile">
       @if ($nouveautes)
-        <a class="mobile-lien mobile-nouveautes" href="{{ $nouveautes[0] }}">Nouveautés <span class="etiquette-new" aria-hidden="true">New</span></a>
+        <a class="mobile-lien mobile-nouveautes" href="{{ $nouveautes[0] }}">{{ $nomNouveautes }} @if ($etiquette = App\texte('nouveautes_etiquette')) <span class="etiquette-new" aria-hidden="true">{{ $etiquette }}</span>@endif</a>
       @endif
       @if ($offres)
         <a class="mobile-lien" href="{{ App\lien_offres() }}">{{ App\texte('offres_titre') }}</a>

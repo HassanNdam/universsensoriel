@@ -41,6 +41,14 @@ const AMBIANCES = [
     'maison' => 'Aux couleurs de la Maison : étoiles',
 ];
 
+/** Rubriques de la page Documentation et certifications, dans l'ordre d'affichage (titres modifiables, onglet Rubriques). */
+const RUBRIQUES_DOCUMENTS = [
+    'catalogues' => 'Catalogues des produits',
+    'certificats' => 'Certificats de conformité',
+    'fiches' => 'Fiches techniques et de sécurité',
+    'engagements' => 'Engagements du fabricant',
+];
+
 /** Événements proposés au premier remplissage (dates au format AAAAMMJJ). */
 const EVENEMENTS = [
     ['actif' => true, 'theme' => 'black-friday', 'titre' => 'Black Friday', 'message' => 'Offres sur une sélection de parfums et de soins', 'lien_texte' => 'Voir les offres', 'lien' => '/promotions/', 'debut' => '20261120', 'fin' => '20261130', 'compte' => true],
@@ -237,10 +245,17 @@ const REGLAGES = [
                 'avis_merci' => ['texte', 'Message après un avis', 'Merci ! Votre avis est bien reçu. Il sera publié après relecture.'],
                 'avis_mention' => ['texte', 'Mention sous le formulaire d\'avis', 'Publié après relecture, avec votre prénom.'],
             ],
+            'Nouveautés' => [
+                'nouveautes_etiquette' => ['texte', 'Étiquette du menu', 'New', 'Petite étiquette animée à côté de l\'entrée du menu. Vide : pas d\'étiquette. Le nom de l\'entrée est celui de la catégorie Nouveautés (Produits › Catégories).'],
+                'nouveautes_menu' => ['texte', 'Menu : titre des derniers produits', 'Derniers arrivés'],
+                'nouveautes_badge' => ['texte', 'Badge sur la photo', 'Nouveau', 'Sur les produits de la catégorie Nouveautés. Vide : pas de badge.'],
+            ],
             'Promotions' => [
                 'offres_titre' => ['texte', 'Titre', 'Promotions', 'Page /promotions/ : les produits à prix barré, ajoutés et retirés d\'eux-mêmes.'],
                 'offres_intro' => ['zone', 'Texte', 'Les produits en promotion en ce moment, dans la limite des stocks.'],
                 'offres_description' => ['zone', 'Description Google', 'Parfums, soins et maquillage en promotion chez Univers Sensoriel : extraits de parfum, soins du visage et bougies à prix réduit, livrés en France et en Europe.', '120 à 155 caractères.'],
+                'offres_nombre' => ['texte', 'Menu : nombre de produits', '{nombre} produit{s} à prix réduit', '{nombre} = nombre de produits en promotion ; {s} = « s » à partir de 2.'],
+                'offres_bouton' => ['texte', 'Menu : lien', 'Voir les offres'],
             ],
             'Boutique' => [
                 'boutique_titre' => ['texte', 'Titre', 'La boutique'],
@@ -339,12 +354,23 @@ const REGLAGES = [
         'onglets' => [
             'Documents' => [
                 'documents_intro' => ['zone', 'Texte de la page', 'Catalogues des produits et certificats de conformité, à consulter ou à télécharger.', 'Page « Documentation et certifications » (lien dans le pied de page, colonne Aide).'],
-                'documents' => ['liste', 'Documents', [], 'Un fichier PDF (ou une image) par ligne, rangé dans sa rubrique. Glisser une ligne pour changer l\'ordre.', [
-                    'titre' => ['texte', 'Titre', '', 'Exemple : Catalogue des parfums 2026.'],
-                    'rubrique' => ['choix', 'Rubrique', 'catalogues', '', ['catalogues' => 'Catalogues des produits', 'certificats' => 'Certificats de conformité', 'fiches' => 'Fiches techniques et de sécurité']],
+                'documents' => ['liste', 'Documents', [], 'Un fichier PDF (ou une image) par ligne, rangé dans sa rubrique. Glisser une ligne pour changer l\'ordre. Une rubrique dont un document a une couverture s\'affiche en vignettes.', [
+                    'titre' => ['texte', 'Titre', '', 'Exemple : Olfazeta.'],
+                    'rubrique' => ['choix', 'Rubrique', 'catalogues', '', RUBRIQUES_DOCUMENTS],
                     'fichier' => ['fichier', 'Fichier'],
-                    'description' => ['texte', 'Précision', '', 'Facultatif : une ligne, par exemple la gamme ou la date.'],
+                    'couverture' => ['image', 'Couverture', '', 'Facultatif : image carrée, sans personne.'],
+                    'description' => ['texte', 'Précision', '', 'Facultatif : une ligne, par exemple la gamme et le nombre de pages.'],
+                    'afficher' => ['case', 'Afficher sur le site', true, 'Décoché : le fichier reste dans la médiathèque, la page ne le montre pas.'],
                 ]],
+            ],
+            'Rubriques' => [
+                'documents_rubrique_catalogues' => ['texte', 'Catalogues', RUBRIQUES_DOCUMENTS['catalogues']],
+                'documents_rubrique_certificats' => ['texte', 'Certificats', RUBRIQUES_DOCUMENTS['certificats']],
+                'documents_garantie' => ['zone', 'Texte des certificats', 'Tous nos produits sont fabriqués en Italie. Chaque cosmétique est conforme au règlement européen et notifié sur le portail CPNP.', 'Sous le titre de la rubrique Certificats.'],
+                'documents_rubrique_fiches' => ['texte', 'Fiches techniques', RUBRIQUES_DOCUMENTS['fiches']],
+                'documents_rubrique_engagements' => ['texte', 'Engagements', RUBRIQUES_DOCUMENTS['engagements']],
+                'documents_bouton' => ['texte', 'Lien d\'un document', 'Consulter'],
+                'documents_vide' => ['zone', 'Texte sans document', 'Les documents seront bientôt disponibles ici. Pour en recevoir un dès maintenant, écrivez-nous.', 'Affiché tant qu\'aucun document n\'est publié, avec un lien vers la page Contact.'],
             ],
         ],
     ],

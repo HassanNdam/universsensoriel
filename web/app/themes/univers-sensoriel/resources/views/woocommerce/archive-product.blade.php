@@ -27,7 +27,7 @@
     $nouveautes = App\nouveautes();
     if ($offres || ($terme && $terme->slug === 'nouveautes')) {
       $pastilles = array_filter([
-        $nouveautes ? [$nouveautes[0], 'Nouveautés', ! $offres] : null,
+        $nouveautes ? [$nouveautes[0], $nouveautes[2]->name, ! $offres] : null,
         App\nombre_offres() ? [App\lien_offres(), App\texte('offres_titre'), $offres] : null,
       ]);
     } elseif ($terme && $terme->taxonomy === 'product_cat') {

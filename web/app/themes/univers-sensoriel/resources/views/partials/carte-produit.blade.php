@@ -22,8 +22,8 @@
       <span class="carte-badge">Offre</span>
     @elseif (! $produit->is_in_stock())
       <span class="carte-badge carte-badge-neutre">Bientôt de retour</span>
-    @elseif (App\est_nouveaute($produit))
-      <span class="carte-badge carte-badge-nouveau">Nouveau</span>
+    @elseif (App\est_nouveaute($produit) && ($badge = App\texte('nouveautes_badge')))
+      <span class="carte-badge carte-badge-nouveau">{{ $badge }}</span>
     @endif
   </a>
   <div class="carte-corps">
