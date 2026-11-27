@@ -88,9 +88,9 @@
 /* Menu complet dès qu'il tient sur une ligne, avec de l'air entre le logo et le menu ; en dessous, le menu compact. */
 @media (min-width: 1280px) {
   .entete-barre {
-    column-gap: clamp(2.5rem, 4.5vw, 6rem);
+    column-gap: clamp(2rem, 3vw, 3.5rem);
     grid-template-columns: auto 1fr auto;
-    max-width: 1680px;
+    max-width: 1560px;
     min-height: 6.5rem;
   }
 

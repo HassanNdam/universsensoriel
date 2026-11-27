@@ -516,3 +516,12 @@
 .variations tr:has(select[data-palette]) th {
   display: none;
 }
+
+/* Fiche suivie directement de « Vous aimerez aussi » (même fond) : un seul espace raisonnable entre les deux. */
+.fiche:has(+ .section:not(.section-lin, .avis-fiche)) {
+  padding-bottom: clamp(2.5rem, 4.5vw, 4rem);
+}
+
+.fiche + .section:not(.section-lin, .avis-fiche) {
+  padding-top: clamp(1rem, 2vw, 1.5rem);
+}

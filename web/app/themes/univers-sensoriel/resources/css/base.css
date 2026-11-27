@@ -283,7 +283,7 @@ a.pastille:hover small {
 
 /* Section qui finit par ses boutons : moins de vide dessous. */
 .section:has(> .conteneur > .section-suite:last-child) {
-  padding-bottom: clamp(3.5rem, 6vw, 5.5rem);
+  padding-bottom: clamp(2.5rem, 4.5vw, 4rem);
 }
 
 /* Carte produit : visuel carré sur fond lin, flacon détouré avec son ombre. */
