@@ -116,6 +116,9 @@ function facettes(): array
     if (is_search()) {
         $args['s'] = get_search_query();
     }
+    if (page_offres()) {
+        $args['post__in'] = ids_offres() ?: [0];
+    }
     $cle = 'us_facettes_' . md5(wp_json_encode($args));
     $resultat = get_transient($cle);
     if ($resultat === false) {

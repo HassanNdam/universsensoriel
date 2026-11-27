@@ -8,6 +8,14 @@
       $product = wc_get_product(get_the_ID());
       $infos = App\fiche($product);
       $images = array_values(array_filter(array_merge([(int) $product->get_image_id()], $product->get_gallery_image_ids())));
+      // Photos des teintes (ou formats) : dans la galerie pour être montrées au choix, sans vignette en plus.
+      $vignettes = count($images);
+      foreach ($product->is_type('variable') ? $product->get_children() : [] as $enfant) {
+        $photo = (int) get_post_thumbnail_id($enfant);
+        if ($photo && ! in_array($photo, $images, true)) {
+          $images[] = $photo;
+        }
+      }
       $surtitre = implode(' · ', array_filter([$infos['gamme'], $infos['rayon']->name ?? '']));
       $sousTitre = implode(' · ', array_filter([$infos['sous_titre'], $infos['reference'] ? 'N° ' . $infos['reference'] : '']));
 
@@ -33,9 +41,9 @@
 
     <article class="fiche conteneur">
       <div class="fiche-galerie" data-galerie>
-        @if (count($images) > 1)
+        @if ($vignettes > 1)
           <ul class="fiche-vignettes">
-            @foreach ($images as $rang => $image)
+            @foreach (array_slice($images, 0, $vignettes) as $rang => $image)
               <li>
                 <button type="button" class="{{ App\est_detoure($image) ? 'est-detoure' : '' }}" data-image="{{ $rang }}" aria-label="Voir l'image {{ $rang + 1 }}" @if ($rang === 0) aria-current="true" @endif>
                   {!! wp_get_attachment_image($image, 'thumbnail', false, ['alt' => '', 'loading' => 'lazy']) !!}
@@ -46,7 +54,7 @@
         @endif
         <div class="fiche-visuels">
           @forelse ($images as $rang => $image)
-            <figure class="fiche-visuel {{ App\est_detoure($image) ? 'est-detoure' : 'est-photo' }}" data-visuel="{{ $rang }}" @if ($rang > 0) hidden @endif>
+            <figure class="fiche-visuel {{ App\est_detoure($image) ? 'est-detoure' : 'est-photo' }}" data-visuel="{{ $rang }}" data-media="{{ $image }}" @if ($rang > 0) hidden @endif>
               {!! App\image_produit($product, 'large', ['loading' => $rang === 0 ? 'eager' : 'lazy', 'fetchpriority' => $rang === 0 ? 'high' : 'auto', 'sizes' => '(min-width: 1000px) 46vw, 92vw', 'class' => ''], $image) !!}
             </figure>
           @empty

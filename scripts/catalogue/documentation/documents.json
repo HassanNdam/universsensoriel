@@ -1,0 +1,155 @@
+[
+ {
+  "titre": "Olfazeta",
+  "rubrique": "catalogues",
+  "fichier": "pdf/catalogue-olfazeta.pdf",
+  "couverture": "couvertures/catalogue-olfazeta.webp",
+  "description": "Extraits de parfum · 48 pages",
+  "afficher": true,
+  "source": "https://www.chogangroup.com/documenti/1790688767_documents.pdf"
+ },
+ {
+  "titre": "Mytologik",
+  "rubrique": "catalogues",
+  "fichier": "pdf/catalogue-mytologik.pdf",
+  "couverture": "couvertures/catalogue-mytologik.webp",
+  "description": "Parfums-sculptures · 36 pages",
+  "afficher": true,
+  "source": "https://www.chogangroup.com/documenti/1758177649_documents.pdf"
+ },
+ {
+  "titre": "Cooperativa Profumieri",
+  "rubrique": "catalogues",
+  "fichier": "pdf/catalogue-cooperativa-profumieri.pdf",
+  "couverture": "couvertures/catalogue-cooperativa-profumieri.webp",
+  "description": "Parfums d'ambiance · 33 pages",
+  "afficher": true,
+  "source": "https://www.chogangroup.com/documenti/1776171628_documents.pdf"
+ },
+ {
+  "titre": "Peptilux",
+  "rubrique": "catalogues",
+  "fichier": "pdf/catalogue-peptilux.pdf",
+  "couverture": "couvertures/catalogue-peptilux.webp",
+  "description": "Soins du visage aux peptides · 36 pages",
+  "afficher": true,
+  "source": "https://www.chogangroup.com/documenti/1740410027_documents.pdf"
+ },
+ {
+  "titre": "Aurodhea",
+  "rubrique": "catalogues",
+  "fichier": "pdf/catalogue-aurodhea.pdf",
+  "couverture": "couvertures/catalogue-aurodhea.webp",
+  "description": "Soins du corps, du visage et des cheveux · 100 pages",
+  "afficher": true,
+  "source": "https://www.chogangroup.com/documenti/1792576601_documents.pdf"
+ },
+ {
+  "titre": "Lolûm",
+  "rubrique": "catalogues",
+  "fichier": "pdf/catalogue-lolum.pdf",
+  "couverture": "couvertures/catalogue-lolum.webp",
+  "description": "Huiles végétales et essentielles · 29 pages",
+  "afficher": true,
+  "source": "https://www.chogangroup.com/documenti/1774515759_documents.pdf"
+ },
+ {
+  "titre": "Maquillage",
+  "rubrique": "catalogues",
+  "fichier": "pdf/catalogue-maquillage.pdf",
+  "couverture": "couvertures/catalogue-maquillage.webp",
+  "description": "Teint, yeux, lèvres · 60 pages",
+  "afficher": true,
+  "source": "https://www.chogangroup.com/documenti/1761039811_documents.pdf"
+ },
+ {
+  "titre": "MoniAmori",
+  "rubrique": "catalogues",
+  "fichier": "pdf/catalogue-moniamori.pdf",
+  "couverture": "couvertures/catalogue-moniamori.webp",
+  "description": "Maquillage · 64 pages",
+  "afficher": true,
+  "source": "https://www.chogangroup.com/documenti/1785326049_documents.pdf"
+ },
+ {
+  "titre": "Brilhome",
+  "rubrique": "catalogues",
+  "fichier": "pdf/catalogue-brilhome.pdf",
+  "couverture": "couvertures/catalogue-brilhome.webp",
+  "description": "Entretien de la maison · 72 pages",
+  "afficher": true,
+  "source": "https://www.chogangroup.com/documenti/1768810497_documents.pdf"
+ },
+ {
+  "titre": "Kleyes",
+  "rubrique": "catalogues",
+  "fichier": "pdf/catalogue-kleyes.pdf",
+  "couverture": "couvertures/catalogue-kleyes.webp",
+  "description": "Lunettes de soleil · 44 pages",
+  "afficher": true,
+  "source": "https://www.chogangroup.com/documenti/1765987058_documents.pdf"
+ },
+ {
+  "titre": "SuppleFit",
+  "rubrique": "catalogues",
+  "fichier": "pdf/catalogue-supplefit.pdf",
+  "couverture": "couvertures/catalogue-supplefit.webp",
+  "description": "Compléments alimentaires · 68 pages",
+  "afficher": false,
+  "source": "https://www.chogangroup.com/documenti/1793778766_documents.pdf"
+ },
+ {
+  "titre": "Certificat de conformité",
+  "rubrique": "certificats",
+  "fichier": "pdf/certificat-de-conformite.pdf",
+  "couverture": "",
+  "description": "En italien et en anglais · 4 pages",
+  "afficher": true,
+  "source": "https://www.chogangroup.com/documenti/1778154279_documents.pdf"
+ },
+ {
+  "titre": "Modèle d'organisation, de gestion et de contrôle",
+  "rubrique": "engagements",
+  "fichier": "pdf/modele-organisation-231.pdf",
+  "couverture": "",
+  "description": "Décret italien 231/2001, en italien · 36 pages",
+  "afficher": true,
+  "source": "https://www.chogangroup.com/documenti/1781771301_documents.pdf"
+ },
+ {
+  "titre": "Code d'éthique et de conduite",
+  "rubrique": "engagements",
+  "fichier": "pdf/code-ethique-et-de-conduite.pdf",
+  "couverture": "",
+  "description": "En italien · 31 pages",
+  "afficher": true,
+  "source": "https://www.chogangroup.com/documenti/1781771320_documents.pdf"
+ },
+ {
+  "titre": "Procédure de signalement (whistleblowing)",
+  "rubrique": "engagements",
+  "fichier": "pdf/procedure-signalement.pdf",
+  "couverture": "",
+  "description": "En italien · 22 pages",
+  "afficher": true,
+  "source": "https://www.chogangroup.com/documenti/1781521922_documents.pdf"
+ },
+ {
+  "titre": "Conditions générales de vente du fabricant",
+  "rubrique": "engagements",
+  "fichier": "pdf/conditions-generales-de-vente-fabricant.pdf",
+  "couverture": "",
+  "description": "Pour ses partenaires · 19 pages",
+  "afficher": false,
+  "source": "https://www.chogangroup.com/documenti/1769162600_documents.pdf"
+ },
+ {
+  "titre": "Politique de confidentialité des partenaires",
+  "rubrique": "engagements",
+  "fichier": "pdf/politique-confidentialite-partenaires.pdf",
+  "couverture": "",
+  "description": "Pour les partenaires du fabricant · 3 pages",
+  "afficher": false,
+  "source": "https://www.chogangroup.com/documenti/1743093140_documents.pdf"
+ }
+]

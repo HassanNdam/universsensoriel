@@ -15,10 +15,22 @@
       $surtitre = get_term($terme->parent)->name;
     }
     $description = $terme ? $terme->description : App\texte('boutique_intro');
+    $offres = App\page_offres();
+    if ($offres) {
+      $titre = App\texte('offres_titre');
+      $description = App\texte('offres_intro');
+    }
 
     // Pastilles : les sous-rayons du rayon affiché (ou ses rayons frères), sinon les quatre univers.
+    // Nouveautés et Promotions : l'une renvoie à l'autre.
     $pastilles = [];
-    if ($terme && $terme->taxonomy === 'product_cat') {
+    $nouveautes = App\nouveautes();
+    if ($offres || ($terme && $terme->slug === 'nouveautes')) {
+      $pastilles = array_filter([
+        $nouveautes ? [$nouveautes[0], $nouveautes[2]->name, ! $offres] : null,
+        App\nombre_offres() ? [App\lien_offres(), App\texte('offres_titre'), $offres] : null,
+      ]);
+    } elseif ($terme && $terme->taxonomy === 'product_cat') {
       $parent = $terme->parent ?: $terme->term_id;
       $pastilles[] = [get_term($parent), 'Tout'];
       foreach (get_terms(['taxonomy' => 'product_cat', 'parent' => $parent, 'hide_empty' => true, 'meta_key' => 'order', 'orderby' => 'meta_value_num']) as $t) {
@@ -50,11 +62,16 @@
       @if ($description && ! is_paged())
         <p class="rayon-intro">{{ wp_strip_all_tags($description) }}</p>
       @endif
-      @if (count($pastilles) > 2)
+      @if (count($pastilles) > 2 || (count($pastilles) === 2 && is_string(reset($pastilles)[0])))
         <ul class="pastilles pastilles-centre">
-          @foreach ($pastilles as [$t, $libelle])
+          @foreach ($pastilles as $pastille)
+            @php
+              // Rayon (terme) ou lien direct [adresse, libellé, actif] (Nouveautés, Promotions).
+              [$t, $libelle] = $pastille;
+              $actif = is_string($t) ? $pastille[2] : ($terme && $t && ! is_wp_error($t) && $t->term_id === $terme->term_id);
+            @endphp
             @continue(! $t || is_wp_error($t))
-            <li><a class="pastille {{ $terme && $t->term_id === $terme->term_id ? 'pastille-pleine' : '' }}" href="{{ get_term_link($t) }}" @if ($terme && $t->term_id === $terme->term_id) aria-current="page" @endif>{{ $libelle }}</a></li>
+            <li><a class="pastille {{ $actif ? 'pastille-pleine' : '' }}" href="{{ is_string($t) ? $t : get_term_link($t) }}" @if ($actif) aria-current="page" @endif>{{ $libelle }}</a></li>
           @endforeach
         </ul>
       @endif

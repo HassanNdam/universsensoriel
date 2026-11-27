@@ -41,9 +41,17 @@ const AMBIANCES = [
     'maison' => 'Aux couleurs de la Maison : étoiles',
 ];
 
+/** Rubriques de la page Documentation et certifications, dans l'ordre d'affichage (titres modifiables, onglet Rubriques). */
+const RUBRIQUES_DOCUMENTS = [
+    'catalogues' => 'Catalogues des produits',
+    'certificats' => 'Certificats de conformité',
+    'fiches' => 'Fiches techniques et de sécurité',
+    'engagements' => 'Engagements du fabricant',
+];
+
 /** Événements proposés au premier remplissage (dates au format AAAAMMJJ). */
 const EVENEMENTS = [
-    ['actif' => true, 'theme' => 'black-friday', 'titre' => 'Black Friday', 'message' => 'Offres sur une sélection de parfums et de soins', 'lien_texte' => 'Voir les offres', 'lien' => '/boutique/', 'debut' => '20261120', 'fin' => '20261130', 'compte' => true],
+    ['actif' => true, 'theme' => 'black-friday', 'titre' => 'Black Friday', 'message' => 'Offres sur une sélection de parfums et de soins', 'lien_texte' => 'Voir les offres', 'lien' => '/promotions/', 'debut' => '20261120', 'fin' => '20261130', 'compte' => true],
     ['actif' => true, 'theme' => 'noel', 'titre' => 'Noël', 'message' => 'Coffrets et parfums à offrir', 'lien_texte' => 'Idées cadeaux', 'lien' => '/collection/beaute/rituels-et-coffrets/', 'debut' => '20261201', 'fin' => '20261224', 'compte' => true],
     ['actif' => true, 'theme' => 'nouvel-an', 'titre' => 'Bonne année', 'message' => 'Merci pour votre fidélité', 'lien_texte' => 'La boutique', 'lien' => '/boutique/', 'debut' => '20261231', 'fin' => '20270107', 'compte' => false],
     ['actif' => true, 'theme' => 'saint-valentin', 'titre' => 'Saint-Valentin', 'message' => 'Un parfum pour elle, un parfum pour lui', 'lien_texte' => 'Choisir', 'lien' => '/collection/parfums/', 'debut' => '20270201', 'fin' => '20270214', 'compte' => true],
@@ -187,9 +195,13 @@ const REGLAGES = [
                 'avis_intro' => ['texte', 'Phrase', 'Publiés mot pour mot.'],
                 'avis_lien' => ['texte', 'Lien', 'Tous les avis'],
             ],
+            'Nouveautés' => [
+                'nouveautes_titre' => ['texte', 'Titre', 'Nouveautés', 'Les derniers produits de la catégorie Nouveautés, juste après les essentiels.'],
+                'nouveautes_bouton' => ['texte', 'Bouton', 'Toutes les nouveautés'],
+            ],
             'Journal' => [
-                'journal_titre' => ['texte', 'Titre', 'Le journal'],
-                'journal_bouton' => ['texte', 'Bouton', 'Tous les articles'],
+                'journal_titre' => ['texte', 'Titre', 'Le journal', 'Titre des pages du journal (le journal n\'est plus sur l\'accueil).'],
+                'journal_bouton' => ['texte', 'Bouton', 'Tous les articles', 'Lien de retour sous un article.'],
             ],
             'Conseil' => [
                 'conseil_titre' => ['texte', 'Titre', 'Sentir, essayer, demander conseil'],
@@ -232,6 +244,18 @@ const REGLAGES = [
                 'produit_voisins' => ['texte', 'Titre : autres produits', 'Vous aimerez aussi'],
                 'avis_merci' => ['texte', 'Message après un avis', 'Merci ! Votre avis est bien reçu. Il sera publié après relecture.'],
                 'avis_mention' => ['texte', 'Mention sous le formulaire d\'avis', 'Publié après relecture, avec votre prénom.'],
+            ],
+            'Nouveautés' => [
+                'nouveautes_etiquette' => ['texte', 'Étiquette du menu', 'New', 'Petite étiquette animée à côté de l\'entrée du menu. Vide : pas d\'étiquette. Le nom de l\'entrée est celui de la catégorie Nouveautés (Produits › Catégories).'],
+                'nouveautes_menu' => ['texte', 'Menu : titre des derniers produits', 'Derniers arrivés'],
+                'nouveautes_badge' => ['texte', 'Badge sur la photo', 'Nouveau', 'Sur les produits de la catégorie Nouveautés. Vide : pas de badge.'],
+            ],
+            'Promotions' => [
+                'offres_titre' => ['texte', 'Titre', 'Promotions', 'Page /promotions/ : les produits à prix barré, ajoutés et retirés d\'eux-mêmes.'],
+                'offres_intro' => ['zone', 'Texte', 'Les produits en promotion en ce moment, dans la limite des stocks.'],
+                'offres_description' => ['zone', 'Description Google', 'Parfums, soins et maquillage en promotion chez Univers Sensoriel : extraits de parfum, soins du visage et bougies à prix réduit, livrés en France et en Europe.', '120 à 155 caractères.'],
+                'offres_nombre' => ['texte', 'Menu : nombre de produits', '{nombre} produit{s} à prix réduit', '{nombre} = nombre de produits en promotion ; {s} = « s » à partir de 2.'],
+                'offres_bouton' => ['texte', 'Menu : lien', 'Voir les offres'],
             ],
             'Boutique' => [
                 'boutique_titre' => ['texte', 'Titre', 'La boutique'],
@@ -322,6 +346,31 @@ const REGLAGES = [
                 'attente_seo_description' => ['zone', 'Description', 'Univers Sensoriel ouvre bientôt sa boutique en ligne : extraits de parfum, soins et senteurs pour la maison. Boutique ouverte à Metz.', '120 à 155 caractères.'],
                 'attente_seo_image' => ['image', 'Image de partage', '', '1200 × 630 pixels. Vide : image d\'origine.'],
                 'attente_seo_alt' => ['texte', 'Description de l\'image', 'Univers Sensoriel : la boutique en ligne ouvre bientôt, extraits de parfum devant un bol d’encens'],
+            ],
+        ],
+    ],
+    'us-documents' => [
+        'titre' => 'Documentation',
+        'onglets' => [
+            'Documents' => [
+                'documents_intro' => ['zone', 'Texte de la page', 'Catalogues des produits et certificats de conformité, à consulter ou à télécharger.', 'Page « Documentation et certifications » (lien dans le pied de page, colonne Aide).'],
+                'documents' => ['liste', 'Documents', [], 'Un fichier PDF (ou une image) par ligne, rangé dans sa rubrique. Glisser une ligne pour changer l\'ordre. Une rubrique dont un document a une couverture s\'affiche en vignettes.', [
+                    'titre' => ['texte', 'Titre', '', 'Exemple : Olfazeta.'],
+                    'rubrique' => ['choix', 'Rubrique', 'catalogues', '', RUBRIQUES_DOCUMENTS],
+                    'fichier' => ['fichier', 'Fichier'],
+                    'couverture' => ['image', 'Couverture', '', 'Facultatif : image carrée, sans personne.'],
+                    'description' => ['texte', 'Précision', '', 'Facultatif : une ligne, par exemple la gamme et le nombre de pages.'],
+                    'afficher' => ['case', 'Afficher sur le site', true, 'Décoché : le fichier reste dans la médiathèque, la page ne le montre pas.'],
+                ]],
+            ],
+            'Rubriques' => [
+                'documents_rubrique_catalogues' => ['texte', 'Catalogues', RUBRIQUES_DOCUMENTS['catalogues']],
+                'documents_rubrique_certificats' => ['texte', 'Certificats', RUBRIQUES_DOCUMENTS['certificats']],
+                'documents_garantie' => ['zone', 'Texte des certificats', 'Tous nos produits sont fabriqués en Italie. Chaque cosmétique est conforme au règlement européen et notifié sur le portail CPNP.', 'Sous le titre de la rubrique Certificats.'],
+                'documents_rubrique_fiches' => ['texte', 'Fiches techniques', RUBRIQUES_DOCUMENTS['fiches']],
+                'documents_rubrique_engagements' => ['texte', 'Engagements', RUBRIQUES_DOCUMENTS['engagements']],
+                'documents_bouton' => ['texte', 'Lien d\'un document', 'Consulter'],
+                'documents_vide' => ['zone', 'Texte sans document', 'Les documents seront bientôt disponibles ici. Pour en recevoir un dès maintenant, écrivez-nous.', 'Affiché tant qu\'aucun document n\'est publié, avec un lien vers la page Contact.'],
             ],
         ],
     ],
@@ -584,6 +633,7 @@ function reglage_scf(string $cle, array $champ, string $prefixe = ''): array
         'courriel' => ['type' => 'email', 'default_value' => $origine],
         // Dans une liste, la photo en vignette : l'écran reste compact.
         'image' => ['type' => 'image', 'return_format' => 'id', 'preview_size' => $prefixe === '' ? 'medium' : 'thumbnail', 'library' => 'all'],
+        'fichier' => ['type' => 'file', 'return_format' => 'id', 'library' => 'all', 'mime_types' => 'pdf,jpg,jpeg,png,webp'],
         'choix' => ['type' => 'select', 'choices' => $champ[4] ?? [], 'default_value' => $origine, 'ui' => 0],
         // Dates enregistrées et rendues en AAAAMMJJ : comparables telles quelles.
         'date' => ['type' => 'date_picker', 'display_format' => 'd/m/Y', 'return_format' => 'Ymd', 'first_day' => 1],

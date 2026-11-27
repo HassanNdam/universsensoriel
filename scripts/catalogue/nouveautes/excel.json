@@ -1,0 +1,1001 @@
+[
+ {
+  "ligne": 2,
+  "nom": "Amphera – Parfum Femme Luxury Extrait 30 %",
+  "id": "16216",
+  "contenance": "3ml,15ml,50ml",
+  "prix_client": "2,3;20,90€;60€",
+  "remarque": "https://www.chogangroupspa.com/product_referral/16216/MIDBADFCB",
+  "inspiration": "-"
+ },
+ {
+  "ligne": 3,
+  "nom": "Volt – Parfum Homme Luxury Extrait 30 %",
+  "id": "16206",
+  "contenance": "3ml,15ml,50ml",
+  "prix_client": "2,3;20,90€;60€",
+  "remarque": "",
+  "inspiration": "-"
+ },
+ {
+  "ligne": 4,
+  "nom": "Scarlet – Parfum unisexe Luxury",
+  "id": "16156",
+  "contenance": "3ml,15ml,50ml",
+  "prix_client": "1,80€; 19,90; 52€",
+  "remarque": "",
+  "inspiration": "Baccarat rouge 540 Maison Francis Kurkdjian"
+ },
+ {
+  "ligne": 5,
+  "nom": "Blooming Skin- Parfum Femme N°163",
+  "id": "13696",
+  "contenance": "3ml,15ml,30ml, 70ml",
+  "prix_client": "1,30€; 13,90€; 23,50€; 45€",
+  "remarque": "",
+  "inspiration": "MIUTINE MIU MIU"
+ },
+ {
+  "ligne": 6,
+  "nom": "Unfold – Parfum Homme N°164",
+  "id": "13716",
+  "contenance": "3ml,15ml,30ml, 70ml",
+  "prix_client": "1,30€; 13,90€; 23,50€; 45€",
+  "remarque": "",
+  "inspiration": "PRADA PARADIGME"
+ },
+ {
+  "ligne": 7,
+  "nom": "Gel Douche Parfumé Unisex Luxury Édition Limitée",
+  "id": "15986",
+  "contenance": "250ml",
+  "prix_client": "18.9",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 8,
+  "nom": "VIGORACTIVE | Complément alimentaire en gel",
+  "id": "15616",
+  "contenance": "30 sticks de 10 ml",
+  "prix_client": "74.9",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 9,
+  "nom": "NOIRÉ – Bougie Parfumée",
+  "id": "15596",
+  "contenance": "190gr, 400gr",
+  "prix_client": "39,90€; 64,90€",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 10,
+  "nom": "MÉLIA – Bougie Parfumée",
+  "id": "15581",
+  "contenance": "190gr, 400gr",
+  "prix_client": "39,90€; 64,90€",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 11,
+  "nom": "LAVÉA – Bougie Parfumée Cooperativa Profumieri",
+  "id": "15576",
+  "contenance": "190gr, 400gr",
+  "prix_client": "39,90€; 64,90€",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 12,
+  "nom": "MUSKÉ – Bougie Parfumée Cooperativa Profumieri",
+  "id": "15561",
+  "contenance": "190gr, 400gr",
+  "prix_client": "39,90€; 64,90€",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 13,
+  "nom": "ROSÉA – Bougie Parfumée Cooperativa Profumieri",
+  "id": "15546",
+  "contenance": "190gr, 400gr",
+  "prix_client": "39,90€; 64,90€",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 14,
+  "nom": "Crème Visage Nuit à l’Aloe Vera",
+  "id": "15521",
+  "contenance": "50ml",
+  "prix_client": "39.9",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 15,
+  "nom": "Crème de Jour à l’Aloe Vera",
+  "id": "15511",
+  "contenance": "50ml",
+  "prix_client": "39.9",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 16,
+  "nom": "Sérum Gel Tenseur à l’Acide Hyaluronique",
+  "id": "15496",
+  "contenance": "50ml",
+  "prix_client": "44.9",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 17,
+  "nom": "Crème Visage à l’Huile de Neem",
+  "id": "15491",
+  "contenance": "50ml",
+  "prix_client": "39.9",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 18,
+  "nom": "Crème Visage à l’Acide Hyaluronique",
+  "id": "15481",
+  "contenance": "50ml",
+  "prix_client": "31.9",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 19,
+  "nom": "Crème de Jour Visage au Lait d’Ânesse",
+  "id": "15471",
+  "contenance": "50ml",
+  "prix_client": "54.9",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 20,
+  "nom": "Crème de Nuit Visage au Lait d’ânesse",
+  "id": "15456",
+  "contenance": "50ml",
+  "prix_client": "64.9",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 21,
+  "nom": "Crème Visage à l’Huile d’Argan",
+  "id": "15451",
+  "contenance": "50ml",
+  "prix_client": "44.9",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 22,
+  "nom": "Crème Visage à la Bave d’Escargot",
+  "id": "15441",
+  "contenance": "50ml",
+  "prix_client": "44.9",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 23,
+  "nom": "POWERGAIN | Complément alimentaire à base de créatine monohydrate",
+  "id": "15311",
+  "contenance": "90 portions",
+  "prix_client": "30",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 24,
+  "nom": "ULTRABLAST | Pre-workout | Complément alimentaire",
+  "id": "15306",
+  "contenance": "20 portions",
+  "prix_client": "34.9",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 25,
+  "nom": "RECOVERYPRO | BCAA 4:1:1 | Complément alimentaire",
+  "id": "15301",
+  "contenance": "45 portions",
+  "prix_client": "24.9",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 26,
+  "nom": "Extra Volume Mascara – Volumateur",
+  "id": "15261",
+  "contenance": "8ml",
+  "prix_client": "25.9",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 27,
+  "nom": "High Definition Mascara – Haute Définition",
+  "id": "15256",
+  "contenance": "8ml",
+  "prix_client": "25.9",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 28,
+  "nom": "Super Intense Mascara – Longue Tenue",
+  "id": "15251",
+  "contenance": "8ml",
+  "prix_client": "25.9",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 29,
+  "nom": "Waterproof Mascara – Résistant à l’eau",
+  "id": "15246",
+  "contenance": "8ml",
+  "prix_client": "25.9",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 30,
+  "nom": "Curly Lashes Mascara – Recourbant",
+  "id": "15241",
+  "contenance": "8ml",
+  "prix_client": "25.9",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 31,
+  "nom": "Mystère Parfum homme Luxury essence 30 %",
+  "id": "14986",
+  "contenance": "3ml,15ml,50ml",
+  "prix_client": "2,3;20,90€;60€",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 32,
+  "nom": "Séduction- Parfum femme Luxury Essence 30%",
+  "id": "14731",
+  "contenance": "3ml,15ml,50ml",
+  "prix_client": "2,3;20,90€;60€",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 33,
+  "nom": "Kit Mélanges d’Huiles Essentielles et Végétales Lolûm",
+  "id": "14681",
+  "contenance": "5x10 ml - 6x50 ml - 1x80 gr",
+  "prix_client": "419.22",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 34,
+  "nom": "Kit Mélanges d’Huiles Essentielles et Végétales Lolûm",
+  "id": "14676",
+  "contenance": "5x10 ml - 6x50 ml - 1x80 gr",
+  "prix_client": "419.22",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 35,
+  "nom": "Kit Mélanges d’Huiles Végétales Lolûm",
+  "id": "14636",
+  "contenance": "5x50 ml - 1x80 gr",
+  "prix_client": "255.93",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 36,
+  "nom": "Kit Mélanges d’Huiles Végétales Lolûm",
+  "id": "14631",
+  "contenance": "5x50 ml - 1x80 gr",
+  "prix_client": "255.93",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 37,
+  "nom": "Kit Mélanges d’Huiles Essentielles Lolûm",
+  "id": "14626",
+  "contenance": "5x10 ml - 1x50 ml",
+  "prix_client": "186.58",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 38,
+  "nom": "Kit Mélanges d’Huiles Essentielles Lolûm",
+  "id": "14621",
+  "contenance": "5x10 ml - 1x50 ml",
+  "prix_client": "186.58",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 39,
+  "nom": "Extra-Stay Set MoniAmori Make-up Pencil Kit",
+  "id": "14466",
+  "contenance": "-",
+  "prix_client": "274",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 40,
+  "nom": "MyLip Secret Encre à Lèvres Peel-Off Caramel Toffee",
+  "id": "14461",
+  "contenance": "5,5ml",
+  "prix_client": "22.9",
+  "remarque": "Il ya ici une palette de couleur mobile qui décrit chaque type pour que le client se retrouve, peux tu voir comment l'implanté?  VOICI L'EXEMPLE",
+  "inspiration": ""
+ },
+ {
+  "ligne": 41,
+  "nom": "MyLip Secret Encre à Lèvres Peel-Off Biscuit Rose",
+  "id": "14456",
+  "contenance": "5,5ml",
+  "prix_client": "22.9",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 42,
+  "nom": "MyLip Secret Encre à Lèvres Peel-Off Strawberry Soufflé",
+  "id": "14451",
+  "contenance": "5,5ml",
+  "prix_client": "22.9",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 43,
+  "nom": "MyLip Secret Encre à Lèvres Peel-Off Red Velvet",
+  "id": "14446",
+  "contenance": "5,5ml",
+  "prix_client": "22.9",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 44,
+  "nom": "MyLip Secret Encre à Lèvres Peel-Off Cherry Tart",
+  "id": "14441",
+  "contenance": "5,5ml",
+  "prix_client": "22.9",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 45,
+  "nom": "Blackberry DelightMyLip Secret Encre à Lèvres Peel-Off",
+  "id": "14436",
+  "contenance": "5,5ml",
+  "prix_client": "22.9",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 46,
+  "nom": "Juicy Oil- Huile Lèvres Hydratante Parfum : Pastèque",
+  "id": "14431",
+  "contenance": "3,5ml",
+  "prix_client": "19.9",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 47,
+  "nom": "Juicy Oil- Huile Lèvres Hydratante Parfum : Coco salé",
+  "id": "14426",
+  "contenance": "3,5ml",
+  "prix_client": "19.9",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 48,
+  "nom": "Juicy Oil- Huile Lèvres Hydratante Parfum : Litchi",
+  "id": "14421",
+  "contenance": "3,5ml",
+  "prix_client": "19.9",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 49,
+  "nom": "Juicy Oil- Huile Lèvres Hydratante Parfum : Cerise noire",
+  "id": "14426",
+  "contenance": "3,5ml",
+  "prix_client": "19.9",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 50,
+  "nom": "Juicy Oil- Huile Lèvres Hydratante Parfum : raisin",
+  "id": "14411",
+  "contenance": "3,5ml",
+  "prix_client": "19.9",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 51,
+  "nom": "Spray d’ambiance 'Whispering Woods'",
+  "id": "13826",
+  "contenance": "3ml, 500ml",
+  "prix_client": "2,30€; 35€",
+  "remarque": "https://www.chogangroupspa.com/product_referral/13811/MIDBADFCB",
+  "inspiration": ""
+ },
+ {
+  "ligne": 52,
+  "nom": "Parfum d’ambiance en spray ‘Sweet Symphonies’",
+  "id": "13816",
+  "contenance": "3ml, 500ml",
+  "prix_client": "2,30€; 35€",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 53,
+  "nom": "Parfum d’ambiance ‘Musk Ritual’",
+  "id": "13806",
+  "contenance": "3ml, 500ml",
+  "prix_client": "2,30€; 35€",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 54,
+  "nom": "Spray d’ambiance ‘Soft Hypnose’",
+  "id": "13796",
+  "contenance": "3ml, 500ml",
+  "prix_client": "2,30€; 35€",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 55,
+  "nom": "Spray d’ambiance 'Fruity Delight'",
+  "id": "13786",
+  "contenance": "3ml, 500ml",
+  "prix_client": "2,30€; 35€",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 56,
+  "nom": "Spray d’ambiance 'Velvet Citrus'",
+  "id": "13776",
+  "contenance": "3ml, 500ml",
+  "prix_client": "2,30€; 35€",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 57,
+  "nom": "Spray d’ambiance 'Meadow Spirit'",
+  "id": "13766",
+  "contenance": "3ml, 500ml",
+  "prix_client": "2,30€; 35€",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 58,
+  "nom": "Spray d’ambiance ‘Petal Infusion’",
+  "id": "13761",
+  "contenance": "3ml, 500ml",
+  "prix_client": "2,30€; 35€",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 59,
+  "nom": "Spray d’ambiance ‘Cotton Veil'",
+  "id": "13751",
+  "contenance": "3ml, 500ml",
+  "prix_client": "2,30€; 35€",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 60,
+  "nom": "Spray d’ambiance ‘Sun Mirage’",
+  "id": "13736",
+  "contenance": "3ml, 500ml",
+  "prix_client": "2,30€; 35€",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 61,
+  "nom": "Élastique porte-crayons enroulable",
+  "id": "11996",
+  "contenance": "",
+  "prix_client": "",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 62,
+  "nom": "LOLLILIP 'Spiced Cookie' – Masque Lèvres Nourrissant",
+  "id": "11686",
+  "contenance": "15ml",
+  "prix_client": "12",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 63,
+  "nom": "LOLLILIP 'Salty Caramel’– Masque Lèvres Nourrissant",
+  "id": "11691",
+  "contenance": "15ml",
+  "prix_client": "12",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 64,
+  "nom": "FLORCOR | Complément alimentaire en gélules",
+  "id": "10023",
+  "contenance": "30 gélules de 350 mg",
+  "prix_client": "30",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 65,
+  "nom": "Sérum Capillaire Réparateur à l’Huile d’Argan",
+  "id": "10018",
+  "contenance": "30ml",
+  "prix_client": "36.9",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 66,
+  "nom": "Ampoules anti-chute cheveux – Soin intensif",
+  "id": "7660",
+  "contenance": "3ml",
+  "prix_client": "48",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 67,
+  "nom": "Lotion anti-chute capillaire à l'Undaria Pinnatifida",
+  "id": "7694",
+  "contenance": "50ml",
+  "prix_client": "50",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 68,
+  "nom": "Shampoing anti-chute",
+  "id": "7888",
+  "contenance": "250ml",
+  "prix_client": "19.9",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 69,
+  "nom": "Extra-LipStay Crayon à lèvres rétractable Teinte : Velvet Taupe",
+  "id": "9770",
+  "contenance": "0,3g",
+  "prix_client": "15",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 70,
+  "nom": "Extra-LipStay Crayon à lèvres rétractable Teinte : Dusty Rose",
+  "id": "9765",
+  "contenance": "0,3g",
+  "prix_client": "15",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 71,
+  "nom": "Extra-LipStay Crayon à lèvres rétractable Teinte : Blush Sand",
+  "id": "9760",
+  "contenance": "0,3g",
+  "prix_client": "15",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 72,
+  "nom": "Extra-LipStay Crayon à lèvres rétractable Teinte : Toffee Nude",
+  "id": "9755",
+  "contenance": "0,3g",
+  "prix_client": "15",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 73,
+  "nom": "Extra-LipStay Crayon à lèvres rétractable Teinte : Ruby Flame",
+  "id": "9750",
+  "contenance": "0,3g",
+  "prix_client": "15",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 74,
+  "nom": "Extra-LipStay Crayon à lèvres rétractable Teinte : Pinky Doll",
+  "id": "9745",
+  "contenance": "0,3g",
+  "prix_client": "15",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 75,
+  "nom": "Extra-LipStay Crayon à lèvres rétractable Teinte : Chic Peach",
+  "id": "9740",
+  "contenance": "0,3g",
+  "prix_client": "15",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 76,
+  "nom": "Extra-LipStay Crayon à lèvres rétractable Teinte : Berry Kiss",
+  "id": "9725",
+  "contenance": "0,3g",
+  "prix_client": "15",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 77,
+  "nom": "Extra-LipStay Crayon à lèvres retractable Teinte : Purple Mocha",
+  "id": "9725",
+  "contenance": "0,3g",
+  "prix_client": "15",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 78,
+  "nom": "Extra-LipStay Crayon à lèvres retractable Teinte : Royal Mauve",
+  "id": "9715",
+  "contenance": "0,3g",
+  "prix_client": "15",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 79,
+  "nom": "Extra-LipStay Crayon à lèvres rétractable Teinte : Chili Love",
+  "id": "9735",
+  "contenance": "0,3g",
+  "prix_client": "15",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 80,
+  "nom": "Extra-LipStay Crayon à lèvres rétractable Teinte : Dark Cocoa",
+  "id": "9730",
+  "contenance": "0,3g",
+  "prix_client": "15",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 81,
+  "nom": "Extra-EyeStay 'Wild Magenta' Crayon yeux à tailler Teinte : Wild Magenta",
+  "id": "9710",
+  "contenance": "1g",
+  "prix_client": "12",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 82,
+  "nom": "Extra-EyeStay 'Bold Orchid' Crayon yeux à tailler Teinte : Bold Orchid",
+  "id": "9705",
+  "contenance": "1g",
+  "prix_client": "12",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 83,
+  "nom": "Extra-EyeStay 'Crystal Blue' Crayon yeux à tailler Teinte : Crystal Blue",
+  "id": "9700",
+  "contenance": "1g",
+  "prix_client": "12",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 84,
+  "nom": "Extra-EyeStay 'Silver Moon' Crayon yeux à tailler Teinte : Silver Moon",
+  "id": "9695",
+  "contenance": "1g",
+  "prix_client": "12",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 85,
+  "nom": "Extra-EyeStay 'Dark Truffle'- Crayon yeux à tailler Teinte : Dark Truffle",
+  "id": "9690",
+  "contenance": "1g",
+  "prix_client": "12",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 86,
+  "nom": "Extra-EyeStay 'Soft Butter' Crayon yeux à tailler Teinte : Soft Butter",
+  "id": "9685",
+  "contenance": "1g",
+  "prix_client": "12",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 87,
+  "nom": "Extra-EyeStay 'Midnight Blue' Crayon yeux à tailler Teinte : Midnight Blue",
+  "id": "9680",
+  "contenance": "1g",
+  "prix_client": "12",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 88,
+  "nom": "Extra-EyeStay 'Green Jungle' Crayon yeux à tailler Teinte : Green Jungle",
+  "id": "9675",
+  "contenance": "1g",
+  "prix_client": "12",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 89,
+  "nom": "Blush & Kiss | Multi-use Stick Teinte : Watermelon",
+  "id": "9484",
+  "contenance": "7g",
+  "prix_client": "20",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 90,
+  "nom": "Blush & Kiss | Multi-use Stick Teinte : Peach",
+  "id": "9479",
+  "contenance": "7g",
+  "prix_client": "20",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 91,
+  "nom": "Blush & Kiss | Multi-use Stick Teinte : Berry",
+  "id": "9474",
+  "contenance": "7g",
+  "prix_client": "20",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 92,
+  "nom": "Sculpt & Lift | Contour Stick Teinte : Ebony",
+  "id": "9469",
+  "contenance": "7g",
+  "prix_client": "20",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 93,
+  "nom": "Sculpt & Lift | Contour Stick Teinte : Clay",
+  "id": "9469",
+  "contenance": "7g",
+  "prix_client": "20",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 94,
+  "nom": "Sculpt & Lift | Contour Stick Teinte : Stone",
+  "id": "9459",
+  "contenance": "7g",
+  "prix_client": "20",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 95,
+  "nom": "Light & Go | Highlighter Stick Teinte : Bronze",
+  "id": "9454",
+  "contenance": "4g",
+  "prix_client": "20",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 96,
+  "nom": "Light & Go | Highlighter Stick Teinte : Rose Gold",
+  "id": "9449",
+  "contenance": "4g",
+  "prix_client": "20",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 97,
+  "nom": "Light & Go | Highlighter Stick Teinte : Champagne",
+  "id": "9444",
+  "contenance": "4g",
+  "prix_client": "20",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 98,
+  "nom": "Solar Defence Compact Foundation – Tiramisù",
+  "id": "9228",
+  "contenance": "8g",
+  "prix_client": "36",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 99,
+  "nom": "Solar Defence Compact Foundation Crème Caramel",
+  "id": "9223",
+  "contenance": "8g",
+  "prix_client": "36",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 100,
+  "nom": "Solar Defence Compact Foundation Cinnamon Roll",
+  "id": "9218",
+  "contenance": "8g",
+  "prix_client": "36",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 101,
+  "nom": "Solar Defence Compact Foundation Amaretto",
+  "id": "9213",
+  "contenance": "8g",
+  "prix_client": "36",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 102,
+  "nom": "Solar Defence Compact Foundation Meringue",
+  "id": "9208",
+  "contenance": "8g",
+  "prix_client": "36",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 103,
+  "nom": "Lotion capillaire rafraîchissante au Menthol et au Camphre",
+  "id": "9177",
+  "contenance": "100ml",
+  "prix_client": "25",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 104,
+  "nom": "Pommade à l'ichtyol 9,8%",
+  "id": "9178",
+  "contenance": "30ml",
+  "prix_client": "11",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 105,
+  "nom": "BUZZOFF Lotion à action répulsive contre les insectes et les moustiques",
+  "id": "9140",
+  "contenance": "150ml",
+  "prix_client": "24",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 106,
+  "nom": "LIGHT DROPS « Floral Sweetness » Sérum cheveux",
+  "id": "9118",
+  "contenance": "50ml",
+  "prix_client": "30",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 107,
+  "nom": "LIGHT DROPS « Honey & Camomile » Sérum cheveux",
+  "id": "9117",
+  "contenance": "50ml",
+  "prix_client": "30",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 108,
+  "nom": "LIGHT DROPS « Chocolate Obsession» Sérum cheveux",
+  "id": "9116",
+  "contenance": "50ml",
+  "prix_client": "30",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 109,
+  "nom": "Supreme Lip Treatment – Framboise",
+  "id": "8997",
+  "contenance": "4g",
+  "prix_client": "20",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 110,
+  "nom": "Supreme Lip Treatment – Fraise",
+  "id": "8996",
+  "contenance": "4g",
+  "prix_client": "20",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 111,
+  "nom": "Supreme Lip Treatment – Vanille",
+  "id": "8995",
+  "contenance": "4g",
+  "prix_client": "20",
+  "remarque": "",
+  "inspiration": ""
+ },
+ {
+  "ligne": 112,
+  "nom": "Pochette « Change your life »",
+  "id": "8995",
+  "contenance": "",
+  "prix_client": "20",
+  "remarque": "",
+  "inspiration": ""
+ }
+]

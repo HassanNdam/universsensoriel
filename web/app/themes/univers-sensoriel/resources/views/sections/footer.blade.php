@@ -38,6 +38,12 @@
     <nav class="pied-colonne" aria-label="La boutique">
       <p class="surtitre">La boutique</p>
       <ul>
+        @if ($nouveautesPied = App\nouveautes())
+          <li><a href="{{ $nouveautesPied[0] }}">{{ $nouveautesPied[2]->name }}</a></li>
+        @endif
+        @if (App\nombre_offres())
+          <li><a href="{{ App\lien_offres() }}">{{ App\texte('offres_titre') }}</a></li>
+        @endif
         @foreach ($menu as $entree)
           <li><a href="{{ $entree['url'] }}">{{ $entree['titre'] }}</a></li>
         @endforeach
@@ -62,6 +68,9 @@
       <ul>
         <li><a href="{{ home_url('/livraison-et-retours/') }}">Livraison et retours</a></li>
         <li><a href="{{ home_url('/questions-frequentes/') }}">Questions fréquentes</a></li>
+        @if ($documentation = get_page_by_path('documentation-et-certifications'))
+          <li><a href="{{ get_permalink($documentation) }}">{{ get_the_title($documentation) }}</a></li>
+        @endif
         @if (function_exists('wc_get_page_permalink'))
           <li><a href="{{ wc_get_page_permalink('myaccount') }}">Mon compte</a></li>
         @endif

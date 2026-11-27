@@ -1,0 +1,2780 @@
+{
+ "produits": [
+  {
+   "source": "nouveautes-2026-11/amphera",
+   "slug": "luxury-amphera",
+   "nom": "Luxury Amphera",
+   "sous_titre": "Extrait de parfum · floral ambré gourmand",
+   "sku": "US-N001",
+   "gamme": "Olfazeta",
+   "rayons": [
+    "parfums-femme",
+    "collection-luxury"
+   ],
+   "genre": "Femme",
+   "reference": "",
+   "familles": [
+    "Floral",
+    "Ambré",
+    "Gourmand"
+   ],
+   "notes": [
+    "Amande",
+    "Essence de Néroli",
+    "Ambre"
+   ],
+   "accroche": "Amphera est un parfum féminin sophistiqué et enveloppant, capable de captiver l'attention et de laisser une empreinte avec une élégance naturelle.",
+   "description": "<p>Amphera est un parfum féminin sophistiqué et enveloppant, capable de captiver l'attention et de laisser une empreinte avec une élégance naturelle. Une fragrance inspirante et riche en nuances, où les accents floraux, orientaux et gourmands se fondent dans une composition intense et magnétique, évoquant une énergie transformatrice.</p><ul><li>Tête : Amande, Bergamote, Café, Cassis, Citron, Gardénia, Jasmin, Mandarine, Néroli, Orange sanguine, Poire, Truffe, Ylang-ylang</li><li>Cœur : Essence de Néroli, Fleur d'oranger, Gardénia, Iris, Jasmin, Lotus, Miel, Mousse Végétale, Notes Épices, Notes fruitées, Orchidée, Pêche, Rose, Tubéreuse, Ylang-ylang</li><li>Fond : Ambre, AmbrofixTM, Bois de cachemire, Bois de santal, Cannelle, Caramel, Cèdre, Chocolat noir, Cire d'abeille, Cosse de cacao, Encens, fève tonka, Musc, Patchouli, Praliné, Réglisse, Serenolide, Vanille, Vanille bourbon, Vétiver</li></ul>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/luxury-amphera-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/luxury-amphera-3.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/luxury-amphera-4.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [
+    {
+     "format": "50 ml",
+     "prix": "60.00"
+    },
+    {
+     "format": "15 ml",
+     "prix": "20.90"
+    },
+    {
+     "format": "3 ml",
+     "prix": "2.30"
+    }
+   ],
+   "chogan": "AMPHERA",
+   "rang": 0
+  },
+  {
+   "source": "nouveautes-2026-11/volt",
+   "slug": "luxury-volt",
+   "nom": "Luxury Volt",
+   "sous_titre": "Extrait de parfum · aromatique épicé",
+   "sku": "US-N002",
+   "gamme": "Olfazeta",
+   "rayons": [
+    "parfums-homme",
+    "collection-luxury"
+   ],
+   "genre": "Homme",
+   "reference": "",
+   "familles": [
+    "Aromatique",
+    "Épicé"
+   ],
+   "notes": [
+    "Bergamote",
+    "Cuir",
+    "Absolue de vanille"
+   ],
+   "accroche": "Volt est un parfum masculin intense et magnétique, qui évoque l'élégance affirmée d'un véritable gentleman.",
+   "description": "<p>Volt est un parfum masculin intense et magnétique, qui évoque l'élégance affirmée d'un véritable gentleman. Une fragrance qui exprime une énergie maîtrisée et parfaitement équilibrée, où les nuances aromatiques et épicées donnent naissance à un sillage profond et enveloppant.</p><ul><li>Tête : Bergamote, Cardamome, Coconut Powder, Héliotrope, Musc, Vanille</li><li>Cœur : Cuir, Géranium, Jasmin, Lavande, Vanille</li><li>Fond : Absolue de vanille, Ambre, Baumier du Pérou, Benjoin, Gaïac, Lactone, Mousse Végétale, Musc, Musc blanc, Noix de Coco, Palo santo, Patchouli, Vétiver</li></ul>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/luxury-volt-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/luxury-volt-3.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/luxury-volt-4.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [
+    {
+     "format": "50 ml",
+     "prix": "60.00"
+    },
+    {
+     "format": "15 ml",
+     "prix": "20.90"
+    },
+    {
+     "format": "3 ml",
+     "prix": "2.30"
+    }
+   ],
+   "chogan": "VOLT",
+   "rang": 3
+  },
+  {
+   "source": "nouveautes-2026-11/scarlet",
+   "slug": "luxury-scarlet",
+   "nom": "Luxury Scarlet",
+   "sous_titre": "Extrait de parfum · floral ambré boisé",
+   "sku": "US-N003",
+   "gamme": "Olfazeta",
+   "rayons": [
+    "parfums-femme",
+    "parfums-homme",
+    "collection-luxury"
+   ],
+   "genre": "Mixte",
+   "reference": "170",
+   "familles": [
+    "Floral",
+    "Ambré",
+    "Boisé"
+   ],
+   "notes": [
+    "Jasmin",
+    "Amberwood",
+    "Ambroxan"
+   ],
+   "accroche": "Un parfum lumineux, riche et intense : une harmonie sensuelle et magnétique, idéale pour les amateurs de fragrances douces et enveloppantes. Il caresse la peau tel un souffle floral et ambré, empreint de nuances boisées.",
+   "description": "<p>Un parfum lumineux, riche et intense : une harmonie sensuelle et magnétique, idéale pour les amateurs de fragrances douces et enveloppantes. Il caresse la peau tel un souffle floral et ambré, empreint de nuances boisées. Une alchimie poétique où la délicatesse du jasmin se mêle aux facettes minérales de l'ambre gris et aux tonalités boisées du cèdre fraîchement coupé.</p><ul><li>Tête : Jasmin, Safran</li><li>Cœur : Amberwood, Ambre gris</li><li>Fond : Ambroxan, Bois de cedrat, Mousse de chêne, Sapin</li></ul>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "parfums-femme/parfums-femme-olfazeta-univers-sensoriel-15.webp",
+     "detoure": true
+    }
+   ],
+   "variations": [
+    {
+     "format": "50 ml",
+     "prix": "52.00"
+    },
+    {
+     "format": "15 ml",
+     "prix": "19.90"
+    },
+    {
+     "format": "3 ml",
+     "prix": "1.80"
+    }
+   ],
+   "chogan": "170U",
+   "rang": 12
+  },
+  {
+   "source": "nouveautes-2026-11/blooming-skin",
+   "slug": "blooming-skin",
+   "nom": "Blooming Skin",
+   "sous_titre": "Extrait de parfum · floral fruité gourmand",
+   "sku": "US-N004",
+   "gamme": "Olfazeta",
+   "rayons": [
+    "parfums-femme"
+   ],
+   "genre": "Femme",
+   "reference": "163",
+   "familles": [
+    "Floral",
+    "Fruité",
+    "Gourmand"
+   ],
+   "notes": [
+    "Fraise",
+    "Jasmin",
+    "Ambre"
+   ],
+   "accroche": "Une fragrance raffinée qui fleurit subtilement sur la peau. Fraîche mais sophistiquée, elle exprime une féminité moderne, élégante et joyeuse. Un sillage délicat et sensuel, qui accompagne les gestes avec grâce et vitalité.",
+   "description": "<p>Une fragrance raffinée qui fleurit subtilement sur la peau. Fraîche mais sophistiquée, elle exprime une féminité moderne, élégante et joyeuse. Un sillage délicat et sensuel, qui accompagne les gestes avec grâce et vitalité.</p><ul><li>Tête : Fraise, Gardénia</li><li>Cœur : Jasmin, Rose</li><li>Fond : Ambre, Cassonade, Mousse Végétale, Patchouli, Vanille bourbon</li></ul>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/blooming-skin-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/blooming-skin-2.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/blooming-skin-3.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/blooming-skin-4.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [
+    {
+     "format": "70 ml",
+     "prix": "45.00"
+    },
+    {
+     "format": "30 ml",
+     "prix": "23.50"
+    },
+    {
+     "format": "15 ml",
+     "prix": "13.90"
+    },
+    {
+     "format": "3 ml",
+     "prix": "1.30"
+    }
+   ],
+   "chogan": "163W",
+   "rang": 6
+  },
+  {
+   "source": "nouveautes-2026-11/unfold",
+   "slug": "unfold",
+   "nom": "Unfold",
+   "sous_titre": "Extrait de parfum · boisé aromatique",
+   "sku": "US-N005",
+   "gamme": "Olfazeta",
+   "rayons": [
+    "parfums-homme"
+   ],
+   "genre": "Homme",
+   "reference": "164",
+   "familles": [
+    "Boisé",
+    "Aromatique"
+   ],
+   "notes": [
+    "Bergamote",
+    "Géranium",
+    "Baumier du Pérou"
+   ],
+   "accroche": "Un parfum pour homme moderne et sophistiqué, conçu pour ceux qui considèrent l'élégance comme un choix conscient.",
+   "description": "<p>Un parfum pour homme moderne et sophistiqué, conçu pour ceux qui considèrent l'élégance comme un choix conscient. Frais et structuré, il allie propreté et profondeur dans un équilibre essentiel, révélant une personnalité qui s'exprime avec naturel à travers un sillage à la fois distinctif et contemporain.</p><ul><li>Tête : Bergamote, Musc</li><li>Cœur : Géranium</li><li>Fond : Baumier du Pérou, Benjoin, Gaïac</li></ul>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/unfold-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/unfold-2.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/unfold-3.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/unfold-4.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [
+    {
+     "format": "70 ml",
+     "prix": "45.00"
+    },
+    {
+     "format": "30 ml",
+     "prix": "23.50"
+    },
+    {
+     "format": "15 ml",
+     "prix": "13.90"
+    },
+    {
+     "format": "3 ml",
+     "prix": "1.30"
+    }
+   ],
+   "chogan": "164M",
+   "rang": 9
+  },
+  {
+   "source": "nouveautes-2026-11/gel-douche-luxury",
+   "slug": "gel-douche-parfume-luxury",
+   "nom": "Gel douche parfumé Luxury",
+   "sous_titre": "Édition limitée",
+   "sku": "US-N006",
+   "gamme": "Olfazeta",
+   "rayons": [
+    "corps-et-bain"
+   ],
+   "genre": "Mixte",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "Le Gel Douche Parfumé Unisex Luxury en édition limitée, réservé exclusivement aux Ambassador Platinum, se distingue par une texture douce et enveloppante.",
+   "description": "<p>Le Gel Douche Parfumé Unisex Luxury en édition limitée, réservé exclusivement aux Ambassador Platinum, se distingue par une texture douce et enveloppante.</p><p>Son parfum irrésistible révèle des notes florales, orientales et agrumées, créant un équilibre unique entre fraîcheur et sensualité. Laisse la peau veloutée et délicatement parfumée.</p>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/gel-douche-parfume-luxury-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/gel-douche-parfume-luxury-2.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/gel-douche-parfume-luxury-4.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [],
+   "chogan": "BSFLE",
+   "rang": 18,
+   "prix": "18.90",
+   "format": "250 ml"
+  },
+  {
+   "source": "nouveautes-2026-11/vigoractive",
+   "slug": "vigoractive",
+   "nom": "Vigoractive",
+   "sous_titre": "Complément alimentaire en gel, 30 sticks",
+   "sku": "US-N007",
+   "gamme": "Supplefit",
+   "rayons": [
+    "complements-alimentaires"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "VIGORACTIVE est un complément alimentaire en gel avec caféine, sucres et édulcorant, à base du complexe exclusif ACTIVE-CHARGETM, contenant Damiane, Maca Andine, Tribulus et Arginine.",
+   "description": "<p>VIGORACTIVE est un complément alimentaire en gel avec caféine, sucres et édulcorant, à base du complexe exclusif ACTIVE-CHARGETM, contenant Damiane, Maca Andine, Tribulus et Arginine. Le Tribulus et la Maca exercent une action tonique et de soutien métabolique. Le Tribulus, la Maca et la Damiane se révèlent utiles en cas de fatigue physique et mentale. La Maca exerce une action tonique-adaptogène, tandis que le Tribulus et la Damiane favorisent la fonctionnalité des voies urinaires et la fonction digestive. Facile à prendre grâce à son format pratique en gel, il ne nécessite pas d'eau et se caractérise par un agréable goût banane.</p>",
+   "publie": false,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/vigoractive-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/vigoractive-3.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/vigoractive-4.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [],
+   "chogan": "INTB053",
+   "rang": 26,
+   "prix": "74.90",
+   "format": "30 sticks de 10 ml"
+  },
+  {
+   "source": "nouveautes-2026-11/florcor",
+   "slug": "florcor",
+   "nom": "Florcor",
+   "sous_titre": "Complément alimentaire, 30 gélules",
+   "sku": "US-N008",
+   "gamme": "Supplefit",
+   "rayons": [
+    "complements-alimentaires"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "FLORCOR est un complément alimentaire en gélules à base du complexe exclusif MICROCORETM, constitué de probiotiques qui contribuent à l'équilibre de la flore intestinale.",
+   "description": "<p>FLORCOR est un complément alimentaire en gélules à base du complexe exclusif MICROCORETM, constitué de probiotiques qui contribuent à l'équilibre de la flore intestinale. Il contient 25 milliards de cellules vivantes par dose journalière, provenant de 3 souches différentes : Lactobacillus acidophilus (5 milliards), Lactiplantibacillus plantarum (10 milliards) et Lacticaseibacillus rhamnosus (10 milliards).</p>",
+   "publie": false,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/florcor-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/florcor-2.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [],
+   "chogan": "INTB049",
+   "rang": 27,
+   "prix": "30.00",
+   "format": "30 gélules de 350 mg"
+  },
+  {
+   "source": "nouveautes-2026-11/powergain",
+   "slug": "powergain",
+   "nom": "Powergain",
+   "sous_titre": "Créatine monohydrate, 90 portions",
+   "sku": "US-N009",
+   "gamme": "Supplefit",
+   "rayons": [
+    "complements-alimentaires"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "POWERGAIN est un complément alimentaire de la gamme sportive TYTANIX de SuppleFit. Sa formule repose sur le complexe exclusif MUSCLEMAXTM, composé de créatine et de vitamine B6.",
+   "description": "<p>POWERGAIN est un complément alimentaire de la gamme sportive TYTANIX de SuppleFit. Sa formule repose sur le complexe exclusif MUSCLEMAXTM, composé de créatine et de vitamine B6. La créatine augmente les performances physiques lors d'efforts successifs de courte durée et de haute intensité. La vitamine B6 contribue à réduire la fatigue ainsi qu'à un métabolisme énergétique normal. Elle contribue également à des fonctions psychologiques normales, au fonctionnement normal du système nerveux et au fonctionnement normal du système immunitaire.</p><p>Pouvant être pris à tout moment de la journée, POWERGAIN est particulièrement indiqué avant une séance d'entraînement pour soutenir la disponibilité musculaire pendant l'effort. Sa formule contient de la créatine monohydrate d'origine irlandaise, présentant un degré de pureté ≥ 99,5 % et une granulométrie de 200 mesh. Par rapport à la granulométrie standard de 80 mesh, cette poudre garantit une meilleure dispersion et une solubilité supérieure, sans laisser de résidus au fond du shaker.</p>",
+   "publie": false,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/powergain-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/powergain-2.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/powergain-3.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [],
+   "chogan": "INTS001",
+   "rang": 28,
+   "prix": "30.00",
+   "format": "90 portions"
+  },
+  {
+   "source": "nouveautes-2026-11/ultrablast",
+   "slug": "ultrablast",
+   "nom": "Ultrablast",
+   "sous_titre": "Pré-entraînement, 20 portions",
+   "sku": "US-N010",
+   "gamme": "Supplefit",
+   "rayons": [
+    "complements-alimentaires"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "ULTRABLAST est un complément alimentaire de la gamme sportive TYTANIX de SuppleFit. Sa formule est basée sur le complexe exclusif HYPERCHARGETM, composé de Créatine, de bêta-alanine, de caféine et de vitamine B6.",
+   "description": "<p>ULTRABLAST est un complément alimentaire de la gamme sportive TYTANIX de SuppleFit. Sa formule est basée sur le complexe exclusif HYPERCHARGETM, composé de Créatine, de bêta-alanine, de caféine et de vitamine B6. La créatine monohydrate en provenance d'Irlande utilisée dans la formulation a un degré de pureté ≥ 99,5 % et une granulométrie de 200 mesh.</p><p>La Créatine augmente les performances physiques en cas d'activités répétitives, de haute intensité et de courte durée. La vitamine B6 contribue à réduire la fatigue et l'épuisement, ainsi qu'au métabolisme énergétique normal. Elle contribue également au fonctionnement psychologique normal, au fonctionnement normal du système nerveux et du système immunitaire. Le zinc contribue à la protection des cellules contre le stress oxydatif, au fonctionnement normal du système immunitaire et à la synthèse normale des protéines. La Niacine contribue à réduire la fatigue et l'épuisement, au fonctionnement psychologique normal, au fonctionnement normal du système nerveux et au métabolisme énergétique normal. La vitamine B1 contribue au fonctionnement psychologique normal, au fonctionnement normal du système nerveux, au métabolisme énergétique normal et à la fonction cardiaque normale.</p>",
+   "publie": false,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/ultrablast-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/ultrablast-2.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/ultrablast-3.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [],
+   "chogan": "INTS002",
+   "rang": 29,
+   "prix": "34.90",
+   "format": "20 portions"
+  },
+  {
+   "source": "nouveautes-2026-11/recoverypro",
+   "slug": "recoverypro",
+   "nom": "RecoveryPro",
+   "sous_titre": "BCAA 4:1:1, 45 portions",
+   "sku": "US-N011",
+   "gamme": "Supplefit",
+   "rayons": [
+    "complements-alimentaires"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "RECOVERYPRO est un complément alimentaire appartenant à la gamme sportive TYTANIX de SuppleFit.",
+   "description": "<p>RECOVERYPRO est un complément alimentaire appartenant à la gamme sportive TYTANIX de SuppleFit. Idéal avant, pendant et après l'entraînement, il contient le complexe exclusif AMINOBOOSTTM, constitué d'acides aminés ramifiés et de vitamine B6. Les acides aminés ramifiés sont indiqués pour la complémentation de l'alimentation du sportif. Les BCAA (L-leucine, L-isoleucine, L-valine), présents dans un rapport 4:1:1 entre eux, sont des acides aminés essentiels que l'organisme n'est pas capable de synthétiser. La vitamine B6 contribue à la réduction de la fatigue et de l'épuisement ainsi qu'au métabolisme énergétique normal. Elle contribue également au fonctionnement psychologique normal, au fonctionnement normal du système nerveux et au fonctionnement normal du système immunitaire. La vitamine B6 sélectionnée est sous une forme à biodisponibilité améliorée, donc plus facilement assimilable.</p>",
+   "publie": false,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/recoverypro-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/recoverypro-2.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/recoverypro-3.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [],
+   "chogan": "INTS003",
+   "rang": 30,
+   "prix": "24.90",
+   "format": "45 portions"
+  },
+  {
+   "source": "nouveautes-2026-11/bougie-noire",
+   "slug": "bougie-parfumee-noire",
+   "nom": "Bougie parfumée Noiré",
+   "sous_titre": "Édition limitée · cire végétale",
+   "sku": "US-N012",
+   "gamme": "Cooperativa Profumieri",
+   "rayons": [
+    "bougies-parfumees"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [
+    "Bergamote",
+    "Bois de santal",
+    "Ambre"
+   ],
+   "accroche": "Apportez caractère et élégance à vos espaces avec NOIRÉ, l'une des bougies parfumées en édition limitée signées par Cooperativa Profumieri.",
+   "description": "<p>Apportez caractère et élégance à vos espaces avec NOIRÉ, l'une des bougies parfumées en édition limitée signées par Cooperativa Profumieri. Son parfum dessine l'atmosphère à travers la chaleur des Bois Doux, insufflant une sensation de mesure et d'équilibre. Fabriquée à partir de cire d'origine végétale, elle est conçue pour favoriser une combustion homogène ainsi qu'une diffusion progressive et constante du parfum. Avec son design minimaliste et raffiné, elle habille les espaces d'un style sobre et distinctif.</p><ul><li>Tête : Bergamote, Citron</li><li>Cœur : Bois de santal, Jasmin, Rose, Violette</li><li>Fond : Ambre, Bois de cedrat, fève tonka, Mousse de chêne, Musc, Patchouli, Vanille</li><li>Format 190 g : jusqu'à 50 heures.</li><li>Format 400 g : jusqu'à 90 heures.</li></ul>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/bougie-parfumee-noire-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/bougie-parfumee-noire-2.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/bougie-parfumee-noire-3.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/bougie-parfumee-noire-4.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [
+    {
+     "format": "400 g",
+     "prix": "64.90"
+    },
+    {
+     "format": "190 g",
+     "prix": "39.90"
+    }
+   ],
+   "chogan": "COPC010",
+   "rang": 2
+  },
+  {
+   "source": "nouveautes-2026-11/bougie-melia",
+   "slug": "bougie-parfumee-melia",
+   "nom": "Bougie parfumée Mélia",
+   "sous_titre": "Édition limitée · cire végétale",
+   "sku": "US-N013",
+   "gamme": "Cooperativa Profumieri",
+   "rayons": [
+    "bougies-parfumees"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [
+    "Bergamote",
+    "Acacia",
+    "Amande"
+   ],
+   "accroche": "Offrez à vos espaces l'énergie vibrante de MÉLIA, l'une des bougies parfumées en édition limitée signées par Cooperativa Profumieri.",
+   "description": "<p>Offrez à vos espaces l'énergie vibrante de MÉLIA, l'une des bougies parfumées en édition limitée signées par Cooperativa Profumieri. Son parfum diffuse un sillage doré de Miel et de Jasmin, apportant élan et positivité dans chaque pièce. Fabriquée à partir de cire d'origine végétale, elle est conçue pour favoriser une combustion homogène ainsi qu'une diffusion progressive et constante du parfum. Avec son design minimaliste et raffiné, elle habille les espaces d'un style sobre et distinctif.</p><ul><li>Tête : Bergamote, Citron, Thé</li><li>Cœur : Acacia, Iris, Jasmin, Miel</li><li>Fond : Amande, Ambre, Bois de santal, Patchouli, Vanille</li><li>Format 190 g : jusqu'à 50 heures.</li><li>Format 400 g : jusqu'à 90 heures.</li></ul>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/bougie-parfumee-melia-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/bougie-parfumee-melia-2.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/bougie-parfumee-melia-3.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/bougie-parfumee-melia-4.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [
+    {
+     "format": "400 g",
+     "prix": "64.90"
+    },
+    {
+     "format": "190 g",
+     "prix": "39.90"
+    }
+   ],
+   "chogan": "COPC008",
+   "rang": 32
+  },
+  {
+   "source": "nouveautes-2026-11/bougie-lavea",
+   "slug": "bougie-parfumee-lavea",
+   "nom": "Bougie parfumée Lavéa",
+   "sous_titre": "Édition limitée · cire végétale",
+   "sku": "US-N014",
+   "gamme": "Cooperativa Profumieri",
+   "rayons": [
+    "bougies-parfumees"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [
+    "Bergamote",
+    "Iris",
+    "Bois de santal"
+   ],
+   "accroche": "Transformez chaque espace en une oasis de paix avec LAVÉA, l'une des bougies parfumées en édition limitée signées par Cooperativa Profumieri.",
+   "description": "<p>Transformez chaque espace en une oasis de paix avec LAVÉA, l'une des bougies parfumées en édition limitée signées par Cooperativa Profumieri. Son parfum lumineux révèle le pouvoir apaisant de la Lavande, invitant à ralentir et à s'imprégner d'une sensation d'harmonie. Fabriquée à partir de cire d'origine végétale, elle est conçue pour favoriser une combustion homogène ainsi qu'une diffusion progressive et constante du parfum. Avec son design minimaliste et raffiné, elle habille les espaces d'un style sobre et distinctif.</p><ul><li>Tête : Bergamote, Citron, Lavande</li><li>Cœur : Iris, Néroli, Vanille, Violette</li><li>Fond : Bois de santal, fève tonka, Musc blanc</li><li>Format 190 g : jusqu'à 50 heures.</li><li>Format 400 g : jusqu'à 90 heures.</li></ul>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/bougie-parfumee-lavea-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/bougie-parfumee-lavea-2.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/bougie-parfumee-lavea-3.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/bougie-parfumee-lavea-4.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [
+    {
+     "format": "400 g",
+     "prix": "64.90"
+    },
+    {
+     "format": "190 g",
+     "prix": "39.90"
+    }
+   ],
+   "chogan": "COPC006",
+   "rang": 33
+  },
+  {
+   "source": "nouveautes-2026-11/bougie-muske",
+   "slug": "bougie-parfumee-muske",
+   "nom": "Bougie parfumée Muské",
+   "sous_titre": "Édition limitée · cire végétale",
+   "sku": "US-N015",
+   "gamme": "Cooperativa Profumieri",
+   "rayons": [
+    "bougies-parfumees"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [
+    "Camphre",
+    "Bois de santal",
+    "Ambre"
+   ],
+   "accroche": "Créez une atmosphère enveloppante et séduisante avec MUSKÉ, l'une des bougies parfumées en édition limitée signées par Cooperativa Profumieri.",
+   "description": "<p>Créez une atmosphère enveloppante et séduisante avec MUSKÉ, l'une des bougies parfumées en édition limitée signées par Cooperativa Profumieri. Son parfum magnétique mêle la pureté du Musc Blanc à l'intensité de notes douces et épicées. Fabriquée à partir de cire d'origine végétale, elle est conçue pour favoriser une combustion homogène ainsi qu'une diffusion progressive et constante du parfum. Avec son design minimaliste et raffiné, elle habille les espaces d'un style sobre et distinctif.</p><ul><li>Tête : Camphre</li><li>Cœur : Bois de santal, Bourgeon de cassis, Cannelle, Caramel, fève tonka, Musc, Noix de muscade</li><li>Fond : Ambre, Bois de cedrat, Cuir, Safran, Vanille</li><li>Format 190 g : jusqu'à 50 heures.</li><li>Format 400 g : jusqu'à 90 heures.</li></ul>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/bougie-parfumee-muske-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/bougie-parfumee-muske-2.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/bougie-parfumee-muske-3.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/bougie-parfumee-muske-4.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [
+    {
+     "format": "400 g",
+     "prix": "64.90"
+    },
+    {
+     "format": "190 g",
+     "prix": "39.90"
+    }
+   ],
+   "chogan": "COPC004",
+   "rang": 34
+  },
+  {
+   "source": "nouveautes-2026-11/bougie-rosea",
+   "slug": "bougie-parfumee-rosea",
+   "nom": "Bougie parfumée Roséa",
+   "sous_titre": "Édition limitée · cire végétale",
+   "sku": "US-N016",
+   "gamme": "Cooperativa Profumieri",
+   "rayons": [
+    "bougies-parfumees"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [
+    "Amande",
+    "Fleur d'oranger",
+    "Ambre"
+   ],
+   "accroche": "Créez une atmosphère intime et chaleureuse avec ROSÉA, l'une des bougies parfumées en édition limitée signées par Cooperativa Profumieri.",
+   "description": "<p>Créez une atmosphère intime et chaleureuse avec ROSÉA, l'une des bougies parfumées en édition limitée signées par Cooperativa Profumieri. Son parfum enveloppe les sens dans une étreinte envoûtante, mêlant l'élégance de la Rose à la douceur épicée de la Cannelle. Fabriquée à partir de cire d'origine végétale, elle est conçue pour favoriser une combustion homogène ainsi qu'une diffusion progressive et constante du parfum. Avec son design minimaliste et raffiné, elle habille les espaces d'un style sobre et distinctif.</p><ul><li>Tête : Amande, Bergamote, Cannelle, Citron</li><li>Cœur : Fleur d'oranger, Iris, Jasmin, Rose, Tubéreuse</li><li>Fond : Ambre, Bois de cachemire, Bois de cedrat, Bois de santal, Cacao, Café, fève tonka, Musc, Patchouli, Vanille</li><li>Format 190 g : jusqu'à 50 heures.</li><li>Format 400 g : jusqu'à 90 heures.</li></ul>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/bougie-parfumee-rosea-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/bougie-parfumee-rosea-2.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/bougie-parfumee-rosea-3.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/bougie-parfumee-rosea-4.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [
+    {
+     "format": "400 g",
+     "prix": "64.90"
+    },
+    {
+     "format": "190 g",
+     "prix": "39.90"
+    }
+   ],
+   "chogan": "COPC001",
+   "rang": 11
+  },
+  {
+   "source": "nouveautes-2026-11/creme-nuit-aloe-vera",
+   "slug": "creme-de-nuit-a-l-aloe-vera",
+   "nom": "Crème de nuit à l'aloe vera",
+   "sous_titre": "Visage",
+   "sku": "US-N017",
+   "gamme": "Aurodhea",
+   "rayons": [
+    "soin-du-visage"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "La Crème de Nuit à l'Aloe Vera d'Aurodhea est un soin hydratant conçu pour les peaux sensibles, sèches et réactives.",
+   "description": "<p>La Crème de Nuit à l'Aloe Vera d'Aurodhea est un soin hydratant conçu pour les peaux sensibles, sèches et réactives. Elle agit pendant le repos nocturne pour restaurer le confort et la douceur de la peau, tout en luttant contre la déshydratation et les sensations de tiraillement.</p><p><strong>Utilisation.</strong> Appliquer le soir sur le visage et le cou, après un nettoyage soigneux.</p>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/creme-de-nuit-a-l-aloe-vera-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/creme-de-nuit-a-l-aloe-vera-2.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/creme-de-nuit-a-l-aloe-vera-3.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/creme-de-nuit-a-l-aloe-vera-4.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [],
+   "chogan": "AL12",
+   "rang": 36,
+   "prix": "39.90",
+   "format": "50 ml"
+  },
+  {
+   "source": "nouveautes-2026-11/serum-tenseur-acide-hyaluronique",
+   "slug": "serum-gel-tenseur-a-l-acide-hyaluronique",
+   "nom": "Sérum gel tenseur à l'acide hyaluronique",
+   "sous_titre": "Visage",
+   "sku": "US-N018",
+   "gamme": "Aurodhea",
+   "rayons": [
+    "soin-du-visage"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "Le Sérum Gel Tenseur à l'Acide Hyaluronique d'Aurodhea est un soin anti-âge intensif à l'action repulpante, caractérisé par une texture fraîche et légère. Il aide à rendre la peau plus tonique, lisse et ferme.",
+   "description": "<p>Le Sérum Gel Tenseur à l'Acide Hyaluronique d'Aurodhea est un soin anti-âge intensif à l'action repulpante, caractérisé par une texture fraîche et légère. Il aide à rendre la peau plus tonique, lisse et ferme. Il contribue à améliorer l'apparence des ridules et des signes de fatigue, tout en luttant contre la perte de fermeté. Son effet liftant contribue à donner aux contours du visage une apparence plus relevée et à la peau un aspect plus jeune.</p><p><strong>Utilisation.</strong> Appliquer matin et soir sur le visage et le cou, après le nettoyage et avant la crème.</p>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/serum-gel-tenseur-a-l-acide-hyaluronique-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/serum-gel-tenseur-a-l-acide-hyaluronique-2.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/serum-gel-tenseur-a-l-acide-hyaluronique-3.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/serum-gel-tenseur-a-l-acide-hyaluronique-4.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [],
+   "chogan": "CR08C",
+   "rang": 14,
+   "prix": "44.90",
+   "format": "50 ml"
+  },
+  {
+   "source": "nouveautes-2026-11/creme-huile-de-neem",
+   "slug": "creme-visage-a-l-huile-de-neem",
+   "nom": "Crème visage à l'huile de neem",
+   "sous_titre": "Visage",
+   "sku": "US-N019",
+   "gamme": "Aurodhea",
+   "rayons": [
+    "soin-du-visage"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "La Crème Visage à l'Huile de Neem d'Aurodhea est un soin purifiant et rééquilibrant, idéal pour les peaux grasses, impures ou à tendance acnéique.",
+   "description": "<p>La Crème Visage à l'Huile de Neem d'Aurodhea est un soin purifiant et rééquilibrant, idéal pour les peaux grasses, impures ou à tendance acnéique. Sa texture légère, matifiante et à absorption rapide aide à réduire l'excès de sébum et la visibilité des pores, tout en luttant contre les boutons et les points noirs. Après application, la peau paraît moins grasse, sans être desséchée. Son utilisation aide à prévenir l'apparition de nouvelles imperfections.</p><p><strong>Utilisation.</strong> Appliquer matin et soir sur le visage et le cou, après un nettoyage soigneux. Utiliser la spatule intégrée au couvercle pour prélever le produit de manière hygiénique et sans gaspillage.</p>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/creme-visage-a-l-huile-de-neem-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/creme-visage-a-l-huile-de-neem-2.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/creme-visage-a-l-huile-de-neem-3.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/creme-visage-a-l-huile-de-neem-4.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [],
+   "chogan": "NM06C",
+   "rang": 38,
+   "prix": "39.90",
+   "format": "50 ml"
+  },
+  {
+   "source": "nouveautes-2026-11/creme-acide-hyaluronique",
+   "slug": "creme-visage-a-l-acide-hyaluronique",
+   "nom": "Crème visage à l'acide hyaluronique",
+   "sous_titre": "Visage",
+   "sku": "US-N020",
+   "gamme": "Aurodhea",
+   "rayons": [
+    "soin-du-visage"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "La Crème Visage à l'Acide Hyaluronique Aurodhea est un soin anti-âge adapté à tous les types de peau.",
+   "description": "<p>La Crème Visage à l'Acide Hyaluronique Aurodhea est un soin anti-âge adapté à tous les types de peau. Particulièrement indiquée pour les peaux matures ou déshydratées, elle améliore l'élasticité cutanée et lutte contre l'apparition des premiers signes de l'âge.</p><p><strong>Utilisation.</strong> Appliquer matin et soir sur le visage et le cou, après un nettoyage soigneux. Utiliser la spatule intégrée dans le couvercle pour prélever le produit de manière hygiénique et sans gaspillage.</p>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/creme-visage-a-l-acide-hyaluronique-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/creme-visage-a-l-acide-hyaluronique-2.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/creme-visage-a-l-acide-hyaluronique-3.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/creme-visage-a-l-acide-hyaluronique-4.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [],
+   "chogan": "CR05C",
+   "rang": 39,
+   "prix": "31.90",
+   "format": "50 ml"
+  },
+  {
+   "source": "nouveautes-2026-11/creme-jour-lait-d-anesse",
+   "slug": "creme-de-jour-au-lait-d-anesse",
+   "nom": "Crème de jour au lait d'ânesse",
+   "sous_titre": "Visage",
+   "sku": "US-N021",
+   "gamme": "Aurodhea",
+   "rayons": [
+    "soin-du-visage"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "La Crème de Jour au Lait d'Ânesse d'Aurodhea est un soin illuminateur enrichi d'une protection SPF 15 UVA + UVB. Idéale pour les peaux ternes, elle contribue à leur donner une apparence plus saine et plus fraîche.",
+   "description": "<p>La Crème de Jour au Lait d'Ânesse d'Aurodhea est un soin illuminateur enrichi d'une protection SPF 15 UVA + UVB. Idéale pour les peaux ternes, elle contribue à leur donner une apparence plus saine et plus fraîche.</p><p><strong>Utilisation.</strong> Appliquer le matin sur le visage et le cou, après un nettoyage soigneux. Utiliser la spatule intégrée au couvercle pour prélever le produit de manière hygiénique et sans gaspillage. En cas d'exposition prolongée au soleil, compléter avec une protection solaire adaptée.</p>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/creme-de-jour-au-lait-d-anesse-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/creme-de-jour-au-lait-d-anesse-2.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/creme-de-jour-au-lait-d-anesse-3.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/creme-de-jour-au-lait-d-anesse-4.webp",
+     "detoure": true
+    }
+   ],
+   "variations": [],
+   "chogan": "LA04C",
+   "rang": 8,
+   "prix": "54.90",
+   "format": "50 ml"
+  },
+  {
+   "source": "nouveautes-2026-11/creme-nuit-lait-d-anesse",
+   "slug": "creme-de-nuit-au-lait-d-anesse",
+   "nom": "Crème de nuit au lait d'ânesse",
+   "sous_titre": "Visage",
+   "sku": "US-N022",
+   "gamme": "Aurodhea",
+   "rayons": [
+    "soin-du-visage"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "La Crème de Nuit au Lait d'Ânesse d'Aurodhea est un soin illuminateur et régénérant à la texture riche, idéal pour les peaux ternes, sèches ou matures.",
+   "description": "<p>La Crème de Nuit au Lait d'Ânesse d'Aurodhea est un soin illuminateur et régénérant à la texture riche, idéal pour les peaux ternes, sèches ou matures. Elle agit pendant le repos nocturne pour favoriser le renouvellement cutané et redonner confort, douceur et luminosité à la peau, qui paraît plus saine et plus ferme au réveil.</p><p><strong>Utilisation.</strong> Appliquer le soir sur le visage et le cou, après un nettoyage soigneux.</p>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/creme-de-nuit-au-lait-d-anesse-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/creme-de-nuit-au-lait-d-anesse-2.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/creme-de-nuit-au-lait-d-anesse-3.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/creme-de-nuit-au-lait-d-anesse-4.webp",
+     "detoure": true
+    }
+   ],
+   "variations": [],
+   "chogan": "LA05C",
+   "rang": 41,
+   "prix": "64.90",
+   "format": "50 ml"
+  },
+  {
+   "source": "nouveautes-2026-11/creme-huile-d-argan",
+   "slug": "creme-visage-a-l-huile-d-argan",
+   "nom": "Crème visage à l'huile d'argan",
+   "sous_titre": "Visage",
+   "sku": "US-N023",
+   "gamme": "Aurodhea",
+   "rayons": [
+    "soin-du-visage"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "La Crème Visage à l'Huile d'Argan d'Aurodhea est un soin hydratant à la texture riche, idéal pour les peaux matures ou sèches.",
+   "description": "<p>La Crème Visage à l'Huile d'Argan d'Aurodhea est un soin hydratant à la texture riche, idéal pour les peaux matures ou sèches. Dotée d'une action anti-âge, elle hydrate en profondeur et donne à la peau un aspect plus jeune et uniforme.</p><p><strong>Utilisation.</strong> Appliquer matin et soir sur le visage et le cou, après un nettoyage soigneux. Utiliser la spatule intégrée dans le couvercle pour prélever le produit de manière hygiénique et sans gaspillage.</p>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/creme-visage-a-l-huile-d-argan-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/creme-visage-a-l-huile-d-argan-2.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/creme-visage-a-l-huile-d-argan-3.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/creme-visage-a-l-huile-d-argan-4.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [],
+   "chogan": "AR10C",
+   "rang": 42,
+   "prix": "44.90",
+   "format": "50 ml"
+  },
+  {
+   "source": "nouveautes-2026-11/creme-bave-d-escargot",
+   "slug": "creme-visage-a-la-bave-d-escargot",
+   "nom": "Crème visage à la bave d'escargot",
+   "sous_titre": "Visage",
+   "sku": "US-N024",
+   "gamme": "Aurodhea",
+   "rayons": [
+    "soin-du-visage"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "La Crème Visage à la Bave d'Escargot d'Aurodhea est un soin réparateur, idéal pour les peaux présentant des imperfections, des marques d'acné et de petites cicatrices.",
+   "description": "<p>La Crème Visage à la Bave d'Escargot d'Aurodhea est un soin réparateur, idéal pour les peaux présentant des imperfections, des marques d'acné et de petites cicatrices. Elle favorise le renouvellement cutané et aide à améliorer progressivement l'aspect de la peau, en la rendant plus lisse grâce à son effet soft focus.</p><p><strong>Utilisation.</strong> Appliquer matin et soir sur le visage et le cou, après un nettoyage soigneux. Utiliser la spatule intégrée dans le couvercle pour prélever le produit de manière hygiénique et sans gaspillage.</p>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/creme-visage-a-la-bave-d-escargot-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/creme-visage-a-la-bave-d-escargot-2.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/creme-visage-a-la-bave-d-escargot-3.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/creme-visage-a-la-bave-d-escargot-4.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [],
+   "chogan": "CR02C",
+   "rang": 43,
+   "prix": "44.90",
+   "format": "50 ml"
+  },
+  {
+   "source": "nouveautes-2026-11/mascara-extra-volume",
+   "slug": "mascara-extra-volume",
+   "nom": "Mascara Extra Volume",
+   "sous_titre": "Volumateur",
+   "sku": "US-N025",
+   "gamme": "MoniAmori",
+   "rayons": [
+    "maquillage"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "L'Extra Volume Mascara de MoniAmori est conçu pour offrir aux cils un volume spectaculaire et modulable.",
+   "description": "<p>L'Extra Volume Mascara de MoniAmori est conçu pour offrir aux cils un volume spectaculaire et modulable. Sa brosse en forme de sablier enveloppe et capture les cils, leur apportant un effet volume extra ainsi qu'une courbure panoramique. Sa texture modulable permet de construire progressivement l'intensité souhaitée, tout en assurant une application agréable et une couleur noire intense. Sa formule végane est enrichie d'une combinaison spéciale de cires, d'agents filmogènes et d'émollients, spécialement conçue pour offrir une application agréable et un résultat confortable.</p>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/mascara-extra-volume-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/mascara-extra-volume-2.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/mascara-extra-volume-3.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [],
+   "chogan": "MM075",
+   "rang": 44,
+   "prix": "25.90",
+   "format": "8 ml"
+  },
+  {
+   "source": "nouveautes-2026-11/mascara-high-definition",
+   "slug": "mascara-high-definition",
+   "nom": "Mascara High Definition",
+   "sous_titre": "Haute définition",
+   "sku": "US-N026",
+   "gamme": "MoniAmori",
+   "rayons": [
+    "maquillage"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "Le High Definition Mascara de MoniAmori est conçu pour offrir définition, volume et une tenue jusqu'à 8 heures. Sa brosse conique apporte du corps aux cils et augmente leur volume de 88 % dès une seule application.",
+   "description": "<p>Le High Definition Mascara de MoniAmori est conçu pour offrir définition, volume et une tenue jusqu'à 8 heures. Sa brosse conique apporte du corps aux cils et augmente leur volume de 88 % dès une seule application. Sa texture crémeuse et modulable permet d'intensifier facilement le résultat, pour des cils visiblement plus fournis et parfaitement définis. Sa formule vegan contient de l'Extrait de Bourgeons de Tilia Tomentosa, aux propriétés volumisantes, conditionnantes et protectrices, qui contribue à former un film protecteur autour des cils. Elle est également enrichie en Acide Hyaluronique, aux propriétés hydratantes, et en Collagène Végétal, aux propriétés conditionnantes et hydratantes.</p>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/mascara-high-definition-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/mascara-high-definition-2.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/mascara-high-definition-3.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [],
+   "chogan": "MM074",
+   "rang": 45,
+   "prix": "25.90",
+   "format": "8 ml"
+  },
+  {
+   "source": "nouveautes-2026-11/mascara-super-intense",
+   "slug": "mascara-super-intense",
+   "nom": "Mascara Super Intense",
+   "sous_titre": "Longue tenue",
+   "sku": "US-N027",
+   "gamme": "MoniAmori",
+   "rayons": [
+    "maquillage"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "Le Super Intense Mascara de MoniAmori est conçu pour offrir un effet longue tenue jusqu'à 8 heures.",
+   "description": "<p>Le Super Intense Mascara de MoniAmori est conçu pour offrir un effet longue tenue jusqu'à 8 heures. Sa brosse courbée épouse la forme naturelle des cils et les habille d'une couleur ultra-noire, tout en les séparant et en les définissant sans les alourdir ni les coller entre eux. Sa formule végane contient du Panthénol, qui aide à maintenir le niveau d'hydratation naturel des cils. Elle est également enrichie en Cire de Carnauba et en un agent émollient innovant dérivé de l'Huile d'Olive, qui contribuent à une texture agréable, légère et non grasse.</p>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/mascara-super-intense-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/mascara-super-intense-2.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/mascara-super-intense-3.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [],
+   "chogan": "MM073",
+   "rang": 46,
+   "prix": "25.90",
+   "format": "8 ml"
+  },
+  {
+   "source": "nouveautes-2026-11/mascara-waterproof",
+   "slug": "mascara-waterproof",
+   "nom": "Mascara Waterproof",
+   "sous_titre": "Résistant à l'eau",
+   "sku": "US-N028",
+   "gamme": "MoniAmori",
+   "rayons": [
+    "maquillage"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "Le Waterproof Mascara de MoniAmori est conçu pour offrir des cils impeccables du matin jusqu'au soir grâce à sa formule résistante à l'eau.",
+   "description": "<p>Le Waterproof Mascara de MoniAmori est conçu pour offrir des cils impeccables du matin jusqu'au soir grâce à sa formule résistante à l'eau. Sa brosse épaisse légèrement conique capture les cils et les habille d'une couleur ultra-noire intense. Sa formule végane repose sur une technologie micellaire spécialement conçue pour envelopper les cils un à un, de manière homogène. Sa texture crémeuse est issue d'une association particulière de cires et d'huiles : la Cire Japonaise apporte douceur et souplesse, tandis que la Cire de Carnauba contribue à intensifier le volume et à créer un effet modulable. Le produit est également enrichi en Panthénol, qui aide à maintenir le niveau d'hydratation naturel des cils.</p>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/mascara-waterproof-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/mascara-waterproof-2.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/mascara-waterproof-3.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [],
+   "chogan": "MM072",
+   "rang": 47,
+   "prix": "25.90",
+   "format": "8 ml"
+  },
+  {
+   "source": "nouveautes-2026-11/mascara-curly-lashes",
+   "slug": "mascara-curly-lashes",
+   "nom": "Mascara Curly Lashes",
+   "sous_titre": "Recourbant",
+   "sku": "US-N029",
+   "gamme": "MoniAmori",
+   "rayons": [
+    "maquillage"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "Le Curly Lashes Mascara de MoniAmori est conçu pour sublimer la courbure naturelle des cils et ouvrir le regard tout en le définissant.",
+   "description": "<p>Le Curly Lashes Mascara de MoniAmori est conçu pour sublimer la courbure naturelle des cils et ouvrir le regard tout en le définissant. Sa brosse conique permet d'atteindre avec précision même les cils les plus internes, contribuant à un effet lifting immédiat. Sa formule végane et délicate, à la texture crémeuse et modulable, permet d'intensifier progressivement le résultat, couche après couche, tout en laissant les cils légers et souples. Il contient un agent émollient innovant dérivé de l'Huile d'Olive, qui contribue à adoucir les cils et favorise une application uniforme et fluide. Enfin, la Cire Japonaise confère à la formule une texture douce et confortable.</p>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/mascara-curly-lashes-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/mascara-curly-lashes-2.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/mascara-curly-lashes-3.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [],
+   "chogan": "MM071",
+   "rang": 48,
+   "prix": "25.90",
+   "format": "8 ml"
+  },
+  {
+   "source": "nouveautes-2026-11/mylip-secret",
+   "slug": "mylip-secret",
+   "nom": "MyLip Secret",
+   "sous_titre": "Encre à lèvres peel-off",
+   "sku": "US-N030",
+   "gamme": "MoniAmori",
+   "rayons": [
+    "maquillage"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "MyLip Secret de MoniAmori est une encre à lèvres peel-off permanente qui habille les lèvres d'une couleur naturelle et longue tenue, à l'effet tatouage.",
+   "description": "<p>MyLip Secret de MoniAmori est une encre à lèvres peel-off permanente qui habille les lèvres d'une couleur naturelle et longue tenue, à l'effet tatouage. Sa formule high-tech, enrichie en pigments hautement performants, offre une coloration intense et sans bavures, conçue pour accompagner toute la journée. Chaque application offre un résultat unique, car la couleur naturelle des lèvres et le teint contribuent à l'effet final. Pratique et agréable à porter, elle séduit par sa texture légère. Sa composition cruelty free et sans parabènes est enrichie d'ingrédients qui prennent soin des lèvres : l'Aloe Vera et le Panthénol contribuent à hydrater et apaiser la peau, tout en soutenant la restauration de la barrière cutanée.</p><p><strong>Utilisation.</strong> Appliquer le produit sur les lèvres et laisser agir pendant 30 à 35 secondes pour un effet plus naturel. Retirer délicatement le film superficiel à l'aide d'un chiffon humide ou d'un mouchoir. Pour obtenir une couleur plus intense, prolonger le temps de pose jusqu'à 40-60 secondes.</p>",
+   "publie": true,
+   "option": "Teinte",
+   "images": [
+    {
+     "fichier": "nouveautes/mylip-secret-1.webp",
+     "detoure": true
+    }
+   ],
+   "variations": [
+    {
+     "format": "Blackberry Delight",
+     "prix": "22.90",
+     "code": "MM065",
+     "couleur": "#C6506F",
+     "image": "nouveautes/mylip-secret-blackberry-delight.webp"
+    },
+    {
+     "format": "Cherry Tart",
+     "prix": "22.90",
+     "code": "MM066",
+     "couleur": "#AC747F",
+     "image": "nouveautes/mylip-secret-cherry-tart.webp"
+    },
+    {
+     "format": "Red Velvet",
+     "prix": "22.90",
+     "code": "MM067",
+     "couleur": "#EB3B37",
+     "image": "nouveautes/mylip-secret-red-velvet.webp"
+    },
+    {
+     "format": "Strawberry Soufflé",
+     "prix": "22.90",
+     "code": "MM068",
+     "couleur": "#F34C7C",
+     "image": "nouveautes/mylip-secret-strawberry-souffle.webp"
+    },
+    {
+     "format": "Biscuit Rose",
+     "prix": "22.90",
+     "code": "MM069",
+     "couleur": "#E57468",
+     "image": "nouveautes/mylip-secret-biscuit-rose.webp"
+    },
+    {
+     "format": "Caramel Toffee",
+     "prix": "22.90",
+     "code": "MM070",
+     "couleur": "#B7655C",
+     "image": "nouveautes/mylip-secret-caramel-toffee.webp"
+    }
+   ],
+   "chogan": "MM070",
+   "rang": 1
+  },
+  {
+   "source": "nouveautes-2026-11/juicy-oil",
+   "slug": "juicy-oil",
+   "nom": "Juicy Oil",
+   "sous_titre": "Huile lèvres hydratante",
+   "sku": "US-N031",
+   "gamme": "MoniAmori",
+   "rayons": [
+    "maquillage"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "Juicy Oil de MoniAmori est une huile à lèvres nourrissante et sensorielle, conçue pour apporter brillance, confort, couleur et un parfum irrésistible en un seul geste.",
+   "description": "<p>Juicy Oil de MoniAmori est une huile à lèvres nourrissante et sensorielle, conçue pour apporter brillance, confort, couleur et un parfum irrésistible en un seul geste. Sa texture légère et non collante glisse délicatement sur les lèvres, libérant de fines perles scintillantes qui créent un effet mouillé juicy, ultra lumineux et irrésistiblement glossy.</p><p>Sa formule sans parabènes est enrichie en huiles et beurres aux propriétés soin. L'Huile d'Argan et l'Huile de Jojoba nourrissent les lèvres et aident à les garder douces, souples et hydratées. L'Huile de Cassis les protège grâce à son action apaisante, anti-inflammatoire et antioxydante. Enfin, le Beurre de Karité contribue à maintenir un bon niveau d'hydratation, aide à prévenir le dessèchement et rend les lèvres plus élastiques</p>",
+   "publie": true,
+   "option": "Senteur",
+   "images": [
+    {
+     "fichier": "nouveautes/juicy-oil-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/juicy-oil-2.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/juicy-oil-4.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [
+    {
+     "format": "Pastèque",
+     "prix": "19.90",
+     "code": "MM064",
+     "couleur": "#F58CA3",
+     "image": "nouveautes/juicy-oil-pasteque.webp"
+    },
+    {
+     "format": "Coco salé",
+     "prix": "19.90",
+     "code": "MM063",
+     "couleur": "#EEEBE8",
+     "image": "nouveautes/juicy-oil-coco-sale.webp"
+    },
+    {
+     "format": "Litchi",
+     "prix": "19.90",
+     "code": "MM062",
+     "couleur": "#FC8273",
+     "image": "nouveautes/juicy-oil-litchi.webp"
+    },
+    {
+     "format": "Cerise noire",
+     "prix": "19.90",
+     "code": "MM061",
+     "couleur": "#BA2E1C",
+     "image": "nouveautes/juicy-oil-cerise-noire.webp"
+    },
+    {
+     "format": "Raisin",
+     "prix": "19.90",
+     "code": "MM060",
+     "couleur": "#E23173",
+     "image": "nouveautes/juicy-oil-raisin.webp"
+    }
+   ],
+   "chogan": "MM064",
+   "rang": 10
+  },
+  {
+   "source": "nouveautes-2026-11/extra-lipstay",
+   "slug": "extra-lipstay",
+   "nom": "Extra-LipStay",
+   "sous_titre": "Crayon à lèvres rétractable",
+   "sku": "US-N032",
+   "gamme": "MoniAmori",
+   "rayons": [
+    "maquillage"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "L'Extra-LipStay de MoniAmori est le crayon à lèvres rétractable au fini velouté et à la couleur irrésistiblement intense.",
+   "description": "<p>L'Extra-LipStay de MoniAmori est le crayon à lèvres rétractable au fini velouté et à la couleur irrésistiblement intense. Sa texture douce et crémeuse glisse facilement, assurant un tracé précis et un contour des lèvres haute définition. Sa formule végane et résistante à l'eau garantit un résultat longue tenue, pour un maquillage impeccable tout au long de la journée. Sans allergènes, dérivés du pétrole ni silicones, il laisse la peau douce, lisse et protégée. En effet, ses cires véganes ont une action émolliente, adoucissant les lèvres et aidant à restaurer leur barrière naturelle.</p>",
+   "publie": true,
+   "option": "Teinte",
+   "images": [
+    {
+     "fichier": "nouveautes/extra-lipstay-1.webp",
+     "detoure": true
+    }
+   ],
+   "variations": [
+    {
+     "format": "Royal Mauve",
+     "prix": "15.00",
+     "code": "MM024",
+     "couleur": "#9C483F",
+     "image": "nouveautes/extra-lipstay-royal-mauve.webp"
+    },
+    {
+     "format": "Purple Mocha",
+     "prix": "15.00",
+     "code": "MM025",
+     "couleur": "#8F2D4A",
+     "image": "nouveautes/extra-lipstay-purple-mocha.webp"
+    },
+    {
+     "format": "Berry Kiss",
+     "prix": "15.00",
+     "code": "MM026",
+     "couleur": "#61123D",
+     "image": "nouveautes/extra-lipstay-berry-kiss.webp"
+    },
+    {
+     "format": "Dark Cocoa",
+     "prix": "15.00",
+     "code": "MM027",
+     "couleur": "#4E3421",
+     "image": "nouveautes/extra-lipstay-dark-cocoa.webp"
+    },
+    {
+     "format": "Chili Love",
+     "prix": "15.00",
+     "code": "MM028",
+     "couleur": "#AD1840",
+     "image": "nouveautes/extra-lipstay-chili-love.webp"
+    },
+    {
+     "format": "Chic Peach",
+     "prix": "15.00",
+     "code": "MM029",
+     "couleur": "#D7502D",
+     "image": "nouveautes/extra-lipstay-chic-peach.webp"
+    },
+    {
+     "format": "Pinky Doll",
+     "prix": "15.00",
+     "code": "MM030",
+     "couleur": "#C82D6E",
+     "image": "nouveautes/extra-lipstay-pinky-doll.webp"
+    },
+    {
+     "format": "Ruby Flame",
+     "prix": "15.00",
+     "code": "MM031",
+     "couleur": "#CE1E46",
+     "image": "nouveautes/extra-lipstay-ruby-flame.webp"
+    },
+    {
+     "format": "Toffee Nude",
+     "prix": "15.00",
+     "code": "MM032",
+     "couleur": "#784637",
+     "image": "nouveautes/extra-lipstay-toffee-nude.webp"
+    },
+    {
+     "format": "Blush Sand",
+     "prix": "15.00",
+     "code": "MM033",
+     "couleur": "#A65D59",
+     "image": "nouveautes/extra-lipstay-blush-sand.webp"
+    },
+    {
+     "format": "Dusty Rose",
+     "prix": "15.00",
+     "code": "MM034",
+     "couleur": "#A5555F",
+     "image": "nouveautes/extra-lipstay-dusty-rose.webp"
+    },
+    {
+     "format": "Velvet Taupe",
+     "prix": "15.00",
+     "code": "MM035",
+     "couleur": "#C37887",
+     "image": "nouveautes/extra-lipstay-velvet-taupe.webp"
+    }
+   ],
+   "chogan": "MM035",
+   "rang": 7
+  },
+  {
+   "source": "nouveautes-2026-11/extra-eyestay",
+   "slug": "extra-eyestay",
+   "nom": "Extra-EyeStay",
+   "sous_titre": "Crayon yeux à tailler",
+   "sku": "US-N033",
+   "gamme": "MoniAmori",
+   "rayons": [
+    "maquillage"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "Le crayon yeux à tailler Extra-EyeStay de MoniAmori transforme chaque regard en une véritable œuvre d'art. Sa texture douce et glissante caresse la paupière pour une application facile et agréable.",
+   "description": "<p>Le crayon yeux à tailler Extra-EyeStay de MoniAmori transforme chaque regard en une véritable œuvre d'art. Sa texture douce et glissante caresse la paupière pour une application facile et agréable. Sa formule végane, hautement pigmentée, libère une couleur intense et vibrante, garantissant un résultat précis et longue tenue. Sans allergènes, dérivés du pétrole, silicones ni OGM, ce crayon respecte la zone délicate du contour des yeux grâce à deux huiles précieuses. L'Huile de Coco 100 % naturelle et l'Huile de Ricin apportent une action émolliente à la peau et aident à restaurer la barrière cutanée naturelle.</p>",
+   "publie": true,
+   "option": "Teinte",
+   "images": [
+    {
+     "fichier": "nouveautes/extra-eyestay-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/extra-eyestay-3.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [
+    {
+     "format": "Wild Magenta",
+     "prix": "12.00",
+     "code": "MM016",
+     "couleur": "#7A1E2C",
+     "image": "nouveautes/extra-eyestay-wild-magenta.webp"
+    },
+    {
+     "format": "Green Jungle",
+     "prix": "12.00",
+     "code": "MM017",
+     "couleur": "#2E6C5C",
+     "image": "nouveautes/extra-eyestay-green-jungle.webp"
+    },
+    {
+     "format": "Midnight Blue",
+     "prix": "12.00",
+     "code": "MM018",
+     "couleur": "#1F3A5F",
+     "image": "nouveautes/extra-eyestay-midnight-blue.webp"
+    },
+    {
+     "format": "Dark Truffle",
+     "prix": "12.00",
+     "code": "MM019",
+     "couleur": "#6C3F3F",
+     "image": "nouveautes/extra-eyestay-dark-truffle.webp"
+    },
+    {
+     "format": "Soft Butter",
+     "prix": "12.00",
+     "code": "MM020",
+     "couleur": "#E6D2A3",
+     "image": "nouveautes/extra-eyestay-soft-butter.webp"
+    },
+    {
+     "format": "Silver Moon",
+     "prix": "12.00",
+     "code": "MM021",
+     "couleur": "#C8C8C8",
+     "image": "nouveautes/extra-eyestay-silver-moon.webp"
+    },
+    {
+     "format": "Crystal Blue",
+     "prix": "12.00",
+     "code": "MM022",
+     "couleur": "#4AA4BD",
+     "image": "nouveautes/extra-eyestay-crystal-blue.webp"
+    },
+    {
+     "format": "Bold Orchid",
+     "prix": "12.00",
+     "code": "MM023",
+     "couleur": "#AA466E",
+     "image": "nouveautes/extra-eyestay-bold-orchid.webp"
+    }
+   ],
+   "chogan": "MM018",
+   "rang": 17
+  },
+  {
+   "source": "nouveautes-2026-11/blush-and-kiss",
+   "slug": "blush-kiss",
+   "nom": "Blush & Kiss",
+   "sous_titre": "Stick multi-usage joues et lèvres",
+   "sku": "US-N034",
+   "gamme": "MoniAmori",
+   "rayons": [
+    "maquillage"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "Blush & Kiss Stick de MoniAmori est un stick au fini mat et à la couvrance modulable. Sa formule 2-en-1 est idéale à appliquer sur le visage et les lèvres, pour un teint frais et éclatant avec un seul produit.",
+   "description": "<p>Blush & Kiss Stick de MoniAmori est un stick au fini mat et à la couvrance modulable. Sa formule 2-en-1 est idéale à appliquer sur le visage et les lèvres, pour un teint frais et éclatant avec un seul produit. Sa texture crémeuse et son format stick garantissent une application facile, un résultat précis et un effet longue tenue. Sans parabènes et non testée sur les animaux, sa formule végane est enrichie en ingrédients précieux. L'huile de grains d'avoine se distingue par ses propriétés absorbantes, protectrices et apaisantes. Riche en céramides et phospholipides, elle soutient la barrière cutanée et ralentit le processus de vieillissement de la peau. La farine de grains d'avoine enrichit la formule grâce à ses propriétés éclaircissantes, matifiantes et lissantes. L'Aloe Vera, calmante et apaisante, protège la peau, l'hydrate et favorise son renouvellement. Enfin, le produit se caractérise par un délicat parfum de Pivoine.</p>",
+   "publie": true,
+   "option": "Teinte",
+   "images": [
+    {
+     "fichier": "nouveautes/blush-kiss-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/blush-kiss-4.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [
+    {
+     "format": "Watermelon",
+     "prix": "20.00",
+     "code": "MM040",
+     "couleur": "#E14D8F",
+     "image": "nouveautes/blush-kiss-watermelon.webp"
+    },
+    {
+     "format": "Peach",
+     "prix": "20.00",
+     "code": "MM041",
+     "couleur": "#F4838B",
+     "image": "nouveautes/blush-kiss-peach.webp"
+    },
+    {
+     "format": "Berry",
+     "prix": "20.00",
+     "code": "MM042",
+     "couleur": "#91334E",
+     "image": "nouveautes/blush-kiss-berry.webp"
+    }
+   ],
+   "chogan": "MM040",
+   "rang": 15
+  },
+  {
+   "source": "nouveautes-2026-11/sculpt-and-lift",
+   "slug": "sculpt-lift",
+   "nom": "Sculpt & Lift",
+   "sous_titre": "Stick contour",
+   "sku": "US-N035",
+   "gamme": "MoniAmori",
+   "rayons": [
+    "maquillage"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "Sculpt & Lift de MoniAmori est un stick au fini mat et à la couvrance modulable, conçu pour sculpter les traits du visage et redéfinir les volumes avec quelques gestes simples.",
+   "description": "<p>Sculpt & Lift de MoniAmori est un stick au fini mat et à la couvrance modulable, conçu pour sculpter les traits du visage et redéfinir les volumes avec quelques gestes simples. Sa texture crémeuse et son format en stick permettent une application fluide, un résultat précis et une tenue longue durée. La formule végane, sans parabènes et cruelty-free, est enrichie en ingrédients précieux. L'huile de grains d'avoine se distingue par ses propriétés absorbantes, protectrices et apaisantes. Riche en céramides et phospholipides, elle soutient la barrière épidermique et ralentit le processus de vieillissement cutané. La farine de grains d'Avoine enrichit la formule grâce à ses propriétés éclaircissantes, matifiantes et lissantes. L'Aloe Vera, apaisant et calmant, protège la peau, l'hydrate et favorise son renouvellement. Enfin, le produit se distingue par un délicat parfum de pivoine.</p>",
+   "publie": true,
+   "option": "Teinte",
+   "images": [
+    {
+     "fichier": "nouveautes/sculpt-lift-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/sculpt-lift-4.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [
+    {
+     "format": "Stone",
+     "prix": "20.00",
+     "code": "MM037",
+     "couleur": "#A9A29C",
+     "image": "nouveautes/sculpt-lift-stone.webp"
+    },
+    {
+     "format": "Clay",
+     "prix": "20.00",
+     "code": "MM038",
+     "couleur": "#907F6E",
+     "image": "nouveautes/sculpt-lift-clay.webp"
+    },
+    {
+     "format": "Ebony",
+     "prix": "20.00",
+     "code": "MM039",
+     "couleur": "#603B28",
+     "image": "nouveautes/sculpt-lift-ebony.webp"
+    }
+   ],
+   "chogan": "MM039",
+   "rang": 54
+  },
+  {
+   "source": "nouveautes-2026-11/light-and-go",
+   "slug": "light-go",
+   "nom": "Light & Go",
+   "sous_titre": "Stick illuminateur",
+   "sku": "US-N036",
+   "gamme": "MoniAmori",
+   "rayons": [
+    "maquillage"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "Light & Go de MoniAmori est un stick au toucher doux et soyeux, idéal pour illuminer le visage et le décolleté.",
+   "description": "<p>Light & Go de MoniAmori est un stick au toucher doux et soyeux, idéal pour illuminer le visage et le décolleté. Sa texture crémeuse, facile à estomper, et son format compact garantissent une application facile et un effet glowy immédiat. Sans parabènes et non testée sur les animaux, sa formule végane est enrichie en ingrédients précieux pour la beauté de la peau : l'Huile d'Argan et la Vitamine E apportent nutrition et un effet antioxydant, tandis que l'Extrait de Ginseng exerce une puissante action revitalisante.</p><p>Enfin, le produit est délicatement parfumé à la Pivoine.</p>",
+   "publie": true,
+   "option": "Teinte",
+   "images": [
+    {
+     "fichier": "nouveautes/light-go-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/light-go-4.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [
+    {
+     "format": "Champagne",
+     "prix": "20.00",
+     "code": "MM043",
+     "couleur": "#E8D5B4",
+     "image": "nouveautes/light-go-champagne.webp"
+    },
+    {
+     "format": "Rose Gold",
+     "prix": "20.00",
+     "code": "MM044",
+     "couleur": "#F6C9AA",
+     "image": "nouveautes/light-go-rose-gold.webp"
+    },
+    {
+     "format": "Bronze",
+     "prix": "20.00",
+     "code": "MM045",
+     "couleur": "#DCA38A",
+     "image": "nouveautes/light-go-bronze.webp"
+    }
+   ],
+   "chogan": "MM044",
+   "rang": 13
+  },
+  {
+   "source": "nouveautes-2026-11/solar-defence",
+   "slug": "solar-defence",
+   "nom": "Solar Defence",
+   "sous_titre": "Fond de teint compact",
+   "sku": "US-N037",
+   "gamme": "MoniAmori",
+   "rayons": [
+    "maquillage"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "Le Solar Defence Compact Foundation de MoniAmori est un fond de teint compact avec un SPF 30, facile à appliquer et idéal pour tous les types de peau.",
+   "description": "<p>Le Solar Defence Compact Foundation de MoniAmori est un fond de teint compact avec un SPF 30, facile à appliquer et idéal pour tous les types de peau. Doté d'une texture crémeuse et confortable qui se transforme en poudre au contact de la peau, il offre une tenue exceptionnelle et un résultat uniforme.</p><p>Sa formule vegan, sans talc ni parabènes, unifie parfaitement le teint et protège contre les rayons UVB, prévenant le photovieillissement et laissant la peau douce et hydratée. Il contient des micro-sphères spéciales qui aident à camoufler les imperfections grâce à un effet soft focus, apportant ainsi une action couvrante et lissante. Sa formule est enrichie en :</p>",
+   "publie": true,
+   "option": "Teinte",
+   "images": [
+    {
+     "fichier": "nouveautes/solar-defence-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/solar-defence-2.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/solar-defence-3.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [
+    {
+     "format": "Meringue",
+     "prix": "36.00",
+     "code": "MM005",
+     "couleur": "#D1B188",
+     "image": "nouveautes/solar-defence-meringue.webp"
+    },
+    {
+     "format": "Amaretto",
+     "prix": "36.00",
+     "code": "MM006",
+     "couleur": "#BE9A7C",
+     "image": "nouveautes/solar-defence-amaretto.webp"
+    },
+    {
+     "format": "Cinnamon Roll",
+     "prix": "36.00",
+     "code": "MM007",
+     "couleur": "#C49772",
+     "image": "nouveautes/solar-defence-cinnamon-roll.webp"
+    },
+    {
+     "format": "Crème Caramel",
+     "prix": "36.00",
+     "code": "MM008",
+     "couleur": "#A98268",
+     "image": "nouveautes/solar-defence-creme-caramel.webp"
+    },
+    {
+     "format": "Tiramisù",
+     "prix": "36.00",
+     "code": "MM009",
+     "couleur": "#8D705E",
+     "image": "nouveautes/solar-defence-tiramisu.webp"
+    }
+   ],
+   "chogan": "MM007",
+   "rang": 4
+  },
+  {
+   "source": "nouveautes-2026-11/supreme-lip-treatment",
+   "slug": "supreme-lip-treatment",
+   "nom": "Supreme Lip Treatment",
+   "sous_titre": "Soin lèvres teinté",
+   "sku": "US-N038",
+   "gamme": "MoniAmori",
+   "rayons": [
+    "maquillage"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "Traitement multifonctionnel et intensif à action réparatrice. Sa texture crémeuse apporte un confort immédiat, exerçant une action protectrice sur les lèvres et mettant en valeur leur beauté naturelle.",
+   "description": "<p>Traitement multifonctionnel et intensif à action réparatrice. Sa texture crémeuse apporte un confort immédiat, exerçant une action protectrice sur les lèvres et mettant en valeur leur beauté naturelle. Sa formule riche, vegan sans parabènes et Cruelty Free offre des lèvres agréablement lisses et douces, garantissant une hydratation de longue durée. Caractérisé par une couleur modulable, idéal pour les peaux à sous-ton froid, une finition brillante et un irrésistible arôme de framboise, il offre un aspect sain et parfaitement soigné, pour des lèvres prêtes à être embrassées. Sa formule-soin est riche en ingrédients performants, sélectionnés pour apaiser, hydrater et protéger les lèvres à chaque application. Le « Miel Cosmétique », aux propriétés filmogènes, procure confort et protège des agressions extérieures et de la pollution, responsables du vieillissement prématuré. L'Huile de graines de Chanvre, riche en acides gras similaires à ceux de la peau, favorise la régénération de l'épiderme et la production de collagène, tout en exerçant une action adoucissante, nourrissante et apaisante. Le beurre de Karité, quant à lui, grâce à ses propriétés émollientes, aide à maintenir un niveau optimal d'hydratation et confère à la peau fermeté et élasticité.</p>",
+   "publie": true,
+   "option": "Senteur",
+   "images": [
+    {
+     "fichier": "nouveautes/supreme-lip-treatment-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/supreme-lip-treatment-4.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [
+    {
+     "format": "Vanille",
+     "prix": "20.00",
+     "code": "MM002",
+     "couleur": "#E74135",
+     "image": "nouveautes/supreme-lip-treatment-vanille.webp"
+    },
+    {
+     "format": "Fraise",
+     "prix": "20.00",
+     "code": "MM003",
+     "couleur": "#B83C4F",
+     "image": "nouveautes/supreme-lip-treatment-fraise.webp"
+    },
+    {
+     "format": "Framboise",
+     "prix": "20.00",
+     "code": "MM004",
+     "couleur": "#681B31",
+     "image": "nouveautes/supreme-lip-treatment-framboise.webp"
+    }
+   ],
+   "chogan": "MM004",
+   "rang": 57
+  },
+  {
+   "source": "nouveautes-2026-11/lollilip",
+   "slug": "lollilip",
+   "nom": "Lollilip",
+   "sous_titre": "Masque lèvres nourrissant",
+   "sku": "US-N039",
+   "gamme": "MoniAmori",
+   "rayons": [
+    "maquillage"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "Le LOLLILIP 'Spiced Cookie' Aurodhea est un masque lèvres nourrissant, régénérant et protecteur, idéal pour combattre la sécheresse et les gerçures.",
+   "description": "<p>Le LOLLILIP 'Spiced Cookie' Aurodhea est un masque lèvres nourrissant, régénérant et protecteur, idéal pour combattre la sécheresse et les gerçures. Sa texture crémeuse et enveloppante s'absorbe facilement, ce qui la rend parfaite également comme baume à lèvres. Elle apporte un confort immédiat et une douceur irrésistible, tout en conférant à la peau un parfum gourmand, doux et chaud.</p><p>Sa formule est enrichie du complexe exclusif LYPCURETM, un mélange d'huiles et de beurres conçu pour nourrir en profondeur et favoriser le renouvellement naturel de la peau. Les céramides contribuent au processus de régénération cellulaire et renforcent la barrière protectrice de la peau, tandis que la cire d'abeille crée un délicat film protecteur qui défend les lèvres du vent, du froid et de la pollution, tout en préservant durablement leur hydratation. Le squalane végétal, émollient et apaisant, offre un soulagement immédiat même aux lèvres les plus sensibles. Enfin, l'huile de rose musquée et la vitamine E exercent une action antioxydante et restructurante, améliorant l'élasticité et la tonicité de la peau.</p>",
+   "publie": true,
+   "option": "Senteur",
+   "images": [
+    {
+     "fichier": "nouveautes/lollilip-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/lollilip-2.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [
+    {
+     "format": "Spiced Cookie",
+     "prix": "12.00",
+     "code": "LC001",
+     "couleur": "",
+     "image": "nouveautes/lollilip-spiced-cookie.webp"
+    },
+    {
+     "format": "Salty Caramel",
+     "prix": "12.00",
+     "code": "LC002",
+     "couleur": "",
+     "image": "nouveautes/lollilip-salty-caramel.webp"
+    }
+   ],
+   "chogan": "LC001",
+   "rang": 58
+  },
+  {
+   "source": "nouveautes-2026-11/spray-whispering-woods",
+   "slug": "whispering-woods",
+   "nom": "Whispering Woods",
+   "sous_titre": "Spray d'ambiance",
+   "sku": "US-N040",
+   "gamme": "Cooperativa Profumieri",
+   "rayons": [
+    "parfums-d-ambiance"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [
+    "Bergamote",
+    "Patchouli",
+    "Ambre"
+   ],
+   "accroche": "Whispering Woods de Cooperativa Profumieri est une fragrance hespéridée et boisée, au parfum chaud et sophistiqué. Ses notes de Bergamote, de Patchouli et d'Ambre diffusent dans l'air un sillage enveloppant et élégant.",
+   "description": "<p>Whispering Woods de Cooperativa Profumieri est une fragrance hespéridée et boisée, au parfum chaud et sophistiqué. Ses notes de Bergamote, de Patchouli et d'Ambre diffusent dans l'air un sillage enveloppant et élégant. Présentée dans un élégant flacon spray, elle rafraîchit les pièces en quelques vaporisations, procurant une sensation immédiate de bien-être.</p><ul><li>Tête : Bergamote</li><li>Cœur : Patchouli</li><li>Fond : Ambre, Calamba, Musc</li></ul>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/whispering-woods-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/whispering-woods-2.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [
+    {
+     "format": "500 ml",
+     "prix": "35.00"
+    },
+    {
+     "format": "3 ml",
+     "prix": "2.30"
+    }
+   ],
+   "chogan": "COPS0010",
+   "rang": 16
+  },
+  {
+   "source": "nouveautes-2026-11/spray-sweet-symphonies",
+   "slug": "sweet-symphonies",
+   "nom": "Sweet Symphonies",
+   "sous_titre": "Spray d'ambiance",
+   "sku": "US-N041",
+   "gamme": "Cooperativa Profumieri",
+   "rayons": [
+    "parfums-d-ambiance"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [
+    "Citron",
+    "Framboise",
+    "Patchouli"
+   ],
+   "accroche": "Sweet Symphonies de Cooperativa Profumieri est une fragrance fruitée qui associe la gourmandise des fruits à une touche veloutée de vanille.",
+   "description": "<p>Sweet Symphonies de Cooperativa Profumieri est une fragrance fruitée qui associe la gourmandise des fruits à une touche veloutée de vanille. Ses notes sucrées de Pomme, Pêche et Vanille enveloppent la pièce d'un parfum chaud et savoureux, créant une atmosphère accueillante et harmonieuse. Présentée dans un élégant flacon spray, elle rafraîchit l'air en quelques vaporisations, procurant une sensation immédiate de bien-être et d'équilibre.</p><ul><li>Tête : Citron, Pêche, Pomme</li><li>Cœur : Framboise, Poire</li><li>Fond : Patchouli, Vanille</li></ul>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/sweet-symphonies-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/sweet-symphonies-2.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [
+    {
+     "format": "500 ml",
+     "prix": "35.00"
+    },
+    {
+     "format": "3 ml",
+     "prix": "2.30"
+    }
+   ],
+   "chogan": "COPS0009",
+   "rang": 60
+  },
+  {
+   "source": "nouveautes-2026-11/spray-musk-ritual",
+   "slug": "musk-ritual",
+   "nom": "Musk Ritual",
+   "sous_titre": "Spray d'ambiance",
+   "sku": "US-N042",
+   "gamme": "Cooperativa Profumieri",
+   "rayons": [
+    "parfums-d-ambiance"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [
+    "Bergamote",
+    "Cassis",
+    "Musc"
+   ],
+   "accroche": "Musk Ritual de Cooperativa Profumieri est une fragrance boisée et musquée aux notes élégantes et apaisantes.",
+   "description": "<p>Musk Ritual de Cooperativa Profumieri est une fragrance boisée et musquée aux notes élégantes et apaisantes. Ses accords d'Agrumes, de Musc et de Patchouli diffusent une sensation d'équilibre, idéale pour rendre chaque espace plus accueillant et raffiné. Présentée dans un élégant flacon spray, elle rafraîchit les pièces en quelques vaporisations, offrant une sensation immédiate de bien-être.</p><ul><li>Tête : Bergamote, Citron</li><li>Cœur : Cassis, Jasmin, Pin</li><li>Fond : Musc, Musc blanc, Notes boisées, Patchouli</li></ul>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/musk-ritual-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/musk-ritual-2.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [
+    {
+     "format": "500 ml",
+     "prix": "35.00"
+    },
+    {
+     "format": "3 ml",
+     "prix": "2.30"
+    }
+   ],
+   "chogan": "COPS0008",
+   "rang": 61
+  },
+  {
+   "source": "nouveautes-2026-11/spray-soft-hypnose",
+   "slug": "soft-hypnose",
+   "nom": "Soft Hypnose",
+   "sous_titre": "Spray d'ambiance",
+   "sku": "US-N043",
+   "gamme": "Cooperativa Profumieri",
+   "rayons": [
+    "parfums-d-ambiance"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [
+    "Anis",
+    "Jasmin",
+    "Benjoin"
+   ],
+   "accroche": "Soft Hypnose de Cooperativa Profumieri est une fragrance florale et fruitée aux accents doux et irrésistibles.",
+   "description": "<p>Soft Hypnose de Cooperativa Profumieri est une fragrance florale et fruitée aux accents doux et irrésistibles. Les notes de Fruits, de Muguet et de Jasmin diffusent dans l'air un parfum raffiné et séduisant, idéal pour créer une atmosphère accueillante et réconfortante.</p><p>Présentée dans un élégant flacon spray, elle rafraîchit les espaces en quelques vaporisations, offrant une sensation immédiate de bien-être.</p><ul><li>Tête : Anis, Noix de Coco, Pêche</li><li>Cœur : Jasmin, Muguet</li><li>Fond : Benjoin, Crème, Miel, Musc blanc, Notes boisées</li></ul>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/soft-hypnose-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/soft-hypnose-2.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [
+    {
+     "format": "500 ml",
+     "prix": "35.00"
+    },
+    {
+     "format": "3 ml",
+     "prix": "2.30"
+    }
+   ],
+   "chogan": "COPS0007",
+   "rang": 62
+  },
+  {
+   "source": "nouveautes-2026-11/spray-fruity-delight",
+   "slug": "fruity-delight",
+   "nom": "Fruity Delight",
+   "sous_titre": "Spray d'ambiance",
+   "sku": "US-N044",
+   "gamme": "Cooperativa Profumieri",
+   "rayons": [
+    "parfums-d-ambiance"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [
+    "Bergamote",
+    "Jasmin",
+    "Musc"
+   ],
+   "accroche": "Fruity Delight de Cooperativa Profumieri est une fragrance florale et fruitée qui libère un parfum frais et joyeux dans les espaces. Ses notes évoquent les arômes de fruits mûrs et la délicatesse des pétales fraîchement éclos.",
+   "description": "<p>Fruity Delight de Cooperativa Profumieri est une fragrance florale et fruitée qui libère un parfum frais et joyeux dans les espaces. Ses notes évoquent les arômes de fruits mûrs et la délicatesse des pétales fraîchement éclos. Présenté dans un élégant flacon spray, il rafraîchit les pièces en quelques vaporisations, offrant une immédiate sensation de bien-être.</p><ul><li>Tête : Bergamote, Mandarine, Pêche</li><li>Cœur : Jasmin, Muguet, Violette</li><li>Fond : Musc, Mysore Sandalwood, Notes boisées, Vanille</li></ul>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/fruity-delight-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/fruity-delight-2.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [
+    {
+     "format": "500 ml",
+     "prix": "35.00"
+    },
+    {
+     "format": "3 ml",
+     "prix": "2.30"
+    }
+   ],
+   "chogan": "COPS0006",
+   "rang": 63
+  },
+  {
+   "source": "nouveautes-2026-11/spray-velvet-citrus",
+   "slug": "velvet-citrus",
+   "nom": "Velvet Citrus",
+   "sous_titre": "Spray d'ambiance",
+   "sku": "US-N045",
+   "gamme": "Cooperativa Profumieri",
+   "rayons": [
+    "parfums-d-ambiance"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [
+    "Mandarine",
+    "Cannelle",
+    "Notes boisées"
+   ],
+   "accroche": "Velvet Citrus de Cooperativa Profumieri est une fragrance hespéridée et vanillée qui associe la vivacité des agrumes à la douceur veloutée de la vanille.",
+   "description": "<p>Velvet Citrus de Cooperativa Profumieri est une fragrance hespéridée et vanillée qui associe la vivacité des agrumes à la douceur veloutée de la vanille. Ses notes diffusent dans l'air une fraîcheur solaire et raffinée, offrant aux espaces une atmosphère à la fois pétillante et accueillante. Présenté dans un élégant flacon spray, il rafraîchit les pièces en quelques vaporisations, procurant une sensation immédiate de bien-être.</p><ul><li>Tête : Mandarine, Orange</li><li>Cœur : Cannelle</li><li>Fond : Notes boisées, Vanille</li></ul>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/velvet-citrus-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/velvet-citrus-2.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [
+    {
+     "format": "500 ml",
+     "prix": "35.00"
+    },
+    {
+     "format": "3 ml",
+     "prix": "2.30"
+    }
+   ],
+   "chogan": "COPS0005",
+   "rang": 5
+  },
+  {
+   "source": "nouveautes-2026-11/spray-meadow-spirit",
+   "slug": "meadow-spirit",
+   "nom": "Meadow Spirit",
+   "sous_titre": "Spray d'ambiance",
+   "sku": "US-N046",
+   "gamme": "Cooperativa Profumieri",
+   "rayons": [
+    "parfums-d-ambiance"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [
+    "Bergamote",
+    "Fleurs blanches",
+    "Musc"
+   ],
+   "accroche": "Meadow Spirit de Cooperativa Profumieri est une fragrance florale-fruitée qui évoque la splendeur d'un pré en fleurs.",
+   "description": "<p>Meadow Spirit de Cooperativa Profumieri est une fragrance florale-fruitée qui évoque la splendeur d'un pré en fleurs. Ses notes de Fruits Verts et de Fleurs diffusent une sensation de fraîcheur et de vitalité, laissant dans l'air un parfum enivrant et raffiné. Présenté dans un élégant flacon spray, il rafraîchit la pièce en quelques vaporisations, offrant une sensation immédiate de bien-être.</p><ul><li>Tête : Bergamote, Orange, Pomme</li><li>Cœur : Fleurs blanches, Muguet, Rose</li><li>Fond : Musc, Notes boisées</li></ul>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/meadow-spirit-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/meadow-spirit-2.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [
+    {
+     "format": "500 ml",
+     "prix": "35.00"
+    },
+    {
+     "format": "3 ml",
+     "prix": "2.30"
+    }
+   ],
+   "chogan": "COPS0003",
+   "rang": 65
+  },
+  {
+   "source": "nouveautes-2026-11/spray-petal-infusion",
+   "slug": "petal-infusion",
+   "nom": "Petal Infusion",
+   "sous_titre": "Spray d'ambiance",
+   "sku": "US-N047",
+   "gamme": "Cooperativa Profumieri",
+   "rayons": [
+    "parfums-d-ambiance"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [
+    "Aldéhydes",
+    "Fleur d'oranger",
+    "fève tonka"
+   ],
+   "accroche": "Petal Infusion de Cooperativa Profumieri est une fragrance florale qui diffuse dans les espaces une sensation de pureté et d'harmonie.",
+   "description": "<p>Petal Infusion de Cooperativa Profumieri est une fragrance florale qui diffuse dans les espaces une sensation de pureté et d'harmonie. Ses notes fleuries évoquent la fraîcheur des pétales nouvellement éclos et la délicatesse d'un bouquet printanier. Présenté dans un élégant flacon spray, il rafraîchit l'atmosphère en quelques vaporisations, offrant une immédiate sensation de bien-être.</p><ul><li>Tête : Aldéhydes, Bergamote</li><li>Cœur : Fleur d'oranger, Lavande, Rose</li><li>Fond : fève tonka, Musc, Notes boisées, Vanille</li></ul>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/petal-infusion-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/petal-infusion-2.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [
+    {
+     "format": "500 ml",
+     "prix": "35.00"
+    },
+    {
+     "format": "3 ml",
+     "prix": "2.30"
+    }
+   ],
+   "chogan": "COPS0004",
+   "rang": 66
+  },
+  {
+   "source": "nouveautes-2026-11/spray-cotton-veil",
+   "slug": "cotton-veil",
+   "nom": "Cotton Veil",
+   "sous_titre": "Spray d'ambiance",
+   "sku": "US-N048",
+   "gamme": "Cooperativa Profumieri",
+   "rayons": [
+    "parfums-d-ambiance"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [
+    "Feuille de figuier",
+    "Fleur de coton",
+    "Bois de cedrat"
+   ],
+   "accroche": "Cotton Veil de Cooperativa Profumieri est une fragrance florale-boisée qui enveloppe l'atmosphère d'une aura douce et réconfortante.",
+   "description": "<p>Cotton Veil de Cooperativa Profumieri est une fragrance florale-boisée qui enveloppe l'atmosphère d'une aura douce et réconfortante. Ses notes évoquent la pureté du coton, diffusant une agréable sensation de confort et de sérénité. Présentée dans un élégant flacon en spray, elle rafraîchit la pièce en quelques vaporisations, offrant une sensation immédiate de bien-être.</p><ul><li>Tête : Feuille de figuier, Noix de Coco</li><li>Cœur : Fleur de coton, Iris, Rose</li><li>Fond : Bois de cedrat, fève tonka, Notes boisées</li></ul>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/cotton-veil-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/cotton-veil-2.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [
+    {
+     "format": "500 ml",
+     "prix": "35.00"
+    },
+    {
+     "format": "3 ml",
+     "prix": "2.30"
+    }
+   ],
+   "chogan": "COPS0002",
+   "rang": 67
+  },
+  {
+   "source": "nouveautes-2026-11/spray-sun-mirage",
+   "slug": "sun-mirage",
+   "nom": "Sun Mirage",
+   "sous_titre": "Spray d'ambiance",
+   "sku": "US-N049",
+   "gamme": "Cooperativa Profumieri",
+   "rayons": [
+    "parfums-d-ambiance"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [
+    "Fruit de la passion",
+    "Ananas",
+    "Caramel"
+   ],
+   "accroche": "Sun Mirage de Cooperativa Profumieri est une fragrance fruitée-gourmande aux notes douces et irrésistibles.",
+   "description": "<p>Sun Mirage de Cooperativa Profumieri est une fragrance fruitée-gourmande aux notes douces et irrésistibles. Ses accords de Mangue, d'Ananas et de Fruit du Dragon évoquent des atmosphères exotiques, transportant les sens dans une dimension d'évasion pure. Contenu dans un élégant flacon spray, il rafraîchit les pièces en quelques vaporisations, procurant une sensation immédiate de bien-être.</p><ul><li>Tête : Fruit de la passion, Mandarine, Mangue</li><li>Cœur : Ananas, Goyave, Pitaya</li><li>Fond : Caramel, Notes boisées, Vanille</li></ul>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/sun-mirage-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/sun-mirage-2.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [
+    {
+     "format": "500 ml",
+     "prix": "35.00"
+    },
+    {
+     "format": "3 ml",
+     "prix": "2.30"
+    }
+   ],
+   "chogan": "COPS0001",
+   "rang": 68
+  },
+  {
+   "source": "nouveautes-2026-11/serum-capillaire-argan",
+   "slug": "serum-capillaire-reparateur-a-l-huile-d-argan",
+   "nom": "Sérum capillaire réparateur à l'huile d'argan",
+   "sous_titre": "Cheveux",
+   "sku": "US-N050",
+   "gamme": "Aurodhea",
+   "rayons": [
+    "cheveux"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "Le Sérum Capillaire à l'Huile d'Argan Aurodhea constitue un soin réparateur, démêlant et protecteur. Il nourrit les cheveux, prévient la formation des fourches et ravive instantanément la chevelure, sans l'alourdir.",
+   "description": "<p>Le Sérum Capillaire à l'Huile d'Argan Aurodhea constitue un soin réparateur, démêlant et protecteur. Il nourrit les cheveux, prévient la formation des fourches et ravive instantanément la chevelure, sans l'alourdir. Les Huiles d'Argan et de Lin apportent brillance et douceur à la chevelure, tout en facilitant le démêlage et en éliminant l'effet frisottis, en particulier sur les cheveux bouclés et difficiles à discipliner. La Vitamine E aide à prévenir les dommages causés par les rayons UV, garantissant une douceur irrésistible. Enfin, l'Huile de Macadamia exerce une action nourrissante et adoucissante.</p>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/serum-capillaire-reparateur-a-l-huile-d-argan-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/serum-capillaire-reparateur-a-l-huile-d-argan-2.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/serum-capillaire-reparateur-a-l-huile-d-argan-3.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [],
+   "chogan": "CAP25B",
+   "rang": 69,
+   "prix": "36.90",
+   "format": "30 ml"
+  },
+  {
+   "source": "nouveautes-2026-11/ampoules-anti-chute",
+   "slug": "ampoules-anti-chute",
+   "nom": "Ampoules anti-chute",
+   "sous_titre": "Soin intensif",
+   "sku": "US-N051",
+   "gamme": "Aurodhea",
+   "rayons": [
+    "cheveux"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "Les ampoules anti-chute Aurodhea ont une action choc sur les principaux facteurs responsables de la chute anormale des cheveux.",
+   "description": "<p>Les ampoules anti-chute Aurodhea ont une action choc sur les principaux facteurs responsables de la chute anormale des cheveux. Leur formule spéciale est basée sur la synergie de 8 plantes : Serenoa serrulata, Kigelia africana, Salvia officinalis, Cannelle, Ginkgo biloba, Ortie, Romarin et Capsicum. Elles contiennent également le principe actif anti-chute Sphingony, qui inhibe l'enzyme 5-alpha-réductase, responsable de l'amincissement et de l'affaiblissement des cheveux. Sphingony rééquilibre le cycle de vie naturel des cheveux pendant 16 semaines d'utilisation, stimulant la croissance physiologique des cheveux et améliorant la santé générale du cuir chevelu. L'action anti-chute des ampoules Aurodhea aide à rendre les cheveux plus forts et plus vigoureux, sans les rendre gras et lourds.</p>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/ampoules-anti-chute-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/ampoules-anti-chute-2.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/ampoules-anti-chute-3.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [],
+   "chogan": "FA01B",
+   "rang": 70,
+   "prix": "48.00",
+   "format": "3 ml"
+  },
+  {
+   "source": "nouveautes-2026-11/lotion-anti-chute-undaria",
+   "slug": "lotion-anti-chute-a-l-undaria-pinnatifida",
+   "nom": "Lotion anti-chute à l'undaria pinnatifida",
+   "sous_titre": "Cheveux",
+   "sku": "US-N052",
+   "gamme": "Aurodhea",
+   "rayons": [
+    "cheveux"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "La lotion capillaire contre la chute des cheveux Aurodhea, enrichie en Undaria Pinnatifida, est un adjuvant dans le traitement cosmétique pour la prévention de la chute des cheveux.",
+   "description": "<p>La lotion capillaire contre la chute des cheveux Aurodhea, enrichie en Undaria Pinnatifida, est un adjuvant dans le traitement cosmétique pour la prévention de la chute des cheveux. L'algue brune Undaria Pinnatifida, également connu sous le nom de Wakame, est naturellement riche en composants précieux pour la santé des cheveux : vitamines, minéraux, acide folique, soufre, magnésium, fer et fucoxanthine. Cet ingrédient aide à restaurer et à protéger la kératine, renforçant ainsi la tige du cheveu.</p><p>La lotion anti-chute Aurodhea est un remède indispensable pour tous les types de cheveux abîmés, cassants, ternes et faibles. Elle combat l'amincissement et donne du corps aux cheveux, les rendant plus doux, plus forts et plus soyeux. L'extrait d'arnica aide à réduire l'effluvium télogène, c'est-à-dire la chute anormale des cheveux due au stress psychophysique, tout en stimulant la croissance des cheveux. Elle exerce aussi une action anti-inflammatoire et apaisante efficace.</p>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/lotion-anti-chute-a-l-undaria-pinnatifida-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/lotion-anti-chute-a-l-undaria-pinnatifida-2.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/lotion-anti-chute-a-l-undaria-pinnatifida-3.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [],
+   "chogan": "FA02B",
+   "rang": 71,
+   "prix": "50.00",
+   "format": "50 ml"
+  },
+  {
+   "source": "nouveautes-2026-11/shampoing-anti-chute",
+   "slug": "shampoing-anti-chute",
+   "nom": "Shampoing anti-chute",
+   "sous_titre": "Cheveux",
+   "sku": "US-N053",
+   "gamme": "Aurodhea",
+   "rayons": [
+    "cheveux"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "Le shampoing anti-chute Aurodhea est conçu pour nettoyer les cheveux fragiles et cassants qui ont tendance à tomber et à s'affiner.",
+   "description": "<p>Le shampoing anti-chute Aurodhea est conçu pour nettoyer les cheveux fragiles et cassants qui ont tendance à tomber et à s'affiner. Sa formule contient de la Caféine, du Serenoa et de l'Equisetum, qui aident à lutter contre la chute des cheveux et à les rendre plus brillants, plus doux et plus volumineux. La caféine et le Ginkgo Biloba stimulent la microcirculation, favorisant le transport de l'oxygène et des nutriments vers les bulbes pileux, tandis que le Serenoa Repens est particulièrement efficace contre la calvitie. Les extraits d'ortie et de romarin purifient la peau ; enfin, les protéines de Blé renforcent et donnent du volume aux cheveux, les rendant lisses et brillants.</p>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/shampoing-anti-chute-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/shampoing-anti-chute-2.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/shampoing-anti-chute-3.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [],
+   "chogan": "CAP12B",
+   "rang": 72,
+   "prix": "19.90",
+   "format": "250 ml"
+  },
+  {
+   "source": "nouveautes-2026-11/lotion-menthol-camphre",
+   "slug": "lotion-capillaire-au-menthol-et-au-camphre",
+   "nom": "Lotion capillaire au menthol et au camphre",
+   "sous_titre": "Rafraîchissante",
+   "sku": "US-N054",
+   "gamme": "Aurodhea",
+   "rayons": [
+    "cheveux"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "La lotion capillaire rafraîchissante Aurodhea est un revitalisant et un tonique du cuir chevelu.",
+   "description": "<p>La lotion capillaire rafraîchissante Aurodhea est un revitalisant et un tonique du cuir chevelu.</p><p>Elle contient du menthol, à l'action assainissante et rafraîchissante ; du camphre, qui favorise l'absorption des principes actifs, stimule la circulation sanguine, freine la chute des cheveux et favorise leur croissance ; de l'eucalyptus, à l'action rafraîchissante et antiseptique. Cette lotion est également un excellent allié pour le coiffage des cheveux : le sel de la mer Morte apporte de la texture et du volume, en donnant du corps aux cheveux ; la glycérine, en outre, aide à démêler et facilite le coiffage, en minimisant l'effet électrostatique. Ne contient pas de parfum.</p>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/lotion-capillaire-au-menthol-et-au-camphre-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/lotion-capillaire-au-menthol-et-au-camphre-2.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/lotion-capillaire-au-menthol-et-au-camphre-3.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [],
+   "chogan": "FA03B",
+   "rang": 73,
+   "prix": "25.00",
+   "format": "100 ml"
+  },
+  {
+   "source": "nouveautes-2026-11/light-drops",
+   "slug": "light-drops",
+   "nom": "Light Drops",
+   "sous_titre": "Sérum cheveux",
+   "sku": "US-N055",
+   "gamme": "Aurodhea",
+   "rayons": [
+    "cheveux"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "Light Drops « Floral Sweetness »Aurodhea est le produit de finition conçu pour donner une nouvelle lumière aux cheveux secs, cassants et traités.",
+   "description": "<p>Light Drops « Floral Sweetness »Aurodhea est le produit de finition conçu pour donner une nouvelle lumière aux cheveux secs, cassants et traités. Caractérisé par un parfum délicat et adaptés à tous les types de cheveux ,ce sérum nourrit les cheveux et rehausse les reflets. Sa formule sans silicones est enrichie du mélange exclusif NUTRIGLOWTM, un mélange d'huile d'amande douce, d'huile de lin et de céramides qui hydrate et répare les cheveux, réduisant visiblement les frisottis et facilitant le coiffage. Il contient également de l'acide hyaluronique qui contribue à créer un film protecteur autour des cheveux, les laissant disciplinés et agréablement doux.</p>",
+   "publie": true,
+   "option": "Senteur",
+   "images": [
+    {
+     "fichier": "nouveautes/light-drops-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/light-drops-2.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [
+    {
+     "format": "Floral Sweetness",
+     "prix": "30.00",
+     "code": "CAP29",
+     "couleur": "",
+     "image": "nouveautes/light-drops-floral-sweetness.webp"
+    },
+    {
+     "format": "Honey & Camomile",
+     "prix": "30.00",
+     "code": "CAP28",
+     "couleur": "",
+     "image": "nouveautes/light-drops-honey-camomile.webp"
+    },
+    {
+     "format": "Chocolate Obsession",
+     "prix": "30.00",
+     "code": "CAP27",
+     "couleur": "",
+     "image": "nouveautes/light-drops-chocolate-obsession.webp"
+    }
+   ],
+   "chogan": "CAP29",
+   "rang": 74
+  },
+  {
+   "source": "nouveautes-2026-11/pommade-ichtyol",
+   "slug": "pommade-a-l-ichtyol-9-8",
+   "nom": "Pommade à l'ichtyol 9,8 %",
+   "sous_titre": "Soin de la peau",
+   "sku": "US-N056",
+   "gamme": "Aurodhea",
+   "rayons": [
+    "hygiene"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "La pommade à l'ichtyol d'Aurodhea est le remède parfait pour faciliter la guérison des petites imperfections cutanées et favoriser l'expulsion des toxines et des impuretés.",
+   "description": "<p>La pommade à l'ichtyol d'Aurodhea est le remède parfait pour faciliter la guérison des petites imperfections cutanées et favoriser l'expulsion des toxines et des impuretés. Indiquée pour les boutons, les abcès, les ulcères superficiels et les inflammations des glandes sudoripares, elle se caractérise par une teneur élevée en soufre. Considérée comme le « minéral de la beauté », cette substance se distingue par ses propriétés exfoliantes, astringentes et cicatrisantes.</p>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/pommade-a-l-ichtyol-9-8-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/pommade-a-l-ichtyol-9-8-2.webp",
+     "detoure": false
+    },
+    {
+     "fichier": "nouveautes/pommade-a-l-ichtyol-9-8-4.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [],
+   "chogan": "MD01B",
+   "rang": 75,
+   "prix": "11.00",
+   "format": "30 ml"
+  },
+  {
+   "source": "nouveautes-2026-11/buzzoff",
+   "slug": "buzzoff",
+   "nom": "Buzzoff",
+   "sous_titre": "Lotion anti-moustiques",
+   "sku": "US-N057",
+   "gamme": "Aurodhea",
+   "rayons": [
+    "hygiene"
+   ],
+   "genre": "",
+   "reference": "",
+   "familles": [],
+   "notes": [],
+   "accroche": "BUZZOFF est la lotion Aurodhea formulée pour éloigner les insectes et prévenir leurs piqûres gênantes.",
+   "description": "<p>BUZZOFF est la lotion Aurodhea formulée pour éloigner les insectes et prévenir leurs piqûres gênantes. Caractérisée par un agréable parfum boisé, ce spray doit son efficacité naturelle à l'extrait de Catalpa bignonioides leaf, sans OGM et issu d'une production durable. Efficace dès la première application contre diverses espèces d'insectes, BUZZOFF repousse les mouches, les moustiques et les poux. De plus, le produit est enrichi d'un actif anti-moustique dont l'efficacité contre le moustique tigre a été testée in vivo, ainsi qu'une protection proche de 60 % jusqu'à 8 heures après l'application.</p><p>Idéal pour la protection des humains et des animaux de compagnie, il s'agit d'une alternative végétale aux traitements chimiques.</p>",
+   "publie": true,
+   "option": "Format",
+   "images": [
+    {
+     "fichier": "nouveautes/buzzoff-1.webp",
+     "detoure": true
+    },
+    {
+     "fichier": "nouveautes/buzzoff-2.webp",
+     "detoure": false
+    }
+   ],
+   "variations": [],
+   "chogan": "MD24",
+   "rang": 76,
+   "prix": "24.00",
+   "format": "150 ml"
+  }
+ ],
+ "deja_en_ligne": [
+  "luxury-seduction-parfum-femme",
+  "luxury-mystere-edition-limitee-parfum-homme",
+  "creme-de-jour-visage-aloe-vera",
+  "lolum-ensemble-complet"
+ ],
+ "ecartees": {
+  "15": "Crème de jour à l'aloe vera : déjà en vente (34,90 €, le fichier dit 39,90 €)",
+  "31": "Luxury Mystère : déjà en vente (50 ml, 60 €)",
+  "32": "Luxury Séduction : déjà en vente (50 ml, 60 €)",
+  "33": "Kit Lolûm huiles essentielles et végétales : déjà en vente (« Lolûm ensemble complet », 419,22 €)",
+  "34": "Kit Lolûm huiles essentielles et végétales : doublon de la ligne 33 (version allemande)",
+  "35": "Kit Lolûm huiles végétales : aucune photo sur la page produit",
+  "36": "Kit Lolûm huiles végétales : doublon de la ligne 35",
+  "37": "Kit Lolûm huiles essentielles : aucune photo sur la page produit",
+  "38": "Kit Lolûm huiles essentielles : doublon de la ligne 37",
+  "39": "Kit de crayons Extra-Stay : aucune photo sur la page produit",
+  "61": "Élastique porte-crayons : pas de prix client dans le fichier",
+  "112": "Pochette « Change your life » : le lien mène au Supreme Lip Treatment vanille"
+ }
+}

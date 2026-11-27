@@ -151,6 +151,7 @@ const INSPIRATIONS = [
     "143U" => ["Vanilla Powder", "Matière Première"],
     "144U" => ["Bianco Latte", "Giardini di Toscana"],
     "146U" => ["Rouge", "Balmain"],
+    "170U" => ["Baccarat Rouge 540", "Maison Francis Kurkdjian"],
 ];
 
 /** Autres façons d'écrire une maison ou un parfum (cherchées comme le nom lui-même). */

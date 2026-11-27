@@ -391,6 +391,11 @@ a.pastille:hover small {
   color: var(--mousse);
 }
 
+.carte-badge-nouveau {
+  background: var(--or-clair);
+  color: var(--sapin-profond);
+}
+
 .carte-corps {
   flex: 1;
   padding: 1.25rem clamp(0.6rem, 1.5vw, 1.1rem) 0;

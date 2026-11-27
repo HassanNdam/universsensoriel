@@ -30,6 +30,8 @@ function icone(string $nom, int $taille = 24, string $classe = ''): string
         'menu' => '<path d="M3.500 7h17M3.500 12h17M3.500 17h17"/>',
         'fermer' => '<path d="m5.500 5.500 13 13M18.500 5.500l-13 13"/>',
         'chevron' => '<path d="m8 10 4 4 4-4"/>',
+        'document' => '<path d="M6.500 3h7.500l4 4v14h-11.500z"/><path d="M14 3v4h4"/><path d="M9.500 12h5M9.500 15.500h5"/>',
+        'telecharger' => '<path d="M12 4v11m-4.500-4.500L12 15l4.500-4.500"/><path d="M5 19.500h14"/>',
         'fleche' => '<path d="M4 12h16M14 6l6 6-6 6"/>',
         'plus' => '<path d="M12 5v14M5 12h14"/>',
         'moins' => '<path d="M5 12h14"/>',
@@ -190,6 +192,11 @@ function menu_principal(): array
     $menu = [];
     $univers = get_terms(['taxonomy' => 'product_cat', 'parent' => 0, 'hide_empty' => true, 'meta_key' => 'order', 'orderby' => 'meta_value_num']);
     foreach (is_array($univers) ? $univers : [] as $terme) {
+        // Nouveautés a son entrée à part (header.blade.php). WooCommerce lui donne un ordre quand elle est créée
+        // depuis l'administration (import en ligne) : sans ce filtre, elle passerait pour un univers.
+        if ($terme->slug === 'nouveautes') {
+            continue;
+        }
         $rayons = get_terms(['taxonomy' => 'product_cat', 'parent' => $terme->term_id, 'hide_empty' => true, 'meta_key' => 'order', 'orderby' => 'meta_value_num']);
         $explorer = [];
         if ($terme->slug === 'parfums' && taxonomy_exists('pa_famille-olfactive')) {
@@ -266,9 +273,14 @@ function image_produit(\WC_Product $produit, string $taille = 'medium', array $a
 function prix_carte(\WC_Product $produit): string
 {
     if ($produit->is_type('variable')) {
-        $min = $produit->get_variation_price('min', true);
+        // « À partir de » : sans l'échantillon (3 ml), qui ferait croire à un prix de flacon.
+        $prix = $produit->get_variation_prices(true)['price'] ?? [];
+        $flacons = array_filter($prix, fn ($montant, $id) => ! preg_match('/^[1-5] ?ml$/i', (string) get_post_meta($id, '_us_format', true)), ARRAY_FILTER_USE_BOTH);
+        $min = $flacons ? min($flacons) : $produit->get_variation_price('min', true);
+        // Toutes les teintes au même prix : le prix seul, sans « À partir de ».
+        $unique = $prix && min($prix) === max($prix);
 
-        return $min === '' ? '' : '<span class="prix-des">À partir de</span> ' . wc_price($min);
+        return $min === '' ? '' : ($unique ? '' : '<span class="prix-des">À partir de</span> ') . wc_price($min);
     }
 
     return $produit->get_price_html();
@@ -321,7 +333,7 @@ function fil_ariane(): array
         }
         $fil[] = [$terme->name, ''];
     } elseif (function_exists('is_shop') && is_shop()) {
-        $fil[] = [is_search() ? 'Recherche' : 'Boutique', ''];
+        $fil[] = [is_search() ? 'Recherche' : (page_offres() ? texte('offres_titre') : 'Boutique'), ''];
     } elseif (is_page()) {
         $fil[] = [get_the_title(), ''];
     }

@@ -558,3 +558,46 @@
     grid-column: auto;
   }
 }
+
+/* Étiquette « New » de l'entrée Nouveautés : pastille or, reflet qui passe toutes les quatre secondes. */
+.etiquette-new {
+  background: linear-gradient(110deg, var(--or) 0%, var(--or-clair) 45%, #f6dca8 50%, var(--or-clair) 55%, var(--or) 100%);
+  background-size: 250% 100%;
+  border-radius: 999px;
+  color: var(--sapin-profond);
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  margin-left: 0.35rem;
+  padding: 0.28rem 0.5rem 0.24rem;
+  position: relative;
+  top: -0.55em;
+  animation: etiquette-reflet 4s ease-in-out infinite;
+}
+
+@keyframes etiquette-reflet {
+  0%, 60% { background-position: 100% 0; }
+  85%, 100% { background-position: 0 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .etiquette-new {
+    animation: none;
+  }
+}
+
+.mobile-nouveautes .etiquette-new {
+  top: -0.2em;
+}
+
+/* Visuel d'un produit détouré dans le méga-menu : posé sur le lin, sans recadrage. */
+.mega-visuel-produit {
+  background: var(--lin);
+}
+
+.mega-visuel-produit img {
+  object-fit: contain;
+  padding: 1.5rem;
+}
