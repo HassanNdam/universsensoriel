@@ -192,6 +192,11 @@ function menu_principal(): array
     $menu = [];
     $univers = get_terms(['taxonomy' => 'product_cat', 'parent' => 0, 'hide_empty' => true, 'meta_key' => 'order', 'orderby' => 'meta_value_num']);
     foreach (is_array($univers) ? $univers : [] as $terme) {
+        // Nouveautés a son entrée à part (header.blade.php). WooCommerce lui donne un ordre quand elle est créée
+        // depuis l'administration (import en ligne) : sans ce filtre, elle passerait pour un univers.
+        if ($terme->slug === 'nouveautes') {
+            continue;
+        }
         $rayons = get_terms(['taxonomy' => 'product_cat', 'parent' => $terme->term_id, 'hide_empty' => true, 'meta_key' => 'order', 'orderby' => 'meta_value_num']);
         $explorer = [];
         if ($terme->slug === 'parfums' && taxonomy_exists('pa_famille-olfactive')) {
