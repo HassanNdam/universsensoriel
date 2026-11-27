@@ -245,7 +245,12 @@
 
 .avis-accueil .avis-note {
   color: var(--ivoire);
-  margin-top: 2.25rem;
+  margin-top: 2rem;
+}
+
+/* Fin du bloc : « Tous les avis », puis peu de vide avant la suite. */
+.section.avis-accueil {
+  padding-bottom: clamp(3.5rem, 6vw, 5.5rem);
 }
 
 /*
