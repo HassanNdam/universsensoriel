@@ -2,9 +2,9 @@
 
 Les versions suivent `MAJEUR.MINEUR.CORRECTIF`. Le site est en ligne depuis la 1.0.0 : `main` est ce qui tourne sur https://universsensoriel.com.
 
-## À venir
+## 1.3.0 – 27 novembre 2026
 
-Nouveautés, deuxième lot (fichier « nouveautés produits chogan 2.xlsx »). Fichiers à envoyer : `mise-en-ligne/mise-a-jour-2026-11-27-lot2/` (hors Git, avec sa notice) ; import depuis l'administration (mise à jour `nouveautes-2026-11-b`).
+Nouveautés, deuxième lot (fichier « nouveautés produits chogan 2.xlsx »). Fichiers envoyés : `mise-en-ligne/mise-a-jour-2026-11-27-lot2/` (hors Git, avec sa notice) ; import depuis l'administration (mise à jour `nouveautes-2026-11-b`), vérifié en ligne.
 
 - 6 produits de maquillage des lèvres, au prix client : Lipstick Glossy (8 teintes, 15 €), Gloss repulpant (3 teintes, 22 €), Rouge à lèvres liquide mat (5 teintes, 19 €), Lipstick Matte (3 teintes, 15 €), Spicy Gloss (20 €), Lip Balm (18 €). Rayon Maquillage et catégorie Nouveautés, en tête des derniers arrivés.
 - Chaque teinte du lot a son propre terme (« lipstick-glossy-cherry ») : Red Velvet, Watermelon, Cherry et Magenta existent pour plusieurs produits, chacun garde sa couleur et son code dans la palette.
