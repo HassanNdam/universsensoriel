@@ -2,6 +2,13 @@
 
 Les versions suivent `MAJEUR.MINEUR.CORRECTIF`. Le site est en ligne depuis la 1.0.0 : `main` est ce qui tourne sur https://universsensoriel.com.
 
+## 1.3.3 – 27 novembre 2026
+
+Fichiers à envoyer : `mise-en-ligne/mise-a-jour-2026-11-27-presentation/` (`style.css` et `screenshot.png` du thème).
+
+- Image de présentation du thème (Apparence › Thèmes), 1200 × 900, tirée du visuel d'ouverture : `scripts/theme/capture-theme.py`.
+- Auteur du thème : hassan-ndam.com (au lieu de Pixim), adresse du thème https://universsensoriel.com.
+
 ## 1.3.2 – 27 novembre 2026
 
 Retouches de mise en page, suite. Fichiers à envoyer : `mise-en-ligne/mise-a-jour-2026-11-27-espaces-2/` (dossier `public/` du thème et l'accueil).
