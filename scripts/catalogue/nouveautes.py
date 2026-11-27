@@ -311,7 +311,15 @@ def slug(texte):
     return re.sub(r'[^a-z0-9]+', '-', texte).strip('-')
 
 
-def construire():
+def construire(produits=None, fiches=None, excel=None, vitrine=None, lot='nouveautes-2026-11', sku='US-N', arrivee='', termes_uniques=False):
+    """Fiches au format de l'import. Par défaut le premier lot (27/11/2026) ; un autre lot passe ses propres données
+    (scripts/catalogue/nouveautes2.py) : source « <lot>/<clé> », références « <sku>001 », date d'arrivée (« arrivee »).
+    termes_uniques : chaque teinte a son terme à elle (« <produit>-<teinte> »), pour qu'une teinte du même nom qu'une
+    teinte d'un autre produit (« Red Velvet », « Cherry »…) garde sa propre couleur dans la palette."""
+    PRODUITS = produits if produits is not None else globals()['PRODUITS']
+    FICHES = fiches if fiches is not None else globals()['FICHES']
+    EXCEL = excel if excel is not None else globals()['EXCEL']
+    VITRINE = vitrine if vitrine is not None else globals()['VITRINE']
     sortie = []
     for n, p in enumerate(PRODUITS, 1):
         fiche = FICHES[str(p['source'])]
@@ -328,18 +336,22 @@ def construire():
         for f in p.get('photos_site', []):
             images.append({'fichier': f, 'detoure': True})
         produit = {
-            'source': f"nouveautes-2026-11/{p['cle']}", 'slug': base, 'nom': p['nom'], 'sous_titre': p['sous'],
-            'sku': f"US-N{n:03d}", 'gamme': p['gamme'], 'rayons': p['rayons'], 'genre': p.get('genre', ''),
+            'source': f"{lot}/{p['cle']}", 'slug': base, 'nom': p['nom'], 'sous_titre': p['sous'],
+            'sku': f"{sku}{n:03d}", 'gamme': p['gamme'], 'rayons': p['rayons'], 'genre': p.get('genre', ''),
             'reference': p.get('reference', ''), 'familles': p.get('familles', []), 'notes': principales, 'accroche': accroche, 'description': html,
             'publie': p.get('publie', True), 'option': p.get('option', F), 'images': images, 'variations': [],
             'chogan': fiche.get('code', ''),
             'rang': VITRINE.index(p['cle']) if p['cle'] in VITRINE else len(VITRINE) + n,
         }
+        if arrivee:
+            produit['arrivee'] = arrivee
         if 'declinaisons' in p:
             for libelle, ligne, page in p['declinaisons']:
                 f = FICHES[str(page)]
                 prix_ligne = nombres(EXCEL[ligne]['prix_client'])
                 v = {'format': libelle, 'prix': prix(prix_ligne[-1]), 'code': f.get('code', ''), 'couleur': couleur(f.get('pastille', ''))}
+                if termes_uniques:
+                    v['terme'] = f'{base}-{slug(libelle)}'
                 if f.get('images'):
                     v['image'] = photo(f['images'][0], f'{base}-{slug(libelle)}')[0]
                 produit['variations'].append(v)

@@ -21,12 +21,14 @@ const MISES_A_JOUR = [
     'offres-documentation-2026-11' => __NAMESPACE__ . '\\maj_offres_documentation',
     'nouveautes-2026-11' => __NAMESPACE__ . '\\maj_nouveautes',
     'documentation-2026-11' => __NAMESPACE__ . '\\maj_documentation',
+    'nouveautes-2026-11-b' => __NAMESPACE__ . '\\maj_nouveautes_lot2',
 ];
 
 /** Imports par tranches depuis l'administration : mise à jour => [fichier dans uploads/import, option du reste, libellé, [singulier, pluriel]]. */
 const IMPORTS_ADMIN = [
     'nouveautes-2026-11' => ['nouveautes-2026-11/produits.json', 'us_import_reste', 'Import des nouveautés', ['fiche restante', 'fiches restantes']],
     'documentation-2026-11' => ['documentation-2026-11/documents.json', 'us_import_documents_reste', 'Import de la documentation', ['document restant', 'documents restants']],
+    'nouveautes-2026-11-b' => ['nouveautes-2026-11-b/produits.json', 'us_import_reste_b', 'Import des nouveautés (maquillage des lèvres)', ['fiche restante', 'fiches restantes']],
 ];
 
 add_action('init', function (): void {
@@ -575,7 +577,22 @@ JSON;
  */
 function maj_nouveautes(): bool
 {
-    $dossier = wp_upload_dir()['basedir'] . '/import/nouveautes-2026-11';
+    return maj_import_produits('nouveautes-2026-11', 'us_import_reste');
+}
+
+/**
+ * 27/11/2026, deuxième lot : maquillage des lèvres (fichier « nouveautés produits chogan 2.xlsx »), 6 fiches et
+ * 22 teintes. Dossier uploads/import/nouveautes-2026-11-b/ (scripts/catalogue/nouveautes2.py), même import.
+ */
+function maj_nouveautes_lot2(): bool
+{
+    return maj_import_produits('nouveautes-2026-11-b', 'us_import_reste_b');
+}
+
+/** Import d'un lot de fiches (uploads/import/<lot>/produits.json), par tranches de 20 s depuis l'administration. */
+function maj_import_produits(string $lot, string $optionReste): bool
+{
+    $dossier = wp_upload_dir()['basedir'] . '/import/' . $lot;
     if (! is_file("$dossier/produits.json") || ! function_exists('wc_get_product')) {
         return false;
     }
@@ -584,7 +601,7 @@ function maj_nouveautes(): bool
         return false;
     }
     $reste = importer_produits((array) json_decode((string) file_get_contents("$dossier/produits.json"), true), $dossier, $ligneDeCommande ? 0 : 20);
-    update_option('us_import_reste', $reste, false);
+    update_option($optionReste, $reste, false);
 
     return $reste === 0;
 }

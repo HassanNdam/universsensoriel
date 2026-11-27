@@ -67,11 +67,15 @@ function import_attribut(string $slug, string $libelle): string
     return $taxonomie;
 }
 
-/** Terme d'un attribut (créé si besoin) : identifiant. */
-function import_valeur(string $taxonomie, string $nom, array $metas = []): int
+/**
+ * Terme d'un attribut (créé si besoin) : identifiant.
+ * $slug : terme propre à un produit (« lipstick-glossy-cherry »), affiché sous son nom (« Cherry ») : sa couleur et son
+ * code ne se mélangent pas avec ceux d'une teinte du même nom d'un autre produit.
+ */
+function import_valeur(string $taxonomie, string $nom, array $metas = [], string $slug = ''): int
 {
-    $terme = get_term_by('slug', sanitize_title($nom), $taxonomie) ?: get_term_by('name', $nom, $taxonomie);
-    $id = $terme ? (int) $terme->term_id : (int) (wp_insert_term($nom, $taxonomie, ['slug' => sanitize_title($nom)])['term_id'] ?? 0);
+    $terme = $slug !== '' ? get_term_by('slug', $slug, $taxonomie) : (get_term_by('slug', sanitize_title($nom), $taxonomie) ?: get_term_by('name', $nom, $taxonomie));
+    $id = $terme ? (int) $terme->term_id : (int) (wp_insert_term($nom, $taxonomie, ['slug' => $slug ?: sanitize_title($nom)])['term_id'] ?? 0);
     foreach ($metas as $cle => $valeur) {
         if ($id && $valeur !== '') {
             update_term_meta($id, $cle, $valeur);
@@ -142,9 +146,10 @@ function importer_fiche(array $p, string $dossier): int
     $produit->set_short_description($p['accroche']);
     $produit->set_description($p['description']);
     $produit->set_reviews_allowed(true);
-    // Date d'arrivée : l'ordre de vitrine ($p['rang'], 0 = la plus récente), d'où l'ordre du menu et de l'accueil.
-    // Toujours dans le passé : une date à venir ferait passer la fiche en « programmée ».
-    $produit->set_date_created(min(time(), strtotime('2026-11-26 12:00:00 UTC')) - 60 * (int) ($p['rang'] ?? 0));
+    // Date d'arrivée du lot ($p['arrivee'], le premier lot n'en a pas), moins l'ordre de vitrine ($p['rang'],
+    // 0 = la plus récente) : d'où l'ordre du menu et de l'accueil. Toujours dans le passé : une date à venir
+    // ferait passer la fiche en « programmée ».
+    $produit->set_date_created(min(time(), strtotime($p['arrivee'] ?? '2026-11-26 12:00:00 UTC')) - 60 * (int) ($p['rang'] ?? 0));
     if (! $id && $p['sku'] && ! wc_get_product_id_by_sku($p['sku'])) {
         $produit->set_sku($p['sku']);
     }
@@ -182,7 +187,7 @@ function importer_fiche(array $p, string $dossier): int
         $taxonomieOption = import_attribut($slugOption, $libelleOption);
         // « order » : rang de la teinte dans la palette (ordre de la page produit, par code), lu par WooCommerce.
         $valeurs = array_map(
-            fn ($v, $rang) => import_valeur($taxonomieOption, $v['format'], ['us_couleur' => $v['couleur'] ?? '', 'us_code' => $v['code'] ?? '', 'order' => $slugOption === 'format' ? '' : $rang]),
+            fn ($v, $rang) => import_valeur($taxonomieOption, $v['format'], ['us_couleur' => $v['couleur'] ?? '', 'us_code' => $v['code'] ?? '', 'order' => $slugOption === 'format' ? '' : $rang], $v['terme'] ?? ''),
             $p['variations'], array_keys($p['variations'])
         );
         $a = new \WC_Product_Attribute();
@@ -222,7 +227,7 @@ function importer_fiche(array $p, string $dossier): int
             $variation = $connues[$v['format']] ?? new \WC_Product_Variation();
             unset($connues[$v['format']]);
             $variation->set_parent_id($id);
-            $variation->set_attributes([$taxonomieOption => sanitize_title($v['format'])]);
+            $variation->set_attributes([$taxonomieOption => $v['terme'] ?? sanitize_title($v['format'])]);
             $variation->set_regular_price($v['prix']);
             $variation->set_stock_status('instock');
             $variation->set_menu_order($rang);
@@ -236,7 +241,7 @@ function importer_fiche(array $p, string $dossier): int
             $reste->delete(true);
         }
         $produit = wc_get_product($id);
-        $produit->set_default_attributes([$taxonomieOption => sanitize_title($p['variations'][0]['format'])]);
+        $produit->set_default_attributes([$taxonomieOption => $p['variations'][0]['terme'] ?? sanitize_title($p['variations'][0]['format'])]);
         $produit->save();
         \WC_Product_Variable::sync($id);
     }

@@ -315,6 +315,12 @@ if ($nouveautes && function_exists('App\\importer_produits')) {
     App\importer_produits($nouveautes, $root . '/docs/02-images-produits');
     us_log(count($nouveautes['produits']) . ' nouveautés en place (catégorie Nouveautés)');
 }
+// Deuxième lot (maquillage des lèvres, scripts/catalogue/nouveautes2.py), mêmes photos.
+$lot2 = json_decode((string) file_get_contents(__DIR__ . '/catalogue/nouveautes-2/produits.json'), true);
+if ($lot2 && function_exists('App\\importer_produits')) {
+    App\importer_produits($lot2, $root . '/docs/02-images-produits');
+    us_log(count($lot2['produits']) . ' nouveautés du deuxième lot en place');
+}
 
 /*
 |--------------------------------------------------------------------------
