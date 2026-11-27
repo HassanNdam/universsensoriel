@@ -38,3 +38,9 @@ web/app/languages/
 
 # Paquet de mise en ligne (base exportée, .env de production) : jamais dans Git
 /mise-en-ligne/
+
+# Fichiers de la promotrice (prix consultant) : gardés en local, jamais dans Git
+/docs/**/*.xlsx
+
+# Documentation du fabricant : PDF retéléchargés par scripts/catalogue/documentation.py (146 Mo)
+/docs/04-documentation/pdf/

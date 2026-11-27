@@ -241,6 +241,51 @@
   text-decoration: line-through;
 }
 
+/* Palette de teintes (app/palette.php) : pastilles rondes de la couleur, anneau autour de la teinte choisie. */
+.palette-choix {
+  color: var(--mousse);
+  margin-bottom: 0.7rem;
+}
+
+.palette-choix strong {
+  color: var(--sapin);
+  font-weight: 500;
+}
+
+.formats.palette {
+  gap: 0.75rem;
+}
+
+.formats.palette button {
+  background: var(--pastille);
+  border: 2px solid var(--blanc);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px var(--filet);
+  height: 2.6rem;
+  min-height: 0;
+  min-width: 0;
+  padding: 0;
+  position: relative;
+  transition: box-shadow var(--transition), transform var(--transition);
+  width: 2.6rem;
+}
+
+.formats.palette button:hover {
+  border-color: var(--blanc);
+  box-shadow: 0 0 0 1px var(--sapin);
+  transform: scale(1.06);
+}
+
+.formats.palette button[aria-pressed="true"] {
+  background: var(--pastille);
+  border-color: var(--blanc);
+  box-shadow: 0 0 0 2px var(--sapin);
+}
+
+.formats.palette button:disabled {
+  opacity: 0.35;
+}
+
 .single_variation_wrap {
   margin-top: 1.5rem;
 }
@@ -465,4 +510,9 @@
 
 .accordeon .prose > :first-child {
   margin-top: 0;
+}
+
+/* Palette : le libellé « Teinte » est déjà dans la ligne du choix, au-dessus des pastilles. */
+.variations tr:has(select[data-palette]) th {
+  display: none;
 }

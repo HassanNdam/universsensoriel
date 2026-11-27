@@ -2,7 +2,22 @@
 
 Les versions suivent `MAJEUR.MINEUR.CORRECTIF`. Le site est en ligne depuis la 1.0.0 : `main` est ce qui tourne sur https://universsensoriel.com.
 
-## À venir
+## 1.2.0 – 27 novembre 2026
+
+Nouveautés, promotions et documentation (demandes de la promotrice du 27 novembre 2026). Fichiers envoyés : `mise-en-ligne/mise-a-jour-2026-11-27/` (hors Git) ; produits et documents importés depuis l'administration (`app/mises-a-jour.php`), dossier `uploads/import/` à supprimer du serveur ensuite.
+
+- Menu : la catégorie Nouveautés n'est pas comptée parmi les univers (WooCommerce lui donne un ordre quand elle est créée depuis l'administration, elle apparaissait deux fois) ; étiquette « New » seulement quand elle existe.
+
+- 57 nouveaux produits (fichier « nouveautés produits chogan.xlsx »), au prix client : parfums Luxury Amphera, Volt et Scarlet, Blooming Skin (163), Unfold (164), maquillage MoniAmori, bougies parfumées, soins du visage et des cheveux, sprays d'ambiance, gel douche Luxury. Compléments alimentaires en brouillon (allégations santé à relire). Deux rayons nouveaux : Maquillage (Beauté) et Bougies parfumées (Art de vivre).
+- Catégorie Nouveautés : entrée du menu avec étiquette « New » animée (à la place du journal, resté dans le pied de page), bloc sur l'accueil après les essentiels, badge « Nouveau » sur les cartes, liens dans le pied de page.
+- Teintes en palette sur la fiche : pastilles de couleur avec code et nom (rouges et encres à lèvres, crayons, fonds de teint, sticks), photo de la teinte au choix. Couleur et code modifiables dans Produits › Attributs (`app/palette.php`).
+- Page Promotions (`/promotions/`) : les produits à prix barré, avec filtres et tri ; « Voir les offres » du Black Friday y mène.
+- Page Documentation et certifications (pied de page, colonne Aide) : les 17 documents publiés par le fabricant (chogangroupspa.com/documents), hébergés sur le site. 11 catalogues en vignettes (Olfazeta, Mytologik, Cooperativa Profumieri, Peptilux, Aurodhea, Lolûm, Maquillage, MoniAmori, Brilhome, Kleyes, SuppleFit), certificat de conformité, engagements du fabricant (modèle 231, code d'éthique, procédure de signalement). Masqués au départ : catalogue SuppleFit (compléments non vendus), conditions de vente et confidentialité des partenaires du fabricant. Couvertures sans personne (pages produits pour le maquillage, MoniAmori et Aurodhea).
+- Univers Sensoriel › Documentation : par document, titre, rubrique, fichier, couverture, précision et case « Afficher sur le site » ; onglet Rubriques pour les titres, le texte des certificats, le lien « Consulter » et le texte sans document. Préparation : `scripts/catalogue/documentation.py` (PDF dans `docs/04-documentation/pdf`, hors Git) ; import en ligne depuis l'administration (`uploads/import/documentation-2026-11/`).
+- Textes du site › Nouveautés et Promotions : étiquette « New », titre « Derniers arrivés », badge « Nouveau », nombre de produits et lien « Voir les offres » du menu. Le nom « Nouveautés » (menu, pied de page, pastilles) est celui de la catégorie.
+- Le bloc Journal quitte l'accueil.
+- Import des fiches dans le thème (`app/import-produits.php`) : en local par le seed, en ligne par lots depuis l'administration (`app/mises-a-jour.php`, dossier `uploads/import/nouveautes-2026-11/`). Préparation : `scripts/catalogue/nouveautes.py`.
+- Recherche par parfum de référence : Scarlet (170U) ajouté.
 
 ## 1.1.0 – 25 novembre 2026
 

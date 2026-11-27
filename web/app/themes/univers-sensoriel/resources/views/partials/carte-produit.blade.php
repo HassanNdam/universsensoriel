@@ -7,6 +7,9 @@
     : ($infos['parfum'] ? '' : ($infos['sous_titre'] ?: ($infos['rayon']->name ?? '')));
   $surtitre = $infos['parfum'] ? trim('Extrait de parfum ' . mb_strtolower($infos['genre'] === 'Mixte' ? '' : $infos['genre'])) : ($infos['rayon']->name ?? '');
   $simple = $produit->is_type('simple') && $produit->is_purchasable() && $produit->is_in_stock();
+  // Produit à déclinaisons : « Choisir la teinte », « Choisir la senteur » ou « Choisir le format ».
+  $attributs = $produit->get_attributes();
+  $choix = isset($attributs['pa_teinte']) ? 'Choisir la teinte' : (isset($attributs['pa_senteur']) ? 'Choisir la senteur' : 'Choisir le format');
 @endphp
 
 <article class="carte">
@@ -19,6 +22,8 @@
       <span class="carte-badge">Offre</span>
     @elseif (! $produit->is_in_stock())
       <span class="carte-badge carte-badge-neutre">Bientôt de retour</span>
+    @elseif (App\est_nouveaute($produit) && ($badge = App\texte('nouveautes_badge')))
+      <span class="carte-badge carte-badge-nouveau">{{ $badge }}</span>
     @endif
   </a>
   <div class="carte-corps">
@@ -34,6 +39,6 @@
   @if ($simple)
     <a class="carte-action add_to_cart_button ajax_add_to_cart" href="{{ $produit->add_to_cart_url() }}" data-product_id="{{ $produit->get_id() }}" data-quantity="1" rel="nofollow" aria-label="Ajouter {{ $produit->get_name() }} au panier">Ajouter au panier</a>
   @else
-    <a class="carte-action" href="{{ $produit->get_permalink() }}" aria-label="Choisir le format de {{ $produit->get_name() }}">{{ $produit->is_in_stock() ? 'Choisir le format' : 'Voir la fiche' }}</a>
+    <a class="carte-action" href="{{ $produit->get_permalink() }}" aria-label="{{ $choix }} : {{ $produit->get_name() }}">{{ $produit->is_in_stock() ? $choix : 'Voir la fiche' }}</a>
   @endif
 </article>

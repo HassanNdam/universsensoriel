@@ -307,6 +307,15 @@ if ($orphelins) {
 }
 us_log("$crees fiches créées, $maj mises à jour, " . (count($catalogue) - $crees - $maj) . ' déjà en place');
 
+// Nouveautés de novembre 2026 (scripts/catalogue/nouveautes.py) : même import que sur le site en ligne
+// (App\importer_produits, thème), photos lues dans docs/02-images-produits/nouveautes.
+WP_CLI::log('Nouveautés');
+$nouveautes = json_decode((string) file_get_contents(__DIR__ . '/catalogue/nouveautes/produits.json'), true);
+if ($nouveautes && function_exists('App\\importer_produits')) {
+    App\importer_produits($nouveautes, $root . '/docs/02-images-produits');
+    us_log(count($nouveautes['produits']) . ' nouveautés en place (catégorie Nouveautés)');
+}
+
 /*
 |--------------------------------------------------------------------------
 | Livraison : France (point relais, domicile, offerte dès 79 €, retrait chez les partenaires de Metz) et Europe
@@ -351,6 +360,15 @@ if ($codeContact && ! str_contains((string) get_post_field('post_content', $cont
 us_page('notre-boutique', 'Notre boutique', $contenu('notre-boutique'));
 us_page('livraison-et-retours', 'Livraison et retours', $contenu('livraison-et-retours'));
 us_page('questions-frequentes', 'Questions fréquentes', $contenu('questions-frequentes'));
+// Documents (catalogues, certificats) : déposés dans Univers Sensoriel › Documentation, rendus par le gabarit de la page.
+us_page('documentation-et-certifications', 'Documentation et certifications');
+// Documentation du fabricant (scripts/catalogue/documentation.py) : même import que sur le site en ligne
+// (App\importer_documents), PDF et couvertures lus dans docs/04-documentation (PDF hors Git : relancer le script).
+$documents = json_decode((string) file_get_contents(__DIR__ . '/catalogue/documentation/documents.json'), true);
+if ($documents && function_exists('App\\importer_documents') && is_dir($root . '/docs/04-documentation/pdf')) {
+    App\importer_documents($documents, $root . '/docs/04-documentation');
+    us_log(count($documents) . ' documents dans la médiathèque (Univers Sensoriel › Documentation)');
+}
 us_page('guide-des-familles-olfactives', 'Guide des familles olfactives', $contenu('guide-des-familles-olfactives'));
 us_page('devenir-consultante', 'Devenir consultante', $contenu('devenir-consultante'));
 us_page('mentions-legales', 'Mentions légales', $contenu('mentions-legales'));
