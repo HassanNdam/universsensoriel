@@ -37,11 +37,18 @@
         <span class="ouverture-etoile">{!! App\icone('etoile', 34) !!}</span>
       </div>
     </div>
+    @if ($onglets)
+      {{-- Flèche vers le premier bloc (ancre #essentiels) --}}
+      <a class="ouverture-suite" href="#essentiels">
+        {!! App\icone('fleche', 20) !!}
+        <span class="sr-only">{{ App\texte('essentiels_titre') }}</span>
+      </a>
+    @endif
   </section>
 
   {{-- 2. Sélection à onglets --}}
   @if ($onglets)
-    <section class="section selection" data-onglets>
+    <section class="section selection" id="essentiels" data-onglets>
       <div class="conteneur">
         <header class="section-tete">
           <h2>{{ App\texte('essentiels_titre') }}</h2>

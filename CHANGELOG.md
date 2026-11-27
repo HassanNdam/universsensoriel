@@ -2,6 +2,15 @@
 
 Les versions suivent `MAJEUR.MINEUR.CORRECTIF`. Le site est en ligne depuis la 1.0.0 : `main` est ce qui tourne sur https://universsensoriel.com.
 
+## 1.3.2 – 27 novembre 2026
+
+Retouches de mise en page, suite. Fichiers à envoyer : `mise-en-ligne/mise-a-jour-2026-11-27-espaces-2/` (dossier `public/` du thème et l'accueil).
+
+- En-tête un peu resserré : moins d'espace entre le logo, le menu et les icônes.
+- Accueil : moins de vide entre le bloc Nouveautés et Nos univers, et entre les avis et « Sentir, essayer, demander conseil ».
+- Fiche produit : moins de vide avant « Vous aimerez aussi ».
+- Visuel d'ouverture : flèche dans un cercle d'or, en bas au centre, qui mène au bloc Nos essentiels (ancre `#essentiels`) ; elle reste dans l'écran à l'arrivée, sur ordinateur.
+
 ## 1.3.1 – 27 novembre 2026
 
 Retouches de mise en page. Fichiers à envoyer : `mise-en-ligne/mise-a-jour-2026-11-27-espaces/` (dossier `public/` du thème).
