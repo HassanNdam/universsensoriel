@@ -2,6 +2,14 @@
 
 Les versions suivent `MAJEUR.MINEUR.CORRECTIF`. Le site est en ligne depuis la 1.0.0 : `main` est ce qui tourne sur https://universsensoriel.com.
 
+## 1.3.1 – 27 novembre 2026
+
+Retouches de mise en page. Fichiers à envoyer : `mise-en-ligne/mise-a-jour-2026-11-27-espaces/` (dossier `public/` du thème).
+
+- Liens dorés (« Écrire sur WhatsApp », « Promotions », « Tous les avis »…) sans trait dessous.
+- En-tête : plus d'air entre le logo et le menu, l'en-tête s'élargit sur grand écran, les entrées ne passent plus sur deux lignes ; menu compact sous 1280 px (au lieu de 1100).
+- Bouton et lien côte à côte espacés (bloc Nouveautés) ; moins de vide sous les boutons d'une section et sous « Tous les avis ».
+
 ## 1.3.0 – 27 novembre 2026
 
 Nouveautés, deuxième lot (fichier « nouveautés produits chogan 2.xlsx »). Fichiers envoyés : `mise-en-ligne/mise-a-jour-2026-11-27-lot2/` (hors Git, avec sa notice) ; import depuis l'administration (mise à jour `nouveautes-2026-11-b`), vérifié en ligne.
